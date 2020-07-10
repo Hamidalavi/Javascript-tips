@@ -1,4 +1,5 @@
-// // these are very simple practice that i write. it's not for professional practice. (they are in another folder)
+// these are very simple practice that i write. it's not for professional practice.
+// very short examples from YDKJS book (not complete)
 
 // simple practice
 // let a = 23; // my age
@@ -166,15 +167,53 @@
 
 // -----------------------------------------------
 
+// closure practice
+// function addition(x) {
+//     function add(y) {
+//         return y + x;
+//     }
 
-function addition(x) {
-    function add(y) {
-        return y + x;
-    }
+//     return add;
+// }
 
-    return add;
-}
+// var addOne = addition(1);
+// console.log(addOne(5));
 
-var addOne = addition(1);
+// -----------------------------------------------
 
-console.log(addOne(5));
+// module instance
+// function user() {
+//     var username, password;
+//     function doLogin(usr, passwd) {
+//         username = usr;
+//         password = passwd;
+//     }
+
+//     var publicAPI = { login: doLogin };
+//     return publicAPI;
+// }
+
+// var hamid = user();
+// hamid.login("Hamidalavi6540", "12345");
+
+// -----------------------------------------------
+
+// `this` identifier
+// function foo() {
+//     console.log(this.bar);
+// }
+// var bar = "global";
+// var obj1 = {
+//     bar: "obj1",
+//     foo: foo
+// };
+// var obj2 = {
+//     bar: "obj2"
+// };
+// // --------
+// foo(); // undefined
+// obj1.foo(); // "obj1"
+// foo.call(obj2); // "obj2"
+
+// -----------------------------------------------
+
