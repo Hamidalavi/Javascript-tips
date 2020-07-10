@@ -62,3 +62,49 @@ need a semicolon ( ; ) to conclude it.
     - b == c; // true
     - a == b; // false
 - In **inequality** (< , > and etc.), if one or both is not a **string**, then both values are coerced to be **number**, and a typical numeric comparison occurs.
+- You use the **var** keyword to declare a **variable** that will belong to the current function **scope**, or the **global scope** if at the top level outside of any **function**.
+- **Ternary operator** is most useful. its abbreviated from if and else.
+  - for example: let a = 23;
+  - `let b = (a > 20) ? "i'm older" : "i'm younger";`
+  - its mean: if 23 > 20, print "i'm older", else print "i'm younger".
+    - Before ternary operator, we must wrote:
+
+      ```js
+      if (a > 20) {
+          b = "i'm older";
+      }
+      else {
+          b = "i'm younger";
+      }
+      ```
+
+- I recommend to use "**use strict**". because its fury and have strict behavior. for example: if you write `a = 10`, compiler will use strict behavior a saying to us: `ReferenceError: a is not defined`. with strict mode is disallowing the implicit auto-global variable declaration from omitting the `var`.
+  - Adhering to strict mode makes your code generally more optimizable by the engine.
+- There's another way to execute a **function** expression, which is typically referred to as an immediately invoked function expression (IIFE).
+
+  ```js
+  (function example() {
+    console.log("Hello!!");
+  })(); // output: Hello!! function with execution
+  ```
+
+- Use **closure** techniques for better to understand coding. its like finding blocks that stacked. (for more information go to my brother page: **<https://github.com/Hamed2012-dr>**)
+
+  ```js
+  function addition(x) {
+    function add(y) {
+        return y + x;
+    };
+    return add;
+  }
+  ```
+
+  ```js
+  var addOne = addition( 1 );
+  var addTen = addition( 10 );
+  ```
+
+   1. When we call `addition(1)` , we get back a reference to its inner `add(..)` that remembers x as 1 . We call this function reference `addONe(..)`.
+   2. When we call `addition(10)` , we get back another reference to its inner `add(..)` that remembers x as 10 . We call this function reference `addTen(..)`.
+   3. When we call addOne(3) , it adds 3 (its inner y ) to the 1 (remembered by x ), and we get 4 as the result.
+   4. When we call addTen(13), it adds 13 (its inner y ) to the 10 (remembered by x ), and we get 23 as the result.
