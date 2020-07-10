@@ -48,3 +48,17 @@ need a semicolon ( ; ) to conclude it.
 - A loop includes the test condition as well as a block (typically as { .. } ). Each time the loop block executes, that's called an **iteration**.
   - if you don't want using value increment manually, you can use **loop** or **conditions**.
 - **Scope** meaning: If you ask the phone store employee for a phone model that her store doesn't carry, she will not be able to sell you the phone you want. She only has access to the phones in her store's inventory. You'll have to try another store to see if you can find the phone you're looking for.
+  - Only code inside that function can access that function's scoped variables.
+- **JavaScript** has typed values, not typed variables.
+  - Only values have types in **JavaScript**; variables are just simple containers for those values.
+- Type of `null` is an interesting case, because it errantly returns **"object"**.
+- An **array** is an **object** that holds values of any type.
+- The difference between **==** (loose-equals) and **===** (strict-equals) is usually characterized that == checks for **value** equality and === checks for both **value** and **type** equality.
+- **Array**s are by default coerced to string s by simply joining all the values with commas (,) in between. You might think that two array s with the same contents would be **==** equal, but they're not:
+  - var a = [1,2,3];
+  - var b = [1,2,3];
+  - var c = "1,2,3";
+    - a == c; // true
+    - b == c; // true
+    - a == b; // false
+- In **inequality** (< , > and etc.), if one or both is not a **string**, then both values are coerced to be **number**, and a typical numeric comparison occurs.
