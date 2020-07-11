@@ -28,6 +28,15 @@
   - For some computer languages, this translation of commands is typically done from top to bottom, line by line, every time the program is run, which is usually called `interpreting` the code (like **JavaScript**).
   - For other languages, the translation is done ahead of time, called `compiling` the code, so when the program runs later, what's running is actually the already compiled computer instructions ready to go (like **C++**).
 
+## How Does a Compilation(Compiling) Work (from YDKJS)
+
+1. **Tokenizing/Lexing**: breaking up a string of characters into meaningful (to the language) chunks, called tokens. For instance, consider the program: `var a = 2;`. This program would likely be broken up into the following tokens: var , a , = , 2 , and ; . **Whitespace** may or may not be persisted as a token, depending on whether it's meaningful or not. **`Note`**: The difference between **tokenizing** and **lexing** is subtle and academic, but it centers on whether or not these tokens are identified in a stateless or stateful way. Put simply, if the tokenizer were to invoke stateful parsing rules to figure out whether a should be considered a distinct token or just part of another token, that would be **lexing**.
+2. **Parsing**: taking a stream (array) of tokens and turning it into a tree of nested elements, which collectively represent the grammatical structure of the program. This tree is called an "**AST**" (**Abstract Syntax Tree**).
+   - The tree for `var a = 2;` might start with a top-level node called `VariableDeclaration`, with a child node called `Identifier` (whose value is a ), and another child called `AssignmentExpression` which itself has a child called NumericLiteral (whose value is 2).
+3. **Code-Generation**: the process of taking an **AST** and turning it into executable code. This part varies greatly depending on the language, the platform it's targeting, etc.
+
+- Two distinct actions are taken for a variable assignment: First, **Compiler** declares a **variable** (if not previously declared in the current scope), and second, when executing, Engine looks up the **variable** in `Scope` and assigns to it, if found.
+
 ## Usage
 
 - I recommend to use node instead of browser console to see output(example: node [`file`])
@@ -36,7 +45,7 @@
 - If you want input something to browser (like text box), you can use `prompt` function.
 - If you want to be good programmer, always use **comment** between your codes.
 
-## Know About JavaScript
+## Know About JavaScript (just pointing to base with simple informations)
 
 - Values that are included directly in the source code are called **literals**. they are surrounded by double quotes or single quotes ("string" or 'string').
 - The `//` single-line **comment** is appropriate if you're going to put a comment right above a single statement, or even at the end of a line.
@@ -108,3 +117,31 @@ need a semicolon ( ; ) to conclude it.
    2. When we call `addition(10)` , we get back another reference to its inner `add(..)` that remembers x as 10 . We call this function reference `addTen(..)`.
    3. When we call addOne(3) , it adds 3 (its inner y ) to the 1 (remembered by x ), and we get 4 as the result.
    4. When we call addTen(13), it adds 13 (its inner y ) to the 10 (remembered by x ), and we get 23 as the result.
+- Objects are interesting. you can add cutom property in object, even if there is no property in it.
+  - For example:
+
+    ```js
+    var obj = { hamed: 23, ali: 22 };
+    obj.reza = 26;
+    console.log(obj);
+    output: { hamed: 23, ali: 22, reza: 26 }
+    ```
+
+- Read more about **transpiling** from sites. Here's a quick example of **transpiling**:
+
+  ```js
+  // new ES6 (default parameter value)
+  (function hamed(a = 23) {
+    console.log(a);
+  })();
+
+  // pre-ES6
+  function hamid() {
+    var a = arguments[0] !== (void 0) ? arguments[0] : 23;
+    console.log(a);
+  }
+  hamid();
+  // void 0 means undefined
+  ```
+
+- Debunking the common misconception that **JavaScript** is an "interpreted language" and therefore not compiled. `Nope`. The **JavaScript** engine compiles your code right before [and sometimes during] execution.

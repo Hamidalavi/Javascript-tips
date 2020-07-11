@@ -217,3 +217,20 @@
 
 // -----------------------------------------------
 
+// object
+// var obj = { hamed: 23, ali: 22 };
+// obj.reza = 26;
+// console.log(obj);
+
+// -----------------------------------------------
+
+// transpiling
+// (function hamed(a = 23) {
+//     console.log(a);
+// })();
+
+// function hamid() {
+//     var a = arguments[0] !== (void 0) ? arguments[0] : 23;
+//     console.log(a);
+// }
+// hamid();
