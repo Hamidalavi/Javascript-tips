@@ -164,7 +164,6 @@ need a semicolon ( ; ) to conclude it.
 - Both `eval(..)` and `with` are affected (restricted) by **Strict Mode**.
   - they are not good for performance.
 
-
 ## LHS/RHS (Left Hand Side/Right Hand Side)
 
 It means **Right/Left Hand Side**  Of an assignment operation (=). If you want understand this section, try meaning this like: "who's the target of the **assignment** (LHS)" and "who's the source of the assignment (RHS)" (a = 23);
