@@ -1,0 +1,1 @@
+# Persian language add soon (just translate texts). stay tuned

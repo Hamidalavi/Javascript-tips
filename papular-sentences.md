@@ -8,7 +8,7 @@
 
 ## **Difference**
 
-- The two languages are different in many important ways."**JavaScript**" is as related to "**Java**" as "Butter" is to "Butterfly".
+The two languages are different in many important ways."**JavaScript**" is as related to "**Java**" as "Butter" is to "Butterfly".
 
 ## Blame
 
@@ -20,7 +20,7 @@
 
 ## Syntax
 
-- The rules for valid format and combinations of instructions is called a `computer language`, sometimes referred to as its `syntax`, much the same as English tells you how to `spell` wordsand how to create valid sentences using words and punctuation.
+The rules for valid format and combinations of instructions is called a `computer language`, sometimes referred to as its `syntax`, much the same as English tells you how to `spell` wordsand how to create valid sentences using words and punctuation.
 
 ## Understanding to Computer
 
@@ -145,3 +145,45 @@ need a semicolon ( ; ) to conclude it.
   ```
 
 - Debunking the common misconception that **JavaScript** is an "interpreted language" and therefore not compiled. `Nope`. The **JavaScript** engine compiles your code right before [and sometimes during] execution.
+- You can use `console.table(array)` to see array visually. like below:
+
+  ```js
+  (function hamed(a = 23) {
+      console.table([a, "Hamid"]);
+  })();
+
+  // output:
+  ┌─────────┬─────────┐
+  │ (index) │ Values  │
+  ├─────────┼─────────┤
+  │    0    │   23    │
+  │    1    │ 'Hamid' │
+  └─────────┴─────────┘
+  ```
+
+- Both `eval(..)` and `with` are affected (restricted) by **Strict Mode**.
+  - they are not good for performance.
+
+
+## LHS/RHS (Left Hand Side/Right Hand Side)
+
+It means **Right/Left Hand Side**  Of an assignment operation (=). If you want understand this section, try meaning this like: "who's the target of the **assignment** (LHS)" and "who's the source of the assignment (RHS)" (a = 23);
+
+We also can explain LHS/RHS is **functions**:
+
+For example:
+
+  ```js
+  (function hamed(a = 23) {
+    console.log(a)
+})();
+  ```
+
+In this example, its like a = 23;
+
+- You may have missed the implied `a = 2` in this code snippet. It happens when the value `2` is passed as an argument to the `foo(..)` **function**, in which case the 2 value is assigned to the parameter `a`. To (implicitly) assign to parameter `a`, an **LHS** look-up is performed.
+- There's also an **RHS** reference for the value of `a`, and that resulting value is passed to `console.log(..)`. `console.log(..)` needs a reference to execute. It's an **RHS** look-up for the `console` object, then a property-resolution occurs to see if it has a method called `log`.
+
+You might be tempted to conceptualize the function declaration `function foo(a) {`... as a normal variable **declaration** and **assignment**, such as `var foo` and `foo = function(a) {`... . In so doing, it would be tempting to think of this function declaration as involving an LHS look-up.
+
+- Unfulfilled **RHS** references result in `ReferenceError`s being thrown (show). **LHS** too.

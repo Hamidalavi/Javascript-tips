@@ -234,3 +234,99 @@
 //     console.log(a);
 // }
 // hamid();
+
+// -----------------------------------------------
+
+// LHS/RHS
+// (function hamed(a = 23) {
+//     console.log(a);
+// })();
+
+// -----------------------------------------------
+
+// console.table
+// (function hamed(a = 23) {
+//     console.table([a, "Hamid"]);
+// })();
+
+// ┌─────────┬─────────┐
+// │ (index) │ Values  │
+// ├─────────┼─────────┤
+// │    0    │   23    │
+// │    1    │ 'Hamid' │
+// └─────────┴─────────┘
+
+// -----------------------------------------------
+
+// slightly advanced function
+// function hamed(a) {
+//     var b = a;
+//     return a + b;
+// }
+// console.log(hamed(6));
+
+// shadowing
+// function hamid(a) {
+//      b = a;
+//     console.log(a + b);
+// }
+// hamid(2);
+
+// function hamid(a) {
+//     var b = a * 2;
+//     function hamed(c) {
+//         console.log(a, b, c);
+//     }
+//     hamed(b * 3);
+// }
+// hamid(5); // 5 10 30
+
+// -----------------------------------------------
+
+// val() function (deprecated)
+// function hamid(text, a) {
+//     eval(text);
+//     console.log(a, b);
+// }
+// var b = 2;
+// hamid("var b = 5;", 2); // 1, 3
+
+// function hamed(text) {
+//     "use strict";
+//     eval(text);
+//     console.log(a); // ReferenceError: a is not defined
+// }
+// hamed("var a = 23");
+
+// -----------------------------------------------
+
+// with statement
+// function hamed(obj) {
+//     with (obj) {
+//         a = 2;
+//     }
+// }
+
+// var o1 = { a: 3 };
+// var o2 = { b: 3 };
+// hamed(o1);
+// console.log(o1.a); // 2
+// hamed(o2);
+// console.log(o2.a); // undefined
+// console.log(a);
+
+// -----------------------------------------------
+
+// custom infinite loop
+// function hamed() {
+//     function hamid(a) {
+//         i = 3; // changing the `i` in the enclosing scope's for-loop
+//         console.log(a + i);
+//     }
+//     for (var i = 0; i < 10; i++) {
+//         hamid(i * 2); // oops, infinite loop ahead!
+//     }
+// }
+// hamed();
+
+// -----------------------------------------------
