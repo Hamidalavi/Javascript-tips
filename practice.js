@@ -200,7 +200,7 @@
 
 // `this` identifier
 // function foo() {
-//     console.log(this.bar);
+// console.log(this.bar);
 // }
 // var bar = "global";
 // var obj1 = {
@@ -330,3 +330,141 @@
 // hamed();
 
 // -----------------------------------------------
+
+// compile order
+// {
+//     console.log(hamed); // ReferenceError!
+//     let hamed = 23;
+// }
+
+// a = 23;
+// var a;
+// console.log(a); // 23
+
+// console.log(a); // undefined
+// var a = 23;
+
+// like above
+// var a;
+// console.log(a);
+// a = 2;
+// -----------------------------------------------
+
+// overriding (duplicate functions)
+// hamed(); // 3
+// function hamed() {
+//     console.log(1);
+// }
+// var hamed = () => {
+//     console.log(2);
+// };
+// function hamed() {
+//     console.log(3);
+// }
+
+// -----------------------------------------------
+
+// set time out and set interval
+// function wait(text) {
+//     setTimeout(() => {
+//         console.log(text);
+//     }, 2000);
+// }
+// wait("Hello hamid, say hi to closure!");
+
+// function repeat(text) {
+//     setInterval(() => {
+//         console.log(text)
+//     }, 1000);
+// }
+// repeat("Hello hamid, say multiple hi to closure!");
+
+
+
+// basic way
+// for (var i = 1; i <= 5; i++) {
+//     (function () {
+//         var j = i;
+//         setTimeout(function timer() {
+//             console.log(j);
+//         }, j * 1000);
+//     })();
+// }
+
+// another way (hard to learn)
+// for (var i = 1; i <= 5; i++) {
+//     (function (j) {
+//         setTimeout(function timer() {
+//             console.log(j);
+//         }, j * 1000);
+//     })(i);
+// }
+
+// awesme way
+// for (let i = 1; i <= 5; i++) { // not work with var keyword
+//     setTimeout(function timer() {
+//         console.log(i);
+//     }, i * 1000);
+// } // even not work with IIFE
+
+// -----------------------------------------------
+
+// joining into array
+// var hamed = [1, 2, 3];
+// console.log(hamed.join(" ! "));
+
+// -----------------------------------------------
+
+// module (closure not accured)
+// function module() {
+//     var array = [1, 2, 3];
+//     function doJoin() {
+//         console.log(array.join(" ! "));
+//     }
+//     return {
+//         join: doJoin
+//     };
+// }
+
+// var create = module();
+// create.join(); // 1 ! 2 ! 3 (exactly like like class or object with property)
+
+
+// expert module (from YDKJS)
+// MyModules.define("bar", [], function () {
+//     function hello(who) {
+//         return "Let me introduce: " + who;
+//     }
+//     return {
+//         hello: hello
+//     };
+// });
+// MyModules.define("foo", ["bar"], function (bar) {
+//     var hungry = "hippo";
+//     function awesome() {
+//         console.log(bar.hello(hungry).toUpperCase());
+//     }
+//     return {
+//         awesome: awesome
+//     };
+// });
+// var bar = MyModules.get("bar");
+// var foo = MyModules.get("foo");
+// console.log(
+//     bar.hello("hippo")
+// ); // Let me introduce: hippo
+// foo.awesome(); // LET ME INTRODUCE: HIPPO
+
+// -----------------------------------------------
+
+// more on lexing scope
+// function foo() {
+//     console.log(a); // 2
+// }
+
+// function bar() {
+//     var a = 3;
+//     foo();
+// }
+// var a = 2;
+// bar();

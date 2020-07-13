@@ -163,6 +163,48 @@ need a semicolon ( ; ) to conclude it.
 
 - Both `eval(..)` and `with` are affected (restricted) by **Strict Mode**.
   - they are not good for performance.
+- **IFEI** (Invoking Function Expressions Immediately): The first enclosing () pair makes the function an expression, and the second () executes the function.
+  - **IIFE**: Immediately Invoked Function Expression it used to be very common. you can use both expressions.
+- Declarations made with **`let`** will not hoist to the entire scope of the block they appear in. Such declarations will not observably "exist" in the block until the declaration statement.
+  - Function declarations are hoist. But function expressions are not.
+  - Functions are hoisting first, and then variables.
+
+    ```js
+      foo(); // "b"
+      var a = true;
+      if (a) {
+      function foo() { console.log( "a" ); }
+      }
+      else {
+      function foo() { console.log( "b" ); }
+      }
+    ```
+
+  - While multiple/duplicate `var` declarations are effectively ignored, subsequent function declarations do override previous ones. For example:
+
+    ```js
+      hamed(); // 3
+      function hamed() {
+        console.log(1);
+      }
+      var hamed = () => {
+        console.log(2);
+      };
+      function hamed() {
+        console.log(3);
+      }
+      ```
+
+  - Be careful about duplicate declarations, especially mixed between normal var declarations and function declarations; **peril awaits if you do!**
+
+- Two declaration keyword `let` (a cousin to the `var` keyword) and `const` both are **block scope**.
+
+  ```js
+  {
+    console.log(hamed); // ReferenceError!
+    let hamed = 23;
+  }
+  ```
 
 ## LHS/RHS (Left Hand Side/Right Hand Side)
 
@@ -186,3 +228,9 @@ In this example, its like a = 23;
 You might be tempted to conceptualize the function declaration `function foo(a) {`... as a normal variable **declaration** and **assignment**, such as `var foo` and `foo = function(a) {`... . In so doing, it would be tempting to think of this function declaration as involving an LHS look-up.
 
 - Unfulfilled **RHS** references result in `ReferenceError`s being thrown (show). **LHS** too.
+
+## Modules
+
+```js
+You can use import and export for importing and exporting files (modules)
+```
