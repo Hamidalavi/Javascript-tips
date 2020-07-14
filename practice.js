@@ -468,3 +468,123 @@
 // }
 // var a = 2;
 // bar();
+
+// -----------------------------------------------
+
+// more about block scope with try/catch and let
+// {
+//     let a = 23;
+//     console.log(a); // 23
+// }
+// console.log(a); // ReferenceError
+
+// like above
+// try { throw 2 } catch (a) {
+//     console.log(a);
+// }
+// console.log(a);
+
+// -----------------------------------------------
+
+// this practice
+// var obj = {
+//     id: "awesome",
+//     cool: function coolFn() {
+//         console.log(this.id);
+//     }
+// };
+// var id = "not awesome";
+// obj.cool(); // awesome
+// setTimeout(obj.cool, 100); // not awesome
+
+// -----------------------------------------------
+
+// more this practice
+// function hamed(number) {
+//     console.log("number is: " + number);
+//     this.count++;
+// }
+// hamed.count = 0;
+
+// for (var i = 0; i < 10; i++) {
+//     if (i > 5) {
+//         hamed(i);
+//     }
+// }
+// console.log(hamed.count);
+
+
+// function hamed() {
+//     var a = 23;
+//     this.hamid();
+// }
+
+// function hamid() {
+//     console.log(this.a);
+// }
+
+// hamed();
+
+// -----------------------------------------------
+
+// call-stack and call-site
+// function ali() {
+//     // call-stack is: `ali`
+//     // so, our call-site is in the global scope
+//     console.log("ali");
+//     hamid(); // <-- call-site for `hamid`
+// }
+
+// function hamid() {
+//     // call-stack is: `ali` -> `hamid`
+//     // so, our call-site is in `ali`
+//     console.log("hamid");
+//     hamed(); // <-- call-site for `hamed`
+// }
+
+// function hamed() {
+//     // call-stack is: `ali` -> `hamid` -> `hamed`
+//     // so, our call-site is in `hamid`
+//     console.log("hamed");
+// }
+
+// ali(); // <-- call-site for `ali`
+
+// -----------------------------------------------
+
+// this with object
+// function hamed() {
+//     console.log(this.a);
+// }
+
+// var object = { a: 23, hamed: hamed };
+// object.hamed();
+
+
+
+// function hamed() {
+//     console.log(this.a);
+// }
+
+// var obj2 = {
+//     a: 23,
+//     hamed: hamed
+// };
+
+// var obj1 = {
+//     a: 2,
+//     obj2: obj2
+// };
+
+// obj1.obj2.hamed(); // 23
+
+// -----------------------------------------------
+
+// call function
+function hamed() {
+    console.log(this.a);
+}
+
+var obj = { a: 23 };
+
+hamed.call(obj);

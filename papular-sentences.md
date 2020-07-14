@@ -165,6 +165,8 @@ need a semicolon ( ; ) to conclude it.
   - they are not good for performance.
 - **IFEI** (Invoking Function Expressions Immediately): The first enclosing () pair makes the function an expression, and the second () executes the function.
   - **IIFE**: Immediately Invoked Function Expression it used to be very common. you can use both expressions.
+  - Firstly, the performance of `try/catch` is slower, but there's no reasonable assumption that it has to be that way, or even that it always will be that way. Since the official TC39-approved ES6 transpiler uses performance of `try/catch`, the Traceur team has asked Chrome to improve the `try/catch`, and they are obviously motivated to do so.
+  - Secondly, **IIFE** is not a fair apples-to-apples comparison with `try/catch`, because a function wrapped around any arbitrary code changes the meaning, inside of that code, of `this`, `return`, `break`, and `continue`. **IIFE** is not a suitable general substitute. It could only be used manually in certain cases.
 - Declarations made with **`let`** will not hoist to the entire scope of the block they appear in. Such declarations will not observably "exist" in the block until the declaration statement.
   - Function declarations are hoist. But function expressions are not.
   - Functions are hoisting first, and then variables.
@@ -205,6 +207,9 @@ need a semicolon ( ; ) to conclude it.
     let hamed = 23;
   }
   ```
+
+- **JavaScript** does not, in fact, have **dynamic** scope. It has **lexical** scope.
+  - The key contrast: **lexical** scope is **write-time**, whereas **dynamic** scope (and `this`) are **runtime**.
 
 ## LHS/RHS (Left Hand Side/Right Hand Side)
 
