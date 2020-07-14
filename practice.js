@@ -707,13 +707,21 @@
 // -----------------------------------------------
 
 // more on arrow function
-function hamed() {
-    setTimeout(() => {
-        // `this` here is lexically adopted from `hamed()`
-        console.log(this.a);
-    }, 2000);
-}
-var obj = {
-    a: 23
-};
-hamed.call(obj); // 23
+// function hamed() {
+//     setTimeout(() => {
+//         // `this` here is lexically adopted from `hamed()`
+//         console.log(this.a);
+//     }, 2000);
+// }
+// var obj = {
+//     a: 23
+// };
+// hamed.call(obj); // 23
+
+// -----------------------------------------------
+
+// bug found (WTF! object?!)
+// console.log(typeof null);
+
+// -----------------------------------------------
+

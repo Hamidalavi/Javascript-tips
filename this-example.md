@@ -6,9 +6,9 @@
 
 ## Twitter = **<https://twitter.com/HamidAlavi6540>**
 
-**Important: All functions in JavaScript are object**.
-
 **Use browser console (recommended) for get better result of `this`**.
+
+**I recommend first read `papular-sentences.md` file**.
 
 ```js
 function hamed(number) {
@@ -212,6 +212,8 @@ If you want to make **safer** `this`, lets try this:
 ```js
 Object.create(null)
 ```
+
+It is good placeholder value that protects the **global** object from unintended side-effects.
 
 Also you can use indirect refrence (like divert):
 
