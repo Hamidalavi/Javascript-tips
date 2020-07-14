@@ -626,3 +626,17 @@
 // var hamid = bind(hamed, obj);
 // var h = hamid(3); // 23 3
 // console.log(h); // 26
+
+
+function hamed(something) {
+    console.log(this.a, something);
+    return this.a + something;
+}
+
+var obj = {
+    a: 23
+};
+
+var hamid = hamed.bind(obj);
+var h = hamid(3); // 23 3
+console.log(h); // 26
