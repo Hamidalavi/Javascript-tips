@@ -628,15 +628,92 @@
 // console.log(h); // 26
 
 
-function hamed(something) {
-    console.log(this.a, something);
-    return this.a + something;
-}
+// function hamed(something) {
+//     console.log(this.a, something);
+//     return this.a + something;
+// }
 
+// var obj = {
+//     a: 23
+// };
+
+// var hamid = hamed.bind(obj);
+// var h = hamid(3); // 23 3
+// console.log(h); // 26
+
+// -----------------------------------------------
+
+// new binding
+// function hamed(a) {
+//     this.a = a;
+// }
+
+// var hamid = new hamed(2);
+// console.log(hamid.a);
+
+
+// function hamed(value) {
+//     this.a = value;
+// }
+
+// var obj = {};
+// var hamid = hamed.bind(obj);
+// hamid(23);
+// console.log(obj.a); // 23
+// var ali = new hamid(3);
+// console.log(obj.a); // 23
+// console.log(ali.a); // 3
+
+// -----------------------------------------------
+
+// bind and constructor
+// function hamed(player1, player2) {
+//     this.val = player1 + player2;
+// }
+
+// var hamid = hamed.bind(null, "player1");
+// var ali = new hamid("player2");
+// ali.val; // player1player2
+// console.log(ali.val);
+
+// -----------------------------------------------
+
+// indirect refrence
+// function hamed() {
+//     console.log(this.a);
+// }
+
+// var a = 23;
+// var o = { a: 3, hamed: hamed };
+// var p = { a: 4 };
+// o.hamed(); // 3
+// (p.hamed = o.hamed)(); // 23
+
+// -----------------------------------------------
+
+// call with arrow function
+// function hamed() {
+//     return (a) => {
+//         // `this` here is lexically adopted from `hamed()`
+//         console.log(this.a);
+//     };
+// }
+
+// var obj1 = { a: 2 };
+// var obj2 = { a: 3 };
+// var hamid = hamed.call(obj1);
+// hamid.call(obj2); // 2, not 3!
+
+// -----------------------------------------------
+
+// more on arrow function
+function hamed() {
+    setTimeout(() => {
+        // `this` here is lexically adopted from `hamed()`
+        console.log(this.a);
+    }, 2000);
+}
 var obj = {
     a: 23
 };
-
-var hamid = hamed.bind(obj);
-var h = hamid(3); // 23 3
-console.log(h); // 26
+hamed.call(obj); // 23

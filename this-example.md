@@ -190,3 +190,43 @@ var hamid = hamed.bind(obj);
 var h = hamid(3); // 23 3
 console.log(h); // 26
 ```
+
+How about `new` keyword for **new binding**? lets see guys:
+
+```js
+function hamed(value) {
+    this.a = value;
+}
+
+var obj = {};
+var hamid = hamed.bind(obj);
+hamid(2);
+console.log(obj.a); // 23
+var ali = new hamid(3);
+console.log(obj.a); // 23
+console.log(ali.a); // 3
+```
+
+If you want to make **safer** `this`, lets try this:
+
+```js
+Object.create(null)
+```
+
+Also you can use indirect refrence (like divert):
+
+```js
+function hamed() {
+    console.log(this.a);
+}
+
+var a = 23;
+var o = { a: 3, hamed: hamed };
+var p = { a: 4 };
+o.hamed(); // 3
+(p.hamed = o.hamed)(); // 23
+```
+
+Think more about above code. trail n fail to geting ready to be a best programmer (run in browser console).
+
+The result value of the assignment expression `p.hamed = o.hamed` is a reference to just the underlying function object. As such, the effective call-site is just `hamed()`, not `p.hamed()` or `o.hamed()` as you might expect.
