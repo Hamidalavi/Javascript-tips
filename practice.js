@@ -581,10 +581,48 @@
 // -----------------------------------------------
 
 // call function
-function hamed() {
-    console.log(this.a);
-}
+// function hamed() {
+//     console.log(this.a);
+// }
 
-var obj = { a: 23 };
+// var obj = { a: 23 };
 
-hamed.call(obj);
+// hamed.call(obj);
+
+// -----------------------------------------------
+
+// simple bind
+// function hamed(text1, text2) {
+//     console.log(`"Hello ${text1} ${text2}"`);
+// }
+
+// var newf = hamed.bind(this, "Hamid", "Alavi");
+// newf();
+
+
+// function fullName(name, number, state) {
+//     console.log(`Hello. Wellcome back ${name}${number} ${state}`)
+// }
+
+// var create = fullName.bind(this, "Hamid", 6540, "the hero");
+// create();
+
+// -----------------------------------------------
+
+// advanced bind and apply
+// function hamed(something) {
+//     console.log(this.a, something);
+//     return this.a + something;
+// }
+
+// // simple `bind` helper
+// function bind(fn, obj) {
+//     return function () {
+//         return fn.apply(obj, arguments);
+//     };
+// }
+
+// var obj = { a: 23 };
+// var hamid = bind(hamed, obj);
+// var h = hamid(3); // 23 3
+// console.log(h); // 26

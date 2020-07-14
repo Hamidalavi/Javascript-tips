@@ -155,3 +155,21 @@ var obj = { a: 23 };
 
 hamed.call(obj); // 23
 ```
+
+## bind
+
+There are some good features, one of them is `bind()`. For a given function, creates a bound function that has the same body as the original function. The `this` object of the bound function is associated with the specified object, and has the specified initial parameters.
+
+- `this` argument: An object to which the this keyword can refer inside.
+- argument `Array`: A list of arguments to be passed to the new function (parameters).
+
+ This is a simple example:
+
+```js
+function fullName(name, number, state) {
+    console.log(`Hello. Wellcome back ${name}${number} ${state}`)
+}
+
+var create = fullName.bind(this, "Hamid", 6540, "the hero");
+create();
+```
