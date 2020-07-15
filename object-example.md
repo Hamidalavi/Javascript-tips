@@ -141,3 +141,59 @@ arr["5"] = "Hello"; // or can use arr[5] = "Hello";
 console.log(arr[5]); // Hello
 console.log(arr.length); // 6
 ```
+
+## Object Property Description
+
+We can use `Object.defineProperty(obj, prop, {...})` to add a new **property**, or modify an existing one with the desired characteristics.
+
+For example:
+
+```js
+var obj = { a: 0 };
+Object.defineProperty(obj, "a", { value: 26 })
+console.log(Object.getOwnPropertyDescriptor(obj, "a")); // { value: 23, writable: true, enumerable: true, configurable: true }
+console.log(obj); // { a: 26 }
+```
+
+Above code is about `value`. now for `writable`:
+
+```js
+var obj = { a: 23 };
+Object.defineProperty(obj, "a", { writable: false });
+obj.a = 26; // look at this
+console.log(Object.getOwnPropertyDescriptor(obj, "a")); // { value: 23, writable: false, enumerable: true, configurable: true }
+console.log(obj); // { a: 23 }
+```
+
+If `writable` is **false**, you cant edit or modify value (like read-only). If you use "strict mode", output is => TypeError: Cannot assign to read only property 'a' of object '#`<Object>`'. The **TypeError** tells us we cannot change a non-writable property. Lets got to the next, `configurable`:
+
+`configurable`: As long as a property is currently configurable, we can modify its descriptor definition, using the same `defineProperty(..)` utility.
+
+```js
+var obj = { a: 23 };
+Object.defineProperty(obj, "a", { configurable: false });
+Object.defineProperty(obj, "a", { value: 30, configurable: true }); // Cannot redefine property: a
+console.log(Object.getOwnPropertyDescriptor(obj, "a"));
+console.log(obj); // error
+```
+
+The second `defineProperty(..)` call results in a TypeError, regardless of "strict mode", if you attempt to change the descriptor definition of a non-configurable property. **Be careful**: as you can see, changing `configuration` to **false** is a one-way action, and cannot be undone! even if the property is already `configurable:false`, `writable` can always be changed from **true** to **false** without error, but not back to **true** if already **false**.
+
+Another thing `configurable:false` prevents is the ability to use the `delete` operator to remove an existing property:
+
+```js
+var obj = { a: 2 };
+obj.a; // 2
+delete obj.a;
+obj.a; // undefined
+Object.defineProperty(obj, "a", { value: 2, configurable: false });
+obj.a; // 2
+delete obj.a;
+console.log(obj.a); // 2
+```
+
+The second `delete` call failed, because we made the `a` property non-configurable.
+
+**Important Note**: `delete` is only used to remove object properties (which can be removed) directly from the object in question. If an object property is the last remaining reference to some object/function, and you `delete` it, that removes the reference and now that unreferenced object/function can be garbage collected. But, it is **not** proper to think of `delete` as a tool to free up allocated memory as it does in other languages (like C/C++). `delete` is just an object property removal operation -- nothing more.
+
+By combining `writable:false` and `configurable:false` you can essentially create a **constant** (cannot be changed, redefined or deleted) as an object property, like:

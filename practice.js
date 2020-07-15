@@ -826,3 +826,33 @@
 
 // -----------------------------------------------
 
+// object property description
+// var obj = { a: 23 };
+// Object.defineProperty(obj, "a", { value: 26 });
+// console.log(Object.getOwnPropertyDescriptor(obj, "a"));
+// console.log(obj);
+
+
+// "use strict"
+// var obj = { a: 23 };
+// Object.defineProperty(obj, "a", { writable: false });
+// obj.a = 26;
+// console.log(Object.getOwnPropertyDescriptor(obj, "a"));
+// console.log(obj);
+
+
+// var obj = { a: 23 };
+// Object.defineProperty(obj, "a", { configurable: false });
+// Object.defineProperty(obj, "a", { value: 30, configurable: true });
+// console.log(Object.getOwnPropertyDescriptor(obj, "a"));
+// console.log(obj);
+
+
+var obj = { a: 2 };
+obj.a; // 2
+delete obj.a;
+obj.a; // undefined
+Object.defineProperty(obj, "a", { value: 2, configurable: false });
+obj.a; // 2
+delete obj.a;
+console.log(obj.a); // 2
