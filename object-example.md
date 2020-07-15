@@ -197,3 +197,23 @@ The second `delete` call failed, because we made the `a` property non-configurab
 **Important Note**: `delete` is only used to remove object properties (which can be removed) directly from the object in question. If an object property is the last remaining reference to some object/function, and you `delete` it, that removes the reference and now that unreferenced object/function can be garbage collected. But, it is **not** proper to think of `delete` as a tool to free up allocated memory as it does in other languages (like C/C++). `delete` is just an object property removal operation -- nothing more.
 
 By combining `writable:false` and `configurable:false` you can essentially create a **constant** (cannot be changed, redefined or deleted) as an object property, like:
+
+```js
+let obj = {};
+Object.defineProperty(obj, "FAVORITE_NUMBER", {
+    value: 23,
+    writable: false,
+    configurable: false
+});
+```
+
+If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(..)`:
+
+```js
+let obj = { a: 23 };
+Object.preventExtensions(obj);
+obj.b = 26; // undefined
+console.log(obj); // { a: 23 }
+```
+
+In `strict mode`, it throws a `TypeError`.

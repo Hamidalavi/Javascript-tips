@@ -848,11 +848,29 @@
 // console.log(obj);
 
 
-var obj = { a: 2 };
-obj.a; // 2
-delete obj.a;
-obj.a; // undefined
-Object.defineProperty(obj, "a", { value: 2, configurable: false });
-obj.a; // 2
-delete obj.a;
-console.log(obj.a); // 2
+// var obj = { a: 2 };
+// obj.a; // 2
+// delete obj.a;
+// obj.a; // undefined
+// Object.defineProperty(obj, "a", { value: 2, configurable: false });
+// obj.a; // 2
+// delete obj.a;
+// console.log(obj.a); // 2
+
+// -----------------------------------------------
+
+// constant
+// let obj = {};
+// Object.defineProperty(obj, "FAVORITE_NUMBER", {
+//     value: 23,
+//     writable: false,
+//     configurable: false
+// });
+
+// -----------------------------------------------
+
+// prevent extensions
+let obj = { a: 23 };
+Object.preventExtensions(obj);
+obj.b = 26;
+console.log(obj);

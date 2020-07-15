@@ -18,3 +18,4 @@ setInterval(() => {
     console.log("Hello");
 }, 1000); // this command is executed repeatedly after the time we specified
 array.join("!"); // join something beween array elements
+Object.preventExtensions(obj); // prevent from adding properties
