@@ -1,5 +1,6 @@
-// these are very simple practice that i write. it's not for professional practice.
+// these are very simple practice that i write. it's not for professional practice
 // very short examples from YDKJS book (not complete)
+// this example are just one time write, in other project (not in this repository), i practicing much
 
 // simple practice
 // let a = 23; // my age
@@ -725,3 +726,91 @@
 
 // -----------------------------------------------
 
+// practicing on object
+// var obj = { a: 23, b: 26 };
+// console.log(obj.a);
+// console.log(typeof obj);
+
+// -----------------------------------------------
+
+// "string" as string (auto object)
+// let str = "Hello guys";
+// console.log(str.length);
+// console.log(str.charAt(4));
+
+// -----------------------------------------------
+
+// access to property
+// let obj = { a: 23, b: "Hamid" };
+// console.log(obj.a);
+// console.log(obj["b"]);
+
+// -----------------------------------------------
+
+// access to properties
+// let trueFalse = true;
+// let obj = { a: 23 };
+// let index;
+// if (trueFalse) {
+//     index = "a";
+// }
+// console.log(obj[index]);
+
+// -----------------------------------------------
+
+// creating properies
+// var obj = {};
+
+// obj[3] = "23";
+// obj[true] = "Hamid";
+// obj[obj] = "Persian Sight";
+
+// console.log(obj["3"]);
+// console.log(obj["true"]);
+// console.log(obj["[object Object]"]);
+
+// -----------------------------------------------
+
+// tip
+// console.log(true == 1);
+
+// -----------------------------------------------
+
+// advanced creating properies (computed)
+// let add = "hamed";
+// let obj = {
+//     [add + "h"]: "Hello",
+//     [add + "w"]: "world"
+// }
+// console.log(obj["hamedh"]);
+// console.log(obj["hamedw"]);
+
+// -----------------------------------------------
+
+// function in object
+// let obj = {
+//     hamed: function () {
+//         console.log("Hello guys");
+//     }
+// }
+
+// let ref = obj.hamed;
+// console.log(ref);
+// console.log(obj.hamed);
+
+// -----------------------------------------------
+
+// array
+// let arr = ["Hamed", 23, "Hamid", "Ali", "Reza"];
+// console.log(arr[0]); // Hamid
+// console.log(arr[2]); // Hamed
+// console.log(arr[4]); // Reza
+
+// -----------------------------------------------
+
+let arr = ["Hamed", 23, "Hamid", "Ali", "Reza"];
+arr.majid = "Majid";
+arr.mehrdad = "Mehrdad";
+console.log(arr.majid);
+console.log(arr.mehrdad);
+console.log(arr.length);
