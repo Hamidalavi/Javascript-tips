@@ -808,9 +808,21 @@
 
 // -----------------------------------------------
 
-let arr = ["Hamed", 23, "Hamid", "Ali", "Reza"];
-arr.majid = "Majid";
-arr.mehrdad = "Mehrdad";
-console.log(arr.majid);
-console.log(arr.mehrdad);
-console.log(arr.length);
+// add literal keys
+// let arr = ["Hamed", 23, "Hamid", "Ali", "Reza"];
+// arr.majid = "Majid";
+// arr.mehrdad = "Mehrdad";
+// console.log(arr.majid);
+// console.log(arr.mehrdad);
+// console.log(arr.length);
+
+// -----------------------------------------------
+
+// add numerical keys
+// let arr = ["Hamed", 23, "Hamid", "Ali", "Reza"];
+// arr["5"] = "Hello";
+// console.log(arr[5]);
+// console.log(arr.length);
+
+// -----------------------------------------------
+

@@ -8,6 +8,8 @@
 
 **Important: All functions in JavaScript are object**.
 
+### A most important bug in **JavaScript** was found by developers, that the `null` is object in output
+
 **Use browser console (recommended) for get better result of `object`**.
 
 **I recommend first read `papular-sentences.md` and `this-example.md` file**.
@@ -128,3 +130,14 @@ console.log(arr.length); // 5
 Look above code. **Q**: Why array length is 5, yet? we are adding two keys that called "majid" and "mehrdad", then what happend?
 
 **Answer**: In fact, notice that adding named properties (regardless of `.` and `[]` operator syntax) does not change the reported `length` of the array.
+
+You could use an **array** as a plain **key/value** object, and never add any numeric indices, but this is a bad idea because **arrays** have behavior and optimizations specific to their intended use, and likewise with plain objects. Use objects to store key/value pairs, and arrays to store values at numeric indices.
+
+**Be careful**: If you try to add a property to an array, but the property name looks like a number, it will end up instead as a numeric index (thus modifying the array contents):
+
+```js
+let arr = ["Hamed", 23, "Hamid", "Ali", "Reza"];
+arr["5"] = "Hello"; // or can use arr[5] = "Hello";
+console.log(arr[5]); // Hello
+console.log(arr.length); // 6
+```
