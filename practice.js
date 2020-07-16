@@ -869,8 +869,19 @@
 
 // -----------------------------------------------
 
-// prevent extensions
-let obj = { a: 23 };
-Object.preventExtensions(obj);
-obj.b = 26;
-console.log(obj);
+// prevent extensions (prevent adding new property)
+// let obj = { a: 23 };
+// Object.preventExtensions(obj);
+// obj.b = 26;
+// console.log(obj);
+
+// -----------------------------------------------
+
+// freez object
+// let obj = { a: 2 };
+// Object.freeze(obj);
+// obj.a = 10;
+// console.log(obj);
+
+// -----------------------------------------------
+

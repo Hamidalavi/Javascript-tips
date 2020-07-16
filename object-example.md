@@ -34,15 +34,15 @@ console.log(str.charAt(4)); // o
 
 There are many types of **objects**:
 
-- String
-- Number
-- Boolean
-- Object
-- Function
-- Array
-- Date
-- RegExp
-- Error
+> String
+>> Number
+>>> Boolean
+>>>> Object
+>>>>> Function
+>>>>>> Array
+>>>>>>> Date
+>>>>>>>> RegExp
+>>>>>>>>> Error
 
 You have two ways of accessing the **properties** in **objects**. they are: 1) `.` operator 2)`[".."]` operator:
 
@@ -216,4 +216,20 @@ obj.b = 26; // undefined
 console.log(obj); // { a: 23 }
 ```
 
-In `strict mode`, it throws a `TypeError`.
+In `strict mode`, it throws a `TypeError`. You also can use `Object.freez(..)` to frezing object (key and value):
+
+```js
+let obj = { a: 23 };
+Object.freeze(obj);
+obj.a = 10;
+console.log(obj); // { a: 23 }
+```
+
+Sometimes you heard about [Get] and [Put] operation. But, what are they? look below example:
+
+```js
+let obj = { a: 23 };
+obj.a; // 23
+```
+
+The `obj.a` is a property access, but it doesn't just look in `obj` for a property of the name `a`, as it might seem. According to the spec, the code above actually performs a [[Get]] operation on the `obj`. The default built-in [[Get]] operation for an **object** first inspects the **object** for a property of the requested name, and if it finds it, it will return the value accordingly. However, the [[Get]] algorithm defines other important behavior if it does not find a property of the requested name. But one **important** result of this [[Get]] operation is that if it cannot through any means come up with a value for the requested property, it instead returns the value undefined.
