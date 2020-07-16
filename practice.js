@@ -877,7 +877,7 @@
 
 // -----------------------------------------------
 
-// freez object
+// freeze object
 // let obj = { a: 2 };
 // Object.freeze(obj);
 // obj.a = 10;
@@ -885,3 +885,23 @@
 
 // -----------------------------------------------
 
+// getter and setter in object
+// let obj = {
+//     get a() {
+//         return 23;
+//     }
+// };
+// obj.a = 3;
+// console.log(obj.a); // 23
+
+
+let obj = {
+    get a() {
+        return this._a_;
+    },
+    set a(val) {
+        this._a_ = val * 4;
+    }
+};
+obj.a = 2;
+console.log(obj.a);

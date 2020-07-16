@@ -232,4 +232,28 @@ let obj = { a: 23 };
 obj.a; // 23
 ```
 
-The `obj.a` is a property access, but it doesn't just look in `obj` for a property of the name `a`, as it might seem. According to the spec, the code above actually performs a [[Get]] operation on the `obj`. The default built-in [[Get]] operation for an **object** first inspects the **object** for a property of the requested name, and if it finds it, it will return the value accordingly. However, the [[Get]] algorithm defines other important behavior if it does not find a property of the requested name. But one **important** result of this [[Get]] operation is that if it cannot through any means come up with a value for the requested property, it instead returns the value undefined.
+The `obj.a` is a property access, but it doesn't just look in `obj` for a property of the name `a`, as it might seem. According to the spec, the code above actually performs a [[Get]] operation on the `obj`. The default built-in [[Get]] operation for an **object** first inspects the **object** for a property of the requested name, and if it finds it, it will return the value accordingly. However, the [[Get]] algorithm defines other important behavior if it does not find a property of the requested name. But one **important** result of this [[Get]] operation is that if it cannot through any means come up with a value for the requested property, it instead returns the value **undefined**.
+
+```js
+let obj = { a: 23 };
+obj.b; // undefined
+```
+
+This behavior is different from when you reference variables by their identifier names. If you reference a variable that cannot be resolved within the applicable lexical scope look-up, the result is not **undefined** as it is for **object** properties, but instead a `ReferenceError` is thrown.
+
+Since there's an internally defined [[Get]] operation for getting a value from a property, it should be obvious there's also a default [[Put]] operation. It may be tempting to think that an assignment to a property on an object would just invoke [[Put]] to set or create that property on the object in question. But the situation is more nuanced than that. If the property is not yet present on the object in question, the [[Put]] operation is even more nuanced and complex.
+
+Getter and Setter, i think nothing to explain. you understand by just looking at this below code:
+
+```js
+let obj = {
+    get a() {
+        return this._a_;
+    },
+    set a(val) {
+        this._a_ = val * 4;
+    }
+};
+obj.a = 2;
+console.log(obj.a);
+```
