@@ -1,6 +1,7 @@
 let number = 23;
 let array = [1, 2, 3];
 let string = "Hello Hamid";
+let object = {};
 
 console.log(value); // logs the output
 alert(value); // visual log output
@@ -18,4 +19,5 @@ setInterval(() => {
     console.log("Hello");
 }, 1000); // this command is executed repeatedly after the time we specified
 array.join("!"); // join something beween array elements
-Object.preventExtensions(obj); // prevent from adding properties
+Object.preventExtensions(object); // prevent from adding properties
+Object.keys(object); // shows all object's keys

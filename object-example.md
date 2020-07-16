@@ -225,6 +225,30 @@ obj.a = 10;
 console.log(obj); // { a: 23 }
 ```
 
+Last thing about property description is `enumerable`. That's simple, just disallowing iterable in values (like `for` loop). Advanced `enumerable`:
+
+```js
+var obj = {};
+Object.defineProperty(
+    obj,
+    "a",
+    // make `a` enumerable, as normal
+    { enumerable: true, value: 23 }
+);
+Object.defineProperty(
+    obj,
+    "b",
+    // make `b` non-enumerable
+    { enumerable: false, value: 32 }
+);
+obj.propertyIsEnumerable("a"); // true
+obj.propertyIsEnumerable("b"); // false
+Object.keys(obj); // ["a"]
+Object.getOwnPropertyNames(obj); // ["a", "b"]
+```
+
+## Getter & Setter
+
 Sometimes you heard about [Get] and [Put] operation. But, what are they? look below example:
 
 ```js
@@ -243,7 +267,7 @@ This behavior is different from when you reference variables by their identifier
 
 Since there's an internally defined [[Get]] operation for getting a value from a property, it should be obvious there's also a default [[Put]] operation. It may be tempting to think that an assignment to a property on an object would just invoke [[Put]] to set or create that property on the object in question. But the situation is more nuanced than that. If the property is not yet present on the object in question, the [[Put]] operation is even more nuanced and complex.
 
-Getter and Setter, i think nothing to explain. you understand by just looking at this below code:
+**Getter** and **Setter**, i think nothing to explain. you understand by just looking at this below code:
 
 ```js
 let obj = {
@@ -257,3 +281,16 @@ let obj = {
 obj.a = 2;
 console.log(obj.a);
 ```
+
+Some tricks are use in **objects** like `in` operator:
+
+```js
+// check property existence
+let obj = { a: 23 };
+console.log("a" in obj); // true
+console.log("b" in obj); // false
+console.log(obj.hasOwnProperty("a")); // true
+console.log(obj.hasOwnProperty("b")); // false
+```
+
+The `in` operator will check to see if the property is in the **object**, or if it exists at any higher level of the [[Prototype]] chain object traversal. By contrast, `hasOwnProperty(..)` checks to see if only `obj` has the property or not, and will not consult the [[Prototype]] chain.

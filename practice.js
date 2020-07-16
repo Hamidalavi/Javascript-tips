@@ -895,13 +895,28 @@
 // console.log(obj.a); // 23
 
 
-let obj = {
-    get a() {
-        return this._a_;
-    },
-    set a(val) {
-        this._a_ = val * 4;
-    }
-};
-obj.a = 2;
-console.log(obj.a);
+// let obj = {
+//     get a() {
+//         return this._a_;
+//     },
+//     set a(val) {
+//         this._a_ = val * 4;
+//     }
+// };
+// obj.a = 2;
+// console.log(obj.a);
+
+// -----------------------------------------------
+
+// in keyword in object
+// let obj = { a: 23 };
+// console.log("a" in obj);
+// console.log("b" in obj);
+// console.log(obj.hasOwnProperty("a"));
+// console.log(obj.hasOwnProperty("b"));
+
+// -----------------------------------------------
+
+// shows all keys in object
+// let obj = { h1: "Hamed", h2: "Hamid", a: "Ali", r: "Reza" };
+// console.log(Object.keys(obj));
