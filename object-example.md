@@ -247,6 +247,8 @@ Object.keys(obj); // ["a"]
 Object.getOwnPropertyNames(obj); // ["a", "b"]
 ```
 
+If you want check the property is `enumerable` or `non-enumerable`, you can use `propertyIsEnumerable(..)`. `propertyIsEnumerable` tests whether the given property name exists directly on the **object** and is also **enumerable:true**.
+
 ## Getter & Setter
 
 Sometimes you heard about [Get] and [Put] operation. But, what are they? look below example:

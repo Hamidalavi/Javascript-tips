@@ -920,3 +920,6 @@
 // shows all keys in object
 // let obj = { h1: "Hamed", h2: "Hamid", a: "Ali", r: "Reza" };
 // console.log(Object.keys(obj));
+
+// -----------------------------------------------
+
