@@ -917,9 +917,41 @@
 
 // -----------------------------------------------
 
-// shows all keys in object
+// shows all keys and values in object
 // let obj = { h1: "Hamed", h2: "Hamid", a: "Ali", r: "Reza" };
 // console.log(Object.keys(obj));
 
+
+// let arr = [1, 2, 3];
+// for (let v of arr) {
+//     console.log(v);
+// }
+
 // -----------------------------------------------
 
+// iteration (from YDKJS)
+// var myArray = [1, 2, 3];
+// var it = myArray[Symbol.iterator]();
+// it.next(); // { value:1, done:false }
+// it.next(); // { value:2, done:false }
+// it.next(); // { value:3, done:false }
+// it.next(); // { done:true }
+
+// -----------------------------------------------
+
+// shadowing
+let obj = { a: 23 };
+let object = Object.create(obj);
+console.log(obj.a); // 23
+console.log(object.a); // 23
+
+
+console.log(obj.hasOwnProperty("a")); // true
+console.log(object.hasOwnProperty("a")); // false
+
+object.a++; // 24
+
+console.log(obj.a); // 23
+console.log(object.a); // 24
+
+console.log(object.hasOwnProperty("a")); // true

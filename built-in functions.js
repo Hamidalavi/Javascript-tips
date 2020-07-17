@@ -35,6 +35,10 @@ for (let i = 0; i < array.length; i++) {
     console.log(arr[i]);
 } // shows values in array
 
+for (let v of arr) {
+    console.log(v);
+    } // shows values in array (awesome)
+
 Object.preventExtensions(object); // prevent from adding properties
 
 Object.keys(object); // shows all object's keys (returns an array of all enumerable properties)
