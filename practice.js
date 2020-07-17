@@ -940,18 +940,39 @@
 // -----------------------------------------------
 
 // shadowing
-let obj = { a: 23 };
-let object = Object.create(obj);
-console.log(obj.a); // 23
-console.log(object.a); // 23
+// let obj = { a: 23 };
+// let object = Object.create(obj);
+// console.log(obj.a); // 23
+// console.log(object.a); // 23
 
 
-console.log(obj.hasOwnProperty("a")); // true
-console.log(object.hasOwnProperty("a")); // false
+// console.log(obj.hasOwnProperty("a")); // true
+// console.log(object.hasOwnProperty("a")); // false
 
-object.a++; // 24
+// object.a++; // 24
 
-console.log(obj.a); // 23
-console.log(object.a); // 24
+// console.log(obj.a); // 23
+// console.log(object.a); // 24
 
-console.log(object.hasOwnProperty("a")); // true
+// console.log(object.hasOwnProperty("a")); // true
+
+// -----------------------------------------------
+
+// prototype | class
+// function Hamed() {
+//     // do something
+// }
+
+// let hamid = new Hamed();
+// console.log(Object.getPrototypeOf(hamid) === Hamed.prototype); // true
+
+// -----------------------------------------------
+
+// constructor
+function Hamed() {
+    // do something
+}
+
+console.log(Hamed.prototype.constructor === Hamed); // true
+let hamid = new Hamed();
+console.log(hamid.constructor == Hamed); // true

@@ -297,10 +297,6 @@ console.log(obj.hasOwnProperty("b")); // false
 
 The `in` operator will check to see if the property is in the **object**, or if it exists at any higher level of the [[Prototype]] chain object traversal. By contrast, `hasOwnProperty(..)` checks to see if only `obj` has the property or not, and will not consult the [[Prototype]] chain.
 
-## Importact
-
-Plainly, there are no "classes" in JavaScript to instantiate, only objects. And objects don't get copied to other objects,they get linked together.
-
 ## Shadowing
 
 Lets look below code:
@@ -326,3 +322,50 @@ console.log(object.hasOwnProperty("a")); // true
 Though it may appear that `object.a++` should (via delegation) look-up and just increment the `obj.a` property itself in place, instead the `++` operation corresponds to `object.a = object.a + 1`. The result is [[Get]] looking up `a` property via [[Prototype]] to get the current value `23` from `obj.a`, incrementing the value by one, then [[Put]] assigning the `24` value to a new shadowed property `a` on `object`.
 
 Be very careful when dealing with delegated properties that you modify. If you wanted to increment `obj.a`, the only proper way is `object.a++`.
+
+## Class
+
+**Important**: Plainly, there are no "classes" in **JavaScript** to instantiate, only **objects**. And **objects** don't get copied to other **objects**,they get linked together.
+
+In **JavaScript**, classes can't (being that they don't exist!) describe what an object can do. The object defines its own behavior directly. **There's just the object**.
+
+Lets see below code:
+
+```js
+function Hamed() {
+    // do something
+}
+
+let hamid = new Hamed();
+console.log(Object.getPrototypeOf(hamid) === Hamed.prototype); // true
+```
+
+When `hamid` is created by calling `new Hamed()`, one of the things that happens is that `hamid` gets an internal [[Prototype]] link to the object that `Hamed.prototype` is pointing at.
+
+In class-oriented languages, multiple copies (aka, "instances") of a class can be made, like stamping something out from a mold. But in **JavaScript**, there are no such copy-actions performed. You don't create multiple instance of class. You can create multiple **objects** that [[Prototype]] link to a common **object**. But by default, no copying occurs, and thus these **objects** don't end up totally separate and disconnected from each other, but rather, quite **linked**.
+
+We end up with two **objects**, linked to each other. That's it. We didn't instantiate a class. We certainly didn't do any copying of behavior from a "class" into a concrete **object**. We just caused two **objects** to be linked to each other.
+
+The last word: **A new object linked to another object**.
+
+Look below snippet:
+
+```js
+function Hamed() {
+    // do something
+}
+
+console.log(Hamed.prototype.constructor === Hamed); // true
+let hamid = new Hamed();
+console.log(hamid.constructor == Hamed); // true
+```
+
+`hamid.constructor === Hamed` being true means that `hamid` has an actual `.constructor` property on it, **Q**: pointing at `Hamed`? Answer: **Not Correct**. This is just unfortunate confusion. In actuality, the `.constructor` reference is also delegated up to `Hamed.prototype`, which happens to, by default, have a `.constructor` that points at `Hamed`.
+
+In the above snippet, it's tempting to think that `Hamed` is a **constructor**, because we call it with `new` and we observe that it **constructs** an **object**.
+
+In reality, `Hamed` is no more a **constructor** than any other function in your program. Functions themselves are **not constructors**. However, when you put the `new` keyword in front of a normal function call, that makes that function call a **constructor call**. In fact, `new` sort of hijacks any normal function and calls it in a fashion that **constructs** an **object**, in addition whatever else it was going to do.
+
+**Important**: Functions aren't constructors, but function calls are "constructor calls" if and only if `new` is used.
+
+**Important**: Again, "**constructor does not mean constructed by**". It is non-enumerable, but its value is writable (can be changed). you can add or overwrite a property of the name `constructor` on any object in any [[Prototype]] chain, with any value you see fit.
