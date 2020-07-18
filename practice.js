@@ -959,29 +959,43 @@
 
 
 // polyfill (Object.create())
-var obj = {
-    a: 23
-};
-var object = Object.create(obj, {
-    b: {
-        enumerable: false,
-        writable: true,
-        configurable: false,
-        value: 32
-    },
-    c: {
-        enumerable: true,
-        writable: false,
-        configurable: false,
-        value: 43
-    }
-});
-console.log(object.hasOwnProperty("a"))// false
-console.log(object.hasOwnProperty("b"))// true
-console.log(object.hasOwnProperty("c"))// true
-console.log(object.a); // 23
-console.log(object.b); // 32
-console.log(object.c); // 43
+// var obj = {
+//     a: 23
+// };
+// var object = Object.create(obj, {
+//     b: {
+//         enumerable: false,
+//         writable: true,
+//         configurable: false,
+//         value: 32
+//     },
+//     c: {
+//         enumerable: true,
+//         writable: false,
+//         configurable: false,
+//         value: 43
+//     }
+// });
+// console.log(object.hasOwnProperty("a"))// false
+// console.log(object.hasOwnProperty("b"))// true
+// console.log(object.hasOwnProperty("c"))// true
+// console.log(object.a); // 23
+// console.log(object.b); // 32
+// console.log(object.c); // 43
+
+
+
+// polyfill (Object.create()) Hard mode (strict opinion)(not recommend)
+// function createAndLinkObject(o) {
+//     function Hamed() { }
+//     Hamed.prototype = o;
+//     return new Hamed();
+// }
+// var hamid = {
+//     a: 23
+// };
+// var ali = createAndLinkObject(hamid);
+// console.log(ali.a); // 23
 
 // -----------------------------------------------
 
@@ -1006,6 +1020,17 @@ console.log(object.c); // 43
 
 // -----------------------------------------------
 
+// constructor name
+// function Hamed() {
+//     // do something
+// }
+
+// let hamid = new Hamed();
+// console.log(hamid.constructor);
+// console.log(hamid.constructor.name);
+
+// -----------------------------------------------
+
 // instance of
 // function Hamed() {
 //     // do something
@@ -1017,3 +1042,6 @@ console.log(object.c); // 43
 // let hamid = new Hamed();
 // console.log(hamid instanceof Hamed);
 // console.log(hamid instanceof Hamed2);
+
+// -----------------------------------------------
+
