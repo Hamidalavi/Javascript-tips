@@ -1,4 +1,4 @@
-# Some **`object`** example a give you more information
+# Some **`object`** examples to give you more information
 
 ## Telegram = **<https://t.me/Hamidalavi6540>**
 
