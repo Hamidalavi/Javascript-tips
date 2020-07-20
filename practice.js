@@ -1045,3 +1045,12 @@
 
 // -----------------------------------------------
 
+// typeof examples
+// console.log(typeof true); // boolean
+// console.log(typeof { hamed: 23, hamid: 23 }); // object
+// console.log(typeof null); // object (bug)
+// console.log(typeof "23"); // string
+// console.log(typeof undefined); // undefined
+// console.log(typeof Symbol()); // symbol
+
+// -----------------------------------------------
