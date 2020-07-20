@@ -1054,3 +1054,38 @@
 // console.log(typeof Symbol()); // symbol
 
 // -----------------------------------------------
+
+// function property
+// function hamed(a, b) {
+//     // do something
+// }
+
+// console.log(hamed.length); // 2
+
+// -----------------------------------------------
+
+// typeof typeof
+// console.log(typeof typeof 23); // "string"
+
+// -----------------------------------------------
+
+// array index
+// var arr = [1, 2, 3];
+// arr["forth"] = 4;
+// console.log(arr.length); // 3
+// console.log(arr["forth"]); // 4
+
+// -----------------------------------------------
+
+// white space of array
+// var arr = [];
+// arr[0] = 1;
+// arr[9] = 10;
+// console.log(arr.length); // 10
+
+// -----------------------------------------------
+// string number formatting
+var arr = [];
+arr["0"] = 1;
+arr["9"] = 10;
+console.log(arr.length); // 10
