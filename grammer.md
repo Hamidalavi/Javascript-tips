@@ -137,4 +137,7 @@ Something you have mistake of using `toFixed` function. For example:
 console.log(23.toFixed(3)); // SyntaxError
 console.log((0.23).toFixed(3)); // 0.230
 console.log(23..toFixed(3)); // 23.000
+console.log(23 .toFixed(3)); // 23.000
 ```
+
+`23..toFixed(3)` works because the first `.` is part of the `number` and the second `.` is the **property** operator. You can also use last line of above snippet (23 .toFixed()) for getting result (not recommend)

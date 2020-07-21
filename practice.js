@@ -1167,7 +1167,17 @@
 
 // -----------------------------------------------
 
-// invalid syntax
+// invalid syntax of decimal
 // console.log(23.toFixed(3)); // SyntaxError
 // console.log((0.23).toFixed(3)); // 0.230
 // console.log(23..toFixed(3)); // 23.000
+// console.log(23 .toFixed(3)); // 23.000
+
+// -----------------------------------------------
+
+// hexadecimal and octal
+// console.log(0xf3); // 243
+// console.log(0Xf3); // 243
+// console.log(0363); // 243
+
+// -----------------------------------------------
