@@ -96,4 +96,4 @@ console.log(hamid.reverse()); // [ 'd', 'i', 'm', 'a', 'H' ]
 
 ## Number
 
-In **JavaScript**, don't say "integer". This is an insult to **JavaScript**. Try saying `number` as habit. Because we and you use numerical type like `23` or `23.6` or `.25` and etc. .
+In **JavaScript**, don't say "integer". This is an insult to **JavaScript**. Try saying `number` as habit. Because we and you use numerical type like `23` or `23.6` or `.25` or `23.` and etc. .
