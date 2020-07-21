@@ -2,6 +2,7 @@ let number = 23;
 let array = [1, 2, 3];
 let string = "Hello Hamid";
 let object = {};
+let value; // some value
 
 console.log(value); // logs the output
 
@@ -13,8 +14,12 @@ Number(value); // convert any type to number type
 
 Number.MAX_VALUE; // 1.7976931348623157e+308
 Number.MIN_VALUE; // 5e-324
+
 Number.MAX_SAFE_INTEGER; // 9007199254740991
 Number.MIN_SAFE_INTEGER; // -9007199254740991
+
+Number.POSITIVE_INFINITY; // Infinity
+Number.NEGATIVE_INFINITY; // -Infinity
 
 Number.isInteger(number); // returns true if the value passed is an integer, false otherwise
 
@@ -55,3 +60,5 @@ array.reverse(); // reverses the elements in an array
 Object.preventExtensions(object); // prevent from adding properties
 
 Object.keys(object); // shows all object's keys (returns an array of all enumerable properties)
+
+isNaN(value); // check NaN of value as boolean

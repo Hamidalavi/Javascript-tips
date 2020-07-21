@@ -182,3 +182,73 @@ console.log(hamed === NaN); // false
 ```
 
 `NaN` is a very special value in that it's never equal to another `NaN` value (i.e., it's never equal to itself). It's the only value, in fact, that is not reflexive (without the Identity characteristic `x === x`). So, `NaN !== NaN`.
+
+You can also check `NaN` of value:
+
+```js
+console.log(isNaN(hamed)); // true
+```
+
+We have also **infinite** values. For example:
+
+```js
+let hamed = 1 / 0;
+let hamid = -1 / 0;
+console.log(hamed); // Infinity
+console.log(hamid); // -Infinity
+console.log(Number.POSITIVE_INFINITY); // Infinity
+console.log(Number.NEGATIVE_INFINITY); // -Infinity
+```
+
+You can't divide Infinity to Infinity:
+
+```js
+console.log(Infinity / Infinity); // NaN
+```
+
+Whoa, we forget to explain zeros value:
+
+```js
+let hamed = 0 / -23;
+let hamid = 0 / 23;
+console.log(hamed); // -0
+console.log(hamid); // +0
+```
+
+But we have found something to show you:
+
+```js
+console.log(hamid === hamed); // true
+console.log(hamid < hamed); // false
+console.log(hamid > hamed); // false
+console.log(hamid <= hamed); // true
+console.log(hamid >= hamed); // true
+```
+
+Some grammer is here. that `array` are reference of each other, but scalar primitive (simple value), are copying each other:
+
+```js
+let hamed = 23;
+let hamid = hamed;
+hamid++;
+console.log(hamed); // 23
+console.log(hamid); // 24
+
+let ali = [1, 2, 3];
+let reza = ali;
+reza.push(4);
+console.log(ali); // [ 1, 2, 3, 4 ]
+console.log(reza); // [ 1, 2, 3, 4 ]
+```
+
+Since references point to the values themselves and not to the variables, you cannot use one reference to change where another reference is pointed:
+
+```js
+let ali = [1, 2, 3];
+let reza = ali;
+reza.push(4);
+console.log(ali); // [ 1, 2, 3, 4 ]
+console.log(reza); // [ 1, 2, 3, 4 ]
+reza = [4, 5, 6];
+console.log(reza); // [ 4, 5, 6 ]
+```

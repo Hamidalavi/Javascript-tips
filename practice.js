@@ -1193,7 +1193,50 @@
 
 // -----------------------------------------------
 
-let hamed = 2 / "hamid";
-console.log(hamed);
-console.log(hamed !== NaN);
-console.log(hamed === NaN);
+// NaN
+// let hamed = 2 / "hamid";
+// console.log(hamed);
+// console.log(hamed !== NaN);
+// console.log(hamed === NaN);
+// console.log(isNaN(hamed));
+
+// -----------------------------------------------
+
+// infinity
+// let hamed = 1 / 0;
+// let hamid = -1 / 0;
+// console.log(hamed); // Infinity
+// console.log(hamid); // -Infinity
+// console.log(Number.POSITIVE_INFINITY); // Infinity
+// console.log(Number.NEGATIVE_INFINITY); // -Infinity
+// console.log(Infinity / Infinity); // NaN
+
+// -----------------------------------------------
+
+// zeros
+// let hamed = 0 / -23;
+// let hamid = 0 / 23;
+// // console.log(hamed); // -0
+// // console.log(hamid); // +0
+// console.log(hamid === hamed); // true
+// console.log(hamid < hamed); // false
+// console.log(hamid > hamed); // false
+// console.log(hamid <= hamed); // true
+// console.log(hamid >= hamed); // true
+
+// -----------------------------------------------
+
+// copy and reference
+let hamed = 23;
+let hamid = hamed;
+hamid++;
+console.log(hamed); // 23
+console.log(hamid); // 24
+
+let ali = [1, 2, 3];
+let reza = ali;
+reza.push(4);
+console.log(ali); // [ 1, 2, 3, 4 ]
+console.log(reza); // [ 1, 2, 3, 4 ]
+reza = [4, 5, 6];
+console.log(reza); // [ 4, 5, 6 ]
