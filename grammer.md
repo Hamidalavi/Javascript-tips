@@ -141,3 +141,20 @@ console.log(23 .toFixed(3)); // 23.000
 ```
 
 `23..toFixed(3)` works because the first `.` is part of the `number` and the second `.` is the **property** operator. You can also use last line of above snippet (23 .toFixed()) for getting result (not recommend)
+
+In **JavaScript** we have small decimal values like:
+
+```js
+let hamed = 0.2 + 0.1;
+console.log(hamed === 0.3); // false
+```
+
+**Q**: Why output is **false**?
+
+**Answer**: The most commonly accepted practice is to use a tiny "rounding error" value as the tolerance for comparison. This tiny value is often called **machine epsilon**, which is commonly `2^-52` (2.220446049250313e-16) for the kind of numbers in **JavaScript**. As of ES6, `Number.EPSILON` is predefined with this tolerance value, so you'd want to use it. but you can safely polyfill the definition for pre-ES6:
+
+```js
+if (!Number.EPSILON) {
+    Number.EPSILON = Math.pow(2, -52);
+}
+```

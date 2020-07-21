@@ -1181,3 +1181,7 @@
 // console.log(0363); // 243
 
 // -----------------------------------------------
+
+// small decimal
+// let hamed = 0.2 + 0.1;
+// console.log(hamed === 0.3); // false
