@@ -76,7 +76,7 @@ console.log(arr.length); // 10
 
 As you see above, space of array is being wasted.
 
-Again, be careful that when you want to define a specific array's key with `string number` type, dont's use number as `string`. It's working, but not recommend. For example:
+Again, be careful that when you want to define a specific array's key with `string number` type, dont's use `number` as `string`. `srting` convert to `number` automatically, It's working, but not recommend. For example:
 
 ```js
 var arr = [];
@@ -84,3 +84,16 @@ arr["0"] = 1;
 arr["9"] = 10;
 console.log(arr.length); // 10
 ```
+
+One another thing; is, many people think `string` is `array` concatination. But is not **true**. Because `string` values are immutable (cannot be reverse). For example:
+
+```js
+let hamed = "Hamed";
+let hamid = ["H", "a", "m", "i", "d"];
+// console.log(hamed.reverse()); // TypeEror
+console.log(hamid.reverse()); // [ 'd', 'i', 'm', 'a', 'H' ]
+```
+
+## Number
+
+In **JavaScript**, don't say "integer". This is an insult to **JavaScript**. Try saying `number` as habit. Because we and you use numerical type like `23` or `23.6` or `.25` and etc. .

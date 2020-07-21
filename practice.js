@@ -1084,8 +1084,58 @@
 // console.log(arr.length); // 10
 
 // -----------------------------------------------
+
 // string number formatting
-var arr = [];
-arr["0"] = 1;
-arr["9"] = 10;
-console.log(arr.length); // 10
+// var arr = [];
+// arr["0"] = 1;
+// arr["9"] = 10;
+// console.log(arr.length); // 10
+
+// -----------------------------------------------
+
+// array-like (from YDKJS)
+// function foo() {
+//     var arr = Array.prototype.slice.call(arguments);
+//     arr.push("bam");
+//     console.log(arr);
+// }
+// foo("bar", "baz"); // ["bar","baz","bam"]
+
+// // or
+// var arr = Array.from(arguments);
+
+// -----------------------------------------------
+
+// string and array length
+// let hamed = "Hamed";
+// let hamid = ["H", "a", "m", "i", "d"];
+// console.log(hamed.length); // 5
+// console.log(hamid.length); // 5
+// let ali = hamed.concat(" Alavi")
+// let reza = hamed.concat(" Alavi")
+// hamid.concat(" Alavi")
+// console.log(ali); // Hamed Alavi
+// console.log(reza); // Hamid Alavi
+
+// console.log(hamed.length); // 5
+// console.log(hamid.length); // 5
+// // because
+// console.log(hamed); // Hamed
+// console.log(hamid); // [ 'H', 'a', 'm', 'i', 'd' ]
+
+// console.log(hamed === ali); // false
+// console.log(hamed === ali); // false
+
+// console.log(hamed.reversse()); // TypeError:
+// console.log(hamid.reverse()); // [ 'd', 'i', 'm', 'a', 'H' ]
+
+// -----------------------------------------------
+
+// reverse value
+// let hamed = "Hamed";
+// let hamid = ["H", "a", "m", "i", "d"];
+// // console.log(hamed.reverse()); // TypeEror
+// console.log(hamid.reverse()); // [ 'd', 'i', 'm', 'a', 'H' ]
+
+// -----------------------------------------------
+
