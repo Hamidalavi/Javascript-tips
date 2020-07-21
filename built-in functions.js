@@ -13,7 +13,11 @@ Number(value); // convert any type to number type
 
 String(value); // convert any type to string type
 
-toFixed(number); // show decimal as you set. for example x.toFixed(2); shows with 2 decimal in output
+number.toFixed(num); // show decimal as you set. for example x.toFixed(2); shows with 2 decimal in output
+
+number.toPrecision(num); // is similar, but specifies how many significant digits should be used torepresent the value
+
+number.toExponential(); // returns a string containing a number represented in exponential notation
 
 typeof value; // can examine a value and tell you what type it is (not function, but useful)
 
@@ -38,6 +42,8 @@ for (let i = 0; i < array.length; i++) {
 for (let v of arr) {
     console.log(v);
     } // shows values in array (awesome)
+
+array.reverse(); // reverses the elements in an array
 
 Object.preventExtensions(object); // prevent from adding properties
 

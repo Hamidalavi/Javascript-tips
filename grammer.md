@@ -97,3 +97,44 @@ console.log(hamid.reverse()); // [ 'd', 'i', 'm', 'a', 'H' ]
 ## Number
 
 In **JavaScript**, don't say "integer". This is an insult to **JavaScript**. Try saying `number` as habit. Because we and you use numerical type like `23` or `23.6` or `.25` or `23.` and etc. .
+
+Very large or very small `numbers` will by default be outputted in exponent form. For example:
+
+```js
+let hamed = 2E13;
+console.log(hamed); // 20000000000000
+console.log(hamed.toExponential()); // 2e+13
+let hamid = hamed * hamed;
+console.log(hamid); // 4e+26
+console.log(hamid.toExponential());// 4e+26
+let ali = 1 / hamed;
+console.log(ali); // 5e-14
+```
+
+If you want to specify how many fractional decimal places you'd like the value to be represented with, you can use `toFixed` function. For example:
+
+```js
+let hamed = 23 * 34.68;
+console.log(hamed); // 797.64
+console.log(hamed.toFixed()); // 798
+console.log(hamed.toFixed(1)); // 797.6
+console.log(hamed.toFixed(5)); // 797.64000
+```
+
+If you want to specify how many significant digits should be used to represent the value, you can use `toPrecision` function. For example:
+
+```js
+let hamed = 23 * 34.68;
+console.log(hamed); // 797.64
+console.log(hamed.toPrecision()); // 797.64
+console.log(hamed.toPrecision(1)); // 8e+2
+console.log(hamed.toPrecision(5)); // 797.64
+```
+
+Something you have mistake of using `toFixed` function. For example:
+
+```js
+console.log(23.toFixed(3)); // SyntaxError
+console.log((0.23).toFixed(3)); // 0.230
+console.log(23..toFixed(3)); // 23.000
+```

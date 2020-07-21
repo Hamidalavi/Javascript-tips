@@ -1139,3 +1139,35 @@
 
 // -----------------------------------------------
 
+// toExponential
+// let hamed = 2E13;
+// console.log(hamed); // 20000000000000
+// console.log(hamed.toExponential()); // 2e+13
+// let hamid = hamed * hamed;
+// console.log(hamid); // 4e+26
+// console.log(hamid.toExponential());// 4e+26
+// let ali = 1 / hamed;
+// console.log(ali); // 5e-14
+
+// -----------------------------------------------
+
+// decimal (fractional and precision)
+// let hamed = 23 * 34.68;
+// console.log(hamed); // 797.64
+// console.log(hamed.toFixed()); // 798
+// console.log(hamed.toFixed(1)); // 797.6
+// console.log(hamed.toFixed(5)); // 797.64000
+
+
+// let hamed = 23 * 34.68;
+// console.log(hamed); // 797.64
+// console.log(hamed.toPrecision()); // 797.64
+// console.log(hamed.toPrecision(1)); // 8e+2
+// console.log(hamed.toPrecision(5)); // 797.64
+
+// -----------------------------------------------
+
+// invalid syntax
+// console.log(23.toFixed(3)); // SyntaxError
+// console.log((0.23).toFixed(3)); // 0.230
+// console.log(23..toFixed(3)); // 23.000
