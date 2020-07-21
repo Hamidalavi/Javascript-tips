@@ -1182,6 +1182,18 @@
 
 // -----------------------------------------------
 
-// small decimal
+// small decimal and big digits
 // let hamed = 0.2 + 0.1;
 // console.log(hamed === 0.3); // false
+
+// console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+// console.log(Number.MIN_VALUE); // 5e-324
+// console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+// console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
+
+// -----------------------------------------------
+
+let hamed = 2 / "hamid";
+console.log(hamed);
+console.log(hamed !== NaN);
+console.log(hamed === NaN);

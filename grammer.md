@@ -158,3 +158,27 @@ if (!Number.EPSILON) {
     Number.EPSILON = Math.pow(2, -52);
 }
 ```
+
+**Q**:Do you know how many digits, **JavaScript** support?
+
+**Answer**: its very very huge, 5e-324 to 1.7976931348623157e+308 which isn't negative but is really close to zero. Yes; its awesome value.
+
+There are some information that you must to learn.
+
+```js
+console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+console.log(Number.MIN_VALUE); // 5e-324
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
+```
+
+Huge number. Whoa. Lets test next strange thing, `NaN`:
+
+```js
+let hamed = 2 / "hamid";
+console.log(hamed); // NaN (Not a Number)
+console.log(hamed !== NaN); // true
+console.log(hamed === NaN); // false
+```
+
+`NaN` is a very special value in that it's never equal to another `NaN` value (i.e., it's never equal to itself). It's the only value, in fact, that is not reflexive (without the Identity characteristic `x === x`). So, `NaN !== NaN`.
