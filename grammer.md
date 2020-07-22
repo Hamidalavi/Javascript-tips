@@ -252,3 +252,20 @@ console.log(reza); // [ 1, 2, 3, 4 ]
 reza = [4, 5, 6];
 console.log(reza); // [ 4, 5, 6 ]
 ```
+
+Another example:
+
+```js
+function hamed(nums) {
+    nums.push(4); x; // [ 1, 2, 3, 4 ]
+
+    // later
+    nums = [4, 5, 6];
+    nums.push(7);
+    nums; // [ 4, 5, 6, 7 ]
+}
+
+var hamid = [1, 2, 3];
+hamed(hamid);
+console.log(hamid); // [ 1, 2 ,3 ,4 ]  not  [ 4, 5 ,6 ,7 ]
+```

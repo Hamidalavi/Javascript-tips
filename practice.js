@@ -1227,16 +1227,30 @@
 // -----------------------------------------------
 
 // copy and reference
-let hamed = 23;
-let hamid = hamed;
-hamid++;
-console.log(hamed); // 23
-console.log(hamid); // 24
+// let hamed = 23;
+// let hamid = hamed;
+// hamid++;
+// console.log(hamed); // 23
+// console.log(hamid); // 24
 
-let ali = [1, 2, 3];
-let reza = ali;
-reza.push(4);
-console.log(ali); // [ 1, 2, 3, 4 ]
-console.log(reza); // [ 1, 2, 3, 4 ]
-reza = [4, 5, 6];
-console.log(reza); // [ 4, 5, 6 ]
+// let ali = [1, 2, 3];
+// let reza = ali;
+// reza.push(4);
+// console.log(ali); // [ 1, 2, 3, 4 ]
+// console.log(reza); // [ 1, 2, 3, 4 ]
+// reza = [4, 5, 6];
+// console.log(reza); // [ 4, 5, 6 ]
+
+
+function foo(x) {
+    x.push(4); x; // [ 1, 2, 3 ,4 ]
+
+    // later
+    x = [4, 5, 6];
+    x.push(7);
+    x; // [ 4, 5, 6, 7 ]
+}
+
+var a = [1, 2, 3];
+foo(a);
+console.log(a); // [ 1, 2 ,3 ,4 ]  not  [ 4, 5, 6 ,7 ]
