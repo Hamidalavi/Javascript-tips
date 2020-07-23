@@ -54,6 +54,8 @@ console.log(hamed.length);
 
 In **JavaScript**, variables don't have `types`, **values** have types. Variables can hold anyvalue, at any time.
 
+---
+
 ## Array
 
 You can add `string` index (associate array) manually in arrays. But array's length will not change. For example:
@@ -93,6 +95,8 @@ let hamid = ["H", "a", "m", "i", "d"];
 // console.log(hamed.reverse()); // TypeEror
 console.log(hamid.reverse()); // [ 'd', 'i', 'm', 'a', 'H' ]
 ```
+
+---
 
 ## Number
 
@@ -269,3 +273,20 @@ var hamid = [1, 2, 3];
 hamed(hamid);
 console.log(hamid); // [ 1, 2 ,3 ,4 ]  not  [ 4, 5 ,6 ,7 ]
 ```
+
+---
+
+## Box and Object Wrapper
+
+Primitive values don't have properties or method. Thankfully, **JavaScript** will automatically box (aka wrap) the primitive value to fulfill such accesses. For example:
+
+```js
+let hamed = "Hamed";
+console.log(hamed);
+console.log(hamed.length);
+console.log(hamed.toUpperCase()); // real-time casing
+```
+
+But it turns out that's a bad idea. Browsers long ago performance optimized the common cases like `.length`, which means your program will actually go slower if you try to "**preoptimize**" by directly using the object form.
+
+In general, there's basically no reason to use the object form directly. It's better to just let the boxing happen implicitly where necessary. In other words, never do things like `new String("abc")`, `new Number(23)` and etc.; Always prefer using the literal primitive values `"abc"` and `23`.

@@ -156,6 +156,8 @@ var obj = { a: 23 };
 hamed.call(obj); // 23
 ```
 
+---
+
 ## bind
 
 There are some good features, one of them is `bind()`. For a given function, creates a bound function that has the same body as the original function. The `this` object of the bound function is associated with the specified object, and has the specified initial parameters.

@@ -104,6 +104,8 @@ console.log(ref); // [Function: hamed]
 console.log(obj.hamed); // [Function: hamed] (same function)
 ```
 
+---
+
 ## Array
 
 **Arrays** are **objects**, so even though each index is a positive integer, you can also add properties onto the array:
@@ -141,6 +143,8 @@ arr["5"] = "Hello"; // or can use arr[5] = "Hello";
 console.log(arr[5]); // Hello
 console.log(arr.length); // 6
 ```
+
+---
 
 ## Object Property Description
 
@@ -249,6 +253,9 @@ Object.getOwnPropertyNames(obj); // ["a", "b"]
 
 If you want check the property is `enumerable` or `non-enumerable`, you can use `propertyIsEnumerable(..)`. `propertyIsEnumerable` tests whether the given property name exists directly on the **object** and is also **enumerable:true**.
 
+
+---
+
 ## Getter & Setter
 
 Sometimes you heard about [Get] and [Put] operation. But, what are they? look below example:
@@ -297,6 +304,8 @@ console.log(obj.hasOwnProperty("b")); // false
 
 The `in` operator will check to see if the property is in the **object**, or if it exists at any higher level of the [[Prototype]] chain object traversal. By contrast, `hasOwnProperty(..)` checks to see if only `obj` has the property or not, and will not consult the [[Prototype]] chain.
 
+---
+
 ## Shadowing
 
 Lets look below code:
@@ -322,6 +331,8 @@ console.log(object.hasOwnProperty("a")); // true
 Though it may appear that `object.a++` should (via delegation) look-up and just increment the `obj.a` property itself in place, instead the `++` operation corresponds to `object.a = object.a + 1`. The result is [[Get]] looking up `a` property via [[Prototype]] to get the current value `23` from `obj.a`, incrementing the value by one, then [[Put]] assigning the `24` value to a new shadowed property `a` on `object`.
 
 Be very careful when dealing with delegated properties that you modify. If you wanted to increment `obj.a`, the only proper way is `object.a++`.
+
+---
 
 ## Class
 

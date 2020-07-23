@@ -10,6 +10,8 @@
 
 The two languages are different in many important ways. "**JavaScript**" is as related to "**Java**" as "Butter" is to "Butterfly".
 
+---
+
 ## Blame
 
 - When developers encounter confusion, they usually blame the language instead of their lack of understanding.
@@ -18,15 +20,21 @@ The two languages are different in many important ways. "**JavaScript**" is as r
   - They **destroy** it
   - They **make fun** of it
 
+---
+
 ## Syntax
 
 The rules for valid format and combinations of instructions is called a **computer language**, sometimes referred to as its **syntax**, much the same as English tells you how to **spell** wordsand how to create valid sentences using words and punctuation.
+
+---
 
 ## Understanding to Computer
 
 - A special utility on the computer(either an `interpreter` or a `compiler`) is used to translate the code you write into commands a computer can understand.
   - For some computer languages, this translation of commands is typically done from top to bottom, line by line, every time the program is run, which is usually called `interpreting` the code (like **JavaScript**).
   - For other languages, the translation is done ahead of time, called `compiling` the code, so when the program runs later, what's running is actually the already compiled computer instructions ready to go (like **C++**).
+
+---
 
 ## How Does a Compilation(Compiling) Work (from YDKJS)
 
@@ -37,6 +45,8 @@ The rules for valid format and combinations of instructions is called a **comput
 
 - Two distinct actions are taken for a variable assignment: First, **Compiler** declares a **variable** (if not previously declared in the current scope), and second, when executing, Engine looks up the **variable** in `Scope` and assigns to it, if found.
 
+---
+
 ## Usage
 
 - I recommend to use node instead of browser console to see output(example: node [`file`])
@@ -44,6 +54,8 @@ The rules for valid format and combinations of instructions is called a **comput
 - Its better and cleaner to use `console.log()` instead of `alert()` function (fast and not annoying) to see output.
 - If you want input something to browser (like text box), you can use `prompt` function.
 - If you want to be good programmer, always use **comment** between your codes.
+
+---
 
 ## Know About JavaScript (just pointing to base with simple informations)
 
@@ -211,6 +223,8 @@ need a semicolon ( ; ) to conclude it.
 - **JavaScript** does not, in fact, have **dynamic** scope. It has **lexical** scope.
   - The key contrast: **lexical** scope is **write-time**, whereas **dynamic** scope (and `this`) are **runtime**.
 
+---
+
 ## LHS/RHS (Left Hand Side/Right Hand Side)
 
 It means **Right/Left Hand Side**  Of an assignment operation (=). If you want understand this section, try meaning this like: "who's the target of the **assignment** (LHS)" and "who's the source of the assignment (RHS)" (a = 23);
@@ -233,6 +247,8 @@ In this example, its like a = 23;
 You might be tempted to conceptualize the function declaration `function foo(a) {`... as a normal variable **declaration** and **assignment**, such as `var foo` and `foo = function(a) {`... . In so doing, it would be tempting to think of this function declaration as involving an LHS look-up.
 
 - Unfulfilled **RHS** references result in `ReferenceError`s being thrown (show). **LHS** too.
+
+---
 
 ## Modules
 
