@@ -1258,7 +1258,59 @@
 // -----------------------------------------------
 
 // box wrapper
-let hamed = "Hamed";
-console.log(hamed);
-console.log(hamed.length);
-console.log(hamed.toUpperCase()); // real-time casing
+// let hamed = "Hamed";
+// console.log(hamed);
+// console.log(hamed.length);
+// console.log(hamed.toUpperCase()); // real-time casing
+
+
+// let hamed = "Hamed";
+// let hamid = new String(hamed);
+// let ali = Object(hamed);
+
+// console.log(typeof hamed); // string
+// console.log(typeof hamid); // object
+// console.log(typeof ali); // object
+
+// console.log(hamid instanceof String); // true
+// console.log(ali instanceof String); // true
+
+// console.log(Object.prototype.toString(hamid)); // [object Object]
+// console.log(Object.prototype.toString(ali)); // [object Object]
+
+
+// -----------------------------------------------
+
+// unboxing value
+// let hamed = new String("Hamed");
+// let hamid = new Number(23);
+// let ali = new Boolean(false);
+
+// console.log(hamed.valueOf()); // Hamed
+// console.log(hamid.valueOf()); // 23
+// console.log(ali.valueOf()); // false
+
+
+// let hamed = new String("Hamed");
+// let hamid = hamed + "";
+// console.log(typeof hamed); // object
+// console.log(typeof hamid); // string
+
+// -----------------------------------------------
+
+// sparse array
+// let hamed = new Array(5);
+// console.log(hamed.length); // 5
+// console.log(hamed); // [ <5 empty items> ]
+
+
+// let hamed = Array.apply(null, { length: 3 });
+// console.log(hamed); // [ undefined, undefined, undefined ]
+
+// -----------------------------------------------
+
+// more on coercion
+let hamed = 23;
+let hamid = hamed + "";
+console.log(typeof hamed); // number
+console.log(typeof hamid); // string

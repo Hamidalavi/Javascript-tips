@@ -290,3 +290,72 @@ console.log(hamed.toUpperCase()); // real-time casing
 But it turns out that's a bad idea. Browsers long ago performance optimized the common cases like `.length`, which means your program will actually go slower if you try to "**preoptimize**" by directly using the object form.
 
 In general, there's basically no reason to use the object form directly. It's better to just let the boxing happen implicitly where necessary. In other words, never do things like `new String("abc")`, `new Number(23)` and etc.; Always prefer using the literal primitive values `"abc"` and `23`.
+
+See below example:
+
+```js
+let hamed = "Hamed";
+let hamid = new String(hamed);
+let ali = Object(hamed);
+
+console.log(typeof hamed); // string
+console.log(typeof hamid); // object
+console.log(typeof ali); // object
+
+console.log(hamid instanceof String); // true
+console.log(ali instanceof String); // true
+
+console.log(Object.prototype.toString(hamid)); // [object Object]
+console.log(Object.prototype.toString(ali)); // [object Object]
+```
+
+Again, using the boxed object wrapper directly (like `hamed` and `hamid` and above) is usually discouraged, but there may be some rare occasions you'll run into where they may be useful.
+
+If you have an object wrapper and you want to get the underlying primitive value out, you can use the `valueOf()` method (You can also use Unboxing method, `valueOf()`):
+
+```js
+let hamed = new String("Hamed");
+let hamid = new Number(23);
+let ali = new Boolean(false);
+
+console.log(hamed.valueOf()); // Hamed
+console.log(hamid.valueOf()); // 23
+console.log(ali.valueOf()); // false
+```
+
+Unboxing can also happen implicitly, when using an object wrapper value in a way that requires the primitive value:
+
+```js
+let hamed = new String("Hamed");
+let hamid = hamed + "";
+
+console.log(typeof hamed); // object
+console.log(typeof hamid); // string
+```
+
+---
+
+## Continue on Array
+
+The `Array()`constructor does not require the `new` keyword in front of it. If you omit it, it will behave as if you have used it anyway. So `Array(1, 2, 3)` is the same outcome as:
+
+```js
+new Array(1, 2, 3)
+```
+
+**Important**: An array with at least one "**empty slot**" in it is often called a "**sparse array**":
+
+```js
+let hamed = new Array(5);
+console.log(hamed.length); // 5
+console.log(hamed); // [ <5 empty items> ]
+```
+
+Look below snippet:
+
+```js
+let hamed = Array.apply(null, { length: 3 });
+console.log(hamed); // [ undefined, undefined, undefined ]
+```
+
+While `Array.apply(null, { length: 3 })` is a strange and verbose way to create an array filled with `undefined` values, it's **vastly** better and more reliable than what you get with the footgun'ish `Array(3)` empty slots.

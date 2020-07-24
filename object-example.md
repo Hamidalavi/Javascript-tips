@@ -6,7 +6,7 @@
 
 ## Twitter = **<https://twitter.com/HamidAlavi6540>**
 
-**Important: All functions in JavaScript are object**.
+**Important: All functions in JavaScript are object**. (not for `Symbols`, they are simple scalar primitive)
 
 ### A most important bug in **JavaScript** was found by developers, that the `null` is object in output
 
