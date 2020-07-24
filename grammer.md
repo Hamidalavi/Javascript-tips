@@ -359,3 +359,9 @@ console.log(hamed); // [ undefined, undefined, undefined ]
 ```
 
 While `Array.apply(null, { length: 3 })` is a strange and verbose way to create an array filled with `undefined` values, it's **vastly** better and more reliable than what you get with the footgun'ish `Array(3)` empty slots.
+
+---
+
+## Continue on Number
+
+Default value of something:

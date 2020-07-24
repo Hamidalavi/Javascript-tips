@@ -1316,9 +1316,55 @@
 // console.log(typeof hamid); // string
 
 
-let hamed = 1.01 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000;
-console.log(hamed.toString()); // "1.01e+21"
+// let hamed = 1.01 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000;
+// console.log(hamed.toString()); // "1.01e+21"
 
 
-let hamid = [1, 2, 3];
-console.log(hamid.toString()); // "1,2,3"
+// let hamid = [1, 2, 3];
+// console.log(hamid.toString()); // "1,2,3"
+
+// -----------------------------------------------
+
+// JSON
+// let hamed = 1234567889;
+// console.log(JSON.stringify(hamed)); // "1234567889"
+// console.log(JSON.stringify("Hamid")); // ""Hamid""
+// console.log(JSON.stringify(undefined)); // undefined
+// console.log(JSON.stringify(function () { })); // undefined
+// console.log(JSON.stringify([23, undefined, function () { }, 32])); // [23,null,null,32]
+// console.log(JSON.stringify({ hamid: 23, b: function () { } })); // {"hamid":23}
+
+
+// var hamid = {
+//     b: 23,
+//     c: "23",
+//     d: [1, 2, 3]
+// };
+
+// console.log(JSON.stringify(hamid, null, 3));
+// /* {
+//     "b": 23,
+//     "c": "23",
+//     "d": [
+//        1,
+//        2,
+//        3
+//     ]
+//  }
+// */
+// console.log(JSON.stringify(hamid, null, "-----"));
+// /*
+// {
+// -----"b": 23,
+// -----"c": "23",
+// -----"d": [
+// ----------1,
+// ----------2,
+// ----------3
+// -----]
+// }
+// */
+
+// -----------------------------------------------
+
+// default value
