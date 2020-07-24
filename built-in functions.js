@@ -4,11 +4,21 @@ let string = "Hello Hamid";
 let object = {};
 let value; // some value
 
+// common -----------------------------------------------
+
+typeof value; // can examine a value and tell you what type it is (not function, but useful)
+
+isNaN(value); // check NaN of value as boolean
+
+// output -----------------------------------------------
+
 console.log(value); // logs the output
 
 alert(value); // visual log output
 
 prompt(string); // input from user
+
+// Number -----------------------------------------------
 
 Number(value); // convert any type to number type
 
@@ -31,9 +41,13 @@ number.toPrecision(num); // is similar, but specifies how many significant digit
 
 number.toExponential(); // returns a string containing a number represented in exponential notation
 
-typeof value; // can examine a value and tell you what type it is (not function, but useful)
+// Object -----------------------------------------------
 
 Object.create(value); // creates an object that has the specified prototype or that has null prototype
+
+Object.preventExtensions(object); // prevent from adding properties
+
+Object.keys(object); // shows all object's keys (returns an array of all enumerable properties)
 
 eval("Hamid"); // evaluates JavaScript code and executes it (string of code)(ex: "var a = 20;")
 
@@ -44,6 +58,8 @@ setTimeout(() => {
 setInterval(() => {
     console.log("Hello");
 }, 1000); // this command is executed repeatedly after the time we specified
+
+// Array -----------------------------------------------
 
 array.join("!"); // join something beween array elements
 
@@ -56,9 +72,3 @@ for (let v of arr) {
     } // shows values in array (awesome)
 
 array.reverse(); // reverses the elements in an array
-
-Object.preventExtensions(object); // prevent from adding properties
-
-Object.keys(object); // shows all object's keys (returns an array of all enumerable properties)
-
-isNaN(value); // check NaN of value as boolean

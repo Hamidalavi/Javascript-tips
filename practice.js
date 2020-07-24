@@ -1310,7 +1310,15 @@
 // -----------------------------------------------
 
 // more on coercion
-let hamed = 23;
-let hamid = hamed + "";
-console.log(typeof hamed); // number
-console.log(typeof hamid); // string
+// let hamed = 23;
+// let hamid = hamed + "";
+// console.log(typeof hamed); // number
+// console.log(typeof hamid); // string
+
+
+let hamed = 1.01 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000;
+console.log(hamed.toString()); // "1.01e+21"
+
+
+let hamid = [1, 2, 3];
+console.log(hamid.toString()); // "1,2,3"
