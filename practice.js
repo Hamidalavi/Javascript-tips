@@ -1453,7 +1453,7 @@
 
 // -----------------------------------------------
 
-// convert and concat
+// convert and concat (Implicitly)
 // let hamed = "23";
 // let hamid = "0";
 // let ali = hamed + hamid;
@@ -1472,6 +1472,22 @@
 // console.log(ali); // "1,23,4"
 
 
-let hamed = 23;
-let hamid = hamed + "";
-console.log(hamid); // "23"
+// let hamed = 23;
+// let hamid = hamed + "";
+// console.log(hamid); // "23"
+
+
+// let hamed = 23;
+// let hamid = "" + hamed;
+// console.log(hamid); // "23"
+
+
+// let hamed = "26";
+// let hamid = hamed - 3;
+// console.log(hamid); // 23
+
+
+let hamed = [26];
+let hamid = [3];
+let ali = hamed - hamid;
+console.log(ali); // 23

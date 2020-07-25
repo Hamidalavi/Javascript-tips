@@ -6,6 +6,8 @@
 
 ## Twitter = **<https://twitter.com/HamidAlavi6540>**
 
+### Note: Our variable declaration names: Hamid, Hamed, ALi, Reza, Majid, Mehrdad, Morteza
+
 ## **Difference**
 
 The two languages are different in many important ways. "**JavaScript**" is as related to "**Java**" as "Butter" is to "Butterfly".

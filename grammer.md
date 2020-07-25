@@ -517,4 +517,24 @@ console.log(ali); // "1,23,4" (concat as two strings ("1,2" and "3,4"))
 let hamed = 23;
 let hamid = hamed + "";
 console.log(hamid); // "23"
+
+
+let hamed = 23;
+let hamid = "" + hamed;
+console.log(hamid); // "23"
+```
+
+Some operators like `-` and `/` and `*` and etc. work strangely:
+
+```js
+let hamed = "26";
+let hamid = hamed - 3;
+console.log(hamid); // 23 (Implicitly convert string to number)
+```
+
+```js
+let hamed = [26];
+let hamid = [3];
+let ali = hamed - hamid;
+console.log(ali); // 23
 ```
