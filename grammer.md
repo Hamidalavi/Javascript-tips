@@ -444,3 +444,46 @@ if (!Date.now) {
     };
 }
 ```
+
+The special character `~` use for some cool thing like as:
+
+```js
+let hamed = 23;
+console.log(~hamed); // -(23 + 1) = -24
+```
+
+But more importantly, it doesn't work the same on negative numbers as `Math.floor(..)` does:
+
+```js
+console.log(Math.floor(-29.6)); // -30
+console.log(~~-29.6); // -29
+```
+
+**Q**: How can we convert easily `string` to `number`?
+
+**Answer**: with `parseInt()` function (parsing numeric strings):
+
+```js
+let hamed = "23";
+let hamid = "42px";
+
+console.log(Number(hamed)); // 23
+console.log(parseInt(hamed)); // 23
+console.log(Number(hamid)); // NaN
+console.log(parseInt(hamed)); // 23
+```
+
+See another example (non-string):
+
+```js
+console.log(parseInt(new String("23"))); // 23
+```
+
+```js
+let hamed = {
+    num: 11.5,
+    toString: function () { return String(this.num * 2); }
+};
+
+parseInt(hamed); // 23
+```

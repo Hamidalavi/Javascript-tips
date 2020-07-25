@@ -1416,3 +1416,34 @@
 //         return +new Date();
 //     };
 // }
+
+// -----------------------------------------------
+
+// tilde ~
+// let hamed = 23;
+// console.log(~hamed); // -(23 + 1) = -24
+
+
+// console.log(Math.floor(-29.6)); // -30
+// console.log(~~-29.6); // -29
+
+// -----------------------------------------------
+
+// parsing numeric strings
+// let hamed = "23";
+// let hamid = "42px";
+
+// console.log(Number(hamed)); // 23
+// console.log(parseInt(hamed)); // 23
+// console.log(Number(hamid)); // NaN
+// console.log(parseInt(hamed)); // 23
+
+
+// console.log(parseInt(new String("23"))); // 23
+
+
+// let hamed = {
+//     num: 11.5,
+//     toString: function () { return String(this.num * 2); }
+// };
+// parseInt(hamed); // 23
