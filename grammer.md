@@ -6,6 +6,8 @@
 
 ## Twitter = **<https://twitter.com/HamidAlavi6540>**
 
+**I recommend first read `papular-sentences.md` and `this-example.md` and `object-example.md` file**.
+
 JavaScript defines seven built-in types:
 >1.null
 >>2.undefined
@@ -643,3 +645,78 @@ Loose equals is the `==` operator, and strict equals is the `===` operator. Both
 A very common misconception about these two operators is: " `==` checks values for equality and `===` checks both values and types for equality". While that sounds nice and reasonable, it's **inaccurate**. Countless well-respected JavaScript books and blogs have said exactly that, but unfortunately they're all **wrong**.
 
 The correct description is: "`==` allows coercion in the equality comparison and `===` disallows coercion".
+
+In the first explanation (inaccurate), it seems obvious that `===` is doing more work than `==` because it has to follow through the steps of coercion if the types are different.
+
+**Don't fall into the trap**, as many have, of thinking this has anything to do with performance, though, as if `==` is going to be slower than `===` in any relevant way. While it's measurable that coercion does take a little bit of processing time, it's mere **microseconds** (yes, that's millionths of a second!).
+
+Some minor exceptions to normal expectation to be aware of:
+
+- `NaN` is never equal to itself.
+- `+0` and `-0` are equal to each other.
+
+Let's see allowing coercion and disallowing coercion (string and number)
+
+```js
+let hamed = 23;
+let hamid = "23";
+
+console.log(hamed == hamid); // true
+console.log(hamed === hamid); // false
+```
+
+1. If Type(x) is `Number` and Type(y) is `String`, return the result of the comparison `x == ToNumber(y)`.
+2. If Type(x) is `String` and Type(y) is `Number`, return the result of the comparison `ToNumber(x) == y`.
+
+Let's see another snippet comparison (boolean and number)
+
+```js
+let hamed = "23";
+let hamid = true;
+
+console.log(hamed == hamid); // false
+console.log(hamed === hamid); // false
+```
+
+1. If Type(x) is `boolean`, return the result of the comparison `ToNumber(x) == y`.
+2. If Type(y) is `boolean`, return the result of the comparison `x == ToNumber(y)`.
+
+Let's make your brain smarter:
+
+```js
+let hamed = "23";
+
+if (hamed == true) { console.log("Not working"); } // nothing to show (false)
+if (hamed === true) { console.log("Not working"); } // also nothing to show (false)
+if (hamed) { console.log("Working"); } // show "Working" (true)(works implicitly)
+if (!!hamed) { console.log("Working"); } // also show "Working" (true)(works explicitly)
+if (Boolean(hamed)) { console.log("Working"); } // yeah. also show "Working" (true)(works explicitly)
+```
+
+Another example of implicit coercion comparison(null and undefined)
+
+1. If x is `null` and y is `undefined`, return `true`.
+2. If x is `undefined` and y is `null`, return `true`.
+
+```js
+let hamed = null;
+let hamid;
+
+console.log(hamed == hamid);
+console.log(hamed == null); // true
+console.log(hamid == null); // true
+console.log(hamed == false); // true
+console.log(hamid == false); // false
+console.log(hamed == ""); // false
+console.log(hamid == ""); // false
+console.log(hamed == 0); // false
+console.log(hamid == 0); // false
+if (hamed === undefined || hamed === null) {
+    console.log(hamed === undefined || hamed === null); // true (false || true = true)
+}
+```
+
+Another snippet (object and non-object) comparison:
+
+1. If Type(x) is either `String` or `Number` and Type(y) is `Object`, return the result of the comparison `x == ToPrimitive(y)`.
+2. If Type(x) is `Object` and Type(y) is either `String` or `Number`, return the result of the comparison `ToPrimitive(x) == y`.

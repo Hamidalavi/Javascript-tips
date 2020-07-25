@@ -1541,3 +1541,45 @@
 // console.log(String(str1)); // "Symbol(Yeah)"
 // let str2 = Symbol("Awts");
 // console.log(str2 + ""); // TypeError
+
+// -----------------------------------------------
+
+// allowing and disallowing coercion
+// let hamed = 23;
+// let hamid = "23";
+
+// console.log(hamed == hamid); // true
+// console.log(hamed === hamid); // false
+
+
+// let hamed = "23";
+// let hamid = true;
+
+// console.log(hamed == hamid); // false
+// console.log(hamed === hamid); // false
+
+
+// let hamed = "23";
+
+// if (hamed == true) { console.log("Not working"); } // nothing to show (false)
+// if (hamed === true) { console.log("Not working"); } // also nothing to show (false)
+// if (hamed) { console.log("Working"); } // show "Working" (true)(works implicitly)
+// if (!!hamed) { console.log("Working"); } // also show "Working" (true)(works explicitly)
+// if (Boolean(hamed)) { console.log("Working"); } // yeah. also show "Working" (true)(works explicitly)
+
+
+let hamed = null;
+let hamid;
+
+console.log(hamed == hamid);
+console.log(hamed == null); // true
+console.log(hamid == null); // true
+console.log(hamed == false); // true
+console.log(hamid == false); // false
+console.log(hamed == ""); // false
+console.log(hamid == ""); // false
+console.log(hamed == 0); // false
+console.log(hamid == 0); // false
+if (hamed === undefined || hamed === null) {
+    console.log(hamed === undefined || hamed === null); // true (false || true = true)
+}

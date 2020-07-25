@@ -8,6 +8,8 @@
 
 ### Note: Our variable declaration names: Hamid, Hamed, ALi, Reza, Majid, Mehrdad, Morteza
 
+### Read priority: 1. papular-sentences.md 2. this-example.md 3. object-example 4. grammer.md
+
 ## **Difference**
 
 The two languages are different in many important ways. "**JavaScript**" is as related to "**Java**" as "Butter" is to "Butterfly".
