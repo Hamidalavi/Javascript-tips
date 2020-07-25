@@ -558,8 +558,55 @@ console.log(ali = reza ? hamed : hamid); // "Persian Sight"
 
 ## `||` and `&&` operator (`and` and `or`)
 
-Try to call them, "`selector operator`", not **logical operator**. Because in **JavaScript**, everything are different in `||` and `&&` operator. And because they don't actually result in a logic value (boolean) in **JavaScript** as they do in some other languages.
+Try to call them, "`selector operator`" or "`operand selector operator`", not **logical operator**. Because in **JavaScript**, everything are different in `||` and `&&` operator. And because they don't actually result in a logic value (boolean) in **JavaScript** as they do in some other languages.
 
 **Q**: What do they result in?
 
-**Answer**: 
+**Answer**: They result in the value of one (and only one) of their two operand. In other word, **they select one of the two operand's values**. The value produced by a `&&` or `||` operator is not necessarily of type `Boolean`. The value produced will always be the **value of one of the two operand expressions**.
+
+See below snippet:
+
+```js
+let hamed = 23;
+let hamid = "Persian Sight";
+let ali = null;
+
+console.log(hamed || hamid); // 23
+console.log(hamed && hamid); // "Persian Sight"
+console.log(hamid || ali); // "Persian Sght"
+console.log(hamid && ali); // null
+```
+
+Both `||` and `&&` operators perform a `boolean` test on the **first operand** (`a` or `c`). If the operand is not already `boolean` (as it's not, here), a normal `toBoolean` coercion occurs, so that the test can be performed.
+
+For the `||` operator, if the test is `true`, the `||` expression results in the value of the first operand (`a` and `c`). If the test is `false`, the `||` expression results in the value of the second operand (`b`).
+
+Inversely, for the `&&` operator, if the test is `true`, the `&&` expression results in the value of the second operand (`b`). If the test is `false`, the `&&` expression results in the value of the first operand (`a` or `c`).
+
+**Important**: Another way of thinking about these operators (awesome example you see and understand):
+
+```js
+a || b; // a ? a : b;
+// if a is true, then call a, else call b (if false, call b)
+```
+
+```js
+a && b; // a ? b : a;
+// if a is true, then call b, else call a (if false, call a)
+```
+
+One more interesting example is:
+
+```js
+function hamed(a, b) {
+    a = a || "Persian";
+    b = b || "Sight";
+    console.log(a + " " + b);
+}
+
+hamed(); // "Persian Sight"
+hamed("Hamid", "Alavi"); // "Hamid Alavi"
+hamed("WOW", "");// "WOW Sight"
+```
+
+See the problem? `""` as the second argument is a falsy value, so the `b = b || "Sight"` test fails, and the `"Sight"` default value is substituted, even though the intent probably was to have the explicitly passed `""` be the value assigned to `b`.

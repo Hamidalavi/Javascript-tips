@@ -1495,11 +1495,34 @@
 // -----------------------------------------------
 
 // boolean
-let hamed = 23;
-let hamid = "Persian Sight";
-let ali;
-let reza = null;
+// let hamed = 23;
+// let hamid = "Persian Sight";
+// let ali;
+// let reza = null;
 
-if (hamed) { console.log("Yeah"); } // "Yeah"
-if (ali) { console.log("Yeah"); } else { console.log("Nooo"); }; // "Nooo"
-console.log(ali = reza ? hamed : hamid); // "Persian Sight"
+// if (hamed) { console.log("Yeah"); } // "Yeah"
+// if (ali) { console.log("Yeah"); } else { console.log("Nooo"); }; // "Nooo"
+// console.log(ali = reza ? hamed : hamid); // "Persian Sight"
+
+// -----------------------------------------------
+
+// operand selector
+// let hamed = 23;
+// let hamid = "Persian Sight";
+// let ali = null;
+
+// console.log(hamed || hamid); // 23
+// console.log(hamed && hamid); // "Persian Sight"
+// console.log(hamid || ali); // "Persian Sght"
+// console.log(hamid && ali); // null
+
+
+function hamed(a, b) {
+    a = a || "Persian";
+    b = b || "Sight";
+    console.log(a + " " + b);
+}
+
+hamed(); // "Persian Sight"
+hamed("Hamid", "Alavi"); // "Hamid Alavi"
+hamed("WOW", "");// "WOW Sight"
