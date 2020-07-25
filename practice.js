@@ -1527,8 +1527,17 @@
 // hamed("Hamid", "Alavi"); // "Hamid Alavi"
 // hamed("WOW", "");// "WOW Sight"
 
-function hamed() {
-    console.log(hamid);
-}
-var hamid = 23;
-console.log(hamid && hamed()); // 23 (call hamed first)
+
+// function hamed() {
+//     console.log(hamid);
+// }
+// var hamid = 23;
+// console.log(hamid && hamed()); // 23 (call hamed first)
+
+// -----------------------------------------------
+
+// symbol coercion
+// let str1 = Symbol("Yeah");
+// console.log(String(str1)); // "Symbol(Yeah)"
+// let str2 = Symbol("Awts");
+// console.log(str2 + ""); // TypeError

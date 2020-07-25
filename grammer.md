@@ -622,3 +622,24 @@ console.log(hamid && hamed()); // 23 (call hamed first)
 ```
 
 I think you get it right now how these operators (`||` and `&&`) work.
+
+We also have `Symbol` coercion. As you see below:
+
+```js
+let str1 = Symbol("Yeah");
+console.log(String(str1)); // "Symbol(Yeah)"
+let str2 = Symbol("Awts");
+console.log(str2 + ""); // TypeError
+```
+
+`symbol` values cannot coerce to `number` at all (throws an error either way), but strangely they can both explicitly and implicitly coerce to `boolean` (always true).
+
+---
+
+## Loose Equals vs. Strict Equals
+
+Loose equals is the `==` operator, and strict equals is the `===` operator. Both operators are used for comparing two values for **equality**, but the **loose** vs. **strict** indicates a **very important** difference in behavior between the two, specifically in how they decide **equality**.
+
+A very common misconception about these two operators is: " `==` checks values for equality and `===` checks both values and types for equality". While that sounds nice and reasonable, it's **inaccurate**. Countless well-respected JavaScript books and blogs have said exactly that, but unfortunately they're all **wrong**.
+
+The correct description is: "`==` allows coercion in the equality comparison and `===` disallows coercion".
