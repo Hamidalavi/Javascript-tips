@@ -1487,7 +1487,19 @@
 // console.log(hamid); // 23
 
 
-let hamed = [26];
-let hamid = [3];
-let ali = hamed - hamid;
-console.log(ali); // 23
+// let hamed = [26];
+// let hamid = [3];
+// let ali = hamed - hamid;
+// console.log(ali); // 23
+
+// -----------------------------------------------
+
+// boolean
+var hamed = 23;
+var hamid = "Persian Sight";
+var ali;
+var reza = null;
+
+if (hamed) { console.log("Yeah"); } // "Yeah"
+if (ali) { console.log("Yeah"); } else { console.log("Nooo"); }; // "Nooo"
+console.log(ali = reza ? hamed : hamid); // "Persian Sight"

@@ -33,7 +33,7 @@ var a = null;
 
 `null` is the only primitive value that is **falsy**. But it's type is `object` as a bug.
 
-Lets see below snippet:
+Let's see below snippet:
 
 ```js
 console.log(typeof typeof 23); // "string"
@@ -176,7 +176,7 @@ console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
 console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
 ```
 
-Huge number. Whoa. Lets test next strange thing, `NaN`:
+Huge number. Whoa. Let's test next strange thing, `NaN`:
 
 ```js
 let hamed = 2 / "hamid";
@@ -488,7 +488,7 @@ let hamed = {
 parseInt(hamed); // 23
 ```
 
-### String => Number (vice versa) (Implicitly)
+### String => Number (vice versa) (implicitly)
 
 concatenation `string` and `number`:
 
@@ -537,4 +537,19 @@ let hamed = [26];
 let hamid = [3];
 let ali = hamed - hamid;
 console.log(ali); // 23
+```
+
+**Note**: `hamid = String(hamed)` = explicit and `hamid = hamed + ""` = implicit.
+
+Let's see all to boolean (* => Boolean):
+
+```js
+var hamed = 23;
+var hamid = "Persian Sight";
+var ali;
+var reza = null;
+
+if (hamed) { console.log("Yeah"); } // "Yeah"
+if (ali) { console.log("Yeah"); } else { console.log("Nooo"); }; // "Nooo"
+console.log(ali = reza ? hamed : hamid); // "Persian Sight"
 ```
