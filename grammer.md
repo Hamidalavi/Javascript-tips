@@ -365,3 +365,47 @@ While `Array.apply(null, { length: 3 })` is a strange and verbose way to create 
 ## Continue on Number
 
 Default value of something:
+
+```js
+let hamed = {
+    valueOf: () => { return "23" }
+};
+let hamid = {
+    toString: () => { return "23" }
+};
+let ali = [2, 2];
+ali.toString = function () { return this.join("") };
+
+console.log(Number(hamed)); // 23
+console.log(Number(hamid)); // 23
+console.log(Number(ali)); // 22
+console.log(Number("")); // 0
+console.log(Number([])); // 0
+console.log(Number(["reza"])); // NaN
+```
+
+As you see, `""` and `[]` value is **0**.
+
+In **JavaScript** and other languges we have **falsy** value, these are:
+
+- undefined
+- null
+- false
+- +0
+- -0
+- NaN
+- " "
+
+### String => Number (vice versa)
+
+Automatic converting `string` to `number` and vice versa:
+
+```js
+let hamed = "23.67";
+let hamid = Number(hamed);
+console.log(hamid); // 23.67 (number)
+
+let ali = 22;
+let reza = String(ali);
+console.log(reza); // "22"
+```
