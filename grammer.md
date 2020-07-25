@@ -544,12 +544,22 @@ console.log(ali); // 23
 Let's see all to boolean (* => Boolean):
 
 ```js
-var hamed = 23;
-var hamid = "Persian Sight";
-var ali;
-var reza = null;
+let hamed = 23;
+let hamid = "Persian Sight";
+let ali;
+let reza = null;
 
 if (hamed) { console.log("Yeah"); } // "Yeah"
 if (ali) { console.log("Yeah"); } else { console.log("Nooo"); }; // "Nooo"
 console.log(ali = reza ? hamed : hamid); // "Persian Sight"
 ```
+
+---
+
+## `||` and `&&` operator (`and` and `or`)
+
+Try to call them, "`selector operator`", not **logical operator**. Because in **JavaScript**, everything are different in `||` and `&&` operator. And because they don't actually result in a logic value (boolean) in **JavaScript** as they do in some other languages.
+
+**Q**: What do they result in?
+
+**Answer**: 

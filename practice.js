@@ -1495,10 +1495,10 @@
 // -----------------------------------------------
 
 // boolean
-var hamed = 23;
-var hamid = "Persian Sight";
-var ali;
-var reza = null;
+let hamed = 23;
+let hamid = "Persian Sight";
+let ali;
+let reza = null;
 
 if (hamed) { console.log("Yeah"); } // "Yeah"
 if (ali) { console.log("Yeah"); } else { console.log("Nooo"); }; // "Nooo"
