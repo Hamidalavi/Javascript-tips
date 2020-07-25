@@ -396,7 +396,7 @@ In **JavaScript** and other languges we have **falsy** value, these are:
 - NaN
 - " "
 
-### String => Number (vice versa)
+### String => Number (vice versa) (explicitly)
 
 Automatic converting `string` to `number` and vice versa:
 
@@ -486,4 +486,35 @@ let hamed = {
 };
 
 parseInt(hamed); // 23
+```
+
+### String => Number (vice versa) (Implicitly)
+
+concatenation `string` and `number`:
+
+```js
+let hamed = "23";
+let hamid = "0";
+let ali = hamed + hamid;
+console.log(ali); // "230"
+```
+
+```js
+let hamed = 23;
+let hamid = 0;
+let ali = hamed + hamid;
+console.log(ali); // 23
+```
+
+```js
+let hamed = [1, 2];
+let hamid = [3, 4];
+let ali = hamed + hamid;
+console.log(ali); // "1,23,4" (concat as two strings ("1,2" and "3,4"))
+```
+
+```js
+let hamed = 23;
+let hamid = hamed + "";
+console.log(hamid); // "23"
 ```

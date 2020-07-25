@@ -1447,3 +1447,31 @@
 //     toString: function () { return String(this.num * 2); }
 // };
 // parseInt(hamed); // 23
+
+
+// console.log(parseInt(parseInt, 30.99)); // 15 (+16 to 30.99)
+
+// -----------------------------------------------
+
+// convert and concat
+// let hamed = "23";
+// let hamid = "0";
+// let ali = hamed + hamid;
+// console.log(ali); // "230"
+
+
+// let hamed = 23;
+// let hamid = 0;
+// let ali = hamed + hamid;
+// console.log(ali); // 23
+
+
+// let hamed = [1, 2];
+// let hamid = [3, 4];
+// let ali = hamed + hamid;
+// console.log(ali); // "1,23,4"
+
+
+let hamed = 23;
+let hamid = hamed + "";
+console.log(hamid); // "23"
