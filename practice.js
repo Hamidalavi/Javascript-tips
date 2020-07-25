@@ -1517,12 +1517,18 @@
 // console.log(hamid && ali); // null
 
 
-function hamed(a, b) {
-    a = a || "Persian";
-    b = b || "Sight";
-    console.log(a + " " + b);
-}
+// function hamed(a, b) {
+//     a = a || "Persian";
+//     b = b || "Sight";
+//     console.log(a + " " + b);
+// }
 
-hamed(); // "Persian Sight"
-hamed("Hamid", "Alavi"); // "Hamid Alavi"
-hamed("WOW", "");// "WOW Sight"
+// hamed(); // "Persian Sight"
+// hamed("Hamid", "Alavi"); // "Hamid Alavi"
+// hamed("WOW", "");// "WOW Sight"
+
+function hamed() {
+    console.log(hamid);
+}
+var hamid = 23;
+console.log(hamid && hamed()); // 23 (call hamed first)

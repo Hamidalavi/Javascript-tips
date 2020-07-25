@@ -610,3 +610,15 @@ hamed("WOW", "");// "WOW Sight"
 ```
 
 See the problem? `""` as the second argument is a falsy value, so the `b = b || "Sight"` test fails, and the `"Sight"` default value is substituted, even though the intent probably was to have the explicitly passed `""` be the value assigned to `b`.
+
+Do you want exciting example? we bring it to you :)
+
+```js
+function hamed() {
+    console.log(hamid);
+}
+var hamid = 23;
+console.log(hamid && hamed()); // 23 (call hamed first)
+```
+
+I think you get it right now how these operators (`||` and `&&`) work.
