@@ -1568,18 +1568,24 @@
 // if (Boolean(hamed)) { console.log("Working"); } // yeah. also show "Working" (true)(works explicitly)
 
 
-let hamed = null;
-let hamid;
+// let hamed = null;
+// let hamid;
 
-console.log(hamed == hamid);
-console.log(hamed == null); // true
-console.log(hamid == null); // true
-console.log(hamed == false); // true
-console.log(hamid == false); // false
-console.log(hamed == ""); // false
-console.log(hamid == ""); // false
-console.log(hamed == 0); // false
-console.log(hamid == 0); // false
-if (hamed === undefined || hamed === null) {
-    console.log(hamed === undefined || hamed === null); // true (false || true = true)
-}
+// console.log(hamed == hamid);
+// console.log(hamed == null); // true
+// console.log(hamid == null); // true
+// console.log(hamed == false); // true
+// console.log(hamid == false); // false
+// console.log(hamed == ""); // false
+// console.log(hamid == ""); // false
+// console.log(hamed == 0); // false
+// console.log(hamid == 0); // false
+// if (hamed === undefined || hamed === null) {
+//     console.log(hamed === undefined || hamed === null); // true (false || true = true)
+// }
+
+
+// let hamed = 23;
+// let hamid = [23];
+
+// console.log(hamed == hamid); // true

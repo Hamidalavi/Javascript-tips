@@ -720,3 +720,12 @@ Another snippet (object and non-object) comparison:
 
 1. If Type(x) is either `String` or `Number` and Type(y) is `Object`, return the result of the comparison `x == ToPrimitive(y)`.
 2. If Type(x) is `Object` and Type(y) is either `String` or `Number`, return the result of the comparison `ToPrimitive(x) == y`.
+
+You may notice that these clauses only mention `String` and `Number`, but not `Boolean`. That's because, take care of coercing any `Boolean` operand presented to an `Number` first. For example:
+
+```js
+let hamed = 23;
+let hamid = [23];
+
+console.log(hamed == hamid); // true
+```
