@@ -1385,10 +1385,34 @@
 // console.log(Number(["reza"])); // NaN
 
 
-let hamed = "23.67";
-let hamid = Number(hamed);
-console.log(hamid);
+// let hamed = "23.67";
+// let hamid = Number(hamed);
+// console.log(hamid);
 
-let ali = 22;
-let reza = String(ali);
-console.log(reza); // "22"
+// let ali = 22;
+// let reza = String(ali);
+// console.log(reza); // "22"
+
+// -----------------------------------------------
+
+// unary operator
+// let hamed = 24.67;
+// let hamid = 5+ +hamed;
+// console.log(hamid); // 29.67
+
+
+// console.log(1 + - + + + - + 1); // 2
+
+
+// let date = new Date("Sat, 25 Jul 2020 11:47:39 CDT");
+// console.log(+date); // 1595695659000
+
+
+// let timestamp = +new Date();
+
+// for older browser
+// if (!Date.now) {
+//     Date.now = function () {
+//         return +new Date();
+//     };
+// }

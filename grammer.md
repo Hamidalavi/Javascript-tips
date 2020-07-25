@@ -409,3 +409,38 @@ let ali = 22;
 let reza = String(ali);
 console.log(reza); // "22"
 ```
+
+#### unary operator
+
+In javaScript and other language, we have **unary operator** there is both operator and mathematical operand. For example:
+
+```js
+let hamed = 24.67;
+let hamid = 5+ +hamed;
+console.log(hamid); // 29.67
+```
+
+Another common usage of the unary `+` operator is to coerce a `Date` object into a `Number`, because the result is the unix timestamp representation of the date/time value:
+
+```js
+let date = new Date("Sat, 25 Jul 2020 11:47:39 CDT");
+console.log(+date); // 1595695659000
+```
+
+The most common usage of this idiom is to get the current now moment as a timestamp, such as:
+
+```js
+let timestamp = +new Date();
+```
+
+**Q**: How i get timestamp for now?
+
+**Answer**: You can use `Date.now()` for get **now** time. And if you want to polyfill `Date.now` into older browsers, it's pretty simple:
+
+```js
+if (!Date.now) {
+    Date.now = function () {
+        return +new Date();
+    };
+}
+```
