@@ -1658,6 +1658,7 @@
 
 
 // 22 == "23"; // false
+// 22 < "23"; // true
 // "hamed" == 23; // false
 // "true" == true; // false
 // 22 == "22"; // true
@@ -1675,3 +1676,11 @@
 // ali > reza; // false
 // ali <= reza; // true
 // ali >= reza; // true
+
+
+// let hamed = [22];
+// let hamid = "023";
+// hamed < hamid; // false -- string comparison!
+// Number(hamed) < Number(hamid); // true -- number comparison!
+
+// -----------------------------------------------

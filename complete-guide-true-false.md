@@ -44,6 +44,7 @@ false == {}; // false
 
 ```js
 22 == "23"; // false
+22 < "23"; // true
 "hamed" == 23; // false
 "true" == true; // false
 22 == "22"; // true
@@ -84,11 +85,20 @@ console.log(hamed < hamid); // false
 See above snippet! `hamed < hamid` is also `false` because `hamed` becomes `[object Object]` and `hamid` becomes `[object Object]`, and so clearly `hamed` is not lexicographically less than `hamid`. See another:
 
 ```js
-let ali = { b: 22 };
-let reza = { b: 23 };
+let ali = { a: 22 };
+let reza = { a: 23 };
 ali < reza; // false
 ali == reza; // false
 ali > reza; // false
 ali <= reza; // true
 ali >= reza; // true
+```
+
+**Note**: `a >= b` is not means **a greater than b**. It means `!(a > b)`. So `ali <= reza` or `ali >= reza` are `true`.
+
+```js
+let hamed = [22];
+let hamid = "023";
+hamed < hamid; // false -- string comparison!
+Number(hamed) < Number(hamid); // true -- number comparison!
 ```

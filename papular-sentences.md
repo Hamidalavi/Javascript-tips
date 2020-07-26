@@ -8,7 +8,7 @@
 
 ### Note: Our variable declaration names: Hamid, Hamed, ALi, Reza, Majid, Mehrdad, Morteza
 
-### Read priority: 1. papular-sentences.md 2. this-example.md 3. object-example 4. grammer.md
+### Read priority: 1. papular-sentences.md 2. this-example.md 4. object-example.md 4. type.md 5. compelte-guide-true-false.md 6. grammer.md
 
 ## **Difference**
 
