@@ -1704,14 +1704,15 @@
 // console.log(majid); // 27
 
 // side effect expression
-function hamed() {
-    hamid = hamid + 1;
-}
+// function hamed() {
+//     hamid = hamid + 1;
+// }
 
-var hamid = 1;
-console.log(hamed()); // undefined
+// var hamid = 1;
+// console.log(hamed()); // undefined
 
-let ali = 20;
-let reza = ali++;
-console.log(reza);
-console.log(ali);
+
+// let ali = 20;
+// let reza = ali++;
+// console.log(reza); // 20
+// console.log(ali); // 21

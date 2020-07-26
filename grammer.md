@@ -53,8 +53,8 @@ Let's see below snippet:
 ```js
 let ali = 22;
 let reza = ali++;
-console.log(reza);
-console.log(ali);
+console.log(reza); // 22
+console.log(ali); // 23
 ```
 
 The expression `ali++` has two separate behaviors. First, it returns the current value of `ali` which is `22` (which then gets assigned to `reza`). But next, it changes the value of `ali` itself, incrementing it by one.
