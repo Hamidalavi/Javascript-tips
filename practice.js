@@ -1611,6 +1611,7 @@
 // "0" == 0; // true
 // "0" == ""; // false
 
+
 // false == null; // false
 // false == undefined; // false
 // false == NaN; // false
@@ -1619,6 +1620,7 @@
 // false == []; // true
 // false == {}; // false
 
+
 // "" == null; // false
 // "" == undefined; // false
 // "" == NaN; // false
@@ -1626,11 +1628,13 @@
 // "" == []; // true
 // "" == {}; // false
 
+
 // 0 == null; // false
 // 0 == undefined; // false
 // 0 == NaN; // false
 // 0 == []; // true
 // 0 == {}; // false
+
 
 // [] == ![]; // true
 // 2 == [2]; // true
@@ -1645,10 +1649,29 @@
 // let hamid = ["023"];
 // hamed < hamid; // false
 
+// let ali = [2, 2];
+// let reza = [0, 2, 3];
+// ali < reza; // false
+
+
 // 0 == "\n"; // true
+
 
 // 22 == "23"; // false
 // "hamed" == 23; // false
 // "true" == true; // false
 // 22 == "22"; // true
 // "hamid" == ["hamid"]; // true
+
+
+// let hamed = { a: 22 };
+// let hamid = { a: 23 };
+// console.log(hamed < hamid); // false
+
+// let ali = { b: 22 };
+// let reza = { b: 23 };
+// ali < reza; // false
+// ali == reza; // false
+// ali > reza; // false
+// ali <= reza; // true
+// ali >= reza; // true

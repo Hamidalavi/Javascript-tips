@@ -65,8 +65,30 @@ hamid < hamed; // false
 let hamed = ["22"];
 let hamid = ["023"];
 hamed < hamid; // false
+
+let ali = [2, 2];
+let reza = [0, 2, 3];
+ali < reza; // false
 ```
 
 ```js
 0 == "\n"; // true
+```
+
+```js
+let hamed = { a: 22 };
+let hamid = { a: 23 };
+console.log(hamed < hamid); // false
+```
+
+See above snippet! `hamed < hamid` is also `false` because `hamed` becomes `[object Object]` and `hamid` becomes `[object Object]`, and so clearly `hamed` is not lexicographically less than `hamid`. See another:
+
+```js
+let ali = { b: 22 };
+let reza = { b: 23 };
+ali < reza; // false
+ali == reza; // false
+ali > reza; // false
+ali <= reza; // true
+ali >= reza; // true
 ```
