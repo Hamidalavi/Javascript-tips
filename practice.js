@@ -1703,6 +1703,8 @@
 // };
 // console.log(majid); // 27
 
+// -----------------------------------------------
+
 // side effect expression
 // function hamed() {
 //     hamid = hamid + 1;
@@ -1716,3 +1718,28 @@
 // let reza = ali++;
 // console.log(reza); // 20
 // console.log(ali); // 21
+
+
+// let hamed = 23;
+// console.log(hamed++); // 23
+// console.log(hamed); // 24
+// console.log(++hamed); // 25
+// console.log(hamed); // 25
+
+
+// let hamid = 23;
+// console.log(++hamid++);
+// console.log(hamid); // SyntaxError
+
+
+// let hamed = 23, hamid;
+// hamid = (hamed++, hamed);
+// console.log(hamed); // 24
+// console.log(hamid); // 24
+
+
+// let hamed, hamid, ali;
+// hamed = hamid = ali = 23;
+// console.log(hamed); // 23
+// console.log(hamid); // 23
+// console.log(ali); // 23
