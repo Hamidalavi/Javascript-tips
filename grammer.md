@@ -729,3 +729,21 @@ let hamid = [23];
 
 console.log(hamed == hamid); // true
 ```
+
+Let's see about `null`, `undefined` and `NaN`:
+
+```js
+let hamed = null;
+let hamid = Object(hamed); // same as `Object()`
+console.log(hamed == hamid); // false
+let ali = undefined;
+let reza = Object(ali); // same as `Object()`
+console.log(ali == reza); // false
+let majid = NaN;
+let mehrdad = Object(majid); // same as `new Number(majid)`
+console.log(majid == mehrdad); // false
+```
+
+The `null` and `undefined` values cannot be boxed (they have no object wrapper equivalent). So `Object(null)` is just like `Object()` in that both just produce a **normal object**.
+
+**Note**: You can see `complete guide true and false.md` file for more information about true and false.

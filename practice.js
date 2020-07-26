@@ -1589,3 +1589,45 @@
 // let hamid = [23];
 
 // console.log(hamed == hamid); // true
+
+
+// let hamed = null;
+// let hamid = Object(hamed); // same as `Object()`
+// console.log(hamed == hamid); // false
+// let ali = undefined;
+// let reza = Object(ali); // same as `Object()`
+// console.log(ali == reza); // false
+// let majid = NaN;
+// let mehrdad = Object(majid); // same as `new Number(majid)`
+// console.log(majid == mehrdad); // false
+
+// -----------------------------------------------
+
+// complete guide of true and false
+"0" == null; // false
+"0" == undefined; // false
+"0" == false; // true
+"0" == NaN; // false
+"0" == 0; // true
+"0" == ""; // false
+
+false == null; // false
+false == undefined; // false
+false == NaN; // false
+false == 0; // true
+false == ""; // true
+false == []; // true
+false == {}; // false
+
+"" == null; // false
+"" == undefined; // false
+"" == NaN; // false
+"" == 0; // true
+"" == []; // true
+"" == {}; // false
+
+0 == null; // false
+0 == undefined; // false
+0 == NaN; // false
+0 == []; // true
+0 == {}; // false
