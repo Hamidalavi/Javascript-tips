@@ -1684,3 +1684,34 @@
 // Number(hamed) < Number(hamid); // true -- number comparison!
 
 // -----------------------------------------------
+
+// eval() function and `do`
+// let hamed, hamid;
+// hamed = eval("if (true) {hamid = 20 + 3;}");
+// console.log(hamed); // 23
+
+
+// let ali, reza;
+// console.log(ali = eval("if (true) {reza = 20 + 3;}")); // 23
+
+
+// let majid, mehrdad;
+// majid = do {
+//     if (true) {
+//         mehrdad = 20 + 7;
+//     }
+// };
+// console.log(majid); // 27
+
+// side effect expression
+function hamed() {
+    hamid = hamid + 1;
+}
+
+var hamid = 1;
+console.log(hamed()); // undefined
+
+let ali = 20;
+let reza = ali++;
+console.log(reza);
+console.log(ali);

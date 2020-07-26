@@ -1,4 +1,4 @@
-# Some **`grammer`** sentences to give you more information
+# Some **`type`** sentences to give you more information
 
 ## Telegram = **<https://t.me/Hamidalavi6540>**
 
@@ -6,16 +6,17 @@
 
 ## Twitter = **<https://twitter.com/HamidAlavi6540>**
 
-**I recommend first read `papular-sentences.md` and `this-example.md` and `object-example.md` file**.
+**I recommend first read `papular-sentences.md` and `this-example.md` and `object-example.md` files**.
 
 JavaScript defines seven built-in types:
->1.null
->>2.undefined
->>>3.boolean
->>>>4.number
->>>>>5.string
->>>>>>6.object
->>>>>>>7.symbol
+
+1. null
+2. undefined
+3. boolean
+4. number
+5. string
+6. object
+7. symbol
 
 **Important**: All of these types except `object` are called **primitive**.
 
