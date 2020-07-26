@@ -1743,3 +1743,36 @@
 // console.log(hamed); // 23
 // console.log(hamid); // 23
 // console.log(ali); // 23
+
+// -----------------------------------------------
+
+// contextual rules (label)
+// itrate: for (let hamid = 0; hamid < 11; hamid++) {
+//     if (hamid % 2 == 1) {
+//         continue itrate;
+//     }
+//     console.log(hamid);
+// }
+
+
+// itrate: for (let hamed = 0; hamed < 11; hamed++) {
+//     if (hamed % 2 == 1) {
+//         break itrate;
+//     }
+//     console.log(hamed); // 0
+// }
+
+
+// function hamed() {
+//     ali: {
+//         console.log("Persian")
+//         break ali;
+//         console.log("and World")
+//     }
+//     console.log("Sight")
+// }
+
+// hamed(); // "Persian" \n "Sight"
+
+console.log([] + {});
+console.log({} + []);

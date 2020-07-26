@@ -109,3 +109,50 @@ console.log(hamed); // 23
 console.log(hamid); // 23
 console.log(ali); // 23
 ```
+
+Here, `ali = 23` is evaluated to `23` (with the side effect of assigning `23` to `ali`), then `hamid = 23` is evaluated to `23` (with the side effect of assigning `23` to `hamid`), and finally `hamed = 23` is evaluated (with the side effect of assigning `23` to `hamed`).
+
+---
+
+## Label
+
+Let's see and after that, we explain that:
+
+```js
+itrate: for (let hamid = 0; hamid < 11; hamid++) {
+    if (hamid % 2 == 1) {
+        continue itrate;
+    }
+    console.log(hamid); // 0 2 4 6 8 10
+}
+```
+
+**Note**: `continue itrate` does not mean "go to the `itrate` labeled position to continue", but rather, "continue the loop that is labeled `itrate` with its next iteration". So, it's not really an arbitrary `goto`. As you can see, we skipped over the odd iteration.
+
+We also have `break`, that avoid continue running code:
+
+```js
+itrate: for (let hamed = 0; hamed < 11; hamed++) {
+    if (hamed % 2 == 1) {
+        break itrate;
+    }
+    console.log(hamed); // 0
+}
+```
+
+Note: `break itrate` does not mean "go to the `itrate` labeled position to continue", but rather, "break out of the loop/block that is labeled `itrate` and continue after it". Not exactly a `goto` in the traditional sense.
+
+`break` is very useful everywhere. For example:
+
+```js
+function hamed() {
+    ali: {
+        console.log("Persian")
+        break ali;
+        console.log("and World") // oh -- stopped (not work)
+    }
+    console.log("Sight")
+}
+
+hamed(); // "Persian" \n "Sight"
+```
