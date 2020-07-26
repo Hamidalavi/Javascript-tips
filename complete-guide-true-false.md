@@ -41,3 +41,32 @@ false == {}; // false
 0 == []; // true
 0 == {}; // false
 ```
+
+```js
+22 == "23"; // false
+"hamed" == 23; // false
+"true" == true; // false
+22 == "22"; // true
+"hamid" == ["hamid"]; // true
+```
+
+```js
+[] == ![]; // true
+2 == [2]; // true
+"" == [null]; // true
+
+let hamed = [ 22 ];
+let hamid = [ "23" ];
+hamed < hamid; // true
+hamid < hamed; // false
+```
+
+```js
+let hamed = ["22"];
+let hamid = ["023"];
+hamed < hamid; // false
+```
+
+```js
+0 == "\n"; // true
+```
