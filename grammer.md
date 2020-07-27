@@ -390,3 +390,58 @@ console.log(a); // 23
 console.log(b); // 23
 console.log(c); // 23
 ```
+
+Back to that hardest precedence:
+
+```js
+let a = 23;
+let b = "Persian Sight";
+let c = false;
+var d = a && b || c ? c || b ? a : c && b : a;
+console.log(d); // 23
+```
+
+The clear result is:
+
+```js
+((a && b) || c) ? ((c || b) ? a : (c && b)) : a
+```
+
+You still in worry? don't woory, be relax and see below:
+
+```js
+(
+    (a && b)
+    ||
+    c
+)
+    ?
+    (
+        (c || b)
+            ?
+            a
+            :
+            (c && b)
+    )
+    :
+    a
+```
+
+It's huge. But easy to read. Let me write above code again:
+
+```js
+let a = 23;
+let b = "Persian Sight";
+let c = false;
+var d = a && b || c ? c || b ? a : c && b : a;
+console.log(d); // 23
+```
+
+Let's solve it now:
+
+1. `(a && b)` is `"Persian Sight"`
+2. `"Persian Sight" || c` is `"Persian Sight"`
+3. For the first `?` test, `"Persian Sight"` is truthy
+4. `(c || b)` is `"Persian Sight"`
+5. For the second `?` test, `"Persian Sight"` is truthy
+6. `a` is `23`

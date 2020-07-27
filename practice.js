@@ -1878,7 +1878,7 @@
 // console.log(c); // 23
 
 
-let a = (b = (c = 23));
-console.log(a); // 23
-console.log(b); // 23
-console.log(c); // 23
+// let a = (b = (c = 23));
+// console.log(a); // 23
+// console.log(b); // 23
+// console.log(c); // 23
