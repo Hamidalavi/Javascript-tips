@@ -44,7 +44,7 @@ function hamed() {
     hamid = hamid + 1;
 }
 
-var hamid = 1;
+let hamid = 1;
 console.log(hamed()); // undefined
 ```
 
@@ -242,7 +242,7 @@ Let's try hardest precedence:
 let a = 23;
 let b = "Persian Sight";
 let c = false;
-var d = a && b || c ? c || b ? a : c && b : a;
+let d = a && b || c ? c || b ? a : c && b : a;
 console.log(d); // 23
 ```
 
@@ -282,7 +282,7 @@ Let's check again last example:
 let a = 23;
 let b = "Persian Sight";
 let c = false;
-var d = a && b || c ? c || b ? a : c && b : a;
+let d = a && b || c ? c || b ? a : c && b : a;
 console.log(d); // 23
 ```
 
@@ -397,7 +397,7 @@ Back to that hardest precedence:
 let a = 23;
 let b = "Persian Sight";
 let c = false;
-var d = a && b || c ? c || b ? a : c && b : a;
+let d = a && b || c ? c || b ? a : c && b : a;
 console.log(d); // 23
 ```
 
@@ -433,7 +433,7 @@ It's huge. But easy to read. Let me write above code again:
 let a = 23;
 let b = "Persian Sight";
 let c = false;
-var d = a && b || c ? c || b ? a : c && b : a;
+let d = a && b || c ? c || b ? a : c && b : a;
 console.log(d); // 23
 ```
 
@@ -445,3 +445,29 @@ Let's solve it now:
 4. `(c || b)` is `"Persian Sight"`
 5. For the second `?` test, `"Persian Sight"` is truthy
 6. `a` is `23`
+
+**Note**: Thus, my advice here **use operator precedence/associativity where it leads to shorter and cleaner code, but use `()` manual grouping in places where it helps create clarity and reduce confusion**.
+
+---
+
+## ASI (Auto Semicolon Insertion)
+
+Let's see below snippet:
+
+```js
+let a = 23, b = "Hamed";
+console.log(a) // 23
+console.log(b) // "Hamed"
+```
+
+That's still a valid program without error, because expression statements also accept **ASI**.
+
+There's certain places where **ASI** is helpful, like for instance:
+
+```js
+let a = 23;
+do {
+    // do something
+} while (a) // ; expected here!
+a;
+```

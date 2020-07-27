@@ -17,7 +17,7 @@
 How to define an object? its pretty simple. you have two choices to creating objects 1) Literal 2) Constructed:
 
 ```js
-var obj = { a: 23, b: 26 };
+let obj = { a: 23, b: 26 };
 console.log(obj.a);
 console.log(typeof obj);
 ```
@@ -67,7 +67,7 @@ console.log(obj[index]); // 23 (after trueFalse is "true", index value changed t
 You have also two ways of creating the properties in objects. they are: 1) `.` operator 2)`[".."]` operator:
 
 ```js
-var obj = {};
+let obj = {};
 
 obj[3] = "23";
 obj[true] = "Hamid";
@@ -153,7 +153,7 @@ We can use `Object.defineProperty(obj, prop, {...})` to add a new **property**, 
 For example:
 
 ```js
-var obj = { a: 0 };
+let obj = { a: 0 };
 Object.defineProperty(obj, "a", { value: 26 })
 console.log(Object.getOwnPropertyDescriptor(obj, "a")); // { value: 23, writable: true, enumerable: true, configurable: true }
 console.log(obj); // { a: 26 }
@@ -162,7 +162,7 @@ console.log(obj); // { a: 26 }
 Above code is about `value`. now for `writable`:
 
 ```js
-var obj = { a: 23 };
+let obj = { a: 23 };
 Object.defineProperty(obj, "a", { writable: false });
 obj.a = 26; // look at this
 console.log(Object.getOwnPropertyDescriptor(obj, "a")); // { value: 23, writable: false, enumerable: true, configurable: true }
@@ -174,7 +174,7 @@ If `writable` is **false**, you cant edit or modify value (like read-only). If y
 `configurable`: As long as a property is currently configurable, we can modify its descriptor definition, using the same `defineProperty(..)` utility.
 
 ```js
-var obj = { a: 23 };
+let obj = { a: 23 };
 Object.defineProperty(obj, "a", { configurable: false });
 Object.defineProperty(obj, "a", { value: 30, configurable: true }); // Cannot redefine property: a
 console.log(Object.getOwnPropertyDescriptor(obj, "a"));
@@ -186,7 +186,7 @@ The second `defineProperty(..)` call results in a TypeError, regardless of "stri
 Another thing `configurable:false` prevents is the ability to use the `delete` operator to remove an existing property:
 
 ```js
-var obj = { a: 2 };
+let obj = { a: 2 };
 obj.a; // 2
 delete obj.a;
 obj.a; // undefined
@@ -232,7 +232,7 @@ console.log(obj); // { a: 23 }
 Last thing about property description is `enumerable`. That's simple, just disallowing iterable in values (like `for` loop). Advanced `enumerable`:
 
 ```js
-var obj = {};
+let obj = {};
 Object.defineProperty(
     obj,
     "a",

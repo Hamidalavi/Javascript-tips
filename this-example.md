@@ -69,11 +69,11 @@ Look another code:
 function hamed() {
     console.log(this.a);
 }
-var a = 23;
+let a = 23;
 hamed(); // 23
 ```
 
-**Q**: why the output is 2?
+**Q**: why the output is 23?
 
 **Ansawer**: **First**, that variable declared in the global scope, as `a = 23` is, are synonymous with **global-object** properties of the same name. They're not copies of each other, they are each other. **Second**: We see that when `hamed()` is called, `this.a` resolves to our global variable `a`. Because the default binding for `this` applies to the **function** call, and so points `this` at the global object.
 
@@ -84,7 +84,7 @@ function hamed() {
     "use strict"
     console.log(this.a);
 }
-var a = 23;
+let a = 23;
 hamed(); // Uncaught TypeError: Cannot read property 'a' of undefined
 ```
 
@@ -95,7 +95,7 @@ function hamed() {
     console.log(this.a);
 }
 
-var obj = { a: 23, hamed: hamed };
+let obj = { a: 23, hamed: hamed };
 obj.hamed(); // 23
 ```
 
@@ -112,12 +112,12 @@ function hamed() {
     console.log(this.a);
 }
 
-var obj2 = {
+let obj2 = {
     a: 23,
     hamed: hamed
 };
 
-var obj1 = {
+let obj1 = {
     a: 2,
     obj2: obj2
 };
@@ -132,13 +132,13 @@ function hamed() {
     console.log(this.a);
 }
 
-var obj = {
+let obj = {
     a: 2,
     hamed: hamed
 };
 
-var hamid = obj.hamed; // function reference/alias!
-var a = "oops, global"; // `a` also property on global object
+let hamid = obj.hamed; // function reference/alias!
+let a = "oops, global"; // `a` also property on global object
 hamid(); // "oops, global"
 ```
 
@@ -151,7 +151,7 @@ function hamed() {
     console.log(this.a);
 }
 
-var obj = { a: 23 };
+let obj = { a: 23 };
 
 hamed.call(obj); // 23
 ```
@@ -172,7 +172,7 @@ function fullName(name, number, state) {
     console.log(`Hello. Wellcome back ${name}${number} ${state}`)
 }
 
-var create = fullName.bind(this, "Hamid", 6540, "the hero");
+let create = fullName.bind(this, "Hamid", 6540, "the hero");
 create();
 ```
 
@@ -184,12 +184,12 @@ function hamed(something) {
     return this.a + something;
 }
 
-var obj = {
+let obj = {
     a: 23
 };
 
-var hamid = hamed.bind(obj);
-var h = hamid(3); // 23 3
+let hamid = hamed.bind(obj);
+let h = hamid(3); // 23 3
 console.log(h); // 26
 ```
 
@@ -200,11 +200,11 @@ function hamed(value) {
     this.a = value;
 }
 
-var obj = {};
-var hamid = hamed.bind(obj);
+let obj = {};
+let hamid = hamed.bind(obj);
 hamid(2);
 console.log(obj.a); // 23
-var ali = new hamid(3);
+let ali = new hamid(3);
 console.log(obj.a); // 23
 console.log(ali.a); // 3
 ```
@@ -224,9 +224,9 @@ function hamed() {
     console.log(this.a);
 }
 
-var a = 23;
-var o = { a: 3, hamed: hamed };
-var p = { a: 4 };
+let a = 23;
+let o = { a: 3, hamed: hamed };
+let p = { a: 4 };
 o.hamed(); // 3
 (p.hamed = o.hamed)(); // 23
 ```

@@ -30,7 +30,7 @@ console.log(typeof "23"); // string
 console.log(typeof undefined); // undefined
 console.log(typeof Symbol()); // symbol
 
-var a = null;
+let a = null;
 (!a && typeof a === "object"); // true
 ```
 
@@ -64,7 +64,7 @@ In **JavaScript**, variables don't have `types`, **values** have types. Variable
 You can add `string` index (associate array) manually in arrays. But array's length will not change. For example:
 
 ```js
-var arr = [1, 2, 3];
+let arr = [1, 2, 3];
 arr["forth"] = 4;
 console.log(arr.length); // 3
 console.log(arr["forth"]); // 4
@@ -73,7 +73,7 @@ console.log(arr["forth"]); // 4
 Be careful that when you want to define a specific array's key, don't put extra number. Because array get more array white space. For example:
 
 ```js
-var arr = [];
+let arr = [];
 arr[0] = 1;
 arr[9] = 10;
 console.log(arr.length); // 10
@@ -84,7 +84,7 @@ As you see above, space of array is being wasted.
 Again, be careful that when you want to define a specific array's key with `string number` type, dont's use `number` as `string`. `srting` convert to `number` automatically, It's working, but not recommend. For example:
 
 ```js
-var arr = [];
+let arr = [];
 arr["0"] = 1;
 arr["9"] = 10;
 console.log(arr.length); // 10
@@ -272,7 +272,7 @@ function hamed(nums) {
     nums; // [ 4, 5, 6, 7 ]
 }
 
-var hamid = [1, 2, 3];
+let hamid = [1, 2, 3];
 hamed(hamid);
 console.log(hamid); // [ 1, 2 ,3 ,4 ]  not  [ 4, 5 ,6 ,7 ]
 ```
@@ -620,7 +620,7 @@ Do you want exciting example? we bring it to you :)
 function hamed() {
     console.log(hamid);
 }
-var hamid = 23;
+let hamid = 23;
 console.log(hamid && hamed()); // 23 (call hamed first)
 ```
 

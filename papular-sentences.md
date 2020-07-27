@@ -89,8 +89,8 @@ need a semicolon ( ; ) to conclude it.
 - In **inequality** (< , > and etc.), if one or both is not a **string**, then both values are coerced to be **number**, and a typical numeric comparison occurs.
 - You use the **var** keyword to declare a **variable** that will belong to the current function **scope**, or the **global scope** if at the top level outside of any **function**.
 - **Ternary operator** is most useful. its abbreviated from if and else.
-  - for example: let a = 23;
-  - `let b = (a > 20) ? "i'm older" : "i'm younger";`
+  - for example: var a = 23;
+  - `var b = (a > 20) ? "i'm older" : "i'm younger";`
   - its mean: if 23 > 20, print "i'm older", else print "i'm younger".
     - Before ternary operator, we must wrote:
 
@@ -137,7 +137,7 @@ need a semicolon ( ; ) to conclude it.
   - For example:
 
     ```js
-    var obj = { hamed: 23, ali: 22 };
+    let obj = { hamed: 23, ali: 22 };
     obj.reza = 26;
     console.log(obj);
     output: { hamed: 23, ali: 22, reza: 26 }
@@ -213,7 +213,7 @@ need a semicolon ( ; ) to conclude it.
       }
       ```
 
-  - Be careful about duplicate declarations, especially mixed between normal var declarations and function declarations; **peril awaits if you do!**
+  - Be careful about duplicate declarations, especially mixed between normal `var` declarations and function declarations; **peril awaits if you do!**
 
 - Two declaration keyword `let` (a cousin to the `var` keyword) and `const` both are **block scope**.
 

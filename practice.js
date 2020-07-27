@@ -1882,3 +1882,17 @@
 // console.log(a); // 23
 // console.log(b); // 23
 // console.log(c); // 23
+
+// -----------------------------------------------
+
+// ASI (auto semicolon insertion)
+// let a = 23, b = "Hamed";
+// console.log(a) // 23
+// console.log(b) // "Hamed"
+
+
+// let a = 23;
+// do {
+//     // do something
+// } while (a) // ; expected here!
+// a;
