@@ -85,7 +85,7 @@ console.log(++hamid++); // ??
 
 If you try, you see `SyntaxError` (or `ReferenceError`). **Q**: But why?
 
-**Answer**: Because side-effecting operators **require a variable reference** to target their side effects to. For `++hamid++`, the `hamid++` part is evaluated first (because of operator precedence), which gives back the value of `hamid` before the increment. But then it tries to evaluate `++23`, which (if you try it) gives the same `SyntaxError` (or `ReferenceError`) error, since `++` can't have a side effect directly on a value like `42`.
+**Answer**: Because side-effecting operators **require a variable reference** to target their side effects to. For `++hamid++`, the `hamid++` part is evaluated first (because of operator precedence), which gives back the value of `hamid` before the increment. But then it tries to evaluate `++23`, which (if you try it) gives the same `SyntaxError` (or `ReferenceError`) error, since `++` can't have a side effect directly on a value like `23`.
 
 There's an option, though: the "`,`" statement-series comma operator. This operator allows you to string together multiple standalone expression statements into a single statement:
 
@@ -239,11 +239,11 @@ If you're going to use "`,`" as a statement-series operator, it's important to k
 Let's try hardest precedence:
 
 ```js
-let a = 42;
+let a = 23;
 let b = "Persian Sight";
 let c = false;
 var d = a && b || c ? c || b ? a : c && b : a;
-console.log(d); // 42
+console.log(d); // 23
 ```
 
 What happend? The first part (`a && b || c`) behave like `(a && b) || c` or like `a && (b || c)`? Let's see simple example:
@@ -279,11 +279,11 @@ Now we've proved that `&&` is evaluated first and then `||`, and in this case th
 Let's check again last example:
 
 ```js
-let a = 42;
+let a = 23;
 let b = "Persian Sight";
 let c = false;
 var d = a && b || c ? c || b ? a : c && b : a;
-console.log(d); // 42
+console.log(d); // 23
 ```
 
 Does the "`? :`" operatpr have more or less precedence than the `&&` and `||` operators?
@@ -354,4 +354,39 @@ console.log(true ? false : true ? true : false); // false
 
 console.log(true ? false : (true ? true : false)); // false
 console.log((true ? false : true) ? true : false); // false
+```
+
+Let's bringing a true example:
+
+```js
+let a = true, b = false, c = true, d = true, e = false;
+console.log(a ? b : (c ? d : e)); // false (evaluates only `a` and `b`)
+console.log((a ? b : c) ? d : e); // false (evaluates `a`, `b` AND `e`)
+```
+
+So, we've clearly proved that `? :` is right-associative, and that it actually matters with respect to how the operator behaves if chained with itself.
+
+Another example of right-associativity (grouping) is the "`=`" operator:
+
+```js
+let a, b, c;
+a = b = c = 23;
+console.log(a); // 23
+console.log(b); // 23
+console.log(c); // 23
+```
+
+`a = b = c = 23` is processed by first evaluating the `c = 23` assignment, then `b = ..`, and finally `a = ..` . Why? Because of the right-associativity, which actually treats the statement like this:
+
+```js
+a = (b = (c = 23))
+```
+
+Final answer is:
+
+```js
+let a = (b = (c = 23));
+console.log(a); // 23
+console.log(b); // 23
+console.log(c); // 23
 ```

@@ -1864,3 +1864,21 @@
 
 // console.log(true ? false : (true ? true : false)); // false
 // console.log((true ? false : true) ? true : false); // false
+
+
+// let a = true, b = false, c = true, d = true, e = false;
+// console.log(a ? b : (c ? d : e)); // false (evaluates only `a` and `b`)
+// console.log((a ? b : c) ? d : e); // false (evaluates `a`, `b` AND `e`)
+
+
+// let a, b, c;
+// a = b = c = 23;
+// console.log(a); // 23
+// console.log(b); // 23
+// console.log(c); // 23
+
+
+let a = (b = (c = 23));
+console.log(a); // 23
+console.log(b); // 23
+console.log(c); // 23
