@@ -564,3 +564,70 @@ let hamid;
 ---
 
 ## Function Arguments
+
+When using **ES6**'s default parameter values, the default value is applied to the parameter if you either omit an argument, or you pass an `undefind` value in its place:
+
+```js
+function hamed(a = 23, b = a + 3) {
+    console.log(a, b);
+}
+
+hamed(); // 23 26
+hamed(undefined); // 23 26
+hamed(5); // 5 8
+hamed(void 0, 5); // 23 5
+hamed(null); // "null" 3
+```
+
+**Note**: `null` is coerced to a `0` value in the `a + 3` expression.
+
+From the ES6 default parameter values perspective, there's no difference between omitting an argument and passing an `undefined` value. However, there is a way to detect the difference in some cases:
+
+```js
+function hamed(a = 23, b = a + 3) {
+    console.log(arguments.length, a, b, arguments[0], arguments[1]);
+}
+
+hamed(); // 0 23 26 undefined undefined
+hamed(20); // 1 20 23 20 undefined
+hamed(20, undefined); // 2 20 23 20 undefined
+hamed(void 0, 5); // 2 23 5 undefined 5
+hamed(20, null); // 2 20 "null" 20 "null"
+```
+
+If you pass an argument, the `arguments` slot and the named parameter are linked to always have the same value. If you ommit the argument, no such linkage occurs:
+
+```js
+// with argument
+function hamid(a) {
+    a = 23;
+    console.log(arguments[0])
+}
+
+hamid(2); // 23
+hamid(); // undefined
+```
+
+```js
+// without argument
+function hamid(a) {
+    a = 23;
+    console.log(a)
+}
+
+hamid(2); // 23
+hamid(); // 23
+```
+
+But in `strict` mode (`"use strict"`), the linkage doesn't exist regardless:
+
+```js
+function hamid(a) {
+    "use strict"
+    a = 23;
+    console.log(arguments[0])
+}
+
+hamid(2); // 2 -- not linked
+hamid(); // undefined -- not linked
+```

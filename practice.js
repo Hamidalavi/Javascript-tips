@@ -1939,3 +1939,55 @@
 // console.log(typeof hamed); // undefined
 // console.log(typeof hamid); // ReferenceError: Cannot access 'hamid' before initialization (TDZ)
 // let hamid;
+
+// -----------------------------------------------
+
+// function arguments
+// function hamed(a = 23, b = a + 3) {
+//     console.log(a, b);
+// }
+
+// hamed(); // 23 26
+// hamed(undefined); // 23 26
+// hamed(5); // 5 8
+// hamed(void 0, 5); // 23 5
+// hamed(null); // "null" 3
+
+
+// function hamed(a = 23, b = a + 3) {
+//     console.log(arguments.length, a, b, arguments[0], arguments[1]);
+// }
+
+// hamed(); // 0 23 26 undefined undefined
+// hamed(20); // 1 20 23 20 undefined
+// hamed(20, undefined); // 2 20 23 20 undefined
+// hamed(void 0, 5); // 2 23 5 undefined 5
+// hamed(20, null); // 2 20 "null" 20 "null"
+
+
+// function hamid(a) {
+//     a = 23;
+//     console.log(arguments[0])
+// }
+
+// hamid(2); // 23
+// hamid(); // undefined
+
+
+// function hamid(a) {
+//     a = 23;
+//     console.log(a)
+// }
+
+// hamid(2); // 23
+// hamid(); // 23
+
+
+function hamid(a) {
+    "use strict"
+    a = 23;
+    console.log(arguments[0])
+}
+
+hamid(2); // 23
+hamid(); // undefined
