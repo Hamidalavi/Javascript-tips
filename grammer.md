@@ -471,3 +471,96 @@ do {
 } while (a) // ; expected here!
 a;
 ```
+
+The grammar requires a "`;`" after a `do..while` loop, but **not after** `while` or `for` loops. But most developers don't remember that! So, **ASI** helpfully steps in and inserts one.
+
+As we said earlier in above, statement blocks do not require "`;`" termination, so **ASI** isn't necessary:
+
+```js
+var a = 23;
+while (a) {
+    // do something
+} // no ; expected here
+a;
+```
+
+The other major case where **ASI** kicks in is with the `break`, `continue`, `return` and `yield` keywords.
+
+```js
+function hamid(a) {
+    if (!a) return
+    a *= 2;
+    // do something
+}
+```
+
+The `return` statement doesn't carry across the newline to the `a *= 2` expression, as **ASI** assumes the "`;`" terminating the `retuen` statement. Of course, `return` statements can easily break across multiple lines, just not when there's nothing after `return` but the newline/line break.
+
+```js
+function hamed(a) {
+    return (
+        a * 2 + 3 / 12
+    );
+}
+```
+
+Identical reasoning applies to `break`, `continue` and `yield`.
+
+**Recommend**: use semicolons wherever you know they are "required," and limit your assumptions about **ASI** to a minimum.
+
+---
+
+## Errors
+
+Some errors may you see while programming:
+
+**One**: SyntaxError: Invalid regular expression:
+
+```js
+let hamid = /+root/; // SyntaxError: Invalid regular expression:
+```
+
+**Two**: SyntaxError: Invalid left-hand side in assignment:
+
+```js
+let hamid;
+23 = hamid; // SyntaxError: Invalid left-hand side in assignment
+```
+
+**Three**: `strict mode` for function. Function parameter names cannot be duplicated:
+
+```js
+function hamed(a, b, a) { };
+function hamid(a, b, a) { "use strict" }; // SyntaxError: Duplicate parameter name not allowed in this context
+```
+
+**Four**: `strict mode` for object. Object literal having more than one property of the
+
+```js
+"use strict"
+var a = {
+    b: 22,
+    b: 23
+}; // Error!
+```
+
+Note: Semantically speaking, such errors aren't technically syntax errors but more **grammar error**. the above snippets are syntactically valid. But since there is no `GrammarError` type, some browsers use `SyntaxError` instead.
+
+**Five**: `let` (block scope). ReferenceError: Cannot access 'variable' before initialization
+
+```js
+hamid = 23; // ReferenceError: Cannot access 'hamid' before initialization
+let hamid;
+```
+
+**Six**: While `typeof` has an exception to be safe for undeclared variables, no such safety exception is made for TDZ (Temporal Dead Zone) references:
+
+```js
+console.log(typeof hamed); // undefined
+console.log(typeof hamid); // ReferenceError: Cannot access 'hamid' before initialization (TDZ)
+let hamid;
+```
+
+---
+
+## Function Arguments

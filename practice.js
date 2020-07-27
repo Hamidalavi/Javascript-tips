@@ -1896,3 +1896,46 @@
 //     // do something
 // } while (a) // ; expected here!
 // a;
+
+
+// var a = 23;
+// while (a) {
+//     // do something
+// } // no ; expected here
+// a;
+
+
+// function hamid(a) {
+//     if (!a) return
+//     a *= 2;
+//     // do something
+// }
+
+
+// function hamed(a) {
+//     return (
+//         a * 2 + 3 / 12
+//     );
+// }
+
+// -----------------------------------------------
+
+// error
+// function hamed(a, b, a) { };
+// function hamid(a, b, a) { "use strict" }; // SyntaxError: Duplicate parameter name not allowed in this context
+
+
+// "use strict"
+// var a = {
+//     b: 22,
+//     b: 23
+// }; // Error!
+
+
+// hamid = 23; // ReferenceError: Cannot access 'hamid' before initialization
+// let hamid;
+
+
+// console.log(typeof hamed); // undefined
+// console.log(typeof hamid); // ReferenceError: Cannot access 'hamid' before initialization (TDZ)
+// let hamid;
