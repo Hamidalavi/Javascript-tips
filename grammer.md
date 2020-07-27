@@ -271,3 +271,87 @@ true || (false && false); // true (true || false = true)
 ```
 
 Now we've proved that `&&` is evaluated first and then `||`, and in this case that was actually counter to generally expected **left-to-right** processing.
+
+---
+
+## Tighter Binding
+
+Let's check again last example:
+
+```js
+let a = 42;
+let b = "Persian Sight";
+let c = false;
+var d = a && b || c ? c || b ? a : c && b : a;
+console.log(d); // 42
+```
+
+Does the "`? :`" operatpr have more or less precedence than the `&&` and `||` operators?
+
+```js
+a && b || c ? c || b ? a : c && b : a
+```
+
+**Q**: Is that more like this:
+
+```js
+a && b || (c ? c || (b ? a : c) && b : a)
+```
+
+or this?
+
+```js
+(a && b || c) ? (c || b) ? a : (c && b) : a
+```
+
+**Answer**: The answer is the second one. But why?
+
+Because `&&` is more precedent than `||`, and `||` is more precedent than `? :` .
+
+So, the expression `(a && b || c)` is evaluated first before the `? :` it participates in. Another way this is commonly explained is that `&&` and `||` "**bind more tightly**" than `? :` . If the reverse was true, then `c ? c...` would bind more tightly, and it would behave (as the first choice of question) like `a && b || (c ? c..)`.
+
+---
+
+## Associativity
+
+with an expression like `a && b && c`, grouping will happen implicitly, meaning that either `a && b` or `b && c` will be evaluated first.
+
+Technically, `a && b && c` will be handled as `(a && b) && c`, because `&&` is left-associative. However, the right-associative alternative `a && (b && c)` behaves observably the same way. For the same values, the same expressions are evaluated in the same order.
+
+Consider the `? :` ("ternary" or "conditional") operator:
+
+```js
+a ? b : c ? d : e;
+```
+
+`? :` is right-associative, so which grouping represents how it will be processed?
+
+- ```js
+  a ? b : (c ? d : e)
+  ```
+
+- ```js
+  (a ? b : c) ? d : e
+  ```
+
+The answer is `a ? b : (c ? d : e)`. Unlike with `&&` and `||` above, the right-associativity here actually matters, as `(a ? b : c) ? d : e` will behave differently for some combinations of values.
+
+See more snippets:
+
+```js
+console.log(true ? false : true ? true : true); // false
+```
+
+```js
+console.log(true ? false : (true ? true : true)); // false
+console.log((true ? false : true) ? true : true); // true
+```
+
+Even more nuanced differences lurk with other value combinations, even if the end result is the same. Consider:
+
+```js
+console.log(true ? false : true ? true : false); // false
+
+console.log(true ? false : (true ? true : false)); // false
+console.log((true ? false : true) ? true : false); // false
+```

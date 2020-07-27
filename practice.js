@@ -1821,14 +1821,6 @@
 // console.log(hamid); // 23
 
 
-// hardest precedence
-// let a = 42;
-// let b = "Persian Sight";
-// let c = false;
-// var d = a && b || c ? c || b ? a : c && b : a;
-// console.log(d); // 42
-
-
 // (false && true) || true; // true
 // false && (true || true); // false
 
@@ -1839,3 +1831,36 @@
 // true || false && false; // true
 // (true || false) && false; // false (true && false = false)
 // true || (false && false); // true (true || false = true)
+
+
+// hardest precedence (tighter binding)
+// let a = 42;
+// let b = "Persian Sight";
+// let c = false;
+// var d = a && b || c ? c || b ? a : c && b : a;
+// console.log(d); // 42
+
+// -----------------------------------------------
+
+// associativity
+// function hamed() {
+//     console.log("Hello")
+// }
+
+// function hamid() {
+//     console.log("World")
+// }
+
+// console.log(hamed() && hamid()); // "Hello" \n undefined -- ops
+
+
+// console.log(true ? false : true ? true : true); // false
+
+// console.log(true ? false : (true ? true : true)); // false
+// console.log((true ? false : true) ? true : true); // true
+
+
+// console.log(true ? false : true ? true : false); // false
+
+// console.log(true ? false : (true ? true : false)); // false
+// console.log((true ? false : true) ? true : false); // false
