@@ -1781,12 +1781,61 @@
 // -----------------------------------------------
 
 // object destructuring
-function hamed() {
-    return {
-        a: 23,
-        b: "PersianSight"
-    }
-}
+// function hamed() {
+//     return {
+//         a: 23,
+//         b: "PersianSight"
+//     }
+// }
 
-let { a, b } = hamed();
-console.log(hamed()); // 23 "Persian Sight"
+// let { a, b } = hamed();
+// console.log(hamed()); // 23 "Persian Sight"
+
+
+// let res = func();
+// let hamed = res.a;
+// let hamid = res.b;
+
+
+// function hamed({ a, b, c }) {
+//     /* no need for:
+//      var a = obj.a, b = obj.b, c = obj.c */
+//     console.log(a, b, c);
+// }
+
+// hamed({ a: [23, 22, 27], b: "Persian Sight", c: 500 }); // [ 23, 22, 27 ] "Persian Sight" 500
+
+// -----------------------------------------------
+
+// operator precedence
+// let hamed = 23, hamid;
+// hamid = (hamed++, hamed);
+// console.log(hamed); // 24
+// console.log(hamid); // 24
+
+
+// // removing ( )
+// let hamed = 23, hamid;
+// hamid = hamed++, hamed;
+// console.log(hamed); // 24
+// console.log(hamid); // 23
+
+
+// hardest precedence
+// let a = 42;
+// let b = "Persian Sight";
+// let c = false;
+// var d = a && b || c ? c || b ? a : c && b : a;
+// console.log(d); // 42
+
+
+// (false && true) || true; // true
+// false && (true || true); // false
+
+// false && true || true; // true
+// (false && true) || true; // true
+
+
+// true || false && false; // true
+// (true || false) && false; // false (true && false = false)
+// true || (false && false); // true (true || false = true)

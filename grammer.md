@@ -164,5 +164,110 @@ hamed(); // "Persian" \n "Sight"
 Starting with ES6, another place that you'll see `{..}` (object) pair showing up is with `destructuring assignments`, specifically `object` destructuring:
 
 ```js
+function hamed() {
+    return {
+        a: 23,
+        b: "PersianSight"
+    }
+}
 
+let { a, b } = hamed();
+console.log(a, b); // 23 "Persian Sight"
 ```
+
+As you can probably tell, `let { a, b } = ..` is a form of ES6 destructuring assignment, which is roughly equivalent to:
+
+```js
+let res = func();
+let hamed = res.a;
+let hamid = res.b;
+```
+
+`{ a, b }` is actually ES6 destructuring shorthand for `{ a: a, b: b }`, so either will work, but it's expected that the shorter `{ a, b }` will be become the preferred form.
+
+**Note**: Object destructuring with a `{..}` pair can also be used for named function arguments, which is sugar for this same sort of implicit object property assignment:
+
+```js
+function hamed({ a, b, c }) {
+    /* no need for:
+     let a = obj.a, b = obj.b, c = obj.c */
+    console.log(a, b, c);
+}
+
+hamed({ a: [23, 22, 27], b: "Persian Sight", c: 500 }); // [ 23, 22, 27 ] "Persian Sight" 500
+```
+
+If you remove `{ }` (like `hamed(a: [23, 22, 27], b: "Persian Sight", c: 500);`), you get a `SyntaxError` error. Because it's an object.
+
+---
+
+## Operator Precedence
+
+Let's repeat first part of this file:
+
+```js
+let ali = 22;
+let reza = ali++;
+console.log(reza); // 22
+console.log(ali); // 23
+```
+
+And
+
+```js
+let hamed = 23, hamid;
+hamid = (hamed++, hamed);
+console.log(hamed); // 24
+console.log(hamid); // 24
+```
+
+But what would happen if we remove the `()`?
+
+```js
+let hamed = 23, hamid;
+hamid = hamed++, hamed;
+console.log(hamed); // 24
+console.log(hamid); // 23
+```
+
+**Q**: Why did that change the value assigned to `hamid`?
+
+**Answer**: Because the "`,`" operator has a lower precedence than the `=` operator. So `hamid = hamed++, hamed` is interpreted as `(hamid = hamed++), hamed`. Because `hamed++` has after side effects, the assigned value to `hamid` is the value `23` before the `++` changes `hamed`.
+
+If you're going to use "`,`" as a statement-series operator, it's important to know that it actually has the **lowest precedence**. Every other operator will more tightly bind than "`,`" will.
+
+Let's try hardest precedence:
+
+```js
+let a = 42;
+let b = "Persian Sight";
+let c = false;
+var d = a && b || c ? c || b ? a : c && b : a;
+console.log(d); // 42
+```
+
+What happend? The first part (`a && b || c`) behave like `(a && b) || c` or like `a && (b || c)`? Let's see simple example:
+
+```js
+(false && true) || true; // true
+false && (true || true); // false
+```
+
+What happend? So, there's proof they're different. But still, how does `false && true || true` behave? The **answer**:
+
+```js
+false && true || true; // true
+(false && true) || true; // true
+```
+
+So we have our answer. The `&&` operator is evaluated first and the `||` operator is evaluated second.
+
+But is that just because of **left-to-right** processing? Let's reverse the order of operators:
+
+```js
+true || false && false; // true
+(true || false) && false; // false (true && false = false)
+true || (false && false); // true (true || false = true)
+```
+
+Now we've proved that `&&` is evaluated first and then `||`, and in this case that was actually counter to generally expected **left-to-right** processing.
