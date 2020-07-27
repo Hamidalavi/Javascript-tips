@@ -468,7 +468,7 @@ console.log(~~-29.6); // -29
 
 ```js
 let hamed = "23";
-let hamid = "42px";
+let hamid = "23px";
 
 console.log(Number(hamed)); // 23
 console.log(parseInt(hamed)); // 23
