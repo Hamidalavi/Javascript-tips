@@ -102,3 +102,10 @@ let hamid = "023";
 hamed < hamid; // false -- string comparison!
 Number(hamed) < Number(hamid); // true -- number comparison!
 ```
+
+```js
+console.log([] + {}); // "[object Object]"
+console.log({} + []); // "[object Object]" (0 in old)
+```
+
+Not `true` and `false`. but useful.

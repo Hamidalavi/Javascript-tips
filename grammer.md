@@ -156,3 +156,13 @@ function hamed() {
 
 hamed(); // "Persian" \n "Sight"
 ```
+
+---
+
+## Object Destructuring
+
+Starting with ES6, another place that you'll see `{..}` (object) pair showing up is with `destructuring assignments`, specifically `object` destructuring:
+
+```js
+
+```

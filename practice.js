@@ -1774,5 +1774,19 @@
 
 // hamed(); // "Persian" \n "Sight"
 
-console.log([] + {});
-console.log({} + []);
+
+// console.log([] + {}); // [object Object]
+// console.log({} + []); // [object Object] (0 in old)
+
+// -----------------------------------------------
+
+// object destructuring
+function hamed() {
+    return {
+        a: 23,
+        b: "PersianSight"
+    }
+}
+
+let { a, b } = hamed();
+console.log(hamed()); // 23 "Persian Sight"
