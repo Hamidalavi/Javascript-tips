@@ -1,4 +1,4 @@
-// these are very simple practice that i write. it's not for professional practice
+// these are very simple practice that i write. its not for professional practice
 // very short examples from YDKJS book (not complete)
 // this example are just one time write, in other project (not in this repository), i practicing much
 
@@ -2084,3 +2084,95 @@
 // console.log(hamed()); // 23
 // console.log(hamid()); // undefined
 // console.log(ali()); // "Persian Sight"
+
+// -----------------------------------------------
+
+// switch
+// let hamed = 23;
+// switch (hamed) {
+//     case 10:
+//         console.log("I'm 10 years old?!");
+//         break;
+//     case 20:
+//         console.log("I'm 20 years old?!");
+//         break;
+//     case 23:
+//         console.log("Yeah. I'm 23 years old :)");
+//         break
+//     default:
+//         console.log("Go ahead");
+//         break;
+// } // "Yeah. I'm 23 years old :)"
+
+
+// let hamed = "23";
+// switch (true) {
+//     case hamed == 23:
+//         console.log("Congrats");
+//         break;
+//     default:
+//         console.log("Mission failed!");
+//         break;
+// } // "Congrats" (23 or '23' no matter)
+
+
+// let hamed = "23";
+// switch (true) {
+//     case hamed === 23:
+//         console.log("Congrats");
+//         break;
+//     default:
+//         console.log("Mission failed!");
+//         break;
+// } // "Mission failed!"
+
+
+// let hamed = "Persian Sight";
+// let hamid = 23;
+// switch (true) {
+//     case (hamed || hamid == 23):
+//         console.log("OMG! not matching");
+//         break;
+//     default:
+//         console.log("Mission failed!");
+//         break;
+// } // "Mission failed!"
+
+
+// let hamed = "Persian Sight";
+// let hamid = 23;
+// switch (true) {
+//     case !!(hamed || hamid == 23):
+//         console.log("OMG! not matching");
+//         break;
+//     default:
+//         console.log("Mission failed!");
+//         break;
+// } // "Mission failed!"
+
+
+// let hamed = "Persian Sight";
+// let hamid = 23;
+// switch (true) {
+//     case !!(hamed || hamid == 23):
+//         console.log("OMG! its working");
+//         break;
+//     default:
+//         console.log("Mission failed!");
+//         break;
+// } // "OMG! its working"
+
+
+// let hamed = 23;
+// switch (hamed) {
+//     case 1:
+//     case 2:
+//     // never gets here
+//     default:
+//         console.log("default");
+//     case 3:
+//         console.log("3");
+//         break;
+//     case 4:
+//         console.log("4");
+// } // "default" \n "3"

@@ -127,7 +127,7 @@ itrate: for (let hamid = 0; hamid < 11; hamid++) {
 }
 ```
 
-**Note**: `continue itrate` does not mean "go to the `itrate` labeled position to continue", but rather, "continue the loop that is labeled `itrate` with its next iteration". So, it's not really an arbitrary `goto`. As you can see, we skipped over the odd iteration.
+**Note**: `continue itrate` does not mean "go to the `itrate` labeled position to continue", but rather, "continue the loop that is labeled `itrate` with its next iteration". So, its not really an arbitrary `goto`. As you can see, we skipped over the odd iteration.
 
 We also have `break`, that avoid continue running code:
 
@@ -183,7 +183,7 @@ let hamed = res.a;
 let hamid = res.b;
 ```
 
-`{ a, b }` is actually ES6 destructuring shorthand for `{ a: a, b: b }`, so either will work, but it's expected that the shorter `{ a, b }` will be become the preferred form.
+`{ a, b }` is actually ES6 destructuring shorthand for `{ a: a, b: b }`, so either will work, but its expected that the shorter `{ a, b }` will be become the preferred form.
 
 **Note**: Object destructuring with a `{..}` pair can also be used for named function arguments, which is sugar for this same sort of implicit object property assignment:
 
@@ -234,7 +234,7 @@ console.log(hamid); // 23
 
 **Answer**: Because the "`,`" operator has a lower precedence than the `=` operator. So `hamid = hamed++, hamed` is interpreted as `(hamid = hamed++), hamed`. Because `hamed++` has after side effects, the assigned value to `hamid` is the value `23` before the `++` changes `hamed`.
 
-If you're going to use "`,`" as a statement-series operator, it's important to know that it actually has the **lowest precedence**. Every other operator will more tightly bind than "`,`" will.
+If you're going to use "`,`" as a statement-series operator, its important to know that it actually has the **lowest precedence**. Every other operator will more tightly bind than "`,`" will.
 
 Let's try hardest precedence:
 
@@ -427,7 +427,7 @@ You still in worry? don't woory, be relax and see below:
     a
 ```
 
-It's huge. But easy to read. Let me write above code again:
+Its huge. But easy to read. Let me write above code again:
 
 ```js
 let a = 23;
@@ -642,6 +642,8 @@ function hamed(a) {
 hamed(34, 24, 20); // 78
 ```
 
+**Note**: Avoid`arguments` if you can, but if you must use it, by all means avoid using the positional slot in `arguments` at the same time as using a named parameter for that same argument.
+
 ---
 
 ## try and catch and finally
@@ -769,3 +771,143 @@ console.log(ali()); // "Persian Sight"
 ---
 
 ## Switch
+
+Let's briefly explore the `switch` statement, a sort-of syntactic shorthand for `if..else` `if..else..` statement chain. `switch` skeleton is here:
+
+```js
+switch (key) {
+    case value:
+
+        break;
+
+    default:
+        break;
+}
+```
+
+For example:
+
+```js
+let hamed = 23;
+switch (hamed) {
+    case 10:
+        console.log("I'm 10 years old?!");
+    case 20:
+        console.log("I'm 20 years old?!");
+    case 23:
+        console.log("Yeah. I'm 23 years old :)");
+    default:
+        console.log("Go ahead");
+}
+```
+
+**Q**: Is above example will work? Is it true for teaching?
+
+**Answer**: Yeah work, but its not correct. Because we don't use `break` expression (caluse) after each `case` and `default`. For above example, here is a ugly answer:
+
+```js
+// "Yeah. I'm 23 years old :)"
+// "Go ahead"
+```
+
+But the correct form is:
+
+```js
+let hamid = 23;
+switch (hamid) {
+    case 10:
+        console.log("I'm 10 years old?!");
+        break;
+    case 20:
+        console.log("I'm 20 years old?!");
+        break;
+    case 23:
+        console.log("Yeah. I'm 23 years old :)");
+        break
+    default:
+        console.log("Go ahead");
+        break;
+} // "Yeah. I'm 23 years old :)"
+```
+
+As you can see, it evaluates `hamid` once, then matches the resulting value to each `case` expression. If a match is found, execution will begin in that matched `case`, and will either go until a `break` is encountered or until the end of the `switch` block is found.
+
+There are several quirks about `switch` you may not have noticed before.
+
+**First**, the matching that occurs between the `hamed` expression and each `case` expression is identical to the `===` algorithm. Often times `switch`es are used with absolute values in `case` statements, as shown above, so strict matching is appropriate. However, you may wish to allow coercive equality. Let's do this:
+
+```js
+let hamed = "23";
+switch (true) {
+    case hamed == 23:
+        console.log("Congrats");
+        break;
+    default:
+        console.log("Mission failed!");
+        break;
+} // "Congrats" (23 or '23' no matter)
+```
+
+**Second**: You can also use `strict`mode in `switch` statement:
+
+```js
+let hamed = "23";
+switch (true) {
+    case hamed == 23:
+        console.log("Congrats");
+        break;
+    default:
+        console.log("Mission failed!");
+        break;
+} // "Mission failed!" (strict mode)
+```
+
+**Third**: You can use `selector operator` or `operand selector operator` (logical operator) in `switch` statement:
+
+```js
+let hamed = "Persian Sight";
+let hamid = 23;
+switch (true) {
+    case (hamed || hamid == 23):
+        console.log("OMG! not matching");
+        break;
+    default:
+        console.log("Mission failed!");
+        break;
+} // "Mission failed!" (hamed is not 23)
+```
+
+Since the result of `(hamed || hamid == 23)` is `"Persian Sight"` and not `true`, , the strict match fails. In this case, the fix is to force the expression explicitly to be a `true` and `false`, such as `case !!(hamed || hamid == 23)`:
+
+```js
+let hamed = "Persian Sight";
+let hamid = 23;
+switch (true) {
+    case !!(hamed || hamid == 23):
+        console.log("OMG! its working");
+        break;
+    default:
+        console.log("Mission failed!");
+        break;
+} // "OMG! its working"
+```
+
+**Fourh**, the last: the `default` clause is optional, and it doesn't necessarily have to come at the end. Even in the `default` clause, the same rules apply about encountering a `break` or not:
+
+```js
+let hamed = 23;
+switch (hamed) {
+    case 1:
+    case 2:
+    // never gets here
+    default:
+        console.log("default");
+    case 3:
+        console.log("3");
+        break;
+    case 4:
+        console.log("4");
+} // "default" \n "3"
+```
+
+The way this snippet processes is that it passes through all the `case` clause matching first, finds no match, then goes back up to the `default` clause and starts executing. Since there's no `break` there, it continues executing in the already skipped over `case 3` block, before stopping once it hits that `break`.
