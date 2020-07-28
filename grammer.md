@@ -644,9 +644,9 @@ hamed(34, 24, 20); // 78
 
 ---
 
-## try and finally
+## try and catch and finally
 
-You're probably familiar with how the `try..cache` works. The code in the `finally` clause always runs, and it always runs right after `try` (and `cache` if present) finish, before any other code runs.
+You're probably familiar with how the `try..catch` works. The code in the `finally` clause always runs, and it always runs right after `try` (and `catch` if present) finish, before any other code runs.
 
 **Q**: What happens if there's a `return` statement inside a `try` clause? It obviously will return a value, right? But does the calling code that receives that value run before or after the `finally`?
 
@@ -692,11 +692,80 @@ function hamid() {
     try {
         return 23;
     } finally {
-        throw "Error of PS";
+        console.log("Persian Sight");
     }
     console.log("Mission failed!");
 }
 
-// hamid(); // Uncaught Exception: "Error of PS"
-console.log(hamid()); // Uncaught Exception: "Error of PS"
+hamid(); // "Persian Sight"
+console.log(hamid()); // "Persian Sight" \n 23
 ```
+
+It shouldn't be surprising that other nonlinear control statements like `continue` and `break` exhibit similar behavior to `return` and `throw`:
+
+```js
+for (let i = 0; i < 10; i++) {
+    try {
+        continue;
+    }
+    finally {
+        console.log(i);
+    }
+}
+// 0 1 2 3 4 5 6 7 8 9
+```
+
+```js
+for (let i = 0; i < 10; i++) {
+    try {
+        break;
+    }
+    finally {
+        console.log(i);
+    }
+}
+// 0
+```
+
+The `console.log(i)` statement runs at the end of the loop iteration, which is caused by the `continue` statement. However, it still runs before the `i++` iteration update statement, which is why the values printed are `0..9` instead of `1..10`.
+
+A `return` inside a `finally` has the special ability to override a previous `return` from the `try` or `catch` clause, but only if `return` is explicitly called:
+
+```js
+function hamed() {
+    try {
+        return 23;
+    }
+    finally {
+        // no `return ..` here, so no override
+    }
+}
+
+function hamid() {
+    try {
+        return 23;
+    }
+    finally {
+        // override previous `return 23`
+        return;
+    }
+}
+
+function ali() {
+    try {
+        return 23;
+    }
+    finally {
+        // override previous `return 23`
+        return "Persian Sight";
+    }
+}
+
+console.log(hamed()); // 23
+console.log(hamid()); // undefined
+console.log(ali()); // "Persian Sight"
+```
+
+---
+
+## Switch

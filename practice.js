@@ -2039,3 +2039,48 @@
 
 // hamid(); // Uncaught Exception: "Error of PS"
 // console.log(hamid()); // Uncaught Exception: "Error of PS"
+
+
+// for (let i = 0; i < 10; i++) {
+//     try {
+//         continue;
+//     }
+//     finally {
+//         console.log(i);
+//     }
+// }
+// // 0 1 2 3 4 5 6 7 8 9
+
+
+// function hamed() {
+//     try {
+//         return 23;
+//     }
+//     finally {
+//         // no `return ..` here, so no override
+//     }
+// }
+
+// function hamid() {
+//     try {
+//         return 23;
+//     }
+//     finally {
+//         // override previous `return 23`
+//         return;
+//     }
+// }
+
+// function ali() {
+//     try {
+//         return 23;
+//     }
+//     finally {
+//         // override previous `return 23`
+//         return "Persian Sight";
+//     }
+// }
+
+// console.log(hamed()); // 23
+// console.log(hamid()); // undefined
+// console.log(ali()); // "Persian Sight"
