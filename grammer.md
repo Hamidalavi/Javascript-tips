@@ -649,3 +649,19 @@ hamed(34, 24, 20); // 78
 You're probably familiar with how the `try..cache` works. The code in the `finally` clause always runs, and it always runs right after `try` (and `cache` if present) finish, before any other code runs.
 
 **Q**: What happens if there's a `return` statement inside a `try` clause? It obviously will return a value, right? But does the calling code that receives that value run before or after the `finally`?
+
+**Answer**:
+
+```js
+function hamed() {
+    try {
+        return 23;
+    } finally {
+        console.log("Persian Sight")
+    }
+    console.log("Mission fail");
+}
+
+hamed(); // "Persian Sight"
+console.log(hamed()); // "Persian Sight" \n 23
+```

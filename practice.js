@@ -1998,3 +1998,18 @@
 // }
 
 // hamed(34, 24, 20); // 78
+
+// -----------------------------------------------
+
+// try cache finally
+function hamed() {
+    try {
+        return 23;
+    } finally {
+        console.log("Persian Sight")
+    }
+    console.log("Mission fail");
+}
+
+hamed(); // "Persian Sight"
+console.log(hamed()); // "Persian Sight" \n 23
