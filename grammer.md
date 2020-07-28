@@ -659,9 +659,44 @@ function hamed() {
     } finally {
         console.log("Persian Sight")
     }
-    console.log("Mission fail");
+    console.log("Mission failed!");
 }
 
 hamed(); // "Persian Sight"
 console.log(hamed()); // "Persian Sight" \n 23
+```
+
+The `return 23` runs right away, which sets up the completion value from the `hamed()` call. This action completes the `try` clause and the `finally` clause immediately runs next. Only then is the `hamed()` function complete, so that its completion value is returned back for the `console.log(..)` statement to use.
+
+The exact same behavior is true of a `throw` inside `try`:
+
+```js
+function hamid() {
+    try {
+        throw 23;
+    } finally {
+        console.log("Persian Sight");
+    }
+    console.log("Mission failed!")
+}
+
+hamid(); // "Persian Sight" \n throw 23; \n 23
+console.log(hamid()); // "Persian Sight" \n throw 23; \n 23
+// or Uncaught Exception: 23
+```
+
+If exception is thrown (accidentally or intentionally) inside a `finally` clause, it will override as the primary completion of that function. If a previous `return` in the `try` block had set a completion value for the function, that value will be abandoned.
+
+```js
+function hamid() {
+    try {
+        return 23;
+    } finally {
+        throw "Error of PS";
+    }
+    console.log("Mission failed!");
+}
+
+// hamid(); // Uncaught Exception: "Error of PS"
+console.log(hamid()); // Uncaught Exception: "Error of PS"
 ```

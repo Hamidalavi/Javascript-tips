@@ -2002,14 +2002,40 @@
 // -----------------------------------------------
 
 // try cache finally
-function hamed() {
-    try {
-        return 23;
-    } finally {
-        console.log("Persian Sight")
-    }
-    console.log("Mission fail");
-}
+// function hamed() {
+//     try {
+//         return 23;
+//     } finally {
+//         console.log("Persian Sight")
+//     }
+//     console.log("Mission failed!");
+// }
 
-hamed(); // "Persian Sight"
-console.log(hamed()); // "Persian Sight" \n 23
+// hamed(); // "Persian Sight"
+// console.log(hamed()); // "Persian Sight" \n 23
+
+
+// function hamid() {
+//     try {
+//         throw 23;
+//     } finally {
+//         console.log("Persian Sight");
+//     }
+//     console.log("Mission failed!")
+// }
+
+// hamid(); // "Persian Sight" \n throw 23; \n 23
+// console.log(hamid()); // "Persian Sight" \n throw 23; \n 23
+
+
+// function hamid() {
+//     try {
+//         return 23;
+//     } finally {
+//         throw "Error of PS";
+//     }
+//     console.log("Mission failed!");
+// }
+
+// hamid(); // Uncaught Exception: "Error of PS"
+// console.log(hamid()); // Uncaught Exception: "Error of PS"
