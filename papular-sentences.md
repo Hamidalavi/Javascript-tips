@@ -103,8 +103,8 @@ need a semicolon ( ; ) to conclude it.
       }
       ```
 
-- I recommend to use "**use strict**". because its fury and have strict behavior. for example: if you write `a = 10`, compiler will use strict behavior a saying to us: `ReferenceError: a is not defined`. with strict mode is disallowing the implicit auto-global variable declaration from omitting the `var`.
-  - Adhering to strict mode makes your code generally more optimizable by the engine.
+- I recommend to use "**use strict**". because its fury and have strict behavior. for example: if you write `a = 10`, compiler will use strict behavior a saying to us: `ReferenceError: a is not defined`. with "strict mode" is disallowing the implicit auto-global variable declaration from omitting the `var`.
+  - Adhering to "strict mode" makes your code generally more optimizable by the engine.
 - There's another way to execute a **function** expression, which is typically referred to as an immediately invoked function expression (IIFE).
 
   ```js

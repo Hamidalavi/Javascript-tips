@@ -1983,11 +1983,18 @@
 // hamid(); // 23
 
 
-function hamid(a) {
-    "use strict"
-    a = 23;
-    console.log(arguments[0])
-}
+// function hamid(a) {
+//     "use strict"
+//     a = 23;
+//     console.log(arguments[0])
+// }
 
-hamid(2); // 23
-hamid(); // undefined
+// hamid(2); // 2 -- not linked
+// hamid(); // undefined -- not linked
+
+
+// function hamed(a) {
+//     console.log(a + arguments[1] + arguments[2])
+// }
+
+// hamed(34, 24, 20); // 78

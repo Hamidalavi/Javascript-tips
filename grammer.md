@@ -527,14 +527,14 @@ let hamid;
 23 = hamid; // SyntaxError: Invalid left-hand side in assignment
 ```
 
-**Three**: `strict mode` for function. Function parameter names cannot be duplicated:
+**Three**: `strict` mode for function. Function parameter names cannot be duplicated:
 
 ```js
 function hamed(a, b, a) { };
 function hamid(a, b, a) { "use strict" }; // SyntaxError: Duplicate parameter name not allowed in this context
 ```
 
-**Four**: `strict mode` for object. Object literal having more than one property of the
+**Four**: `strict` mode for object. Object literal having more than one property of the
 
 ```js
 "use strict"
@@ -546,7 +546,7 @@ var a = {
 
 Note: Semantically speaking, such errors aren't technically syntax errors but more **grammar error**. the above snippets are syntactically valid. But since there is no `GrammarError` type, some browsers use `SyntaxError` instead.
 
-**Five**: `let` (block scope). ReferenceError: Cannot access 'variable' before initialization
+**Five**: `let`. ReferenceError: Cannot access 'variable' before initialization
 
 ```js
 hamid = 23; // ReferenceError: Cannot access 'hamid' before initialization
@@ -631,3 +631,21 @@ function hamid(a) {
 hamid(2); // 2 -- not linked
 hamid(); // undefined -- not linked
 ```
+
+See uncommon example of `argument`:
+
+```js
+function hamed(a) {
+    console.log(a + arguments[1] + arguments[2])
+}
+
+hamed(34, 24, 20); // 78
+```
+
+---
+
+## try and finally
+
+You're probably familiar with how the `try..cache` works. The code in the `finally` clause always runs, and it always runs right after `try` (and `cache` if present) finish, before any other code runs.
+
+**Q**: What happens if there's a `return` statement inside a `try` clause? It obviously will return a value, right? But does the calling code that receives that value run before or after the `finally`?

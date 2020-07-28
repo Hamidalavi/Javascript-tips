@@ -220,7 +220,7 @@ obj.b = 26; // undefined
 console.log(obj); // { a: 23 }
 ```
 
-In `strict mode`, it throws a `TypeError`. You also can use `Object.freez(..)` to frezing object (key and value):
+In "strict mode", it throws a `TypeError`. You also can use `Object.freez(..)` to frezing object (key and value):
 
 ```js
 let obj = { a: 23 };

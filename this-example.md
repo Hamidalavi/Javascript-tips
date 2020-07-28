@@ -77,7 +77,7 @@ hamed(); // 23
 
 **Ansawer**: **First**, that variable declared in the global scope, as `a = 23` is, are synonymous with **global-object** properties of the same name. They're not copies of each other, they are each other. **Second**: We see that when `hamed()` is called, `this.a` resolves to our global variable `a`. Because the default binding for `this` applies to the **function** call, and so points `this` at the global object.
 
-- If `"strict mode"` is in effect, the global object is not eligible for the default binding, so the `this` is instead set to **undefined**.
+- If "strict mode" is in effect, the global object is not eligible for the default binding, so the `this` is instead set to **undefined**.
 
 ```js
 function hamed() {
