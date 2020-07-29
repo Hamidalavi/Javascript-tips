@@ -1,14 +1,8 @@
 # Some **`object`** examples to give you more information
 
-## Telegram = **<https://t.me/Hamidalavi6540>**
-
-## Instagram = **<https://www.instagram.com/Hamidalavi6540>**
-
-## Twitter = **<https://twitter.com/HamidAlavi6540>**
-
 **Important: All functions in JavaScript are object**. (not for `Symbols`, they are simple scalar primitive)
 
-### A most important bug in **JavaScript** was found by developers, that the `null` is object in output
+**A most important bug in `JavaScript` was found by developers, that the `null` is object in output**
 
 **Use browser console (recommended) for get better result of `object`**.
 
@@ -252,7 +246,6 @@ Object.getOwnPropertyNames(obj); // ["a", "b"]
 ```
 
 If you want check the property is `enumerable` or `non-enumerable`, you can use `propertyIsEnumerable(..)`. `propertyIsEnumerable` tests whether the given property name exists directly on the **object** and is also **enumerable:true**.
-
 
 ---
 

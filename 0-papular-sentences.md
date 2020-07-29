@@ -1,12 +1,6 @@
 # Wellcome to Papular Programming Language Sentences (Motivation)
 
-## Telegram = **<https://t.me/Hamidalavi6540>**
-
-## Instagram = **<https://www.instagram.com/Hamidalavi6540>**
-
-## Twitter = **<https://twitter.com/HamidAlavi6540>**
-
-### Note: Our variable declaration names: Hamid, Hamed, ALi, Reza, Majid, Mehrdad, Morteza
+## Note: Our variable declaration names: Hamid, Hamed, ALi, Reza, Majid, Mehrdad, Morteza
 
 ### Read priority: 1. papular-sentences.md 2. this-example.md 4. object-example.md 4. type.md 5. compelte-guide-true-false.md 6. grammer.md
 

@@ -1,11 +1,5 @@
 # Some **`type`** sentences to give you more information
 
-## Telegram = **<https://t.me/Hamidalavi6540>**
-
-## Instagram = **<https://www.instagram.com/Hamidalavi6540>**
-
-## Twitter = **<https://twitter.com/HamidAlavi6540>**
-
 **I recommend first read `papular-sentences.md` and `this-example.md` and `object-example.md` files**.
 
 JavaScript defines seven built-in types:

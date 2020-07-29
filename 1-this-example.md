@@ -1,11 +1,5 @@
 # Some **`this`** example a give you more information
 
-## Telegram = **<https://t.me/Hamidalavi6540>**
-
-## Instagram = **<https://www.instagram.com/Hamidalavi6540>**
-
-## Twitter = **<https://twitter.com/HamidAlavi6540>**
-
 **Use browser console (recommended) for get better result of `this`**.
 
 **I recommend first read `papular-sentences.md` file**.

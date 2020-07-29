@@ -1,11 +1,5 @@
 # Complete Guide to True and False
 
-## Telegram = **<https://t.me/Hamidalavi6540>**
-
-## Instagram = **<https://www.instagram.com/Hamidalavi6540>**
-
-## Twitter = **<https://twitter.com/HamidAlavi6540>**
-
 ```js
 "0" == null; // false
 "0" == undefined; // false
