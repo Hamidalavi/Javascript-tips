@@ -56,3 +56,49 @@ console.log(b); // 180
 ```
 
 Two outcomes from the same code means we still have nondeterminism! But it's at the function (event) ordering level, rather than at the statement ordering level as it is with threads. In other words, it's more deterministic than threads would have been.
+
+Then, see below snippets and **think** about them:
+
+```js
+console.log("A");
+
+console.log("B");
+
+setTimeout(() => {
+    console.log("C");
+}, 0);
+
+setTimeout(() => {
+    console.log("D");
+}, 0); // "A" "B" "C" "D"
+
+```
+
+```js
+console.log("A");
+
+setTimeout(() => {
+    console.log("B");
+}, 0);
+
+console.log("C");
+
+setTimeout(() => {
+    console.log("D");
+}, 0); // "A" "C" "B" "D"
+
+// -----------------
+
+console.log("A");
+
+setTimeout(() => {
+    console.log("B");
+}, 1000);
+
+console.log("C");
+
+setTimeout(() => {
+    console.log("D");
+}, 1000); /* "A" "C" | "B" "D"
+               1 sec later*/
+```
