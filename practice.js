@@ -2267,14 +2267,21 @@
 // }, 0); // "A" "C" "B" "D"
 
 
-console.log("A");
+// console.log("A");
 
-setTimeout(() => {
-    console.log("B");
-}, 1000);
+// setTimeout(() => {
+//     console.log("B");
+// }, 1000);
 
-console.log("C");
+// console.log("C");
 
-setTimeout(() => {
-    console.log("D");
-}, 1000); // "A" "C" "B" "D"
+// setTimeout(() => {
+//     console.log("D");
+// }, 1000); // "A" "C" "B" "D"
+
+
+// console.log("A");
+// setTimeout(function () {
+//     console.log("C");
+// }, 1000);
+// console.log("B"); "A" "B" | "C"

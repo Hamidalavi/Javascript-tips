@@ -102,3 +102,17 @@ setTimeout(() => {
 }, 1000); /* "A" "C" | "B" "D"
                1 sec later*/
 ```
+
+If you read above snippets, see next one:
+
+```js
+console.log("A");
+setTimeout(function () {
+    console.log("C");
+}, 1000);
+console.log("B");
+```
+
+Most readers just now probably thought or said something to the effect of: "Do `A`, then set up a timeout to wait 1,000 milliseconds (1 second), then once that fires, do `C`".
+
+You might have caught yourself and self-edited to: "Do `A`, setup the timeout for 1,000 milliseconds (1 second), then do `B`, then after the timeout fires, do `C`".
