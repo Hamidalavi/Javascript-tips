@@ -170,7 +170,7 @@ let create = fullName.bind(this, "Hamid", 6540, "the hero");
 create();
 ```
 
-We are not give you an example for object, lets see:
+We are not give you an example for object, let's see:
 
 ```js
 function hamed(something) {
@@ -187,7 +187,7 @@ let h = hamid(3); // 23 3
 console.log(h); // 26
 ```
 
-How about `new` keyword for **new binding**? lets see guys:
+How about `new` keyword for **new binding**? let's see guys:
 
 ```js
 function hamed(value) {
@@ -203,7 +203,7 @@ console.log(obj.a); // 23
 console.log(ali.a); // 3
 ```
 
-If you want to make **safer** `this`, lets try this:
+If you want to make **safer** `this`, let's try this:
 
 ```js
 Object.create(null)

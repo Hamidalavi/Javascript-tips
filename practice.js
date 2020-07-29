@@ -1792,9 +1792,9 @@
 // console.log(hamed()); // 23 "Persian Sight"
 
 
-// let res = func();
-// let hamed = res.a;
-// let hamid = res.b;
+// let result = func();
+// let hamed = result.a;
+// let hamid = result.b;
 
 
 // function hamed({ a, b, c }) {
@@ -2224,18 +2224,18 @@
 // console.log(b); // 22
 
 
-let a = 1;
-let b = 2;
+// let a = 1;
+// let b = 2;
 
-// x
-b--; // 1
-a = 8 + b; // 9
-b = a * 2; // 18
+// // x
+// b--; // 1
+// a = 8 + b; // 9
+// b = a * 2; // 18
 
-// y
-a++; // 10
-b = b * a; // 180 ^^
-a = b + 3; // 183 ^^
+// // y
+// a++; // 10
+// b = b * a; // 180 ^^
+// a = b + 3; // 183 ^^
 
-console.log(a); // 183
-console.log(b); // 180
+// console.log(a); // 183
+// console.log(b); // 180

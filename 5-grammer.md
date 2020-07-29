@@ -172,9 +172,9 @@ console.log(a, b); // 23 "Persian Sight"
 As you can probably tell, `let { a, b } = ..` is a form of ES6 destructuring assignment, which is roughly equivalent to:
 
 ```js
-let res = func();
-let hamed = res.a;
-let hamid = res.b;
+let result = func();
+let hamed = result.a;
+let hamid = result.b;
 ```
 
 `{ a, b }` is actually ES6 destructuring shorthand for `{ a: a, b: b }`, so either will work, but its expected that the shorter `{ a, b }` will be become the preferred form.

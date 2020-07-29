@@ -16,7 +16,7 @@ console.log(obj.a);
 console.log(typeof obj);
 ```
 
-Lets try "Hello guys" for string. The primitive value "Hello guys" is not an object, it's a primitive **literal** and immutable value. Luckily, the language automatically coerces a "**string**" primitive to a **string** object when necessary, which means you almost never need to explicitly create the **object** form. for example:
+Let's try "Hello guys" for string. The primitive value "Hello guys" is not an object, it's a primitive **literal** and immutable value. Luckily, the language automatically coerces a "**string**" primitive to a **string** object when necessary, which means you almost never need to explicitly create the **object** form. for example:
 
 ```js
 let str = "Hello guys";
@@ -84,7 +84,7 @@ console.log(obj["hamedh"]); // hello
 console.log(obj["hamedw"]); // world
 ```
 
-Lets make function in object:
+Let's make function in object:
 
 ```js
 let obj = {
@@ -163,7 +163,7 @@ console.log(Object.getOwnPropertyDescriptor(obj, "a")); // { value: 23, writable
 console.log(obj); // { a: 23 }
 ```
 
-If `writable` is **false**, you cant edit or modify value (like read-only). If you use "strict mode", output is => TypeError: Cannot assign to read only property 'a' of object '#`<Object>`'. The **TypeError** tells us we cannot change a non-writable property. Lets got to the next, `configurable`:
+If `writable` is **false**, you cant edit or modify value (like read-only). If you use "strict mode", output is => TypeError: Cannot assign to read only property 'a' of object '#`<Object>`'. The **TypeError** tells us we cannot change a non-writable property. Let's got to the next, `configurable`:
 
 `configurable`: As long as a property is currently configurable, we can modify its descriptor definition, using the same `defineProperty(..)` utility.
 
@@ -301,7 +301,7 @@ The `in` operator will check to see if the property is in the **object**, or if 
 
 ## Shadowing
 
-Lets look below code:
+Let's look below code:
 
 ```js
 let obj = { a: 23 };
@@ -333,7 +333,7 @@ Be very careful when dealing with delegated properties that you modify. If you w
 
 In **JavaScript**, classes can't (being that they don't exist!) describe what an object can do. The object defines its own behavior directly. **There's just the object**.
 
-Lets see below code:
+' see below code:
 
 ```js
 function Hamed() {
