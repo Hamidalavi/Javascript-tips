@@ -116,3 +116,15 @@ console.log("B");
 Most readers just now probably thought or said something to the effect of: "Do `A`, then set up a timeout to wait 1,000 milliseconds (1 second), then once that fires, do `C`".
 
 You might have caught yourself and self-edited to: "Do `A`, setup the timeout for 1,000 milliseconds (1 second), then do `B`, then after the timeout fires, do `C`".
+
+## Promise
+
+Consider below pseudocode:
+
+```js
+function hamed(x) {
+    return new Promise(function (resolve, reject) {
+        // do something
+    });
+}
+```

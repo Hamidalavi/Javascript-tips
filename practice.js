@@ -2285,3 +2285,46 @@
 //     console.log("C");
 // }, 1000);
 // console.log("B"); "A" "B" | "C"
+
+
+// let hamed = 23;
+// let hamid = "24";
+// let ali = "22";
+
+// console.log(hamed + hamid);
+// console.log(Number(hamid) + hamed);
+// console.log(hamed - hamid);
+// console.log(hamid - hamed);
+// console.log(ali+= 5);
+
+// -----------------------------------------------
+
+// promise
+// function add(valX, valY, valZ) {
+//     console.log("Hi ")
+
+//     valX(function (vallX) {
+//         vallX = console.log("Hello");
+//         return vallX;
+//     });
+
+
+//     valY(function (vallY) {
+//         vallY = console.log("Wellcome to ");
+//         return vallY;
+//     });
+
+//     valZ(function (vallZ) {
+//         vallZ = console.log("Persian Sight Company");
+//         return vallZ;
+//     });
+// }
+
+// add(str1, str2, str3);
+
+
+function hamed(x) {
+    return new Promise(function (resolve, reject) {
+        // do something
+    });
+}
