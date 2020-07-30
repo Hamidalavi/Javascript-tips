@@ -1,6 +1,6 @@
 # My Information
 
-## Telegram = **<https://t.me/Hamidalavi6540>** (shut down for 20 days)
+## Telegram = **<https://t.me/Hamidalavi6540>** (shut down for 18 days)
 
 ## Instagram = **<https://www.instagram.com/Hamidalavi6540>**
 
@@ -8,4 +8,4 @@
 
 Learn more about **JavaScript**
 
-![Alt JavaScript](https://miro.medium.com/max/700/0*0bpy35Lc6rAdvivL.gif)
+![Alt JavaScript](https://i.ibb.co/BL5scGZ/0-0bpy35-Lc6r-Adviv-L.gif)
