@@ -2551,3 +2551,21 @@
 //     function rejected(error) {
 //         // never gets here
 //     }); // HAMID
+
+
+// let pm = Promise.resolve("Hamid");
+// pm.then(function resolved(message) {
+//     console.log(message.toUpperCase());
+// })
+//     .catch(handleError).catch(handleError);
+
+
+// var p = Promise.resolve(42);
+// p.then(
+//     function fulfilled(msg) {
+//         // numbers don't have string functions,
+//         // so will throw an error
+//         console.log(msg.toLowerCase());
+//     }
+// )
+//     .done(null, handleErrors);

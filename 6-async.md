@@ -481,4 +481,22 @@ pm.then(function resolved(message) {
 
 If the `message.toUpperCase()` legitimately throws an error (it does!), why doesn't our error handler get notified? As we explained earlier, it's because that error handler is for the `pm` Promise, which has already been fulfilled with value `23`. The `pm` promise is immutable, so the only promise that can be notified of the error is the one returned from `pm.then(..)`, which in this case we don't capture.
 
-**Warning**: If you use the Promise API in an invalid way and an error occurs that prevents proper Promise construction, the result will be an immediately thrown exception, **not a rejected Promise**.
+**Warning**: If you use the Promise API in an invalid way and an error occurs that prevents proper Promise construction, the result will be an immediately thrown exception, **not a rejected Promise**. Some examples of incorrect usage that fail Promise construction: `new Promise(null)`, `Promise.all()`, `Promise.race(23)`, and so on. You can't get a rejected Promise if you don't use the Promise API validly enough to actually construct a Promise in the first place!
+
+To avoid losing an error to the silence of a forgotten/discarded Promise, some developers have claimed that a **best practice** for Promise chains is to always end your chain with a final `catch(..)`, like:
+
+```js
+let pm = Promise.resolve("Hamid");
+pm.then(function resolved(message) {
+    console.log(message.toUpperCase());
+})
+    .catch(handleError);
+```
+
+---
+
+## Promise.all([ .. ])
+
+In an async sequence (Promise chain), only one async task is being coordinated at any given moment -- step 2 strictly follows step 1, and step 3 strictly follows step 2. But what about doing two or more steps concurrently (in parallel)?
+
+In classic programming terminology, a **gate** is a mechanism that waits on two or more parallel/concurrent tasks to complete before continuing. It doesn't matter what order they finish in, just that all of them have to complete for the gate to open and let the flow control through.
