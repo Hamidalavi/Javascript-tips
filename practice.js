@@ -2323,8 +2323,47 @@
 // add(str1, str2, str3);
 
 
-function hamed(x) {
-    return new Promise(function (resolve, reject) {
-        // do something
-    });
-}
+// function hamed(x) {
+//     return new Promise(function (resolve, reject) {
+//         // do something
+//     });
+// }
+
+
+// let p1 = new Promise(function (resolve, reject) {
+//     resolve(42);
+// });
+
+// let p2 = Promise.resolve(42);
+
+// let pm1 = Promise.resolve(42);
+// let pm2 = Promise.resolve(pm1);
+// console.log(pm1 === pm2); // true (result)
+
+
+// Promise.resolve(23).then(
+//     function resolv(value) {
+//         console.log(value); // 23
+//     }, function rejct(vall) {
+//         console.log(vall); // never gets here
+//     }
+// );
+
+// -----------------------------------------------
+
+// intermediate promise
+// don't just do this:
+// function hamed(val) {
+//     return val;
+// }
+
+// hamed(23)
+//     .then(function (v) {
+//         console.log(v); // TypeError
+//     });
+
+// // intead, do this
+// Promise.resolve(hamed(23))
+//     .then(function (v) {
+//         console.log(v); // 23
+//     });

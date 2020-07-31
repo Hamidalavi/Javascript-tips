@@ -1,5 +1,7 @@
 # Some **`async`** examples to give you more information
 
+## Precedence
+
 Let's see below examples. But first, please see `functions`:
 
 ```js
@@ -117,6 +119,8 @@ Most readers just now probably thought or said something to the effect of: "Do `
 
 You might have caught yourself and self-edited to: "Do `A`, setup the timeout for 1,000 milliseconds (1 second), then do `B`, then after the timeout fires, do `C`".
 
+---
+
 ## Promise
 
 Consider below pseudocode:
@@ -128,3 +132,66 @@ function hamed(x) {
     });
 }
 ```
+
+These below pseudos `Promise` are similar:
+
+```js
+// one
+let p1 = new Promise(function (resolve, reject) {
+    resolve(42);
+});
+
+// two
+let p2 = Promise.resolve(42);
+
+
+let pm1 = Promise.resolve(42);
+let pm2 = Promise.resolve(pm1);
+
+console.log(pm1 === pm2); // true (result)
+```
+
+The are same and similar. Let's see below code and surprise:
+
+```js
+Promise.resolve(23).then(
+    function resolv(value) {
+        console.log(value); // 23
+    }
+);
+
+// -----------------
+
+Promise.resolve(23).then(
+    function resolv(value) {
+        console.log(value); // 23
+    }, function rejct(vall) {
+        console.log(vall); // never gets here
+    }
+);
+```
+
+That's amazing, isn't it?
+
+`Promise.resolve(..)` will accept any thenable, and will unwrap it to its non-thenable value. But you get back from `Promise.resolve()` a real, genuine Promise in its place, **one that you can trust**. If what you passed in is already a genuine Promise, you just get it right back, so there's no downside at all to filtering through `Promise.resolve()` to gain trust.
+
+There is a **recommendation** to do this below:
+
+```js
+function hamed(val) {
+    return val;
+}
+
+hamed(23)
+    .then(function (v) {
+        console.log(v); // TypeError
+    });
+
+// intead, do this
+Promise.resolve(hamed(23))
+    .then(function (v) {
+        console.log(v); // 23
+    });
+```
+
+Another beneficial side effect of wrapping `Promise.resovle()` around any function's return value (thenable or not) is that it's an easy way to normalize that function call into a well-behaving async task. If `hamed(23)` returns an immediate value sometimes, or a Promise other times, `Promise.resolve(hamed())` makes sure it's always a Promise result. And avoiding Zalgo (trrible) makes for much better code.
