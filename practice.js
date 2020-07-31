@@ -2367,3 +2367,24 @@
 //     .then(function (v) {
 //         console.log(v); // 23
 //     });
+
+
+// let pm1 = Promise.resolve(23);
+// let pm2 = pm1.then(function (value) {
+//     console.log(value); // 23
+//     return value * 2;
+// });
+
+// pm2.then(function (value2) {
+//     console.log(value2); // 46
+// });
+
+
+// let pm = Promise.resolve(23);
+// pm.then(function (value) {
+//     console.log(value); // 23
+//     return value * 2;
+// })
+//     .then(function (value2) {
+//         console.log(value2); // 46
+//     });
