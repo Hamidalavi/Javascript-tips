@@ -2572,12 +2572,12 @@
 
 
 // Promise.all
-// let p1 = request("http://some.url.1/");
-// let p2 = request("http://some.url.2/");
+// let pm1 = request("http://some.url.1/");
+// let pm2 = request("http://some.url.2/");
 
-// Promise.all([p1, p2])
+// Promise.all([pm1, pm2])
 //     .then(function (msgs) {
-//         // both `p1` and `p2` fulfill and pass in
+//         // both `pm1` and `pm2` fulfill and pass in
 //         // their messages here
 //         return request(
 //             "http://some.url.3/?v=" + msgs.join(",")
@@ -2588,4 +2588,33 @@
 //     });
 
 
-// Promise.race
+// Promise.race (latch)
+// var pm1 = request("http://some.url.1/");
+// var pm2 = request("http://some.url.2/");
+// Promise.race([pm1, pm2])
+//     .then(function (msg) {
+//         // either `pm1` or `pm2` will win the race
+//         return request(
+//             "http://some.url.3/?v=" + msg
+//         );
+//     })
+//     .then(function (msg) {
+//         console.log(msg);
+//     });
+
+
+// Promise.race (timout)
+// Promise.race([
+//     hamed(), // attempt `hamed()`
+//     timeoutPromise(3000) // give it 3 seconds
+// ])
+//     .then(
+//         function () {
+//             // `hamed(..)` fulfilled in time!
+//         },
+//         function (err) {
+//             // either `hamed()` rejected, or it just
+//             // didn't finish in time, so inspect
+//             // `err` to know which
+//         }
+//     );

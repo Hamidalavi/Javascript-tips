@@ -506,12 +506,12 @@ In the Promise API, we call this pattern `all([ .. ])`.
 Say you wanted to make two Ajax requests at the same time, and wait for both to finish, regardless of their order, before making a third Ajax request. Consider:
 
 ```js
-let p1 = request("http://some.url.1/");
-let p2 = request("http://some.url.2/");
+let pm1 = request("http://some.url.1/");
+let pm2 = request("http://some.url.2/");
 
-Promise.all([p1, p2])
+Promise.all([pm1, pm2])
     .then(function (msgs) {
-        // both `p1` and `p2` fulfill and pass in
+        // both `pm1` and `pm2` fulfill and pass in
         // their messages here
         return request(
             "http://some.url.3/?v=" + msgs.join(",")
@@ -533,3 +533,49 @@ The main promise returned from `Promise.all([ .. ])` will only be fulfilled if a
 ---
 
 ## Promise.race([ .. ])
+
+`Promise.race([ .. ])` also expects a single `array` argument, containing one or more Promises, thenables, or immediate values. It doesn't make much practical sense to have a race with immediate values, because the first one listed will obviously win -- like a foot race where one runner starts at the finish line!
+
+Similar to `Promise.all([ .. ])`, `Promise.race([ .. ])` will fulfill if and when any Promise resolution is a fulfillment, and it will reject if and when any Promise resolution is a rejection.
+
+**Warning**: A "race" requires at least one "runner", so if you pass an empty `array`, instead of immediately resolving, the main `race([..])` Promise will never resolve.
+
+Let's revisit our previous concurrent Ajax example, but in the context of a race between `pm1` and `pm2`:
+
+```js
+var pm1 = request("http://some.url.1/");
+var pm2 = request("http://some.url.2/");
+Promise.race([pm1, pm2])
+    .then(function (msg) {
+        // either `pm1` or `pm2` will win the race
+        return request(
+            "http://some.url.3/?v=" + msg
+        );
+    })
+    .then(function (msg) {
+        console.log(msg);
+    });
+```
+
+Because only one promise wins, the fulfillment value is a single message, not an `array` as it was for `Promise.all([ .. ])`.
+
+We can set timeout (Timout Race) for `Promise.race([..])`:
+
+```js
+Promise.race([
+    hamed(), // attempt `hamed()`
+    timeoutPromise(3000) // give it 3 seconds
+])
+    .then(
+        function () {
+            // `hamed(..)` fulfilled in time!
+        },
+        function (err) {
+            // either `hamed()` rejected, or it just
+            // didn't finish in time, so inspect
+            // `err` to know which
+        }
+    );
+```
+
+This timeout pattern works well in most cases. But there are some nuances to consider, and frankly they apply to both `Promise.race([ .. ])` and `Promise.all([ .. ])` equally.
