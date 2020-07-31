@@ -241,3 +241,169 @@ So now the first `then(..)` is the first step in an async sequence, and the seco
 **Answer**: We're using an immediate `return` statement, which immediately fulfills the chained promise.
 
 The key to making a Promise sequence truly async capable at every step is to recall how `Promise.resolve(..)` operates when what you pass to it is a Promise or thenable instead of a final value. `Promise.resolve(..)` directly returns a received genuine Promise, or it unwraps the value of a received thenable (and keeps going recursively while it keeps unwrapping thenables).
+
+The same sort of unwrapping happens if you `return` a thenable or Promise from the fulfillment (or rejection) handler. Consider:
+
+```js
+let pm = Promise.resolve(23);
+pm.then(function (value) {
+    console.log(value); // 23
+
+    // create a promise and return it
+    return new Promise(function (resolve, reject) {
+        // fulfill with value `46`
+        resolve(value * 2);
+    });
+})
+    .then(function (value) {
+        console.log(value); // 46
+    });
+```
+
+Even though we wrapped `46` up in a promise that we returned, it still got unwrapped and ended up as the resolution of the chained promise, such that the second `then(..)` still received `46`. If we introduce asynchrony to that wrapping promise, everything still nicely works the same:
+
+```js
+let pm = Promise.resolve(23);
+pm.then(function (value) {
+    console.log(value); // 23
+
+    // create a promise to return
+    return new Promise(function (resolve, reject) {
+        // introduce asynchrony!
+        setTimeout(function () {
+            // fulfill with value `46`
+            resolve(value * 2);
+        }, 1000);
+    });
+})
+    .then(function (value) {
+        // runs after the 100ms delay in the previous step
+        console.log(value); // 46
+    });
+//  output: 23; 1 second later, 46
+```
+
+That's incredibly powerful! Now we can construct a sequence of however many async steps we want, and each step can delay the next step (or not!), as necessary.
+
+Of course, the value passing from step to step in these examples is optional. If you don't return an explicit value, an implicit `undefined` is assumed, and the promises still chain together the same way. Each Promise resolution is thus just a signal to proceed to the next step.
+
+Example of one of internet book (YDKJS):
+
+```js
+function delay(time) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(resolve, time);
+    });
+}
+
+delay(100) // step 1
+    .then(function STEP2() {
+        console.log("step 2 (after 100ms)");
+        return delay(200);
+    })
+    .then(function STEP3() {
+        console.log("step 3 (after another 200ms)");
+    })
+    .then(function STEP4() {
+        console.log("step 4 (next Job)");
+        return delay(50);
+    })
+    .then(function STEP5() {
+        console.log("step 5 (after another 50ms)");
+    })
+
+/* output:
+step 2 (after 100ms)
+step 3 (after another 200ms)
+step 4 (next Job)
+step 5 (after another 50ms) */
+```
+
+Calling `delay(200)` creates a promise that will fulfill in 200ms, and then we return that from the first `then(..)` fulfillment callback, which causes the second `then(..)`'s promise to wait on that 200ms promise.
+
+**Note**: As described, technically there are two promises in that interchange: the 200-ms-delay promise and the chained promise that the second `then(..)` chains from. But you may find it easier to mentally combine these two promises together, because Promise mechanism automatically merges their states for you. In that respect, you could think of `return delay(200)` as creating a promise that replaces the earlier-returned chained promise.
+
+Instead of timers, let's consider making Ajax requests:
+
+```js
+function request(url) {
+    return new Promise(function (resolve, reject) {
+        ajax(url, resolve);
+    });
+}
+```
+
+We first define a `request(..)`  utility that constructs a promise to represent the completion of the `ajax(..)` call:
+
+```js
+request("http://some.url.1/")
+    .then(function (response1) {
+        return request("http://some.url.2/?v=" + response1);
+    })
+    .then(function (response2) {
+        console.log(response2);
+    });
+```
+
+Let's see simple exaample of Promise (reject):
+
+```js
+let p = new Promise(function (resolve, reject) {
+    reject("Oops");
+});
+
+let p2 = p.then(
+    function fulfilled() {
+        // never gets here
+    }
+    // assumed rejection handler, if omitted or
+    // any other non-function value passed
+    // function(err) {
+    //
+    // throw err;
+    // }
+);
+// output: UnhandledPromiseRejectionWarning: Oops
+```
+
+As you can see, the assumed rejection handler simply rethrows the error, which ends up forcing `p2` (the chained promise) to reject with the same error reason. In essence, this allows the error to continue propagating along a Promise chain until an explicitly defined rejection handler is encountered.
+
+If a proper valid function is not passed as the fulfillment handler parameter to `then(..)`, there's also a default handler substituted:
+
+```js
+let pm = Promise.resolve(23);
+pm.then(
+    // assumed fulfillment handler, if omitted or
+    // any other non-function value passed
+    // function(value) {
+    //
+    // return value;
+    // }
+    null,
+    function rejected(err) {
+        // never gets here
+    }
+);
+```
+
+Let's break code to better style:
+
+```js
+let pm = Promise.resolve(23);
+pm.then(
+    null,
+    function rejected(err) {
+        // never gets here
+    }
+);
+```
+
+As you can see, the default fulfillment handler simply passes whatever value it receives along to the next step (Promise).
+
+**Note**: The `then(null,function(err){ .. })` pattern -- only handling rejections (if any) but letting fulfillments pass through -- has a shortcut in the API: `catch(function(err){ .. })`. We'll cover `catch(..)` more fully in the next section.
+
+Let's review briefly the intrinsic behaviors of Promises that enable chaining flow control:
+
+- A `then(..)` call against one Promise automatically produces a new Promise to return from the call.
+- Inside the fulfillment/rejection handlers, if you return a value or an exception is thrown, the new returned (chainable) Promise is resolved accordingly.
+- If the fulfillment or rejection handler returns a Promise, it is unwrapped, so that whatever its resolution is will become the resolution of the chained Promise returned from the current `then(..)`.

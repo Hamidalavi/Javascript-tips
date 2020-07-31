@@ -2388,3 +2388,124 @@
 //     .then(function (value2) {
 //         console.log(value2); // 46
 //     });
+
+
+// let pm = Promise.resolve(23);
+// pm.then(function (value) {
+//     console.log(value); // 23
+
+//     // create a promise and return it
+//     return new Promise(function (resolve, reject) {
+//         // fulfill with value `46`
+//         resolve(value * 2);
+//     });
+// })
+//     .then(function (value) {
+//         console.log(value); // 46
+//     });
+
+
+// let pm = Promise.resolve(23);
+// pm.then(function (value) {
+//     console.log(value); // 23
+
+//     // create a promise to return
+//     return new Promise(function (resolve, reject) {
+//         // introduce asynchrony!
+//         setTimeout(function () {
+//             // fulfill with value `46`
+//             resolve(value * 2);
+//         }, 1000);
+//     });
+// })
+//     .then(function (value) {
+//         // runs after the 100ms delay in the previous step
+//         console.log(value); // 46
+//     });
+
+
+// function delay(time) {
+//     return new Promise(function (resolve, reject) {
+//         setTimeout(resolve, time);
+//     });
+// }
+
+// delay(100) // step 1
+//     .then(function STEP2() {
+//         console.log("step 2 (after 100ms)");
+//         return delay(200);
+//     })
+//     .then(function STEP3() {
+//         console.log("step 3 (after another 200ms)");
+//     })
+//     .then(function STEP4() {
+//         console.log("step 4 (next Job)");
+//         return delay(50);
+//     })
+//     .then(function STEP5() {
+//         console.log("step 5 (after another 50ms)");
+//     })
+
+// /* output:
+// step 2 (after 100ms)
+// step 3 (after another 200ms)
+// step 4 (next Job)
+// step 5 (after another 50ms) */
+
+
+// function request(url) {
+//     return new Promise(function (resolve, reject) {
+//         ajax(url, resolve);
+//     });
+// }
+
+
+// request("http://some.url.1/")
+//     .then(function (response1) {
+//         return request("http://some.url.2/?v=" + response1);
+//     })
+//     .then(function (response2) {
+//         console.log(response2);
+//     });
+
+
+// let p = new Promise(function (resolve, reject) {
+//     reject("Oops");
+// });
+
+// let p2 = p.then(
+//     function fulfilled() {
+//         // never gets here
+//     }
+//     // assumed rejection handler, if omitted or
+//     // any other non-function value passed
+//     // function(err) {
+//     //
+//     // throw err;
+//     // }
+// );
+// // output: UnhandledPromiseRejectionWarning: Oops
+
+
+// let pm = Promise.resolve(23);
+// pm.then(
+//     // assumed fulfillment handler, if omitted or
+//     // any other non-function value passed
+//     // function(value) {
+//     //
+//     // return value;
+//     // }
+//     null,
+//     function rejected(err) {
+//         // never gets here
+//     }
+// );
+
+// simplified
+// let pm = Promise.resolve(23);
+// pm.then(
+//     null,
+//     function rejected(err) {
+//         // never gets here
+//     }
+// );
