@@ -2509,3 +2509,45 @@
 //         // never gets here
 //     }
 // );
+
+// -----------------------------------------------
+
+// promise (step by step)
+// let pm = new Promise(function (x, y) {
+//     // x() for resolve
+//     // y() for reject
+// });
+
+
+// error handling
+// function hamed() {
+//     setTimeout(function () {
+//         ali.hamid();
+//     }, 200);
+// }
+
+// try {
+//     hamed();
+//     // later throws global error from `ali.hamid()`
+// }
+// catch (err) {
+//     // never gets here
+// }
+
+
+// let pm = Promise.reject("Oh no!");
+// pm.then(function resolved() {
+//     // blank
+// },
+//     function rejected(error) {
+//         console.log(error);
+//     }); // "Oh oh!"
+
+
+// let pm = Promise.resolve("Hamid");
+// pm.then(function resolved(message) {
+//     console.log(message.toUpperCase());
+// },
+//     function rejected(error) {
+//         // never gets here
+//     }); // HAMID

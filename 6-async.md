@@ -407,3 +407,78 @@ Let's review briefly the intrinsic behaviors of Promises that enable chaining fl
 - A `then(..)` call against one Promise automatically produces a new Promise to return from the call.
 - Inside the fulfillment/rejection handlers, if you return a value or an exception is thrown, the new returned (chainable) Promise is resolved accordingly.
 - If the fulfillment or rejection handler returns a Promise, it is unwrapped, so that whatever its resolution is will become the resolution of the chained Promise returned from the current `then(..)`.
+
+---
+
+## Promsise (step by step)
+
+I know, these examples are hard to lean, Let's do this step by step:
+
+```js
+let pm = new Promise(function (x, y) {
+    // x() for resolve
+    // y() for reject
+});
+```
+
+As you can see, two callbacks (here labeled `x` and `y`) are provided. The first is usually used to mark the Promise as `resolved` (fulfilled), and the second always marks the Promise as `rejected`.
+
+**Q**: what's the "usually" about, and what does that imply about accurately naming those parameters?
+
+**Answer**: Ultimately, it's just your user code and the identifier names aren't interpreted by the engine to mean anything, so it doesn't technically matter; `hamid()` and `hamed()` (foo and bar are common) are equally functional. But the words you use can affect not only how you are thinking about the code, but how other developers on your team will think about it. Thinking wrongly about carefully orchestrated (sync, concurrent) async code is almost surely going to be worse than the spaghetti-callback alternatives. **So it actually does kind of matter what you call them**.
+
+The second parameter is easy to decide. Almost all literature uses `reject(..)` as its name, and because that's exactly (and only!) what it does, that's a very good choice for the name. I'd strongly recommend you always use **`reject(..)`**.
+
+At the end, use **`resolve(..)`** and **`reject(..)`**.
+
+---
+
+## Error Handling
+
+The most natural form of error handling for most developers is the synchronous `try..catch` construct. Unfortunately, it's synchronous-only, so it fails to help in async code patterns:
+
+```js
+function hamed() {
+    setTimeout(function () {
+        ali.hamid();
+    }, 200);
+}
+
+try {
+    hamed();
+    // later throws global error from `ali.hamid()`
+}
+catch (err) {
+    // never gets here
+}
+```
+
+`try..catch` would certainly be nice to have, but it doesn't work across async operations. That is, unless there's some additional environmental support (generators).
+
+So we come to error handling in Promises, with the rejection handler passed to `then(..)`. Promises don't use the popular "error-first callback" design style, but instead use "split callbacks" style; there's one callback for fulfillment and one for rejection:
+
+```js
+let pm = Promise.reject("Oh no!");
+pm.then(function resolved() {
+    // blank
+},
+    function rejected(error) {
+        console.log(error);
+    }); // "Oh oh!"
+```
+
+While this pattern of error handling makes fine sense on the surface, the nuances of Promise error handling are often a fair bit more difficult to fully grasp. Consider:
+
+```js
+let pm = Promise.resolve("Hamid");
+pm.then(function resolved(message) {
+    console.log(message.toUpperCase());
+},
+    function rejected(error) {
+        // never gets here
+    }); // HAMID
+```
+
+If the `message.toUpperCase()` legitimately throws an error (it does!), why doesn't our error handler get notified? As we explained earlier, it's because that error handler is for the `pm` Promise, which has already been fulfilled with value `23`. The `pm` promise is immutable, so the only promise that can be notified of the error is the one returned from `pm.then(..)`, which in this case we don't capture.
+
+**Warning**: If you use the Promise API in an invalid way and an error occurs that prevents proper Promise construction, the result will be an immediately thrown exception, **not a rejected Promise**.
