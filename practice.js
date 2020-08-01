@@ -58,8 +58,8 @@
 // purchasing tables until you run out of money in your bank account.
 // You'll also buy accessories for each table as long as your purchase amount is below
 // your mental spending threshold.
-// var haveMoney = 3000;
-// var tableCost = 19.99;
+// let haveMoney = 3000;
+// let tableCost = 19.99;
 // while (haveMoney >= 0) {
 //   haveMoney -= tableCost;
 //   if (haveMoney <= 0) {
@@ -73,9 +73,9 @@
 // 2
 // Take above question (request). add tax to table
 // const tax = 0.08; // 8%
-// var haveMoney = 3000;
-// var tableCost = 19.99;
-// var finalResult = tableCost += (tableCost * tax);
+// let haveMoney = 3000;
+// let tableCost = 19.99;
+// let finalResult = tableCost += (tableCost * tax);
 // while (haveMoney >= 0) {
 //   haveMoney -= finalResult;
 //   if (haveMoney <= 0) {
@@ -89,8 +89,8 @@
 // 3
 // better code with prompt function
 // const tax = 0.08; // 8%
-// var haveMoney = prompt("enter the value: ");
-// var tableCost = 19.99;
+// let haveMoney = prompt("enter the value: ");
+// let tableCost = 19.99;
 
 // function taxResult() {
 //     return haveMoney * tax;
@@ -110,20 +110,20 @@
 // -----------------------------------------------
 
 // object
-// var obj = {
+// let obj = {
 //   a: "hello world",
 //   b: 42,
 //   c: true,
 // };
 // console.log(obj["a"]);
 // console.log(obj.a);
-// var b = "a";
+// let b = "a";
 // console.log(obj[b]);
 
 // -----------------------------------------------
 
 // array
-// var array = ["hello world", 42, true];
+// let array = ["hello world", 42, true];
 // console.log(array[0]);
 // console.log(array[1]);
 // console.log(array[2]);
@@ -133,9 +133,9 @@
 // -----------------------------------------------
 
 // explicit and implicit
-// var a = "42";
-// var b = a * 2; // implicit
-// var c = Number(a); // explicit
+// let a = "42";
+// let b = a * 2; // implicit
+// let c = Number(a); // explicit
 // console.log(b);
 // console.log(typeof b);
 // console.log(c);
@@ -177,24 +177,24 @@
 //     return add;
 // }
 
-// var addOne = addition(1);
+// let addOne = addition(1);
 // console.log(addOne(5));
 
 // -----------------------------------------------
 
 // module instance
 // function user() {
-//     var username, password;
+//     let username, password;
 //     function doLogin(usr, passwd) {
 //         username = usr;
 //         password = passwd;
 //     }
 
-//     var publicAPI = { login: doLogin };
+//     let publicAPI = { login: doLogin };
 //     return publicAPI;
 // }
 
-// var hamid = user();
+// let hamid = user();
 // hamid.login("Hamidalavi6540", "12345");
 
 // -----------------------------------------------
@@ -203,12 +203,12 @@
 // function foo() {
 // console.log(this.bar);
 // }
-// var bar = "global";
-// var obj1 = {
+// let bar = "global";
+// let obj1 = {
 //     bar: "obj1",
 //     foo: foo
 // };
-// var obj2 = {
+// let obj2 = {
 //     bar: "obj2"
 // };
 // // --------
@@ -219,7 +219,7 @@
 // -----------------------------------------------
 
 // object
-// var obj = { hamed: 23, ali: 22 };
+// let obj = { hamed: 23, ali: 22 };
 // obj.reza = 26;
 // console.log(obj);
 
@@ -231,7 +231,7 @@
 // })();
 
 // function hamid() {
-//     var a = arguments[0] !== (void 0) ? arguments[0] : 23;
+//     let a = arguments[0] !== (void 0) ? arguments[0] : 23;
 //     console.log(a);
 // }
 // hamid();
@@ -261,7 +261,7 @@
 
 // slightly advanced function
 // function hamed(a) {
-//     var b = a;
+//     let b = a;
 //     return a + b;
 // }
 // console.log(hamed(6));
@@ -274,7 +274,7 @@
 // hamid(2);
 
 // function hamid(a) {
-//     var b = a * 2;
+//     let b = a * 2;
 //     function hamed(c) {
 //         console.log(a, b, c);
 //     }
@@ -289,15 +289,15 @@
 //     eval(text);
 //     console.log(a, b);
 // }
-// var b = 2;
-// hamid("var b = 5;", 2); // 1, 3
+// let b = 2;
+// hamid("let b = 5;", 2); // 1, 3
 
 // function hamed(text) {
 //     "use strict";
 //     eval(text);
 //     console.log(a); // ReferenceError: a is not defined
 // }
-// hamed("var a = 23");
+// hamed("let a = 23");
 
 // -----------------------------------------------
 
@@ -308,8 +308,8 @@
 //     }
 // }
 
-// var o1 = { a: 3 };
-// var o2 = { b: 3 };
+// let o1 = { a: 3 };
+// let o2 = { b: 3 };
 // hamed(o1);
 // console.log(o1.a); // 2
 // hamed(o2);
@@ -324,7 +324,7 @@
 //         i = 3; // changing the `i` in the enclosing scope's for-loop
 //         console.log(a + i);
 //     }
-//     for (var i = 0; i < 10; i++) {
+//     for (let i = 0; i < 10; i++) {
 //         hamid(i * 2); // oops, infinite loop ahead!
 //     }
 // }
@@ -339,14 +339,14 @@
 // }
 
 // a = 23;
-// var a;
+// let a;
 // console.log(a); // 23
 
 // console.log(a); // undefined
-// var a = 23;
+// let a = 23;
 
 // like above
-// var a;
+// let a;
 // console.log(a);
 // a = 2;
 // -----------------------------------------------
@@ -383,9 +383,9 @@
 
 
 // basic way
-// for (var i = 1; i <= 5; i++) {
+// for (let i = 1; i <= 5; i++) {
 //     (function () {
-//         var j = i;
+//         let j = i;
 //         setTimeout(function timer() {
 //             console.log(j);
 //         }, j * 1000);
@@ -393,7 +393,7 @@
 // }
 
 // another way (hard to learn)
-// for (var i = 1; i <= 5; i++) {
+// for (let i = 1; i <= 5; i++) {
 //     (function (j) {
 //         setTimeout(function timer() {
 //             console.log(j);
@@ -2519,13 +2519,7 @@
 // });
 
 
-// error handling
-// function hamed() {
-//     setTimeout(function () {
-//         ali.hamid();
-//     }, 200);
-// }
-
+// error handlingfirst one to open the latch gets through.
 // try {
 //     hamed();
 //     // later throws global error from `ali.hamid()`
@@ -2589,8 +2583,8 @@
 
 
 // Promise.race (latch)
-// var pm1 = request("http://some.url.1/");
-// var pm2 = request("http://some.url.2/");
+// let pm1 = request("http://some.url.1/");
+// let pm2 = request("http://some.url.2/");
 // Promise.race([pm1, pm2])
 //     .then(function (msg) {
 //         // either `pm1` or `pm2` will win the race
@@ -2618,3 +2612,45 @@
 //             // `err` to know which
 //         }
 //     );
+
+
+// promise equivalent
+// let hamed = new Promise(function (rsolve, reject) {
+//     reject("Oh No!");
+// }); // #1
+
+// let hamid = Promise.reject("Oh No!"); // #2
+
+
+// let resolved = {
+//     then: function (callBack) {
+//         callBack(23);
+//     }
+// };
+
+// let rejected = {
+//     then: function (callBack, errorCallBack) {
+//         errorCallBack("Oh No!");
+//     }
+// };
+
+// let hamed = Promise.resolve(resolved);
+// let hamid = Promise.resolve(rejected); // UnhandledPromiseRejectionWarning: Oh No!
+// console.log(hamed); // Promise { <pending> }
+
+
+let hamed = Promise.resolve(23);
+let hamid = Promise.resolve("Hello World");
+let ali = Promise.reject("Oh No!");
+Promise.race([hamed, hamid, ali])
+    .then(function (msg) {
+        console.log(msg); // 23
+    });
+Promise.all([hamed, hamid, ali])
+    .catch(function (err) {
+        console.error(err); // "Oh No!"
+    });
+Promise.all([hamed, hamid])
+    .then(function (message) {
+        console.log(message); // [ 23, 'Hello World' ]
+    });

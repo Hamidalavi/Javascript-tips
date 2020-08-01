@@ -471,7 +471,7 @@ The grammar requires a "`;`" after a `do..while` loop, but **not after** `while`
 As we said earlier in above, statement blocks do not require "`;`" termination, so **ASI** isn't necessary:
 
 ```js
-var a = 23;
+let a = 23;
 while (a) {
     // do something
 } // no ; expected here
@@ -532,7 +532,7 @@ function hamid(a, b, a) { "use strict" }; // SyntaxError: Duplicate parameter na
 
 ```js
 "use strict"
-var a = {
+let a = {
     b: 22,
     b: 23
 }; // Error!

@@ -431,8 +431,6 @@ The second parameter is easy to decide. Almost all literature uses `reject(..)` 
 
 At the end, use **`resolve(..)`** and **`reject(..)`**.
 
----
-
 ## Error Handling
 
 The most natural form of error handling for most developers is the synchronous `try..catch` construct. Unfortunately, it's synchronous-only, so it fails to help in async code patterns:
@@ -493,9 +491,7 @@ pm.then(function resolved(message) {
     .catch(handleError);
 ```
 
----
-
-## Promise.all([ .. ])
+## `Promise.all([ .. ])`
 
 In an async sequence (Promise chain), only one async task is being coordinated at any given moment -- step 2 strictly follows step 1, and step 3 strictly follows step 2. But what about doing two or more steps concurrently (in parallel)?
 
@@ -530,9 +526,7 @@ The main promise returned from `Promise.all([ .. ])` will only be fulfilled if a
 
 **Remember to always attach a rejection/error handler to every promise, even and especially the one that comes back from `Promise.all([ .. ])`**.
 
----
-
-## Promise.race([ .. ])
+## `Promise.race([ .. ])`
 
 `Promise.race([ .. ])` also expects a single `array` argument, containing one or more Promises, thenables, or immediate values. It doesn't make much practical sense to have a race with immediate values, because the first one listed will obviously win -- like a foot race where one runner starts at the finish line!
 
@@ -543,8 +537,8 @@ Similar to `Promise.all([ .. ])`, `Promise.race([ .. ])` will fulfill if and whe
 Let's revisit our previous concurrent Ajax example, but in the context of a race between `pm1` and `pm2`:
 
 ```js
-var pm1 = request("http://some.url.1/");
-var pm2 = request("http://some.url.2/");
+let pm1 = request("http://some.url.1/");
+let pm2 = request("http://some.url.2/");
 Promise.race([pm1, pm2])
     .then(function (msg) {
         // either `pm1` or `pm2` will win the race
@@ -579,3 +573,99 @@ Promise.race([
 ```
 
 This timeout pattern works well in most cases. But there are some nuances to consider, and frankly they apply to both `Promise.race([ .. ])` and `Promise.all([ .. ])` equally.
+
+## `new Promise(..)` Constructor
+
+The revealing constructor `Promise(..)` must be used with `new`, and must be provided a function callback that is synchronously/immediately called. This function is passed two function callbacks that act as resolution capabilities for the promise. We commonly label these `resolve(..)` and `reject(..)`:
+
+```js
+let p = new Promise(function (resolve, reject) {
+    // `resolve(..)` to resolve/fulfill the promise
+    // `reject(..)` to reject the promise
+});
+```
+
+`reject(..)` simply rejects the promise, but `resolve(..)` can either fulfill the promise or reject it, depending on what it's passed. If `resolve(..)` is passed an immediate, non-Promise, non-thenable value, then the promise is fulfilled with that value.
+
+But if `resolve(..)` is passed a genuine Promise or thenable value, that value is unwrapped recursively, and whatever its final resolution/state is will be adopted by the promise.
+
+## `Promise.resolve(..)` and `Promise.reject(..)`
+
+A shortcut for creating an already-rejected Promise is `Promise.reject(..)`, so these two promises are equivalent:
+
+```js
+let hamed = new Promise(function (rsolve, reject) {
+    reject("Oh No!");
+}); // #1
+
+let hamid = Promise.reject("Oh No!"); // #2
+```
+
+`Promise.resolve(..)` is usually used to create an already-fulfilled Promise in a similar way to `Promise.reject(..)`. However, `Promise.resolve(..)` also unwraps thenable values. In that case, the Promise returned adopts the final resolution of the thenable you passed in, which could either be fulfillment or rejection:
+
+```js
+let resolved = {
+    then: function (callBack) {
+        callBack(23);
+    }
+};
+
+let rejected = {
+    then: function (callBack, errorCallBack) {
+        errorCallBack("Oh No!");
+    }
+};
+
+let hamed = Promise.resolve(resolved);
+let hamid = Promise.resolve(rejected); // UnhandledPromiseRejectionWarning: Oh No!
+console.log(hamed); // Promise { <pending> }
+
+// `hamed` will be a fulfilled promise
+// `hamid` will be a rejected promise
+```
+
+And remember, `Promise.resolve(..)` doesn't do anything if what you pass is already a genuine Promise; it just returns the value directly. So there's no overhead to calling `Promise.resolve(..)` on values that you don't know the nature of, if one happens to already be a genuine Promise.
+
+## `then(..)` and `catch(..)`
+
+Each Promise instance (**not** the `Promise` API namespace) has `then(..)` and `catch(..)` methods, which allow registering of fulfillment and rejection handlers for the Promise. Once the Promise is resolved, one or the other of these handlers will be called, but not both, and it will always be called asynchronously.
+
+`then(..)` takes one or two parameters, the first for the fulfillment callback, and the second for the rejection callback. If either is omitted or is otherwise passed as a non-function value, a default callback is substituted respectively. The default fulfillment callback simply passes the message along, while the default rejection (propagates) callback simply rethrows the error reason it receives.
+
+`catch` takes only the rejection callback as a parameter, and automatically substitutes the default fulfillment callback. In other words, it's equivalent to `then(null,..)`:
+
+```js
+pm.then(resolved);
+pm.then(resolved, rejected);
+pm.catch(rejected); // or `pm.then(null, rejected)`
+```
+
+`then(..)` and `catch(..)` also create and return a new promise, which can be used to express Promise chain flow control. If the fulfillment or rejection callbacks have an exception thrown, the returned promise is rejected. If either callback returns an immediate, non-Promise, non-thenable value, that value is set as the fulfillment for the returned promise. If the fulfillment handler specifically returns a promise or thenable value, that value is unwrapped and becomes the resolution of the returned promise.
+
+## `Promise.all([ .. ])` and `Promise.race([ .. ])`
+
+The static helpers `Promise.all([ .. ])` and `Promise.race([ .. ])` on the ES6 `Promise` API both create a Promise as their return value. The resolution of that promise is controlled entirely by the array of promises that you pass in.
+
+For `Promise.all([..])`, all the promises you pass in must fulfill for the returned promise to fulfill. If any promise is rejected, the main returned promise is immediately rejected, too (discarding the results of any of the other promises). For fulfillment, you receive an `array` of all the passed in promises' fulfillment values. For rejection, you receive just the first promise rejection reason value. This pattern is classically called a **gate**: all must arrive before the gate opens.
+
+For `Promise.race([ .. ])`, only the first promise to resolve (fulfillment or rejection) **wins**, and whatever that resolution is becomes the resolution of the returned promise. This pattern is classically called a **latch**: first one to open the latch gets through. For example:
+
+```js
+let hamed = Promise.resolve(23);
+let hamid = Promise.resolve("Hello World");
+let ali = Promise.reject("Oh No!");
+Promise.race([hamed, hamid, ali])
+    .then(function (msg) {
+        console.log(msg); // 23
+    });
+Promise.all([hamed, hamid, ali])
+    .catch(function (err) {
+        console.error(err); // "Oh No!"
+    });
+Promise.all([hamed, hamid])
+    .then(function (message) {
+        console.log(message); // [ 23, 'Hello World' ]
+    });
+```
+
+**Warning**: Be careful! If an empty `array` is passed to `Promise.all([..])`, it will fulfill immediately, but `Promise.race([ .. ])` will hang forever and never resolve.

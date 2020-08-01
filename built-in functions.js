@@ -49,7 +49,7 @@ Object.preventExtensions(object); // prevent from adding properties
 
 Object.keys(object); // shows all object's keys (returns an array of all enumerable properties)
 
-eval("Hamid"); // evaluates JavaScript code and executes it (string of code)(ex: "var a = 20;")
+eval("Hamid"); // evaluates JavaScript code and executes it (string of code)(ex: "let a = 20;")
 
 setTimeout(() => {
     console.log("Hello");
