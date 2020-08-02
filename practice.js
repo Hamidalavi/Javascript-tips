@@ -2639,18 +2639,45 @@
 // console.log(hamed); // Promise { <pending> }
 
 
-let hamed = Promise.resolve(23);
-let hamid = Promise.resolve("Hello World");
-let ali = Promise.reject("Oh No!");
-Promise.race([hamed, hamid, ali])
-    .then(function (msg) {
-        console.log(msg); // 23
-    });
-Promise.all([hamed, hamid, ali])
-    .catch(function (err) {
-        console.error(err); // "Oh No!"
-    });
-Promise.all([hamed, hamid])
-    .then(function (message) {
-        console.log(message); // [ 23, 'Hello World' ]
-    });
+// let hamed = Promise.resolve(23);
+// let hamid = Promise.resolve("Hello World");
+// let ali = Promise.reject("Oh No!");
+// Promise.race([hamed, hamid, ali])
+//     .then(function (msg) {
+//         console.log(msg); // 23
+//     });
+// Promise.all([hamed, hamid, ali])
+//     .catch(function (err) {
+//         console.error(err); // "Oh No!"
+//     });
+// Promise.all([hamed, hamid])
+//     .then(function (message) {
+//         console.log(message); // [ 23, 'Hello World' ]
+//     });
+
+// -----------------------------------------------
+
+// generators
+// let number = 1;
+
+// function hamed() {
+//     number++;
+//     hamid();
+//     console.log("number is: " + number); // "number is: 3"
+// }
+
+// function hamid() {
+//     number++;
+// }
+
+// hamed(); // "number is: 3"
+
+
+// let number = 1;
+// function* hamed() {
+//     number++;
+//     yield; // pause!
+//     console.log("number:", number);
+// }
+
+// hamed();

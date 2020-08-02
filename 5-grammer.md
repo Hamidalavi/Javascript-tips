@@ -155,7 +155,7 @@ hamed(); // "Persian" \n "Sight"
 
 ## Object Destructuring
 
-Starting with ES6, another place that you'll see `{..}` (object) pair showing up is with `destructuring assignments`, specifically `object` destructuring:
+Starting with **ES6**, another place that you'll see `{..}` (object) pair showing up is with `destructuring assignments`, specifically `object` destructuring:
 
 ```js
 function hamed() {
@@ -169,7 +169,7 @@ let { a, b } = hamed();
 console.log(a, b); // 23 "Persian Sight"
 ```
 
-As you can probably tell, `let { a, b } = ..` is a form of ES6 destructuring assignment, which is roughly equivalent to:
+As you can probably tell, `let { a, b } = ..` is a form of **ES6** destructuring assignment, which is roughly equivalent to:
 
 ```js
 let result = func();
@@ -177,7 +177,7 @@ let hamed = result.a;
 let hamid = result.b;
 ```
 
-`{ a, b }` is actually ES6 destructuring shorthand for `{ a: a, b: b }`, so either will work, but its expected that the shorter `{ a, b }` will be become the preferred form.
+`{ a, b }` is actually **ES6** destructuring shorthand for `{ a: a, b: b }`, so either will work, but its expected that the shorter `{ a, b }` will be become the preferred form.
 
 **Note**: Object destructuring with a `{..}` pair can also be used for named function arguments, which is sugar for this same sort of implicit object property assignment:
 
@@ -575,7 +575,7 @@ hamed(null); // "null" 3
 
 **Note**: `null` is coerced to a `0` value in the `a + 3` expression.
 
-From the ES6 default parameter values perspective, there's no difference between omitting an argument and passing an `undefined` value. However, there is a way to detect the difference in some cases:
+From the **ES6** default parameter values perspective, there's no difference between omitting an argument and passing an `undefined` value. However, there is a way to detect the difference in some cases:
 
 ```js
 function hamed(a = 23, b = a + 3) {

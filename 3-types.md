@@ -152,7 +152,7 @@ console.log(hamed === 0.3); // false
 
 **Q**: Why output is **false**?
 
-**Answer**: The most commonly accepted practice is to use a tiny "rounding error" value as the tolerance for comparison. This tiny value is often called **machine epsilon**, which is commonly `2^-52` (2.220446049250313e-16) for the kind of numbers in **JavaScript**. As of ES6, `Number.EPSILON` is predefined with this tolerance value, so you'd want to use it. but you can safely polyfill the definition for pre-ES6:
+**Answer**: The most commonly accepted practice is to use a tiny "rounding error" value as the tolerance for comparison. This tiny value is often called **machine epsilon**, which is commonly `2^-52` (2.220446049250313e-16) for the kind of numbers in **JavaScript**. As of **ES6**, `Number.EPSILON` is predefined with this tolerance value, so you'd want to use it. but you can safely polyfill the definition for pre-**ES6**:
 
 ```js
 if (!Number.EPSILON) {

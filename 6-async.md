@@ -644,7 +644,7 @@ pm.catch(rejected); // or `pm.then(null, rejected)`
 
 ## `Promise.all([ .. ])` and `Promise.race([ .. ])`
 
-The static helpers `Promise.all([ .. ])` and `Promise.race([ .. ])` on the ES6 `Promise` API both create a Promise as their return value. The resolution of that promise is controlled entirely by the array of promises that you pass in.
+The static helpers `Promise.all([ .. ])` and `Promise.race([ .. ])` on the **ES6** `Promise` API both create a Promise as their return value. The resolution of that promise is controlled entirely by the array of promises that you pass in.
 
 For `Promise.all([..])`, all the promises you pass in must fulfill for the returned promise to fulfill. If any promise is rejected, the main returned promise is immediately rejected, too (discarding the results of any of the other promises). For fulfillment, you receive an `array` of all the passed in promises' fulfillment values. For rejection, you receive just the first promise rejection reason value. This pattern is classically called a **gate**: all must arrive before the gate opens.
 
@@ -669,3 +669,56 @@ Promise.all([hamed, hamid])
 ```
 
 **Warning**: Be careful! If an empty `array` is passed to `Promise.all([..])`, it will fulfill immediately, but `Promise.race([ .. ])` will hang forever and never resolve.
+
+---
+
+## Generators
+
+We detailed how Promises uninvert the inversion of control of callbacks, restoring trustability/composability.
+
+Now we turn our attention to expressing async flow control in a sequential, synchronous-looking fashion. The **magic** that makes it possible is **ES6** generators.
+
+We explained an expectation that JS developers almost universally rely on in their code: once a function starts executing, it runs until it completes, and no other code can interrupt and run in between.
+
+As bizarre as it may seem, **ES6** introduces a new type of function that does not behave with the run-to-completion behavior. This new type of function is called a **generator**.
+
+To understand the implications, let's consider this example:
+
+```js
+let number = 1;
+
+function hamed() {
+    number++;
+    hamid();
+    console.log("number is: " + number); // "number is: 3"
+}
+
+function hamid() {
+    number++;
+}
+
+hamed(); // "number is: 3"
+```
+
+In this example, we know for sure that `hamid()` runs in between `number++` and `console.log(number)`. But what if `hamid()` wasn't there? Obviously the result would be `2` instead of `3`.
+
+**Q**: What if `hamid()` wasn't present, but it could still somehow run between the `number++` and `console.log(number)` statements? How would that be possible?
+
+**Answer**: In **preemptive** multithreaded languages, it would essentially be possible for `hamid()` to **interrupt** and run at exactly the right moment between those two statements. But **JavaScript** is not preemptive, nor is it (currently) multithreaded. And yet, a **cooperative** form of this **interruption** (concurrency) is possible, if `hamed()` itself could somehow indicate a "**pause**" at that part in the code.
+
+**Note**: We use the word **cooperative** not only because of the connection to classical concurrency terminology, but because as you'll see in the next snippet, the **ES6** syntax for indicating a pause point in code is `yield` -- suggesting a politely cooperative yielding of control.
+
+Here's the **ES6** code to accomplish such cooperative concurrency:
+
+```js
+let number = 1;
+function* hamed() {
+    number++;
+    yield; // pause!
+    console.log("number:", number);
+}
+
+hamed();
+```
+
+**Note**: You will likely see most other JS documentation/code that will format a generator declaration as `function* hamed() { .. }` instead of as we've done here with `function *hamed() { .. }` -- the only difference being the stylistic positioning of the `*`. The two forms are functionally/syntactically identical, as is a third `function*hamed() { .. }` (no space) form. There are arguments for both styles, but we basically prefer `function *hamed..` (you are free to choose) because it then matches when we reference a generator in writing with `*hamed()`. If we said only `hamed()`, you wouldn't know as clearly if we were talking about a **generator** or a **regular function**. It's purely a stylistic preference.
