@@ -866,6 +866,8 @@ And if **there is no `return`** in your generator -- `return` is certainly not a
 
 These questions and answers (the two-way message passing with `yield` and `next(..)`) are quite powerful, but it's not obvious at all how these mechanisms are connected to async flow control.
 
+## Multiple Iterators
+
 We can having multiple iterators. See below snippet:
 
 ```js
@@ -890,3 +892,10 @@ val2 = it2.next(val1 * 5).value; // 600 <-- x:200, z:3
 it1.next(val2 / 2); // y:300 | 20 300 3
 it2.next(val1 / 4); // y:10 | 200 10 3
 ```
+
+**Warning**: The most common usage of multiple instances of the same generator running concurrently is not such interactions, but when the generator is producing its own values without input, perhaps from some independently connected resource.
+
+Let's briefly walk through the processing:
+
+1. 1. Both instances of `*foo()` are started at the same time, and both `next()` calls reveal a `value` of `2` from the `yield 2` statements, respectively.
+2. `val2 * 10` is `2 * 10`, , which is sent into the first generator instance `it1`, so that `x` gets value `20`. `z` is incremented from `1` to `2`, and then `20 * 2` is `yield`ed out, setting `val1` to `40`.
