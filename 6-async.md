@@ -808,3 +808,28 @@ First, we pass in `11.5` as the parameter `x`. Then we call `iterator.next()`, a
 Inside `*hamed(..)`, the `var y = x ..` statement starts to be processed, but then it runs across a `yield` expression. At that point, it pauses `*hamed(..)` (in the middle of the assignment statement!), and essentially requests the calling code to provide a result value for the `yield` expression. Next, we call `iterator.next(2)`, which is passing the `2` value back in to be that result of the paused `yield` expression.
 
 So, at this point, the assignment statement is essentially `let y = 11.5 * 2`. Now, `return y` returns that `23` value back as the result of the `iterator.next(2)` call.
+
+Notice something very important but also easily confusing, even to seasoned JS developers: depending on your perspective, there's a mismatch between the `yield` and the `next(..)` call. In general, you're going to have one more `next(..)` call than you have `yield` statements -- the preceding snippet has one `yield` and two `next(..)` calls.
+
+**Q**: Why the mismatch?
+
+**Answer**: Because the first `next(..)` always starts a generator, and runs to the first `yield`. But it's the second `next(..)` call that fulfills the first paused `yield` expression, and the third `next(..)` would fulfill the second `yield`, and so on.
+
+Actually, which code you're thinking about primarily will affect whether there's a perceived mismatch or not. Consider only the generator code:
+
+```js
+let y = x * (yield);
+return y;
+```
+
+the **first** `yield` is basically asking a question: "What value should I insert here"?
+
+Who's going to answer that question? Well, the **first** `next()` has already run to get the generator up to this point, so obviously it can't answer the question. So, the **second** `next(..)` call must answer the question posed by the **first** `yield`.
+
+See the mismatch -- second-to-first?
+
+But let's flip our perspective. Let's look at it not from the generator's point of view, but from the **iterator's point of view**. To properly illustrate this perspective, we also need to explain that messages can go in both directions -- `yield ..` as an expression can send out messages in response to `next(..)` calls, and `next(..)` can send values to a paused `yield` expression. Consider this slightly adjusted code:
+
+```js
+
+```
