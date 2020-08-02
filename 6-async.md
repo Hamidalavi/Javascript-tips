@@ -857,3 +857,36 @@ console.log(result.value); // 23
 The first `next()` call (with nothing passed to it) is basically asking a question: "What next value does the `*hamed(..)` generator have to give me"? And who answers this question? the first `yield "Persian Sight"` expression.
 
 See that? No mismatch there. Yaay :)
+
+Depending on who you think about asking the question, there is either a mismatch between the `yield` and `next(..)` calls, or not.
+
+But wait! There's still an extra `next()` compared to the number of `yield` statements. So, that final `iterator.next(2)` call is again asking the question about what next value the generator will produce. But there's no more `yield` statements left to answer, is there? So who answers? the `return` statement answers the question!
+
+And if **there is no `return`** in your generator -- `return` is certainly not any more required in generators than in regular functions -- there's always an assumed/implicit `return;` (aka `return undefined;`), which serves the purpose of default answering the question posed by the final `iterator.next(2)` call.
+
+These questions and answers (the two-way message passing with `yield` and `next(..)`) are quite powerful, but it's not obvious at all how these mechanisms are connected to async flow control.
+
+We can having multiple iterators. See below snippet:
+
+```js
+// from YDKJS
+function* foo() {
+    var x = yield 2;
+    z++;
+    var y = yield (x * z);
+    console.log(x, y, z);
+}
+
+var z = 1;
+var it1 = foo();
+var it2 = foo();
+
+var val1 = it1.next().value; // 2 <-- yield 2
+var val2 = it2.next().value; // 2 <-- yield 2
+
+val1 = it1.next(val2 * 10).value; // 40 < --x:20, z:2
+val2 = it2.next(val1 * 5).value; // 600 <-- x:200, z:3
+
+it1.next(val2 / 2); // y:300 | 20 300 3
+it2.next(val1 / 4); // y:10 | 200 10 3
+```
