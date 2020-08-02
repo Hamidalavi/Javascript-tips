@@ -781,3 +781,30 @@ console.log(result.done); // true
 We pass in the arguments `11.5` and `2` to `*hamid(..)` as the parameters `a` and `b`, respectively. And `*hamid(..)` returns the value `23` back to the calling code.
 
 We now see a difference with how the generator is invoked compared to a normal function. `hamid(11.5, 2)` obviously looks familiar. But subtly, the `*hamid(..)` generator hasn't actually run yet as it would have with a function.
+
+Instead, we're just creating an iterator object, which we assign to the variable `iterator`, to control the `*hamid(..)` generator. Then we call `iterator.next()`,which instructs the `*hamid(..)` generator to advance from its current location, stopping either at the next `yield` or end of the generator.
+
+The result of that `next(..)` call is an object with a `value` property on it holding whatever value (if anything) was returned from `*hamid(..)`. In other words, `yield` caused a value to be sent out from the generator during the middle of its execution, kind of like an intermediate `return`.
+
+## Iteration Messaging
+
+In addition to generators accepting arguments and having return values, there's even more powerful and compelling input/output messaging capability built into them, via `yield` and `next(..)`. Consider:
+
+```js
+function* hamed(x) {
+    let y = x * (yield);
+    return y;
+}
+let iterator = hamed(11.5);
+
+// start `hamed(..)`
+iterator.next();
+let result = iterator.next(2);
+console.log(result.value); // 23
+```
+
+First, we pass in `11.5` as the parameter `x`. Then we call `iterator.next()`, and it starts up `hamed(..)`.
+
+Inside `*hamed(..)`, the `var y = x ..` statement starts to be processed, but then it runs across a `yield` expression. At that point, it pauses `*hamed(..)` (in the middle of the assignment statement!), and essentially requests the calling code to provide a result value for the `yield` expression. Next, we call `iterator.next(2)`, which is passing the `2` value back in to be that result of the paused `yield` expression.
+
+So, at this point, the assignment statement is essentially `let y = 11.5 * 2`. Now, `return y` returns that `23` value back as the result of the `iterator.next(2)` call.

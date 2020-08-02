@@ -2706,3 +2706,15 @@
 // console.log(result); // { value: 23, done: true }
 // console.log(result.value); // 23
 // console.log(result.done); // true
+
+
+// function* hamed(x) {
+//     let y = x * (yield);
+//     return y;
+// }
+// let iterator = hamed(11.5);
+
+// // start `hamed(..)`
+// iterator.next();
+// let result = iterator.next(2);
+// console.log(result.value); // 23
