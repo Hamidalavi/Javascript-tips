@@ -831,5 +831,29 @@ See the mismatch -- second-to-first?
 But let's flip our perspective. Let's look at it not from the generator's point of view, but from the **iterator's point of view**. To properly illustrate this perspective, we also need to explain that messages can go in both directions -- `yield ..` as an expression can send out messages in response to `next(..)` calls, and `next(..)` can send values to a paused `yield` expression. Consider this slightly adjusted code:
 
 ```js
+function* hamed(x) {
+    let y = x * (yield "Persian Sight");
+    return y;
+}
 
+let iterator = hamed(11.5);
+let result = iterator.next(); // first `next()`, don't pass anything
+console.log(result.value); // "Persian Sight"
+result = iterator.next(2); // pass `2` to waiting `yield`
+console.log(result.value); // 23
 ```
+
+`yield ..` and `next(..)` pair together as a two-way message passing system **during the execution of the generator**. So, looking only at the iterator code:
+
+```js
+let result = iterator.next(); // first `next()`, don't pass anything
+console.log(result.value); // "Persian Sight"
+result = iterator.next(2); // pass `2` to waiting `yield`
+console.log(result.value); // 23
+```
+
+**Note**: We don't pass a value to the first `next()` call, and that's on purpose. Only a paused `yield` could accept such a value passed by a `next(..)`, and at the beginning of the generator when we call the first `next()` **there is no paused `yield`** to accept such a value. The specification and all compliant browsers just silently **discard** anything passed to the first `next()`. It's still a bad idea to pass a value, as you're just creating silently **failing** code that's confusing. So, always start a generator with an argument-free `next()`.
+
+The first `next()` call (with nothing passed to it) is basically asking a question: "What next value does the `*hamed(..)` generator have to give me"? And who answers this question? the first `yield "Persian Sight"` expression.
+
+See that? No mismatch there. Yaay :)

@@ -2712,9 +2712,22 @@
 //     let y = x * (yield);
 //     return y;
 // }
+
 // let iterator = hamed(11.5);
 
 // // start `hamed(..)`
 // iterator.next();
 // let result = iterator.next(2);
+// console.log(result.value); // 23
+
+
+// function* hamed(x) {
+//     let y = x * (yield "Persian Sight");
+//     return y;
+// }
+
+// let iterator = hamed(11.5);
+// let result = iterator.next(); // first `next()`, don't pass anything
+// console.log(result.value); // "Persian Sight"
+// result = iterator.next(2); // pass `2` to waiting `yield`
 // console.log(result.value); // 23
