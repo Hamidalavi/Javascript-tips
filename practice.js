@@ -2754,3 +2754,55 @@
 
 // it1.next(val2 / 2); // y:300 | 20 300 3
 // it2.next(val1 / 4); // y:10 | 200 10 3
+
+
+// recall from older practice
+// let a = 1;
+// let b = 2;
+// function hamed() {
+//     a++;
+//     b = b * a;
+//     a = b + 3;
+// }
+// function hamid() {
+//     b--;
+//     a = 8 + b;
+//     b = a * 2;
+// }
+
+// let a = 1;
+// let b = 2;
+// function* hamed() {
+//     a++;
+//     yield;
+//     b = b * a;
+//     a = (yield b) + 3;
+// }
+// function* hamid() {
+//     b--;
+//     yield;
+//     a = (yield 8) + b;
+//     b = a * (yield 2);
+// }
+
+
+// beautiful example
+// let value = (function () {
+//     let nextValue;
+//     return function () {
+//         if (nextValue === undefined) {
+//             nextValue = 1;
+//         } else {
+//             nextValue = (3 * nextValue) + 6;
+//         }
+//         return nextValue;
+//     }
+// })();
+
+// console.log(value()); // 1
+// console.log(value()); // 2
+// console.log(value()); // 33
+// console.log(value()); // 105
+// console.log(value()); // 321
+
+

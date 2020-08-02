@@ -678,7 +678,7 @@ We detailed how Promises uninvert the inversion of control of callbacks, restori
 
 Now we turn our attention to expressing async flow control in a sequential, synchronous-looking fashion. The **magic** that makes it possible is **ES6** generators.
 
-We explained an expectation that JS developers almost universally rely on in their code: once a function starts executing, it runs until it completes, and no other code can interrupt and run in between.
+We explained an expectation that **JavaScript** developers almost universally rely on in their code: once a function starts executing, it runs until it completes, and no other code can interrupt and run in between.
 
 As bizarre as it may seem, **ES6** introduces a new type of function that does not behave with the run-to-completion behavior. This new type of function is called a **generator**.
 
@@ -721,7 +721,7 @@ function* hamed() {
 hamed();
 ```
 
-**Note**: You will likely see most other JS documentation/code that will format a generator declaration as `function* hamed() { .. }` instead of as we've done here with `function *hamed() { .. }` -- the only difference being the stylistic positioning of the `*`. The two forms are functionally/syntactically identical, as is a third `function*hamed() { .. }` (no space) form. There are arguments for both styles, but we basically prefer `function *hamed..` (you are free to choose) because it then matches when we reference a generator in writing with `*hamed()`. If we said only `hamed()`, you wouldn't know as clearly if we were talking about a **generator** or a **regular function**. It's purely a stylistic preference.
+**Note**: You will likely see most other **JavaScript** documentation/code that will format a generator declaration as `function* hamed() { .. }` instead of as we've done here with `function *hamed() { .. }` -- the only difference being the stylistic positioning of the `*`. The two forms are functionally/syntactically identical, as is a third `function*hamed() { .. }` (no space) form. There are arguments for both styles, but we basically prefer `function *hamed..` (you are free to choose) because it then matches when we reference a generator in writing with `*hamed()`. If we said only `hamed()`, you wouldn't know as clearly if we were talking about a **generator** or a **regular function**. It's purely a stylistic preference.
 
 **Q**: How can we run the code in that previous snippet such that `hamid()` executes at the point of the `yield` inside of `*hamed()`?
 
@@ -809,7 +809,7 @@ Inside `*hamed(..)`, the `var y = x ..` statement starts to be processed, but th
 
 So, at this point, the assignment statement is essentially `let y = 11.5 * 2`. Now, `return y` returns that `23` value back as the result of the `iterator.next(2)` call.
 
-Notice something very important but also easily confusing, even to seasoned JS developers: depending on your perspective, there's a mismatch between the `yield` and the `next(..)` call. In general, you're going to have one more `next(..)` call than you have `yield` statements -- the preceding snippet has one `yield` and two `next(..)` calls.
+Notice something very important but also easily confusing, even to seasoned **JavaScript** developers: depending on your perspective, there's a mismatch between the `yield` and the `next(..)` call. In general, you're going to have one more `next(..)` call than you have `yield` statements -- the preceding snippet has one `yield` and two `next(..)` calls.
 
 **Q**: Why the mismatch?
 
@@ -897,5 +897,71 @@ it2.next(val1 / 4); // y:10 | 200 10 3
 
 Let's briefly walk through the processing:
 
-1. 1. Both instances of `*foo()` are started at the same time, and both `next()` calls reveal a `value` of `2` from the `yield 2` statements, respectively.
+1. Both instances of `*foo()` are started at the same time, and both `next()` calls reveal a `value` of `2` from the `yield 2` statements, respectively.
 2. `val2 * 10` is `2 * 10`, , which is sent into the first generator instance `it1`, so that `x` gets value `20`. `z` is incremented from `1` to `2`, and then `20 * 2` is `yield`ed out, setting `val1` to `40`.
+3. `val1 * 5` is `40 * 5`, which is sent into the second generator instance `it2`, so that `x` gets value `200`. `z` is incremented again, from `2` to `3`, and then `200 * 3` is `yield`ed out, setting `val2` to `600`.
+4. `val2 / 2` is `600 / 2`, which is sent into the first generator instance `it1`, so that `y` gets value `300`, then printing out `20 300 3` for its `x y z` values, respectively.
+5. `val1 / 4` is `40 / 4`, which is sent into the second generator instance `it2`, so that `y` gets value `10`, then printing out `200 10 3` for its `x y z` values, respectively.
+
+Recalling old scenario that early in this file:
+
+```js
+let a = 1;
+let b = 2;
+function hamed() {
+    a++;
+    b = b * a;
+    a = b + 3;
+}
+function hamid() {
+    b--;
+    a = 8 + b;
+    b = a * 2;
+}
+```
+
+With normal **JavaScript** functions, of course either `hamed()` can run completely first, or `hamid()` can run completely first, but `hamed()` cannot interleave its individual statements with `hamid()`. So, there are only two possible outcomes to the preceding program.
+
+However, with generators, clearly interleaving (even in the middle of statements!) is possible:
+
+```js
+let a = 1;
+let b = 2;
+function* hamed() {
+    a++;
+    yield;
+    b = b * a;
+    a = (yield b) + 3;
+}
+function* hamid() {
+    b--;
+    yield;
+    a = (yield 8) + b;
+    b = a * (yield 2);
+}
+```
+
+See beautiful example:
+
+```js
+let value = (function () {
+    let nextValue;
+    return function () {
+        if (nextValue === undefined) {
+            nextValue = 1;
+        } else {
+            nextValue = (3 * nextValue) + 6;
+        }
+        return nextValue;
+    }
+})();
+
+console.log(value()); // 1
+console.log(value()); // 2
+console.log(value()); // 33
+console.log(value()); // 105
+console.log(value()); // 321
+```
+
+We could implement the standard iterator interface for our number series producer:
+
