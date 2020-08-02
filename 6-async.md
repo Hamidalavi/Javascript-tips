@@ -722,3 +722,62 @@ hamed();
 ```
 
 **Note**: You will likely see most other JS documentation/code that will format a generator declaration as `function* hamed() { .. }` instead of as we've done here with `function *hamed() { .. }` -- the only difference being the stylistic positioning of the `*`. The two forms are functionally/syntactically identical, as is a third `function*hamed() { .. }` (no space) form. There are arguments for both styles, but we basically prefer `function *hamed..` (you are free to choose) because it then matches when we reference a generator in writing with `*hamed()`. If we said only `hamed()`, you wouldn't know as clearly if we were talking about a **generator** or a **regular function**. It's purely a stylistic preference.
+
+**Q**: How can we run the code in that previous snippet such that `hamid()` executes at the point of the `yield` inside of `*hamed()`?
+
+**Answer**:
+
+```js
+let number = 1;
+function *hamed() {
+    number++;
+    yield; // pause!
+    console.log("number:", number);
+}
+
+function hamid() {
+    number++;
+}
+
+hamed();
+
+// construct an iterator `iterator` to control the generator
+let iterator = hamed(); // start `hamed()` here!
+iterator.next();
+console.log(number); // 2
+hamid();
+console.log(number); // 3
+iterator.next(); // "number:" 3
+```
+
+There's quite a bit of new and potentially confusing stuff in those two code snippets, so we've got plenty to wade through. But before we explain the different mechanics/syntax with **ES6** generators, let's walk through the behavior flow:
+
+1. The `iterator = hamed()` operation does not execute the `*hamed()` generator yet, but it merely constructs an iterator that will control its execution(more on iterators in a bit).
+2. The first `iterator.next()` starts the `*hamed()` generator, and runs the `number++` on the first line of `*hamed()`.
+3. `*hamed()` pauses at the `yield` statement, at which point that first `iterator.next()` call finishes. At the moment, `*hamed()` is still running and active, but it's in a paused state.
+4. We inspect the value of `number`, and it's now `2`.
+5. We call `hamid()` which increments `number` again with `number++`.
+6. We inspect the value of `number` again, and it's now `3`.
+7. The final `iterator.next()` call resumes the `*hamed()` generator from where it was paused, and runs the `console.log(..)` statement, which uses the current value of `number` of `3`.
+
+---
+
+## Input and Output
+
+A generator function is a special function with the new processing model we just alluded to. But it's still a function, which means it still has some basic tenets that haven't changed -- namely, that it still accepts arguments (**input**), and that it can still return a value (**output**):
+
+```js
+function* hamid(a, b) {
+    return a * b;
+}
+
+let iterator = hamid(11.5, 2);
+let result = iterator.next();
+console.log(result); // { value: 23, done: true }
+console.log(result.value); // 23
+console.log(result.done); // true
+```
+
+We pass in the arguments `11.5` and `2` to `*hamid(..)` as the parameters `a` and `b`, respectively. And `*hamid(..)` returns the value `23` back to the calling code.
+
+We now see a difference with how the generator is invoked compared to a normal function. `hamid(11.5, 2)` obviously looks familiar. But subtly, the `*hamid(..)` generator hasn't actually run yet as it would have with a function.

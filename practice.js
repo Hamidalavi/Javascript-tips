@@ -2680,4 +2680,29 @@
 //     console.log("number:", number);
 // }
 
+// function hamid() {
+//     number++;
+// }
+
 // hamed();
+
+// // construct an iterator `iterator` to control the generator
+// let iterator = hamed(); // start `hamed()` here!
+// iterator.next();
+// console.log(number); // 2
+// hamid();
+// console.log(number); // 3
+// iterator.next(); // "number:" 3
+
+// -----------------------------------------------
+
+// input output - generators
+// function* hamid(a, b) {
+//     return a * b;
+// }
+
+// let iterator = hamid(11.5, 2);
+// let result = iterator.next();
+// console.log(result); // { value: 23, done: true }
+// console.log(result.value); // 23
+// console.log(result.done); // true
