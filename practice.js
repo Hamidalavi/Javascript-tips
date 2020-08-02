@@ -2796,7 +2796,7 @@
 //             nextValue = (3 * nextValue) + 6;
 //         }
 //         return nextValue;
-//     }
+//     };
 // })();
 
 // console.log(value()); // 1
@@ -2806,3 +2806,25 @@
 // console.log(value()); // 321
 
 
+// beautiful example 2
+// let value = (function () {
+//     let nextValue;
+//     return {
+//         [Symbol.iterator]: function () { return this; },
+//         next: function () {
+//             if (nextValue === undefined) {
+//                 nextValue = 1;
+//             } else {
+//                 nextValue = (3 * nextValue) + 6;
+//             }
+//             return { done: false, value: nextValue };
+//         }
+//     };
+// })();
+
+// for (let iterator of value) {
+//     if (iterator > 500) {
+//         break;
+//     }
+//     console.log(iterator); // 1 9 33 105 321
+// }

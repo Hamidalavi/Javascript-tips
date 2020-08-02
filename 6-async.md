@@ -953,7 +953,7 @@ let value = (function () {
             nextValue = (3 * nextValue) + 6;
         }
         return nextValue;
-    }
+    };
 })();
 
 console.log(value()); // 1
@@ -965,3 +965,66 @@ console.log(value()); // 321
 
 We could implement the standard iterator interface for our number series producer:
 
+```js
+let value = (function () {
+    let nextValue;
+    return {
+        [Symbol.iterator]: function () { return this; },
+        next: function () {
+            if (nextValue === undefined) {
+                nextValue = 1;
+            } else {
+                nextValue = (3 * nextValue) + 6;
+            }
+            return { done: false, value: nextValue };
+        }
+    };
+})();
+
+for (const iterator of value) {
+    if (iterator > 500) {
+        break;
+    }
+    console.log(iterator); // 1 9 33 105 321
+}
+
+/*
+or can use this
+value.next().value; // 1
+value.next().value; // 9
+value.next().value; // 33
+value.next().value; // 105
+*/
+```
+
+**ES6** adds the `for..of` loop, which means that a standard iterator can automatically be consumed with native loop syntax:
+
+```js
+for (const iterator of value) {
+    if (iterator > 500) {
+        break;
+    }
+    console.log(iterator); // 1 9 33 105 321
+}
+```
+
+**Note**: Because our `value` iterator always returns `done:false`, this `for..of` loop would run forever, which is why we put the `break` conditional in. It's totally OK for iterators to be never-ending, but there are also cases where the iterator will run over a finite set of values and eventually return a `done:true`.
+
+The `for..of` loop automatically calls `next()` for each iteration -- it doesn't pass any values in to the `next()` -- and it will automatically terminate on receiving a `done:true`. It's quite handy for looping over a set of data.
+
+Of course, you could manually loop over iterators, calling `next()` and checking for the `done:true` condition to know when to stop:
+
+```js
+for (
+    let ret;
+    (ret = something.next()) && !ret.done;
+) {
+    // don't let the loop run forever!
+    if (ret.value > 500) {
+        break;
+    }
+    console.log(ret.value); // 1 9 33 105 321
+}
+```
+
+That snippet was trrible ahh. Suppose you are in the past. How hard it was OMG!
