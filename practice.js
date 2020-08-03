@@ -2871,3 +2871,37 @@
 //         yield nextValue;
 //     }
 // }
+
+// -----------------------------------------------
+
+// generators + promises
+// function hamed(x, y) {
+//     return request(
+//         "http://some.url.1/?x=" + x + "&y=" + y
+//     );
+// }
+// hamed(22, 23)
+//     .then(
+//         function (text) {
+//             console.log(text);
+//         },
+//         function (error) {
+//             console.error(error);
+//         }
+//     );
+
+
+// function hamed(x, y) {
+//     return request(
+//         "http://some.url.1/?x=" + x + "&y=" + y
+//     );
+// }
+// function* main() {
+//     try {
+//         var text = yield hamed(22, 23);
+//         console.log(text);
+//     }
+//     catch (error) {
+//         console.error(error);
+//     }
+// }

@@ -1136,3 +1136,45 @@ function* value() {
 **Note**: A `while..true` loop would normally be a very bad thing to include in a real **JavaScript** program, at least if it doesn't have a `break` and `return` in it, as it would likely run forever, synchronously, and block/lock-up the browser UI.
 
 ## Generators + Promises
+
+The best of all worlds in **ES6** is to combine generators (synchronous-looking async code) with Promises (trustable and composable). But how?
+
+```js
+function hamed(x, y) {
+    return request(
+        "http://some.url.1/?x=" + x + "&y=" + y
+    );
+}
+hamed(22, 23)
+    .then(
+        function (text) {
+            console.log(text);
+        },
+        function (error) {
+            console.error(error);
+        }
+    );
+```
+
+The natural way to get the most out of Promises and generators is **to `yield` a Promise**, and wire that Promise to control the generator's iterator.
+
+Let's give it a try! First, we'll put the Promise-aware `hamed()` together with the generator `*main()`:
+
+```js
+function hamed(x, y) {
+    return request(
+        "http://some.url.1/?x=" + x + "&y=" + y
+    );
+}
+function* main() {
+    try {
+        var text = yield hamed(22, 23);
+        console.log(text);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+```
+
+The most powerful revelation in this refactor is that the code inside `*main()` **did not have to change at all!** Inside the generator, whatever values are `yield`ed out is just an opaque implementation detail, so we're not even aware it's happening, nor do we need to worry about it.
