@@ -1267,3 +1267,53 @@ So, the first two `iterator.next()` calls are controlling `*hamid()`, but when w
 As soon as the `iterator` iterator control exhausts the entire `*hamed()` iterator, it automatically returns to controlling `*hamid()`.
 
 **Note**: `yield *` yields iteration control, not generator control. when you invoke the `*hamed()` generator, you're now `yield`-delegating to its iterator. But you can actually `yield`-delegate to any iterable. `yield *[1,2,3]` would consume the default iterator for the `[1,2,3]` array value.
+
+You may wonder how this `yield`-delegation works not just with iterator control but with the two-way message passing. Carefully follow the flow of messages in and out, through the `yield`-delegation (This snippet from YDKJS):
+
+```js
+function* foo() {
+    console.log("inside `*foo()`:", yield "B");
+    console.log("inside `*foo()`:", yield "C");
+    return "D";
+}
+
+function* bar() {
+    console.log("inside `*bar()`:", yield "A");
+
+    // `yield`-delegation!
+    console.log("inside `*bar()`:", yield* foo());
+    console.log("inside `*bar()`:", yield "E");
+    return "F";
+}
+
+var it = bar();
+
+console.log("outside:", it.next().value);
+// outside: A
+
+console.log("outside:", it.next(1).value);
+// inside `*bar()`: 1
+// outside: B
+
+console.log("outside:", it.next(2).value);
+// inside `*foo()`: 2
+// outside: C
+
+console.log("outside:", it.next(3).value);
+// inside `*foo()`: 3
+// inside `*bar()`: D
+// outside: E
+
+console.log("outside:", it.next(4).value);
+// inside `*bar()`: 4
+// outside: F
+```
+
+Pay particular attention to the processing steps after the `it.next(3)`
+
+1. The `3` value is passed (through the `yield`-delegation in `*bar()`) into the waiting `yield "C"` expression inside of `*foo()`.
+2. `*foo()` then calls `return "D"` but this value doesn't get returned all the way back to the outside `it.next(3)` call.
+3. Instead, the `"D"` value is sent as the result of the waiting `yield *foo()` expression inside of `*bar()` -- this `yield`-delegation expression has essentially been paused while all of `*foo()` was exhausted. So `"D"` ends up inside of `*bar()` for it to print out.
+4. `yield "E"` is called inside of `*bar()`, and the `"E"` value is yielded to the outside as the result of the `it.next(3)` call.
+
+From the perspective of the external iterator (`it`), it doesn't appear any differently between controlling the initial generator or a delegated one.
