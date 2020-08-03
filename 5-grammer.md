@@ -106,8 +106,6 @@ console.log(ali); // 23
 
 Here, `ali = 23` is evaluated to `23` (with the side effect of assigning `23` to `ali`), then `hamid = 23` is evaluated to `23` (with the side effect of assigning `23` to `hamid`), and finally `hamed = 23` is evaluated (with the side effect of assigning `23` to `hamed`).
 
----
-
 ## Label
 
 Let's see and after that, we explain that:
@@ -151,8 +149,6 @@ function hamed() {
 hamed(); // "Persian" \n "Sight"
 ```
 
----
-
 ## Object Destructuring
 
 Starting with **ES6**, another place that you'll see `{..}` (object) pair showing up is with `destructuring assignments`, specifically `object` destructuring:
@@ -192,8 +188,6 @@ hamed({ a: [23, 22, 27], b: "Persian Sight", c: 500 }); // [ 23, 22, 27 ] "Persi
 ```
 
 If you remove `{ }` (like `hamed(a: [23, 22, 27], b: "Persian Sight", c: 500);`), you get a `SyntaxError` error. Because it's an object.
-
----
 
 ## Operator Precedence
 
@@ -266,8 +260,6 @@ true || (false && false); // true (true || false = true)
 
 Now we've proved that `&&` is evaluated first and then `||`, and in this case that was actually counter to generally expected **left-to-right** processing.
 
----
-
 ## Tighter Binding
 
 Let's check again last example:
@@ -303,8 +295,6 @@ or this?
 Because `&&` is more precedent than `||`, and `||` is more precedent than `? :` .
 
 So, the expression `(a && b || c)` is evaluated first before the `? :` it participates in. Another way this is commonly explained is that `&&` and `||` "**bind more tightly**" than `? :` . If the reverse was true, then `c ? c...` would bind more tightly, and it would behave (as the first choice of question) like `a && b || (c ? c..)`.
-
----
 
 ## Associativity
 
@@ -442,8 +432,6 @@ Let's solve it now:
 
 **Note**: Thus, my advice here **use operator precedence/associativity where it leads to shorter and cleaner code, but use `()` manual grouping in places where it helps create clarity and reduce confusion**.
 
----
-
 ## ASI (Auto Semicolon Insertion)
 
 Let's see below snippet:
@@ -502,8 +490,6 @@ Identical reasoning applies to `break`, `continue` and `yield`.
 
 **Recommend**: use semicolons wherever you know they are "required," and limit your assumptions about **ASI** to a minimum.
 
----
-
 ## Errors
 
 Some errors may you see while programming:
@@ -554,8 +540,6 @@ console.log(typeof hamed); // undefined
 console.log(typeof hamid); // ReferenceError: Cannot access 'hamid' before initialization (TDZ)
 let hamid;
 ```
-
----
 
 ## Function Arguments
 
@@ -637,8 +621,6 @@ hamed(34, 24, 20); // 78
 ```
 
 **Note**: Avoid`arguments` if you can, but if you must use it, by all means avoid using the positional slot in `arguments` at the same time as using a named parameter for that same argument.
-
----
 
 ## try and catch and finally
 
@@ -761,8 +743,6 @@ console.log(hamed()); // 23
 console.log(hamid()); // undefined
 console.log(ali()); // "Persian Sight"
 ```
-
----
 
 ## Switch
 

@@ -51,8 +51,6 @@ console.log(hamed.length);
 
 In **JavaScript**, variables don't have `types`, **values** have types. Variables can hold anyvalue, at any time.
 
----
-
 ## Array
 
 You can add `string` index (associate array) manually in arrays. But array's length will not change. For example:
@@ -92,8 +90,6 @@ let hamid = ["H", "a", "m", "i", "d"];
 // console.log(hamed.reverse()); // TypeEror
 console.log(hamid.reverse()); // [ 'd', 'i', 'm', 'a', 'H' ]
 ```
-
----
 
 ## Number
 
@@ -271,8 +267,6 @@ hamed(hamid);
 console.log(hamid); // [ 1, 2 ,3 ,4 ]  not  [ 4, 5 ,6 ,7 ]
 ```
 
----
-
 ## Box and Object Wrapper
 
 Primitive values don't have properties or method. Thankfully, **JavaScript** will automatically box (aka wrap) the primitive value to fulfill such accesses. For example:
@@ -330,8 +324,6 @@ console.log(typeof hamed); // object
 console.log(typeof hamid); // string
 ```
 
----
-
 ## Continue on Array
 
 The `Array()`constructor does not require the `new` keyword in front of it. If you omit it, it will behave as if you have used it anyway. So `Array(1, 2, 3)` is the same outcome as:
@@ -356,8 +348,6 @@ console.log(hamed); // [ undefined, undefined, undefined ]
 ```
 
 While `Array.apply(null, { length: 3 })` is a strange and verbose way to create an array filled with `undefined` values, it's **vastly** better and more reliable than what you get with the footgun'ish `Array(3)` empty slots.
-
----
 
 ## Continue on Number
 
@@ -630,8 +620,6 @@ console.log(str2 + ""); // TypeError
 ```
 
 `symbol` values cannot coerce to `number` at all (throws an error either way), but strangely they can both explicitly and implicitly coerce to `boolean` (always true).
-
----
 
 ## Loose Equals vs. Strict Equals
 

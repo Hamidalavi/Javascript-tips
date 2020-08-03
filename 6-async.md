@@ -119,8 +119,6 @@ Most readers just now probably thought or said something to the effect of: "Do `
 
 You might have caught yourself and self-edited to: "Do `A`, setup the timeout for 1,000 milliseconds (1 second), then do `B`, then after the timeout fires, do `C`".
 
----
-
 ## Promise
 
 Consider below pseudocode:
@@ -195,8 +193,6 @@ Promise.resolve(hamed(23))
 ```
 
 Another beneficial side effect of wrapping `Promise.resovle()` around any function's return value (thenable or not) is that it's an easy way to normalize that function call into a well-behaving async task. If `hamed(23)` returns an immediate value sometimes, or a Promise other times, `Promise.resolve(hamed())` makes sure it's always a Promise result. And avoiding Zalgo (trrible) makes for much better code.
-
----
 
 ## Chain Flow
 
@@ -407,8 +403,6 @@ Let's review briefly the intrinsic behaviors of Promises that enable chaining fl
 - A `then(..)` call against one Promise automatically produces a new Promise to return from the call.
 - Inside the fulfillment/rejection handlers, if you return a value or an exception is thrown, the new returned (chainable) Promise is resolved accordingly.
 - If the fulfillment or rejection handler returns a Promise, it is unwrapped, so that whatever its resolution is will become the resolution of the chained Promise returned from the current `then(..)`.
-
----
 
 ## Promsise (step by step)
 
@@ -759,8 +753,6 @@ There's quite a bit of new and potentially confusing stuff in those two code sni
 5. We call `hamid()` which increments `number` again with `number++`.
 6. We inspect the value of `number` again, and it's now `3`.
 7. The final `iterator.next()` call resumes the `*hamed()` generator from where it was paused, and runs the `console.log(..)` statement, which uses the current value of `number` of `3`.
-
----
 
 ## Input and Output
 
