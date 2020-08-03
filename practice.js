@@ -2709,6 +2709,9 @@
 
 // -----------------------------------------------
 
+// iteration messaging
+// function* hamed(x) {
+//     let y = x * (yield);
 //     return y;
 // }
 
@@ -2905,3 +2908,65 @@
 //         console.error(error);
 //     }
 // }
+
+
+// let iterator = main();
+
+// let pm = iterator.next().value;
+
+// // wait for the `pm` promise to resolve
+// pm.then(
+//     function (text) {
+//         iterator.next(text);
+//     },
+//     function (error) {
+//         iterator.throw(error);
+//     }
+// );
+
+
+// function hamid(x, y) {
+//     return request(
+//         "http://some.url.1/?x=" + x + "&y=" + y
+//     );
+// }
+
+// -----------------------------------------------
+
+// async await
+// async function main() {
+//     try {
+//         var text = await hamid(11, 31);
+//         console.log(text);
+//     }
+//     catch (error) {
+//         console.error(error);
+//     }
+// }
+
+// main();
+
+// -----------------------------------------------
+
+// yield* ___
+// function* hamed() {
+//     console.log("`*hamed()` starting");
+//     yield 3;
+//     yield 4;
+//     console.log("`*hamed()` finished");
+// }
+
+// function* hamid() {
+//     yield 1;
+//     yield 2;
+//     yield* hamed();
+//     // `yield`-delegation!
+//     yield 5;
+// }
+
+// let iterator = hamid();
+// console.log(iterator.next().value); // 1
+// console.log(iterator.next().value); // 2
+// iterator.next().value; // `*hamed()` starting | 3
+// console.log(iterator.next().value); // 4
+// iterator.next().value; // `*hamed()` finished | 5

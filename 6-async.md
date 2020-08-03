@@ -787,6 +787,7 @@ function* hamed(x) {
     let y = x * (yield);
     return y;
 }
+
 let iterator = hamed(11.5);
 
 // start `hamed(..)`
@@ -797,7 +798,7 @@ console.log(result.value); // 23
 
 First, we pass in `11.5` as the parameter `x`. Then we call `iterator.next()`, and it starts up `hamed(..)`.
 
-Inside `*hamed(..)`, the `var y = x ..` statement starts to be processed, but then it runs across a `yield` expression. At that point, it pauses `*hamed(..)` (in the middle of the assignment statement!), and essentially requests the calling code to provide a result value for the `yield` expression. Next, we call `iterator.next(2)`, which is passing the `2` value back in to be that result of the paused `yield` expression.
+Inside `*hamed(..)`, the `let y = x ..` statement starts to be processed, but then it runs across a `yield` expression. At that point, it pauses `*hamed(..)` (in the middle of the assignment statement!), and essentially requests the calling code to provide a result value for the `yield` expression. Next, we call `iterator.next(2)`, which is passing the `2` value back in to be that result of the paused `yield` expression.
 
 So, at this point, the assignment statement is essentially `let y = 11.5 * 2`. Now, `return y` returns that `23` value back as the result of the `iterator.next(2)` call.
 
@@ -1120,7 +1121,7 @@ We can implement the `value` infinite number series producer from earlier with a
 
 ```js
 function* value() {
-    var nextValue;
+    let nextValue;
     while (true) {
         if (nextValue === undefined) {
             nextValue = 1;
@@ -1168,7 +1169,7 @@ function hamed(x, y) {
 }
 function* main() {
     try {
-        var text = yield hamed(22, 23);
+        let text = yield hamed(22, 23);
         console.log(text);
     }
     catch (error) {
@@ -1178,3 +1179,81 @@ function* main() {
 ```
 
 The most powerful revelation in this refactor is that the code inside `*main()` **did not have to change at all!** Inside the generator, whatever values are `yield`ed out is just an opaque implementation detail, so we're not even aware it's happening, nor do we need to worry about it.
+
+We still have some of the implementation plumbing work to do, to receive and wire up the `yield`ed promise so that it resumes the generator upon resolution. We'll start by trying that manually:
+
+```js
+let iterator = main();
+
+let pm = iterator.next().value;
+
+// wait for the `pm` promise to resolve
+pm.then(
+    function (text) {
+        iterator.next(text);
+    },
+    function (error) {
+        iterator.throw(error);
+    }
+);
+```
+
+## `async` and `await`
+
+The preceding pattern -- generators yielding Promises that then control the generator's iterator to advance it to completion -- is such a powerful and useful approach, it would be nicer if we could do it without the clutter of the library utility helper.
+
+There's probably good news on that front. At the time of this writing, there's early but strong support for a proposal for more syntactic addition in this realm for the post-**ES6**, **ES7**-ish timeframe. Obviously, it's too early to guarantee the details, but there's a pretty decent chance it will shake out similar to the following:
+
+```js
+function hamid(x, y) {
+    return request(
+        "http://some.url.1/?x=" + x + "&y=" + y
+    );
+}
+
+async function main() {
+    try {
+        var text = await hamid(11, 31);
+        console.log(text);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+
+main();
+```
+
+As you can see, there's no need for a library utility to invoke and drive `main()` -- it's just called as a normal function. Also, `main()` isn't declared as a generator function anymore; it's a new kind of function: `async function`. And finally, instead of `yield`ing a Promise, we `await` for it to resolve.
+
+The `async function` automatically knows what to do if you `await` a Promise -- it will pause the function (just like with generators) until the Promise resolves. We didn't illustrate it in this snippet, but calling an async function like `main()` automatically returns a promise that's resolved whenever the function finishes completely.
+
+**Tip**: The `async` / `await` syntax should look very familiar to readers with experience in C#, because it's basically identical.
+
+---
+
+The special syntax for `yield`-delegation is: `yield * __` (notice the extra `*`).
+
+```js
+function* hamed() {
+    console.log("`*hamed()` starting");
+    yield 3;
+    yield 4;
+    console.log("`*hamed()` finished");
+}
+
+function* hamid() {
+    yield 1;
+    yield 2;
+    yield* hamed();
+    // `yield`-delegation!
+    yield 5;
+}
+
+let iterator = hamid();
+console.log(iterator.next().value); // 1
+console.log(iterator.next().value); // 2
+iterator.next().value; // `*hamed()` starting | 3
+console.log(iterator.next().value); // 4
+iterator.next().value; // `*hamed()` finished | 5
+```
