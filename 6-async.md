@@ -1257,3 +1257,13 @@ iterator.next().value; // `*hamed()` starting | 3
 console.log(iterator.next().value); // 4
 iterator.next().value; // `*hamed()` finished | 5
 ```
+
+**Q**: How does the `yield* hamed()` delegation work?
+
+**Answer**: First, calling `hamed()` creates an iterator exactly as we've already seen. Then, `yield *` delegates/transfers the iterator instance control (of the present `*hamid()` generator) over to this other `*hamed()` iterator.
+
+So, the first two `iterator.next()` calls are controlling `*hamid()`, but when we make the third `iterator.next()` call, now `*hamed()` starts up, and now we're controlling `*hamed()` instead of `*hamid()`. That's why it's called delegation -- `*hamid()` delegated its iteration control to `*hamed()`.
+
+As soon as the `iterator` iterator control exhausts the entire `*hamed()` iterator, it automatically returns to controlling `*hamid()`.
+
+**Note**: `yield *` yields iteration control, not generator control. when you invoke the `*hamed()` generator, you're now `yield`-delegating to its iterator. But you can actually `yield`-delegate to any iterable. `yield *[1,2,3]` would consume the default iterator for the `[1,2,3]` array value.
