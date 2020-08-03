@@ -1040,3 +1040,77 @@ for (key in obj) {
     console.log(key); // "a" "b" "c" "d"
 }
 ```
+
+`array` in the previous snippet is an iterable. The `for..of` loop automatically calls its `Symbol.iterator` function to construct an iterator. But we could of course call the function manually, and use the iterator it returns:
+
+```js
+let array = [1, 2, 3, 4, 5, 6, 7, 8];
+let iterator = array[Symbol.iterator]();
+
+console.log(iterator.next().value); // 1
+console.log(iterator.next().value); // 2
+console.log(iterator.next().value); // 3
+console.log(iterator.next().value); // 4
+console.log(iterator.next().value); // 5
+console.log(iterator.next().value); // 6
+console.log(iterator.next().value); // 7
+console.log(iterator.next().value); // 8
+```
+
+In the previous code listing that defined `value`, you may have noticed this line:
+
+```js
+[Symbol.iterator]: function(){ return this; }
+```
+
+Let's remind that snippet:
+
+```js
+let value = (function () {
+    let nextValue;
+    return {
+        [Symbol.iterator]: function () { return this; },
+        next: function () {
+            if (nextValue === undefined) {
+                nextValue = 1;
+            } else {
+                nextValue = (3 * nextValue) + 6;
+            }
+            return { done: false, value: nextValue };
+        }
+    };
+})();
+
+for (const iterator of value) {
+    if (iterator > 500) {
+        break;
+    }
+    console.log(iterator); // 1 9 33 105 321
+}
+
+/*
+or can use this
+value.next().value; // 1
+value.next().value; // 9
+value.next().value; // 33
+value.next().value; // 105
+*/
+```
+
+That little bit of confusing code is making the `value` -- the interface of the `value` iterator -- also an iterable; it's now both an iterable and an iterator. Then, we pass `value` to the `for..of` loop:
+
+```js
+for (const iterator of value) {
+    // ...
+}
+```
+
+The `for..of` loop expects `value` to be an iterable, so it looks for and calls its `Symbol.iterator` function. We defined that function to simply `return this`, so it just gives itself back, and the `for..of` loop is none the wiser.
+
+## Generator Iterator
+
+A generator can be treated as a producer of values that we extract one at a time through an iterator interface's `next()` calls. So, a generator itself is not technically an iterable, though it's very similar -- when you execute the generator, you get an iterator back:
+
+```js
+
+```

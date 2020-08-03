@@ -2842,3 +2842,20 @@
 // for (key in obj) {
 //     console.log(key); // "a" "b" "c" "d"
 // }
+
+
+// let array = [1, 2, 3, 4, 5, 6, 7, 8];
+// let iterator = array[Symbol.iterator]();
+
+// console.log(iterator.next().value); // 1
+// console.log(iterator.next().value); // 2
+// console.log(iterator.next().value); // 3
+// console.log(iterator.next().value); // 4
+// console.log(iterator.next().value); // 5
+// console.log(iterator.next().value); // 6
+// console.log(iterator.next().value); // 7
+// console.log(iterator.next().value); // 8
+
+// -----------------------------------------------
+
+// generator iterator
