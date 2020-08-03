@@ -2859,3 +2859,15 @@
 // -----------------------------------------------
 
 // generator iterator
+// function* value() {
+//     var nextValue;
+//     while (true) {
+//         if (nextValue === undefined) {
+//             nextValue = 1;
+//         }
+//         else {
+//             nextValue = (3 * nextValue) + 6;
+//         }
+//         yield nextValue;
+//     }
+// }

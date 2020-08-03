@@ -1112,5 +1112,27 @@ The `for..of` loop expects `value` to be an iterable, so it looks for and calls 
 A generator can be treated as a producer of values that we extract one at a time through an iterator interface's `next()` calls. So, a generator itself is not technically an iterable, though it's very similar -- when you execute the generator, you get an iterator back:
 
 ```js
-
+function* value() { }
+let iterator = value();
 ```
+
+We can implement the `value` infinite number series producer from earlier with a generator, like this:
+
+```js
+function* value() {
+    var nextValue;
+    while (true) {
+        if (nextValue === undefined) {
+            nextValue = 1;
+        }
+        else {
+            nextValue = (3 * nextValue) + 6;
+        }
+        yield nextValue;
+    }
+}
+```
+
+**Note**: A `while..true` loop would normally be a very bad thing to include in a real **JavaScript** program, at least if it doesn't have a `break` and `return` in it, as it would likely run forever, synchronously, and block/lock-up the browser UI.
+
+## Generators + Promises
