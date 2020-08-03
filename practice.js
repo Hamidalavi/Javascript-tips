@@ -2828,3 +2828,17 @@
 //     }
 //     console.log(iterator); // 1 9 33 105 321
 // }
+
+// -----------------------------------------------
+
+// default iterator
+// let array = [1, 2, 3, 4, 5, 6, 7, 8];
+// for (let arr in array) {
+//     console.log(arr); // 1 2 3 4 5 6 7 8
+// }
+
+
+// let obj = { a: 1, b: 2, c: 3, d: 4 };
+// for (key in obj) {
+//     console.log(key); // "a" "b" "c" "d"
+// }

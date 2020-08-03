@@ -1027,4 +1027,24 @@ for (
 }
 ```
 
-That snippet was trrible ahh. Suppose you are in the past. How hard it was OMG!
+That snippet was trrible ahh. Suppose you are in the past. How hard it was OMG! This manual `for` approach is certainly uglier than the **ES6** `for..of` loop syntax, but its advantage is that it affords you the opportunity to pass in values to the `next(..)` calls if necessary.
+
+In addition to making your own iterators, many built-in data structures in **JavaScript** (as of **ES6**), like `array`s, also have default iterators:
+
+```js
+let array = [1, 2, 3, 4, 5, 6, 7, 8];
+for (let arr of array) {
+    console.log(arr);
+}
+```
+
+The `for..of` loop asks `array` for its iterator, and automatically uses it to iterate over `array`'s values.
+
+**Note**: It may seem a strange omission by **ES6**, but regular `object`'s intentionally do not come with a default iterator the way `array`s do. If all you want is to iterate over the properties of an object (with no particular guarantee of ordering), `Object.keys(..)` returns an `array`, which can then be used like `for (var k of Object.keys(obj)) { ..}`. Such a `for..of` loop over an object's keys would be similar to a `for..in` loop, except that `Object.keys(..)` does not include properties from the [[Prototype]] chain while `for..in` does.
+
+```js
+let obj = { a: 1, b: 2, c: 3, d: 4 };
+for (key in obj) {
+    console.log(key); // "a" "b" "c" "d"
+}
+```
