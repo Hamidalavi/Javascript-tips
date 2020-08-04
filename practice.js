@@ -3039,4 +3039,11 @@
 // -----------------------------------------------
 
 // web worker - performance
-let w1 = new Worker("http://some.url.1/mycoolworker.js");
+// let w1 = new Worker("http://some.url.1/mycoolworker.js");
+
+// w1.postMessage("something say to Persian Sight Support");
+
+// w1.addEventListener("message", function (evt) {
+//     // evt.data
+// });
+
