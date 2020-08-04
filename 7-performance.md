@@ -46,3 +46,13 @@ addEventListener("message", function (evt) {
 });
 postMessage("a really cool reply");
 ```
+
+Notice that a dedicated Worker is in a one-to-one relationship with the program that created it. That is, the `"message"` event doesn't need any disambiguation here, because we're sure that it could only have come from this one-to-one relationship -- either it came from the Worker or the main page.
+
+Usually the main page application creates the Workers, but a Worker can instantiate its own child Worker(s) -- known as subworkers -- as necessary. Sometimes this is useful to delegate such details to a sort of **master** Worker that spawns other Workers to process parts of a task. Unfortunately, at the time of this writing, **Chrome** still does not support subworkers, while **Firefox** does.
+
+To kill a Worker immediately from the program that created it, call `terminate()` on the Worker object (like `w1` in the previous snippets). Abruptly terminating a Worker thread does not give it any chance to finish up its work or clean up any resources. It's akin to you closing a browser tab to kill a page.
+
+If you have two or more pages (or multiple tabs with the same page!) in the browser that tryto create a Worker from the same file URL, those will actually end up as completely separate Workers. Shortly, we'll discuss a way to **share** a Worker.
+
+**Note**: It may seem like a malicious or ignorant **JavaScript** program could easily perform a denial-of-service (DoS) attack on a system by spawning hundreds of Workers, seemingly each with their own thread. While it's true that it's somewhat of a guarantee that a Worker will end up on a separate thread, this guarantee is not unlimited. The system is free to decide how many actual threads/CPUs/cores it really wants to create. There's no way to predict or guarantee how many you'll have access to, though many people assume it's at least as many as the number of CPUs/cores available. I think the safest assumption is that there's at least one other thread besides the main UI thread, but that's about it.
