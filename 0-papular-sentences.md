@@ -2,7 +2,7 @@
 
 ## Note: Our variable declaration names: Hamid, Hamed, Ali, Reza, Majid, Mehrdad, Morteza
 
-### Read priority: 1. papular-sentences.md 2. this-example.md 4. object-example.md 4. type.md 5. compelte-guide-true-false.md 6. grammer.md 7. async.md
+### Read priority: 1. papular-sentences.md 2. this-example.md 4. object-example.md 4. type.md 5. compelte-guide-true-false.md 6. grammer.md 7. async.md 8. performance.md
 
 ## **Difference**
 
@@ -26,12 +26,13 @@ The rules for valid format and combinations of instructions is called a **comput
   - For some computer languages, this translation of commands is typically done from top to bottom, line by line, every time the program is run, which is usually called `interpreting` the code (like **JavaScript**).
   - For other languages, the translation is done ahead of time, called `compiling` the code, so when the program runs later, what's running is actually the already compiled computer instructions ready to go (like **C++**).
 
+## thread
+
+**JavaScript** is sigle thread.
+
 ## How Does a Compilation(Compiling) Work (from YDKJS)
 
-1. **Tokenizing/Lexing**: breaking up a string of characters into meaningful (to the language) chunks, called tokens. For instance, consider the program: `var a = 2;`. This program would likely be broken up into the following tokens: var , a , = , 2 , and ; . **Whitespace** may or may not be persisted as a token, depending on whether it's meaningful or not. **`Note`**: The difference between **tokenizing** and **lexing** is subtle and academic, but it centers on whethe  1    │ 'Hamid' │
-  └─────────┴─────────┘
-  ```
-r or not these tokens are identified in a stateless or stateful way. Put simply, if the tokenizer were to invoke stateful parsing rules to figure out whether a should be considered a distinct token or just part of another token, that would be **lexing**.
+1. **Tokenizing/Lexing**: breaking up a string of characters into meaningful (to the language) chunks, called tokens. For instance, consider the program: `var a = 2;`. This program would likely be broken up into the following tokens: var , a , = , 2 , and ; . **Whitespace** may or may not be persisted as a token, depending on whether it's meaningful or not. **`Note`**: The difference between **tokenizing** and **lexing** is subtle and academic, but it centers on whether or not these tokens are identified in a stateless or stateful way. Put simply, if the tokenizer were to invoke stateful parsing rules to figure out whether a should be considered a distinct token or just part of another token, that would be **lexing**.
 2. **Parsing**: taking a stream (array) of tokens and turning it into a tree of nested elements, which collectively represent the grammatical structure of the program. This tree is called an "**AST**" (**Abstract Syntax Tree**).
    - The tree for `var a = 2;` might start with a top-level node called `VariableDeclaration`, with a child node called `Identifier` (whose value is a ), and another child called `AssignmentExpression` which itself has a child called NumericLiteral (whose value is 2).
 3. **Code-Generation**: the process of taking an **AST** and turning it into executable code. This part varies greatly depending on the language, the platform it's targeting, etc.
