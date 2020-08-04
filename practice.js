@@ -3008,3 +3008,30 @@
 // console.log("outside:", it.next(4).value);
 // // inside `*bar()`: 4
 // // outside: F
+// -----------------------------------------------
+
+// thunks
+// function hamed(x, y) {
+//     return x + y;
+// }
+
+// function hamid() {
+//     return hamed(15, 8);
+// }
+
+// console.log(hamid()); // 23
+
+
+// function hamed(x, y, callback) {
+//     setTimeout(function () {
+//         callback(x + y);
+//     }, 1000);
+// }
+
+// function thunk(callback) {
+//     hamed(15, 8, callback);
+// }
+
+// thunk(function (sum) {
+//     console.log(sum); // 23 (after one second)
+// });

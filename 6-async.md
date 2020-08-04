@@ -1317,3 +1317,41 @@ Pay particular attention to the processing steps after the `it.next(3)`
 4. `yield "E"` is called inside of `*bar()`, and the `"E"` value is yielded to the outside as the result of the `it.next(3)` call.
 
 From the perspective of the external iterator (`it`), it doesn't appear any differently between controlling the initial generator or a delegated one.
+
+## Thunks
+
+In general computer science, there's an old pre-**JavaScript** concept called a **thunk**. Without getting bogged down in the historical nature, a narrow expression of a thunk in **JavaScript** is a function that -- without any parameters -- is wired to call another function.
+
+In other words, you wrap a function definition around function call -- with any parameters it needs -- to defer the execution of that call, and that wrapping function is a thunk. When you later execute the thunk, you end up calling the original function. For example:
+
+```js
+function hamed(x, y) {
+    return x + y;
+}
+
+function hamid() {
+    return hamed(15, 8);
+}
+
+console.log(hamid()); // 23
+```
+
+So, a synchronous thunk is pretty straightforward. But what about an async thunk? We can essentially extend the narrow thunk definition to include it receiving a callback.
+
+```js
+function hamed(x, y, callback) {
+    setTimeout(function () {
+        callback(x + y);
+    }, 1000);
+}
+
+function thunk(callback) {
+    hamed(15, 8, callback);
+}
+
+thunk(function (sum) {
+    console.log(sum); // 23 (after one second)
+});
+```
+
+As you can see, `thunk(..)` only expects a `callback` parameter, as it already has values `15` and `8` (for `x` and `y`, respectively) pre-specified and ready to pass to `hamed(..)`. A thunk is just waiting around patiently for the last piece it needs to do its job: **the callback**.
