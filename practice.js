@@ -3035,3 +3035,8 @@
 // thunk(function (sum) {
 //     console.log(sum); // 23 (after one second)
 // });
+
+// -----------------------------------------------
+
+// web worker - performance
+let w1 = new Worker("http://some.url.1/mycoolworker.js");
