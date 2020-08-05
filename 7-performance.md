@@ -112,3 +112,35 @@ addEventListener("connect", function (evt) {
     port.start();
 });
 ```
+
+Other than that difference, shared and dedicated Workers have the same capabilities and semantics.
+
+**Note**: Shared Workers survive the termination of a port connection if other port connections are still alive, whereas dedicated Workers are terminated whenever the connection to their initiating program is terminated.
+
+## SIMD (Single Instruction, Multiple Data)
+
+Single instruction, multiple data (SIMD) is a form of **data parallelism**, as contrasted to **task parallelism** with Web Workers, because the emphasis is not really on program logic chunks being parallelized, but rather multiple bits of data being processed in parallel.
+
+With SIMD, threads don't provide the parallelism. Instead, modern CPUs provide SIMD capability with **vectors** of numbers -- think: type specialized arrays -- as well as instructions that can operate in parallel across all the numbers; these are low-level operations leveraging instruction-level parallelism.
+
+## How to Optimize with asm.js
+
+The first thing to understand about asm.js optimizations is around types and coercion. If the **JavaScript** engine has to track multiple different types of values in a variable through various operations, so that it can handle coercions between types as necessary, that's a lot of extra work that keeps the program optimization suboptimal.
+
+There are some **tricks** you can use to hint to an asm.js-aware **JavaScript** engine what the intended type is for variables/operations, so that it can skip these coercion tracking steps.
+
+Let's see some snippets
+
+```js
+let hamed = 23;
+let hamid = hamed;
+```
+
+In that program, the `hamid = hamed` assignment leaves the door open for type divergence in variables. However, it could instead be written as:
+
+```js
+let hamed = 23;
+let hamid = hamed | 0;
+```
+
+Here, we've used the `|` (**binary OR**) with value `0`, which has no effect on the value other than to make sure it's a 32-bit integer. That code run in a normal **JavaScript** engine works just fine, but when run in an asm.js-aware **JavaScript** engine it can signal that `hamid` should always be treated as a 32-bit integer, so the coercion tracking can be skipped.

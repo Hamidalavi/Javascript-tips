@@ -3075,3 +3075,11 @@
 //     // initialize the port connection
 //     port.start();
 // });
+
+// -----------------------------------------------
+
+// asm.js
+// let hamed = 23;
+// let hamid = hamed;
+// // or
+// let hamid = hamed | 0;
