@@ -3083,3 +3083,81 @@
 // let hamid = hamed;
 // // or
 // let hamid = hamed | 0;
+
+
+// let heap = new ArrayBuffer(0x10000);
+// console.log(heap);
+/* output:
+ArrayBuffer {
+  [Uint8Contents]: <00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ... 65436 more bytes>,
+  byteLength: 65536
+} */
+
+// -----------------------------------------------
+
+// benchmark
+// let hamed = new Benchmark();
+
+// -----------------------------------------------
+
+// sort array and sanity check
+// // Case 1
+// let x = ["Hamed", "Hamid", "Ali", "Reza", "Mehrdad", "Majid", "Morteza"];
+// x.sort();
+
+// // Case 2
+// let y = ["Hamed", "Hamid", "Ali", "Reza", "Mehrdad", "Majid", "Morteza"];
+// y.sort(function mySort(a, b) {
+//   if (a < b) return -1;
+//   if (a > b) return 1;
+//   return 0;
+// });
+
+// console.log(x); // [ 'Ali', 'Hamed', 'Hamid', 'Majid', 'Mehrdad', 'Morteza', 'Reza']
+// console.log(y); // [ 'Ali', 'Hamed', 'Hamid', 'Majid', 'Mehrdad', 'Morteza', 'Reza']
+
+
+// // Case 1
+// let x = [12, -14, 0, 3, 18, 0, 2.9];
+// x.sort();
+
+// // Case 2
+// let y = [12, -14, 0, 3, 18, 0, 2.9];
+// y.sort(function mySort(a, b) {
+//   return a - b;
+// });
+
+// console.log(x); // [-14, 0, 0, 12, 18, 2.9, 3]
+// console.log(y); // [-14, 0, 0, 2.9, 3, 12, 18]
+
+
+// // Case 1
+// let x = [];
+// for (let i = 0; i < 10; i++) {
+//   x[i] = "x";
+// }
+
+// // Case 2
+// let y = [];
+// for (let i = 0; i < 10; i++) {
+//   y[y.length] = "y";
+// }
+
+// // Case 3
+// let z = [];
+// for (let i = 0; i < 10; i++) {
+//   z.push("z");
+// }
+
+// console.log(x); // ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x']
+// console.log(y); // ['y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y']
+// console.log(z); // ['z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z']
+
+
+// // Case 1
+// let x = false;
+// let y = x ? 1 : 2;
+
+// // Case 2
+// let x;
+// let y = x ? 1 : 2;

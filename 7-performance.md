@@ -144,3 +144,99 @@ let hamid = hamed | 0;
 ```
 
 Here, we've used the `|` (**binary OR**) with value `0`, which has no effect on the value other than to make sure it's a 32-bit integer. That code run in a normal **JavaScript** engine works just fine, but when run in an asm.js-aware **JavaScript** engine it can signal that `hamid` should always be treated as a 32-bit integer, so the coercion tracking can be skipped.
+
+## Sort Array and Sanity Check
+
+```js
+// Case 1
+let x = ["Hamed", "Hamid", "Ali", "Reza", "Mehrdad", "Majid", "Morteza"];
+x.sort();
+
+// Case 2
+let y = ["Hamed", "Hamid", "Ali", "Reza", "Mehrdad", "Majid", "Morteza"];
+y.sort(function mySort(a, b) {
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
+});
+
+console.log(x); // [ 'Ali', 'Hamed', 'Hamid', 'Majid', 'Mehrdad', 'Morteza', 'Reza']
+console.log(y); // [ 'Ali', 'Hamed', 'Hamid', 'Majid', 'Mehrdad', 'Morteza', 'Reza']
+```
+
+```js
+// Case 1
+let x = [12, -14, 0, 3, 18, 0, 2.9];
+x.sort();
+
+// Case 2
+let y = [12, -14, 0, 3, 18, 0, 2.9];
+y.sort(function mySort(a, b) {
+  return a - b;
+});
+
+console.log(x); // [-14, 0, 0, 12, 18, 2.9, 3]
+console.log(y); // [-14, 0, 0, 2.9, 3, 12, 18]
+```
+
+Setting aside the previously mentioned inline function expression pitfall, the second case's `mySort(..)` works in this case because you have provided it numbers, but would have of course failed with strings. The first case doesn't throw an error, but it actually behaves differently and has a different outcome! It should be obvious, but: **a different outcome between two test cases almost certainly invalidates the entire test!**
+
+But beyond the different outcomes, in this case, the built in `sort(..)`'s comparator is actually doing **extra work** that `mySort()` does not, in that the built-in one coerces the compared values to strings and does lexicographic comparison. The first snippet results in `[-14, 0, 0, 12, 18, 2.9, 3]` while the second snippet results (likely more accurately based on intent) in `[-14, 0, 0, 2.9, 3, 12, 18]`.
+
+So that test is unfair because it's not actually doing the same task between the cases. Any results you get are bogus.
+
+---
+
+```js
+// Case 1
+let x = [];
+for (let i = 0; i < 10; i++) {
+  x[i] = "x";
+}
+
+// Case 2
+let y = [];
+for (let i = 0; i < 10; i++) {
+  y[y.length] = "y";
+}
+
+// Case 3
+let z = [];
+for (let i = 0; i < 10; i++) {
+  z.push("z");
+}
+
+console.log(x); // ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x']
+console.log(y); // ['y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y']
+console.log(z); // ['z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z']
+```
+
+Arguably, cases 1 and 2 are fairer than case 3.
+
+Look at below snippet:
+
+```js
+// Case 1
+let x = false;
+let y = x ? 1 : 2;
+
+// Case 2
+let x;
+let y = x ? 1 : 2;
+```
+
+Here, the intent might be to test the performance impact of the coercion to a Boolean that the `? :` operator will do if the `x` expression is not already a Boolean. So, you're apparently OK with the fact that there is extra work to do the coercion in the second case.
+
+The subtle problem? You're setting `x`'s value in the first case and not setting it in the other, so you're actually doing work in the first case that you're not doing in the second. To eliminate any potential (albeit minor) skew, try:
+
+```js
+// Case 1
+let x = false;
+let y = x ? 1 : 2;
+
+// Case 2
+let x = undefined;
+let y = x ? 1 : 2;
+```
+
+Now there's an assignment in both cases, so the thing you want to test -- the coercion of `x` or not -- has likely been more accurately isolated and tested.
