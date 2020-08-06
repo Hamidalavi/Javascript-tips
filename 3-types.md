@@ -2,7 +2,7 @@
 
 **I recommend first read `papular-sentences.md` and `this-example.md` and `object-example.md` files**.
 
-JavaScript defines seven built-in types:
+**JavaScript** defines seven built-in types:
 
 1. null
 2. undefined
@@ -399,7 +399,7 @@ console.log(reza); // "22"
 
 #### unary operator
 
-In javaScript and other language, we have **unary operator** there is both operator and mathematical operand. For example:
+In **javaScript** and other language, we have **unary operator** there is both operator and mathematical operand. For example:
 
 ```js
 let hamed = 24.67;
@@ -625,7 +625,7 @@ console.log(str2 + ""); // TypeError
 
 Loose equals is the `==` operator, and strict equals is the `===` operator. Both operators are used for comparing two values for **equality**, but the **loose** vs. **strict** indicates a **very important** difference in behavior between the two, specifically in how they decide **equality**.
 
-A very common misconception about these two operators is: " `==` checks values for equality and `===` checks both values and types for equality". While that sounds nice and reasonable, it's **inaccurate**. Countless well-respected JavaScript books and blogs have said exactly that, but unfortunately they're all **wrong**.
+A very common misconception about these two operators is: " `==` checks values for equality and `===` checks both values and types for equality". While that sounds nice and reasonable, it's **inaccurate**. Countless well-respected **JavaScript** books and blogs have said exactly that, but unfortunately they're all **wrong**.
 
 The correct description is: "`==` allows coercion in the equality comparison and `===` disallows coercion".
 

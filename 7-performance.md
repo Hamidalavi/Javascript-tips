@@ -240,3 +240,39 @@ let y = x ? 1 : 2;
 ```
 
 Now there's an assignment in both cases, so the thing you want to test -- the coercion of `x` or not -- has likely been more accurately isolated and tested.
+
+Let's see factorial example:
+
+```js
+function factorial(n) {
+  if (n < 2) return 1;
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(6)); // 720
+```
+
+Ah, the good ol' fashioned **factorial** algorithm! You might assume that the **JavaScript** engine will run that code mostly as is. And to be honest, it might -- I'm not really sure.
+
+But as an anecdote, the same code expressed in C and compiled with advanced optimizations would result in the compiler realizing that the call `factorial(6)` can just be replaced with the constant value `720`, eliminating the function and call entirely!
+
+Moreover, some engines have a practice called "unrolling recursion," where it can realize that the recursion you've expressed can actually be done "easier" (i.e., more optimally) with a loop. It's possible the preceding code could be rewritten by a **JavaScript** engine to run as:
+
+```js
+function factorial(n) {
+  if (n < 2) return 1;
+  let res = 1;
+  for (let i = n; i > 1; i--) {
+    res *= i;
+  }
+  return res;
+}
+
+console.log(factorial(6)); // 720
+```
+
+Now, let's imagine that in the earlier snippet you had been worried about whether `n * factorial(n-1)` or `n *= factorial(--n)` runs faster. Maybe you even did a performance benchmark to try to figure out which was better. But you miss the fact that in the bigger context, the engine may not run either line of code because it may unroll the recursion!
+
+Speaking of `--`, `--n` versus `n--` is often cited as one of those places where you can optimize by choosing the `--n` version, because theoretically it requires less effort down at the assembly level of processing.
+
+That sort of obsession is basically nonsense in modern **JavaScript**. That's the kind of thing you should be letting the engine take care of. You should write the code that makes the most sense. Compare these three `for` loops:

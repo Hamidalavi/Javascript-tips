@@ -3161,3 +3161,25 @@ ArrayBuffer {
 // // Case 2
 // let x;
 // let y = x ? 1 : 2;
+
+// -----------------------------------------------
+
+// factorial
+// function factorial(n) {
+//   if (n < 2) return 1;
+//   return n * factorial(n - 1);
+// }
+
+// console.log(factorial(6)); // 720
+
+
+// function factorial(n) {
+//   if (n < 2) return 1;
+//   let res = 1;
+//   for (let i = n; i > 1; i--) {
+//     res *= i;
+//   }
+//   return res;
+// }
+
+// console.log(factorial(6)); // 720

@@ -1,6 +1,6 @@
 # Some **`object`** examples to give you more information
 
-**Important: All functions in JavaScript are object**. (not for `Symbols`, they are simple scalar primitive)
+**Important: All functions in `JavaScript` are object**. (not for `Symbols`, they are simple scalar primitive)
 
 **A most important bug in `JavaScript` was found by developers, that the `null` is object in output**
 
