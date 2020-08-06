@@ -112,7 +112,7 @@
 // object
 // let obj = {
 //   a: "hello world",
-//   b: 42,
+//   b: 23,
 //   c: true,
 // };
 // console.log(obj["a"]);
@@ -123,7 +123,7 @@
 // -----------------------------------------------
 
 // array
-// let array = ["hello world", 42, true];
+// let array = ["hello world", 23, true];
 // console.log(array[0]);
 // console.log(array[1]);
 // console.log(array[2]);
@@ -133,7 +133,7 @@
 // -----------------------------------------------
 
 // explicit and implicit
-// let a = "42";
+// let a = "23";
 // let b = a * 2; // implicit
 // let c = Number(a); // explicit
 // console.log(b);
@@ -1431,7 +1431,7 @@
 
 // parsing numeric strings
 // let hamed = "23";
-// let hamid = "42px";
+// let hamid = "23px";
 
 // console.log(Number(hamed)); // 23
 // console.log(parseInt(hamed)); // 23
@@ -1834,11 +1834,11 @@
 
 
 // hardest precedence (tighter binding)
-// let a = 42;
+// let a = 23;
 // let b = "Persian Sight";
 // let c = false;
 // var d = a && b || c ? c || b ? a : c && b : a;
-// console.log(d); // 42
+// console.log(d); // 23
 
 // -----------------------------------------------
 
@@ -2331,12 +2331,12 @@
 
 
 // let p1 = new Promise(function (resolve, reject) {
-//     resolve(42);
+//     resolve(23);
 // });
 
-// let p2 = Promise.resolve(42);
+// let p2 = Promise.resolve(23);
 
-// let pm1 = Promise.resolve(42);
+// let pm1 = Promise.resolve(23);
 // let pm2 = Promise.resolve(pm1);
 // console.log(pm1 === pm2); // true (result)
 
@@ -2554,7 +2554,7 @@
 //     .catch(handleError).catch(handleError);
 
 
-// let p = Promise.resolve(42);
+// let p = Promise.resolve(23);
 // p.then(
 //     function fulfilled(msg) {
 //         // numbers don't have string functions,
@@ -3183,3 +3183,54 @@ ArrayBuffer {
 // }
 
 // console.log(factorial(6)); // 720
+
+// -----------------------------------------------
+
+// for loop
+// // Option 1
+// for (let i = 0; i < 10; i++) {
+//   console.log(i); // 0 1 2 3 4 5 6 7 8 9 10
+// }
+
+// // Option 2
+// for (let i = 0; i < 10; ++i) {
+//   console.log(i); // 0 1 2 3 4 5 6 7 8 9 10
+// }
+
+// // Option 3
+// for (let i = -1; ++i < 10;) {
+//   console.log(i); // 0 1 2 3 4 5 6 7 8 9 10
+// }
+
+
+// let x = [1, 2, 3, 4];
+
+// // Option 1
+// for (let i = 0; i < x.length; i++) {
+//   console.log(`"First ${x[i]}"`); // "First 1" "First 2" "First 3" "First 4"
+// }
+
+// // Option 2
+// for (let i = 0, len = x.length; i < len; i++) {
+//   console.log(`"Second ${x[i]}"`); // "Second 1" "Second 2" "Second 3" "Second 4"
+// }
+
+// -----------------------------------------------
+
+// performance check
+// let x = "23"; // need number `23`
+
+// // Option 1: let implicit coercion automatically happen
+// let y = x / 2;
+
+// // Option 2: use `parseInt(..)`
+// let y = parseInt(x, 0) / 2;
+
+// // Option 3: use `Number(..)`
+// let y = Number(x) / 2;
+
+// // Option 4: use `+` unary operator
+// let y = +x / 2;
+
+// // Option 5: use `|` unary operator
+// let y = (x | 0) / 2;

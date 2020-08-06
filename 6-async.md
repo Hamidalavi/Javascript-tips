@@ -136,14 +136,14 @@ These below pseudos `Promise` are similar:
 ```js
 // one
 let p1 = new Promise(function (resolve, reject) {
-    resolve(42);
+    resolve(23);
 });
 
 // two
-let p2 = Promise.resolve(42);
+let p2 = Promise.resolve(23);
 
 
-let pm1 = Promise.resolve(42);
+let pm1 = Promise.resolve(23);
 let pm2 = Promise.resolve(pm1);
 
 console.log(pm1 === pm2); // true (result)

@@ -276,3 +276,72 @@ Now, let's imagine that in the earlier snippet you had been worried about whethe
 Speaking of `--`, `--n` versus `n--` is often cited as one of those places where you can optimize by choosing the `--n` version, because theoretically it requires less effort down at the assembly level of processing.
 
 That sort of obsession is basically nonsense in modern **JavaScript**. That's the kind of thing you should be letting the engine take care of. You should write the code that makes the most sense. Compare these three `for` loops:
+
+```js
+// Option 1
+for (let i = 0; i < 10; i++) {
+  console.log(i); // 0 1 2 3 4 5 6 7 8 9 10
+}
+
+// Option 2
+for (let i = 0; i < 10; ++i) {
+  console.log(i); // 0 1 2 3 4 5 6 7 8 9 10
+}
+
+// Option 3
+for (let i = -1; ++i < 10;) {
+  console.log(i); // 0 1 2 3 4 5 6 7 8 9 10
+}
+```
+
+Even if you have some theory where the second or third option is more performant than the first option by a tiny bit, which is dubious at best, the third loop is more confusing because you have to start with `-1` for `i` to account for the fact that `++i` pre-increment is used. And the difference between the first and second options is really quite irrelevant.
+
+It's entirely possible that a **JavaScript** engine may see a place where `i++` is used and realize that it can safely replace it with the `++i` equivalent, which means your time spent deciding which one to pick was completely wasted and the outcome moot.
+
+Here's another common example of silly microperformance obsession:
+
+```js
+let x = [1, 2, 3, 4];
+
+// Option 1
+for (let i = 0; i < x.length; i++) {
+  console.log(`"First ${x[i]}"`); // "First 1" "First 2" "First 3" "First 4"
+}
+
+// Option 2
+for (let i = 0, len = x.length; i < len; i++) {
+  console.log(`"Second ${x[i]}"`); // "Second 1" "Second 2" "Second 3" "Second 4"
+}
+```
+
+The theory here goes that you should cache the length of the `x` array in the variable `len`, because ostensibly it doesn't change, to avoid paying the price of `x.length` being consulted for each iteration of the loop. If you run performance benchmarks around `x.length` usage compared to caching it in a `len` variable, you'll find that while the theory sounds nice, in practice any measured differences are statistically completely irrelevant.
+
+---
+
+## Some Performance Advices
+
+- Don't pass the `arguments` variable from one function to any other function, as such **leakage** slows down the function implementation.
+- Isolate a `try..catch` in its own function. Browsers struggle with optimizing any function with a `try..catch` in it, so moving that construct to its own function means you contain the de-optimization harm while letting the surrounding code be optimizable.
+- **best practice** advice at the time disseminated across the industry suggesting developers always use the array `join(..)` approach. And many followed.
+  - Except, somewhere along the way, the JS engines changed approaches for internally managing strings, and specifically put in optimizations for `+` concatenation. They didn't slow down `join(..)` per se, but they put more effort into helping `+` usage, as it was still quite a bit more widespread.
+
+Try below snippets:
+
+```js
+let x = "23"; // need number `23`
+
+// Option 1: let implicit coercion automatically happen
+let y = x / 2;
+
+// Option 2: use `parseInt(..)`
+let y = parseInt(x, 0) / 2;
+
+// Option 3: use `Number(..)`
+let y = Number(x) / 2;
+
+// Option 4: use `+` unary operator
+let y = +x / 2;
+
+// Option 5: use `|` unary operator
+let y = (x | 0) / 2;
+```
