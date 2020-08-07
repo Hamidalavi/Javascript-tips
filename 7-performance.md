@@ -345,3 +345,11 @@ let y = +x / 2;
 // Option 5: use `|` unary operator
 let y = (x | 0) / 2;
 ```
+
+When considering these different options, as they say, **One of these things is not like the others**. `parseInt(..)` does the job, but it also does a lot more -- it parses the string rather than just coercing. You can probably guess, correctly, that `parseInt(..)` is a slower option, and you should probably avoid it.
+
+Of course, if `x` can ever be a value that **needs parsing**, such as `23px` (like from a CSS style lookup), then `parseInt(..)` really is the only suitable option!
+
+`Number(..)` is also a function call. From a behavioral perspective, it's identical to the `+` unary operator option, but it may in fact be a little slower, requiring more machinery to execute the function. Of course, it's also possible that the **JavaScript** engine recognizes this behavioral symmetry and just handles the inlining of `Number(..)`'s behavior `(aka +x)` for you!
+
+But remember, obsessing about `+x` versus `x | 0` is in most cases likely a waste of effort. This is a microperformance issue, and one that you shouldn't let dictate/degrade the readability of your program.
