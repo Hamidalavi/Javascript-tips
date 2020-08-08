@@ -3339,3 +3339,28 @@ ArrayBuffer {
 // hamid.push(5);
 // console.log(hamid); // [ 1, 2, 3, 4, 5 ]
 // hamid = 23; // TypeError: Assignment to constant variable
+
+// -----------------------------------------------
+
+// block-scoped functions
+// {
+//   hamid(); // "Persian Sight"
+
+//   function hamid() {
+//     console.log("Persian Sight");
+//   }
+// }
+
+// hamid(); // "Persian Sight"
+
+
+// "use strict"
+// {
+//   hamid(); // "Persian Sight"
+
+//   function hamid() {
+//     console.log("Persian Sight");
+//   }
+// }
+
+// hamid(); // ReferenceError: hamid is not defined
