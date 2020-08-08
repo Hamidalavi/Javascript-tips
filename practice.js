@@ -3234,3 +3234,30 @@ ArrayBuffer {
 
 // // Option 5: use `|` unary operator
 // let y = (x | 0) / 2;
+
+// -----------------------------------------------
+
+// wellcome to ES6+ - block-scope
+// var hamid = 23;
+// (function IIFE() {
+//   var hamid = 24;
+//   console.log(hamid); // 24
+// })();
+
+// console.log(hamid); // 23
+
+
+// let declaration
+// let hamed = 23;
+
+// {
+//   let hamed = 24;
+//   console.log(hamed); // 24
+// }
+
+// console.log(hamed); // 23
+
+
+// {
+//   let ali = 22, reza, majid, mehrdad, morteza;
+// }
