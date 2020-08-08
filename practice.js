@@ -3364,3 +3364,28 @@ ArrayBuffer {
 // }
 
 // hamid(); // ReferenceError: hamid is not defined
+
+
+
+// if (true) {
+//   function hamed() {
+//     console.log("1");
+//   }
+// }
+// else {
+//   function hamed() {
+//     console.log("2");
+//   }
+// }
+
+// hamed(); // "1"
+
+// -----------------------------------------------
+
+// spread/rest
+// function hamid(a, b, c) {
+//   console.log(a + b + c);
+// }
+
+// hamid(...[21, 22, 23]); // 66
+// hamid.apply(null, [21, 22, 23]); // 66
