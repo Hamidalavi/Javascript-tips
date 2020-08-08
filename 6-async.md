@@ -406,7 +406,7 @@ Let's review briefly the intrinsic behaviors of Promises that enable chaining fl
 
 ## Promsise (step by step)
 
-I know, these examples are hard to lean, Let's do this step by step:
+We know, these examples are hard to lean, Let's do this step by step:
 
 ```js
 let pm = new Promise(function (x, y) {
@@ -421,7 +421,7 @@ As you can see, two callbacks (here labeled `x` and `y`) are provided. The first
 
 **Answer**: Ultimately, it's just your user code and the identifier names aren't interpreted by the engine to mean anything, so it doesn't technically matter; `hamid()` and `hamed()` (foo and bar are common) are equally functional. But the words you use can affect not only how you are thinking about the code, but how other developers on your team will think about it. Thinking wrongly about carefully orchestrated (sync, concurrent) async code is almost surely going to be worse than the spaghetti-callback alternatives. **So it actually does kind of matter what you call them**.
 
-The second parameter is easy to decide. Almost all literature uses `reject(..)` as its name, and because that's exactly (and only!) what it does, that's a very good choice for the name. I'd strongly recommend you always use **`reject(..)`**.
+The second parameter is easy to decide. Almost all literature uses `reject(..)` as its name, and because that's exactly (and only!) what it does, that's a very good choice for the name. We'd strongly recommend you always use **`reject(..)`**.
 
 At the end, use **`resolve(..)`** and **`reject(..)`**.
 

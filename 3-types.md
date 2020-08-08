@@ -1,7 +1,5 @@
 # Some **`type`** sentences to give you more information
 
-**I recommend first read `papular-sentences.md` and `this-example.md` and `object-example.md` files**.
-
 **JavaScript** defines seven built-in types:
 
 1. null
@@ -608,7 +606,7 @@ let hamid = 23;
 console.log(hamid && hamed()); // 23 (call hamed first)
 ```
 
-I think you get it right now how these operators (`||` and `&&`) work.
+We think you get it right now how these operators (`||` and `&&`) work.
 
 We also have `Symbol` coercion. As you see below:
 

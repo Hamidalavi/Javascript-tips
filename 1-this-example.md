@@ -2,8 +2,6 @@
 
 **Use browser console (recommended) for get better result of `this`**.
 
-**I recommend first read `papular-sentences.md` file**.
-
 ```js
 function hamed(number) {
     console.log("number is: " + number);

@@ -6,8 +6,6 @@
 
 **Use browser console (recommended) for get better result of `object`**.
 
-**I recommend first read `papular-sentences.md` and `this-example.md` files**.
-
 How to define an object? its pretty simple. you have two choices to creating objects 1) Literal 2) Constructed:
 
 ```js

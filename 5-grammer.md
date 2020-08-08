@@ -1,7 +1,5 @@
 # Some **`grammer`** sentences to give you more information
 
-**I recommend first read `papular-sentences.md` and `this-example.md` and `object-example.md` and `types.md` and `complete-guide-true-false.md` files**.
-
 We have ugly type function that can use instead of code, that called `eval()`. We don't recommend to use this function. Let's see simple snippet:
 
 ```js

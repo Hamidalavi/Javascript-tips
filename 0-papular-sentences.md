@@ -41,7 +41,7 @@ The rules for valid format and combinations of instructions is called a **comput
 
 ## Usage
 
-- I recommend to use node instead of browser console to see output(example: node [`file`])
+- We recommend to use node instead of browser console to see output(example: node [`file`])
   - Maybe some codes not work correctly. you are free to choose both browser and node.
 - Its better and cleaner to use `console.log()` instead of `alert()` function (fast and not annoying) to see output.
 - If you want input something to browser (like text box), you can use `prompt` function.
@@ -89,7 +89,7 @@ need a semicolon ( ; ) to conclude it.
       }
       ```
 
-- I recommend to use "**use strict**". because its fury and have strict behavior. for example: if you write `a = 10`, compiler will use strict behavior a saying to us: `ReferenceError: a is not defined`. with "strict mode" is disallowing the implicit auto-global variable declaration from omitting the `var`.
+- We recommend to use "**use strict**". because its fury and have strict behavior. for example: if you write `a = 10`, compiler will use strict behavior a saying to us: `ReferenceError: a is not defined`. with "strict mode" is disallowing the implicit auto-global variable declaration from omitting the `var`.
   - Adhering to "strict mode" makes your code generally more optimizable by the engine.
 - There's another way to execute a **function** expression, which is typically referred to as an immediately invoked function expression (IIFE).
 

@@ -3261,3 +3261,9 @@ ArrayBuffer {
 // {
 //   let ali = 22, reza, majid, mehrdad, morteza;
 // }
+
+
+// deprecated
+// let(ali = 22, reza, majid, mehrdad, morteza); {
+//   // do something
+// }
