@@ -3278,18 +3278,51 @@ ArrayBuffer {
 // let hamid;
 
 
-{
-  // `hamed` is not declared
-  if (typeof hamed === "undefined") {
-    console.log("Yeah!");
-  }
+// {
+//   // `hamed` is not declared
+//   if (typeof hamed === "undefined") {
+//     console.log("Yeah!");
+//   }
 
-  // `hamid` is declared, but in its TDZ
-  if (typeof hamid === "undefined") { // ReferenceError!
-    // ..
-  }
+//   // `hamid` is declared, but in its TDZ
+//   if (typeof hamid === "undefined") { // ReferenceError!
+//     // ..
+//   }
 
-  // ..
+//   // ..
 
-  let hamid;
-}
+//   let hamid;
+// }
+
+// -----------------------------------------------
+
+// let + for
+// var funcs = [];
+// for (let i = 0; i < 5; i++) {
+//   funcs.push(function () {
+//     console.log(i);
+//   });
+// }
+
+// funcs[4](); // 4
+
+
+// var funcs = [];
+// for (var i = 0; i < 5; i++) {
+//   let j = i;
+//   funcs.push(function () {
+//     console.log(j);
+//   });
+// }
+
+// funcs[4](); // 4
+
+
+// var funcs = [];
+// for (var i = 0; i < 5; i++) {
+//   funcs.push(function () {
+//     console.log(i);
+//   });
+// }
+
+// funcs[4](); // 5
