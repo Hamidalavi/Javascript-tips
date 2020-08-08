@@ -3276,3 +3276,20 @@ ArrayBuffer {
 
 // var hamed;
 // let hamid;
+
+
+{
+  // `hamed` is not declared
+  if (typeof hamed === "undefined") {
+    console.log("Yeah!");
+  }
+
+  // `hamid` is declared, but in its TDZ
+  if (typeof hamid === "undefined") { // ReferenceError!
+    // ..
+  }
+
+  // ..
+
+  let hamid;
+}
