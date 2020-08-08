@@ -428,7 +428,7 @@ Let's solve it now:
 5. For the second `?` test, `"Persian Sight"` is truthy
 6. `a` is `23`
 
-**Note**: Thus, my advice here **use operator precedence/associativity where it leads to shorter and cleaner code, but use `()` manual grouping in places where it helps create clarity and reduce confusion**.
+**Note**: Thus, our advice here **use operator precedence/associativity where it leads to shorter and cleaner code, but use `()` manual grouping in places where it helps create clarity and reduce confusion**.
 
 ## ASI (Auto Semicolon Insertion)
 

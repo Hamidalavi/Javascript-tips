@@ -3267,3 +3267,12 @@ ArrayBuffer {
 // let(ali = 22, reza, majid, mehrdad, morteza); {
 //   // do something
 // }
+
+// -----------------------------------------------
+
+// scope
+// console.log(hamed); // undefined
+// console.log(hamid); // ReferenceError: Cannot access 'hamid' before initialization
+
+// var hamed;
+// let hamid;
