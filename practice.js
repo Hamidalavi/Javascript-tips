@@ -3326,3 +3326,11 @@ ArrayBuffer {
 // }
 
 // funcs[4](); // 5
+
+// -----------------------------------------------
+
+// const
+// const hamid = 23;
+// console.log(hamid); // 23
+// hamid = 24;
+// console.log(hamid); //TypeError: Assignment to constant variable
