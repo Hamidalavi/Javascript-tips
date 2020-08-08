@@ -3332,5 +3332,10 @@ ArrayBuffer {
 // const
 // const hamid = 23;
 // console.log(hamid); // 23
-// hamid = 24;
-// console.log(hamid); //TypeError: Assignment to constant variable
+// hamid = 24; // TypeError: Assignment to constant variable
+
+
+// const hamid = [1, 2, 3, 4];
+// hamid.push(5);
+// console.log(hamid); // [ 1, 2, 3, 4, 5 ]
+// hamid = 23; // TypeError: Assignment to constant variable
