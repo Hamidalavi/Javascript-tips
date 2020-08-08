@@ -3389,3 +3389,15 @@ ArrayBuffer {
 
 // hamid(...[21, 22, 23]); // 66
 // hamid.apply(null, [21, 22, 23]); // 66
+
+
+// let hamed = [2, 3, 4];
+// let hamid = [1, ...hamed, 5];
+// console.log(hamid); // [ 1, 2, 3, 4, 5 ]
+
+
+// function hamed(a, b, ...c) {
+//   console.log(a, b, c);
+// }
+
+// hamed(1, 2, 3, 4, 5, 6, 7, 8); // 1 2 [ 3, 4, 5, 6, 7, 8 ]
