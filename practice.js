@@ -3459,3 +3459,18 @@ ArrayBuffer {
 // console.log("-----");
 // defaultValue(undefined, 7); // 22
 // defaultValue(null, 7); // 7
+
+// -----------------------------------------------
+
+// default value as function - OMG
+// let hamid = 23;
+
+// function hamed(a = hamid) {
+//   return a;
+// }
+
+// function ali(a = hamed()) {
+//   console.log(a);
+// }
+
+// ali();
