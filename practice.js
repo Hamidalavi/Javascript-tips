@@ -3443,3 +3443,19 @@ ArrayBuffer {
 
 // defaultValue(4); // 35
 // defaultValue(4, undefined); // NaN
+
+
+// function defaultValue(a = 15, b = 8) {
+//   console.log(a + b);
+// }
+
+// defaultValue(); // 23
+// defaultValue(3, 7); // 10
+// defaultValue(0, 23); // 23
+// console.log("-----");
+// defaultValue(3); // 11
+// defaultValue(3, undefined); // 11
+// defaultValue(3, null); // 3
+// console.log("-----");
+// defaultValue(undefined, 7); // 22
+// defaultValue(null, 7); // 7
