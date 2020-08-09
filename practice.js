@@ -3412,3 +3412,24 @@ ArrayBuffer {
 // -----------------------------------------------
 
 // default parameter
+// function defaultValue(a, b) {
+//   a = a || 15;
+//   b = b || 8;
+//   console.log(a + b);
+// }
+
+// defaultValue(); // 23
+// defaultValue(3, 7); // 10
+// defaultValue(3); // 11
+// defaultValue(null, 7); // 22
+// defaultValue(0, 7); // 22
+
+
+function defaultValue(a, b) {
+  a = (a !== undefined) ? a : 15;
+  b = (b !== undefined) ? b : 8;
+  console.log(a + b);
+}
+
+defaultValue(0, 23); // 23
+defaultValue(undefined, 23); // 38
