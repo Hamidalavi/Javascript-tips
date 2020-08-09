@@ -3484,10 +3484,36 @@ ArrayBuffer {
 // hamed(); // ReferenceError: Cannot access 'z' before initialization
 
 
-function hamid(a =
-  (function (v) { return v + 15; })(8)
-) {
-  console.log(a);
-}
+// function hamid(a =
+//   (function (v) { return v + 15; })(8)
+// ) {
+//   console.log(a);
+// }
 
-hamid(); // 23
+// hamid(); // 23
+
+// -----------------------------------------------
+
+// destructuring
+// function hamed() {
+//   return [1, 2, 3];
+// }
+
+// let temp = hamed(),
+//   a = temp[0], b = temp[1], c = temp[2];
+
+// console.log(a, b, c); // 1 2 3
+
+
+// function hamid() {
+//   return {
+//     a: 4,
+//     b: 5,
+//     c: 6
+//   }
+// }
+
+// let temp = hamid(),
+//   x = temp.a, y = temp.b, z = temp.c;
+
+// console.log(x, y, z); // 4 5 6
