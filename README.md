@@ -1,6 +1,6 @@
 # My Information
 
-## Telegram = **<https://t.me/Hamidalavi6540>** (shut down for 9 days)
+## Telegram = **<https://t.me/Hamidalavi6540>** (shut down for 8 days)
 
 ## Instagram = **<https://www.instagram.com/Hamidalavi6540>**
 
