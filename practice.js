@@ -3425,11 +3425,21 @@ ArrayBuffer {
 // defaultValue(0, 7); // 22
 
 
-function defaultValue(a, b) {
-  a = (a !== undefined) ? a : 15;
-  b = (b !== undefined) ? b : 8;
-  console.log(a + b);
-}
+// function defaultValue(a, b) {
+//   a = (a !== undefined) ? a : 15;
+//   b = (b !== undefined) ? b : 8;
+//   console.log(a + b);
+// }
 
-defaultValue(0, 23); // 23
-defaultValue(undefined, 23); // 38
+// defaultValue(0, 23); // 23
+// defaultValue(undefined, 23); // 38
+
+
+// function defaultValue(a, b) {
+//   a = (0 in arguments) ? a : 11;
+//   b = (1 in arguments) ? b : 31; // NaN
+//   console.log(a + b);
+// }
+
+// defaultValue(4); // 35
+// defaultValue(4, undefined); // NaN
