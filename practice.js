@@ -3482,3 +3482,12 @@ ArrayBuffer {
 // }
 
 // hamed(); // ReferenceError: Cannot access 'z' before initialization
+
+
+function hamid(a =
+  (function (v) { return v + 15; })(8)
+) {
+  console.log(a);
+}
+
+hamid(); // 23
