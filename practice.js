@@ -3469,8 +3469,16 @@ ArrayBuffer {
 //   return a;
 // }
 
-// function ali(a = hamed()) {
-//   console.log(a);
+// function ali(a = hamed(), b = (45 + hamid)) {
+//   console.log(a, b);
 // }
 
-// ali();
+// ali(); // 23 68
+
+
+// let w = 1, z = 2;
+// function hamed(x = w + 1, y = x + 1, z = z + 1) {
+//   console.log(x, y, z);
+// }
+
+// hamed(); // ReferenceError: Cannot access 'z' before initialization
