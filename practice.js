@@ -3846,3 +3846,35 @@ ArrayBuffer {
 // // and:
 // console.log(o.__id); // 21
 // console.log(o.__id); // 21 -- still!
+
+// -----------------------------------------------
+
+// computed property names
+// let prefix = "user_";
+
+// let o = {
+//   ali: function () { /* do something */ }
+// };
+
+// o[prefix + "hamed"] = function () { /* do something */ };
+// o[prefix + "hamid"] = function () { /* do something */ };
+
+
+// let prefix = "user_";
+
+// let o = {
+//   ali: function () { /* do something */ },
+//   [prefix + "hamed"]: function () { /* do something */ },
+//   [prefix + "hamid"]: function () { /* do something */ }
+// };
+
+
+// let o = {
+//   [Symbol.toStringTag]: "Hello guys"
+// };
+
+
+let o = {
+  ["ha" + "med"]() { /* do something */ }, // computed concise method
+  *["ha" + "mid"]() { /* do something */ } // computed concise generator
+};
