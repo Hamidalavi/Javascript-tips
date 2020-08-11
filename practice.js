@@ -3736,3 +3736,11 @@ ArrayBuffer {
 
 // reza([]); // undefined undefined [] []
 // reza([1, 2, 3, 4], 5, 6); // 1 2 [ 3, 4 ] [ 5, 6 ]
+
+
+// function majid({ x = 10 } = {}, { y } = { y: 10 }) {
+//   console.log(x, y);
+// }
+
+// majid(); // 10 10
+// majid({}, {}); // 10 undefined
