@@ -3649,7 +3649,26 @@ ArrayBuffer {
 // console.log(a, b, c); // 1 2 3
 // console.log(x, y, z); // 4 5 4
 
+// -----------------------------------------------
 
+// spread / rest
 // let a = [2, 3, 4];
 // let b = [1, ...a, 5];
 // console.log(b); // [ 1, 2, 3, 4, 5 ]
+
+
+// let a = [2, 3, 4];
+// let [b, ...c] = a;
+// console.log(b, c); // 2 [ 3, 4 ]
+
+// -----------------------------------------------
+
+// default value assignment
+// let [a = 3, b = 6, c = 9, d = 12] = hamed();
+// let { x = 5, y = 10, z = 15, w = 20 } = hamid();
+// console.log(a, b, c, d); // 1 2 3 12
+// console.log(x, y, z, w); // 4 5 6 20
+
+
+// let { x, y, z, w: WW = 20 } = hamid();
+// console.log(x, y, z, WW); // 4 5 6 20
