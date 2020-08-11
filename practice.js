@@ -3534,3 +3534,8 @@ ArrayBuffer {
 // let { x: bam, y: pam, z: jam } = hamid();
 // console.log(bam, pam, jam); // 4 5 6
 // console.log( x, y, z ); // 4 5 6 (ReferenceError in some browser)
+
+
+// let X = 10, Y = 20;
+// let o = { a: X, b: Y };
+// console.log(o.a, o.b); // 10 20
