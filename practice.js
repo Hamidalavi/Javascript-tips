@@ -3672,3 +3672,22 @@ ArrayBuffer {
 
 // let { x, y, z, w: WW = 20 } = hamid();
 // console.log(x, y, z, WW); // 4 5 6 20
+
+
+// let x = 200, y = 300, z = 100;
+// let o1 = { x: { y: 23 }, z: { y: z } };
+// console.log(({ y: x = { y: y } } = o1)); // { x: { y: 23 }, z: { y: 100 } }
+// console.log(({ z: y = { y: z } } = o1)); // { x: { y: 23 }, z: { y: 100 } }
+// console.log(({ x: z = { y: x } } = o1)); // { x: { y: 23 }, z: { y: 100 } }
+
+// console.log(x.y, y.y, z.y); // 300 100 23
+
+// -----------------------------------------------
+
+// nested destructuring
+// let a1 = [1, [2, 3, 4], 5];
+// let o1 = { x: { y: { z: 6 } } };
+// let [a, [b, c, d], e] = a1;
+// let { x: { y: { z: w } } } = o1;
+// console.log(a, b, c, d, e); // 1 2 3 4 5
+// console.log(w); // 6
