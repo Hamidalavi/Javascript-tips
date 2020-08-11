@@ -3800,3 +3800,19 @@ ArrayBuffer {
 //     // do something
 //   }
 // };
+
+
+// let controller = {
+//   makeRequest: function () {
+//     // do something
+//     controller.makeRequest();
+//   }
+// };
+
+
+// let controller = {
+//   makeRequest: function () {
+//     // do something
+//     this.makeRequest();
+//   }
+// };
