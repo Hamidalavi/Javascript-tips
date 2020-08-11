@@ -232,14 +232,14 @@ let d = a && b || c ? c || b ? a : c && b : a;
 console.log(d); // 23
 ```
 
-What happend? The first part (`a && b || c`) behave like `(a && b) || c` or like `a && (b || c)`? Let's see simple example:
+What happened? The first part (`a && b || c`) behave like `(a && b) || c` or like `a && (b || c)`? Let's see simple example:
 
 ```js
 (false && true) || true; // true
 false && (true || true); // false
 ```
 
-What happend? So, there's proof they're different. But still, how does `false && true || true` behave? The **answer**:
+What happened? So, there's proof they're different. But still, how does `false && true || true` behave? The **answer**:
 
 ```js
 false && true || true; // true

@@ -119,7 +119,7 @@ console.log(arr.mehrdad); // Mehrdad
 console.log(arr.length); // 5
 ```
 
-Look above code. **Q**: Why array length is 5, yet? we are adding two keys that called "majid" and "mehrdad", then what happend?
+Look above code. **Q**: Why array length is 5, yet? we are adding two keys that called "majid" and "mehrdad", then what happened?
 
 **Answer**: In fact, notice that adding named properties (regardless of `.` and `[]` operator syntax) does not change the reported `length` of the array.
 

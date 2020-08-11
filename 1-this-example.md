@@ -91,7 +91,7 @@ let obj = { a: 23, hamed: hamed };
 obj.hamed(); // 23
 ```
 
-**Q**: What happend?
+**Q**: What happened?
 
 **Answer**: Firstly, which `hamed()` is declared and then later added as a reference property onto `obj`. Regardless of whether `hamed()` is initially declared on `obj`, or is added as a reference later, in neither case is the function really "owned" or "contained" by the `obj` object.
 
