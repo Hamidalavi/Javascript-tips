@@ -3691,3 +3691,22 @@ ArrayBuffer {
 // let { x: { y: { z: w } } } = o1;
 // console.log(a, b, c, d, e); // 1 2 3 4 5
 // console.log(w); // 6
+
+
+// let App = {
+//   model: {
+//     User: function () { }
+//   }
+// };
+// // instead of: let User = App.model.User;
+
+// let { model: { User } } = App;
+
+// -----------------------------------------------
+
+// destructuring parameters
+// function hamed(x) {
+//   console.log(x);
+// }
+
+// hamed(23); // 23
