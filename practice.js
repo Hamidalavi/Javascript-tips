@@ -3767,3 +3767,36 @@ ArrayBuffer {
 //   };
 
 // console.log(o); // { x: 1, y: 2 }
+
+
+// let x = 1, y = 2,
+//   o = {
+//     x,
+//     y
+//   };
+
+// console.log(o); // { x: 1, y: 2 }
+
+// -----------------------------------------------
+
+// concise methods
+// old
+// let o = {
+//   x: function () {
+//     // do something
+//   },
+//   y: function () {
+//     // do something
+//   }
+// };
+
+
+// new
+// let o = {
+//   x() {
+//     // do something
+//   },
+//   y() {
+//     // do something
+//   }
+// };
