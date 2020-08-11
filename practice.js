@@ -3623,10 +3623,28 @@ ArrayBuffer {
 // -----------------------------------------------
 
 // destructuring assignment expressions
-let o = { a: 1, b: 2, c: 3 },
-  a, b, c, d;
+// let o = { a: 1, b: 2, c: 3 },
+//   a, b, c, d;
 
-d = { a, b, c } = o;
+// d = { a, b, c } = o;
 
-console.log(a, b, c); // 1 2 3
-console.log(d === o); // true
+// console.log(a, b, c); // 1 2 3
+// console.log(d === o); // true
+
+
+// let o = [1, 2, 3],
+//   a, b, c, d;
+
+// d = [a, b, c] = o;
+
+// console.log(a, b, c); // 1 2 3
+// console.log(d === o); // true
+
+
+// let o = { a: 1, b: 2, c: 3 },
+//   d = [4, 5, 6],
+//   a, b, c, x, y, z;
+// ({ a } = { b, c } = o);
+// [x, y] = [z] = d;
+// console.log(a, b, c); // 1 2 3
+// console.log(x, y, z); // 4 5 4
