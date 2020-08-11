@@ -3921,3 +3921,17 @@ ArrayBuffer {
 // Object.setPrototypeOf(o2, o1);
 
 // console.log(o2.hamed()); // "o1:hamed" "o2:hamed"
+
+// -----------------------------------------------
+
+// template literals
+// let name = "Hamid";
+// let greeting = "Hello " + name + "!";
+// console.log(greeting); // "Hello Hamid!"
+// console.log(typeof greeting); // "string"
+
+
+let name = "Hamid";
+let greeting = `Hello ${name}!`;
+console.log(greeting); // "Hello Hamid!"
+console.log(typeof greeting); // "string"
