@@ -3553,3 +3553,10 @@ console.log(a, b, c); // 1 2 3
 // ({ x, y, z } = hamid());
 // console.log(a, b, c); // 1 2 3
 // console.log(x, y, z); // 4 5 6
+
+
+// var o = {};
+// [o.a, o.b, o.c] = hamed();
+// ({ x: o.x, y: o.y, z: o.z } = hamid());
+// console.log(o.a, o.b, o.c); // 1 2 3
+// console.log(o.x, o.y, o.z); // 4 5 6
