@@ -3744,3 +3744,26 @@ ArrayBuffer {
 
 // majid(); // 10 10
 // majid({}, {}); // 10 undefined
+
+
+// function majid({ x = 10 } = {}, { y } = { y: 10 }) {
+//   console.log(x, y);
+// }
+
+// majid(); // 10 10
+// majid(undefined, undefined); // 10 10
+// majid({}, undefined); // 10 10
+// majid({}, {}); // 10 undefined
+// majid(undefined, {}); // 10 undefined
+// majid({ x: 2 }, { y: 3 }); // 2 3
+
+// -----------------------------------------------
+
+// concise properties
+// let x = 1, y = 2,
+//   o = {
+//     x: x,
+//     y: y
+//   };
+
+// console.log(o); // { x: 1, y: 2 }
