@@ -3517,3 +3517,11 @@ ArrayBuffer {
 //   x = temp.a, y = temp.b, z = temp.c;
 
 // console.log(x, y, z); // 4 5 6
+
+
+// let [a, b, c] = hamed();
+// console.log(a, b, c); // 1 2 3
+
+
+// let { x: x, y: y, z: z } = hamid();
+// console.log(x, y, z); // 4 5 6
