@@ -3495,14 +3495,14 @@ ArrayBuffer {
 // -----------------------------------------------
 
 // destructuring
-// function hamed() {
-//   return [1, 2, 3];
-// }
+function hamed() {
+  return [1, 2, 3];
+}
 
-// let temp = hamed(),
-//   a = temp[0], b = temp[1], c = temp[2];
+let temp = hamed(),
+  a = temp[0], b = temp[1], c = temp[2];
 
-// console.log(a, b, c); // 1 2 3
+console.log(a, b, c); // 1 2 3
 
 
 // function hamid() {
@@ -3520,11 +3520,11 @@ ArrayBuffer {
 
 
 // let [a, b, c] = hamed();
-// console.log(a, b, c); // 1 2 3
+// console.log(a, b, c); // 1 2 3 | SyntaxError: Identifier 'a' has already been declared
 
 
 // let { x: x, y: y, z: z } = hamid();
-// console.log(x, y, z); // 4 5 6
+// console.log(x, y, z); // 4 5 6 | SyntaxError: Identifier 'a' has already been declared
 
 
 // let { x, y, z } = hamid();
@@ -3539,3 +3539,17 @@ ArrayBuffer {
 // let X = 10, Y = 20;
 // let o = { a: X, b: Y };
 // console.log(o.a, o.b); // 10 20
+
+
+// let aa = 10, bb = 20;
+// let o = { x: aa, y: bb };
+// let { x: AA, y: BB } = o;
+// console.log(aa, bb); // 10 20
+// console.log(AA, BB); // 10 20
+
+
+// let a, b, c, x, y, z;
+// [a, b, c] = hamed();
+// ({ x, y, z } = hamid());
+// console.log(a, b, c); // 1 2 3
+// console.log(x, y, z); // 4 5 6
