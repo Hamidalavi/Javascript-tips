@@ -3495,14 +3495,14 @@ ArrayBuffer {
 // -----------------------------------------------
 
 // destructuring
-function hamed() {
-  return [1, 2, 3];
-}
+// function hamed() {
+//   return [1, 2, 3];
+// }
 
-let temp = hamed(),
-  a = temp[0], b = temp[1], c = temp[2];
+// let temp = hamed(),
+//   a = temp[0], b = temp[1], c = temp[2];
 
-console.log(a, b, c); // 1 2 3
+// console.log(a, b, c); // 1 2 3
 
 
 // function hamid() {
@@ -3555,8 +3555,28 @@ console.log(a, b, c); // 1 2 3
 // console.log(x, y, z); // 4 5 6
 
 
-// var o = {};
+// let o = {};
 // [o.a, o.b, o.c] = hamed();
 // ({ x: o.x, y: o.y, z: o.z } = hamid());
 // console.log(o.a, o.b, o.c); // 1 2 3
 // console.log(o.x, o.y, o.z); // 4 5 6
+
+
+// let which = "x",
+//   o = {};
+// ({ [which]: o[which] } = hamid());
+// console.log(o.x); // 4
+
+// -----------------------------------------------
+
+// mappings/transformations in destructuring
+// let o1 = { a: 1, b: 2, c: 3 },
+//   o2 = {};
+// ({ a: o2.x, b: o2.y, c: o2.z } = o1);
+// console.log(o2.x, o2.y, o2.z); // 1 2 3
+
+
+// let o1 = { a: 1, b: 2, c: 3 },
+//   a2 = [];
+// ({ a: a2[0], b: a2[1], c: a2[2] } = o1);
+// console.log(a2); // [ 1, 2, 3 ]
