@@ -3601,3 +3601,21 @@ ArrayBuffer {
 // -----------------------------------------------
 
 // repeated assignments
+// let { a: X, a: Y } = { a: 23 };
+// console.log(X); // 23
+// console.log(Y); // 23
+
+
+// let { a: { x: X, x: Y }, a } = { a: { x: 23 } };
+// console.log(X); // 23
+// console.log(Y); // 23
+// console.log(a); // { x: 23 }
+
+// ({ a: X, a: Y, a: [Z] } = { a: [23] });
+
+// X.push(2);
+// Y[0] = 10;
+
+// console.log(X); // [ 10, 2 ]
+// console.log(Y); // [ 10, 2 ]
+// console.log(Z); // 23
