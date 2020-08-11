@@ -3874,7 +3874,30 @@ ArrayBuffer {
 // };
 
 
-let o = {
-  ["ha" + "med"]() { /* do something */ }, // computed concise method
-  *["ha" + "mid"]() { /* do something */ } // computed concise generator
-};
+// let o = {
+//   ["ha" + "med"]() { /* do something */ }, // computed concise method
+//   *["ha" + "mid"]() { /* do something */ } // computed concise generator
+// };
+
+// -----------------------------------------------
+
+// setting [[prototype]]
+// let o1 = {
+//   // do something
+// };
+
+// let o2 = {
+//   __proto__: o1,
+//   // do something
+// };
+
+
+// let o1 = {
+//   // do something
+// };
+
+// let o2 = {
+//   // do something
+// }
+
+// Object.setPrototypeOf(o2, o1);
