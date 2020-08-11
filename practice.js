@@ -3901,3 +3901,23 @@ ArrayBuffer {
 // }
 
 // Object.setPrototypeOf(o2, o1);
+
+// -----------------------------------------------
+
+// super
+// let o1 = {
+//   hamed() {
+//     console.log("o1:hamed");
+//   }
+// };
+
+// let o2 = {
+//   hamed() {
+//     super.hamed();
+//     console.log("o2:hamed");
+//   }
+// };
+
+// Object.setPrototypeOf(o2, o1);
+
+// console.log(o2.hamed()); // "o1:hamed" "o2:hamed"
