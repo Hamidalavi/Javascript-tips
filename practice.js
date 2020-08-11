@@ -3619,3 +3619,14 @@ ArrayBuffer {
 // console.log(X); // [ 10, 2 ]
 // console.log(Y); // [ 10, 2 ]
 // console.log(Z); // 23
+
+// -----------------------------------------------
+
+// destructuring assignment expressions
+let o = { a: 1, b: 2, c: 3 },
+  a, b, c, d;
+
+d = { a, b, c } = o;
+
+console.log(a, b, c); // 1 2 3
+console.log(d === o); // true
