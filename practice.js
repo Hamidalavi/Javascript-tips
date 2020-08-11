@@ -3648,3 +3648,8 @@ ArrayBuffer {
 // [x, y] = [z] = d;
 // console.log(a, b, c); // 1 2 3
 // console.log(x, y, z); // 4 5 4
+
+
+// let a = [2, 3, 4];
+// let b = [1, ...a, 5];
+// console.log(b); // [ 1, 2, 3, 4, 5 ]
