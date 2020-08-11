@@ -3710,3 +3710,29 @@ ArrayBuffer {
 // }
 
 // hamed(23); // 23
+
+
+// function hamid([x, y]) {
+//   console.log(x, y);
+// }
+
+// hamid([1, 2]); // 1 2
+// hamid([1]); // 1 undefined
+// hamid([]); // undefined undefined
+
+
+// function ali({ x, y }) {
+//   console.log(x, y);
+// }
+
+// ali({ y: 1, x: 2 }); // 2 1
+// ali({ y: 23 }); // undefined 23
+// ali({}); // undefined undefined
+
+
+// function reza([x, y, ...z], ...w) {
+//   console.log(x, y, z, w);
+// }
+
+// reza([]); // undefined undefined [] []
+// reza([1, 2, 3, 4], 5, 6); // 1 2 [ 3, 4 ] [ 5, 6 ]
