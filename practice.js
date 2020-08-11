@@ -3507,14 +3507,14 @@ ArrayBuffer {
 
 // function hamid() {
 //   return {
-//     a: 4,
-//     b: 5,
-//     c: 6
+//     x: 4,
+//     y: 5,
+//     z: 6
 //   }
 // }
 
 // let temp = hamid(),
-//   x = temp.a, y = temp.b, z = temp.c;
+//   x = temp.x, y = temp.y, z = temp.z;
 
 // console.log(x, y, z); // 4 5 6
 
@@ -3525,3 +3525,12 @@ ArrayBuffer {
 
 // let { x: x, y: y, z: z } = hamid();
 // console.log(x, y, z); // 4 5 6
+
+
+// let { x, y, z } = hamid();
+// console.log(x, y, z); // 4 5 6
+
+
+// let { x: bam, y: pam, z: jam } = hamid();
+// console.log(bam, pam, jam); // 4 5 6
+// console.log( x, y, z ); // 4 5 6 (ReferenceError in some browser)
