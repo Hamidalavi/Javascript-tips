@@ -4202,3 +4202,9 @@ ArrayBuffer {
 
 // console.log(re.exec(str)); // null -- no more matches!
 // console.log(re.lastIndex); // 0 -- starts over now!
+
+
+// var re = /o+./g, // <-- look, `g`!
+//   str = "foot book more";
+
+// console.log(str.match(re)); // [ 'oot', 'ook', 'or' ]
