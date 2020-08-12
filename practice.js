@@ -3954,3 +3954,40 @@ ArrayBuffer {
 
 // let text = `Hello ${toUpper("hamed")}, wellcome your ${org} orginazition. Make it from "nothing" to "thing"`;
 // console.log(text); // Hello HAMED, wellcome your 'nothing' orginazition. Make it from "nothing" to "thing"
+
+
+// function hamed(str) {
+//   let name = "Hamed";
+//   console.log(str);
+// }
+
+// function hamid() {
+//   let name = "Hamid";
+//   hamed(`Hello my friend, ${name}`);
+// }
+
+// var name = "global";
+
+// hamid(); // Hello my friend, Hamid -- not "global" or "Hamed"
+
+// -----------------------------------------------
+
+// tagged template literals
+// function hamed(str, ...value) {
+//   console.log(str);
+//   console.log(value);
+// }
+
+// let info = "Cool";
+
+// hamed`Everything is ${info}!`;
+
+
+function hamed(str, ...value) {
+  console.log(str);
+  console.log(value);
+}
+
+let info = "Cool";
+
+hamed`Everything is ${info}!`;
