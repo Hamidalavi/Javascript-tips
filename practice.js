@@ -4120,3 +4120,13 @@ ArrayBuffer {
 // for (let char of name) {
 //   console.log(char); // "H" "a" "m" "i" "d"
 // }
+
+
+// let o = {};
+// for (o.a of [1, 2, 3]) {
+//   console.log(o.a); // 1 2 3
+// }
+
+// for ({ x: o.a } of [{ x: 1 }, { x: 2 }, { x: 3 }]) {
+//   console.log(o.a); // 1 2 3
+// }
