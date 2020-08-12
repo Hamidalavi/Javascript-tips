@@ -4048,3 +4048,14 @@ ArrayBuffer {
 
 // let value = [1,2,3,4,5];
 // console.log(value.map(v => v * 2)); // [ 2, 4, 6, 8, 10 ]
+
+
+// let controller = {
+//   makeRequest: function () {
+//     let self = this;
+//     btn.addEventListener("click", function () {
+//       // ..
+//       self.makeRequest();
+//     }, false);
+//   }
+// };
