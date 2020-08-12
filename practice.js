@@ -4161,14 +4161,28 @@ ArrayBuffer {
 // console.log(re2.lastIndex); // 0 -- reset after previous match failure
 
 
-// // not worked
 // var re = /m../y,
-//   str = "min          med         max";
+//   str = "min med max";
 
-// console.log(str.match(re)); // ["min"]
+// console.log(str.match(re)); // [ 'min', index: 0, input: 'min med max', groups: undefined ]
+// console.log(re.lastIndex); // 3
 
-// re.lastIndex = 10;
-// console.log(str.match(re)); // ["med"]
+// re.lastIndex = 4;
+// console.log(str.match(re)); // [ 'med', index: 4, input: 'min med max', groups: undefined ]
+// console.log(re.lastIndex); // 7
 
-// re.lastIndex = 20;
-// console.log(str.match(re)); // ["max"]
+// re.lastIndex = 8;
+// console.log(str.match(re)); // [ 'max', index: 8, input: 'min med max', groups: undefined ]
+// console.log(re.lastIndex); // 11
+
+
+// var re = /\d+\.\s(.*?)(?:\s|$)/y
+// str = "1. min 2. med 3. max";
+
+// console.log(str.match(re)); // [ '1. min', 'min', index: 0, input: '1. min 2. med 3. max', groups: undefined ]
+
+// console.log(re.lastIndex); // 7 -- correct position!
+// console.log(str.match(re)); // [ '2. med', 'med', index: 7, input: '1. min 2. med 3. max', groups: undefined ]
+
+// console.log(re.lastIndex); // 14 -- correct position!
+// console.log(str.match(re)); // [ '3. max', 'max', index: 14, input: '1. min 2. med 3. max', groups: undefined ]
