@@ -4059,3 +4059,26 @@ ArrayBuffer {
 //     }, false);
 //   }
 // };
+
+
+// let controller = {
+//   makeRequest: function () {
+//     btn.addEventListener("click", () => {
+//       // ..
+//       this.makeRequest();
+//     }, false);
+//   }
+// };
+
+
+// let controller = {
+//   makeRequest: () => {
+//     // ..
+//     this.helper();
+//   },
+//   helper: () => {
+//     // ..
+//   }
+// };
+
+// controller.makeRequest();
