@@ -4137,25 +4137,25 @@ ArrayBuffer {
 // let re1 = /hamed/,
 //   str = "++hamed++";
 
-// re1.lastIndex; // 0
-// re1.test(str); // true
-// re1.lastIndex; // 0 -- not updated
-
+// console.log(re1.lastIndex); // 0
+// console.log(re1.test(str)); // true
+// console.log(re1.lastIndex); // 0 -- not updated
+// console.log("-----");
 // re1.lastIndex = 4;
-// re1.test(str); // true -- ignored `lastIndex`
-// re1.lastIndex; // 4 -- not updated
+// console.log(re1.test(str)); // true -- ignored `lastIndex`
+// console.log(re1.lastIndex); // 4 -- not updated
 
 
-// let re2 = /hamid/y,   // <-- notice the `y` sticky flag
+// let re2 = /hamid/y, // <-- notice the `y` sticky flag
 //   str = "++hamid++";
 
-// re2.lastIndex; // 0
-// re2.test(str); // false -- "hamid" not found at `0`
-// re2.lastIndex; // 0
-
+// console.log(re2.lastIndex); // 0
+// console.log(re2.test(str)); // false -- "hamid" not found at `0`
+// console.log(re2.lastIndex); // 0
+// console.log("-----");
 // re2.lastIndex = 2;
-// re2.test(str); // true
-// re2.lastIndex; // 5 -- updated to after previous match
-
-// re2.test(str); // false
-// re2.lastIndex; // 0 -- reset after previous match failure
+// console.log(re2.test(str)); // true
+// console.log(re2.lastIndex); // 7 -- updated to after previous match
+// console.log("-----");
+// console.log(re2.test(str)); // false
+// console.log(re2.lastIndex); // 0 -- reset after previous match failure
