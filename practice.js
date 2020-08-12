@@ -4003,3 +4003,20 @@ ArrayBuffer {
 // }
 
 // dollar(49.99);
+
+// -----------------------------------------------
+
+// raw strings
+// function rawShow(strs, ...values) {
+//   console.log(strs);
+//   console.log(strs.raw);
+// }
+
+// rawShow`Hello\n World`;
+// /* output: [ 'Hello\n World' ]
+// [ 'Hello\\n World' ] */
+
+
+console.log(`Hello\nWorld`); // "Hello" \n "World"
+console.log(String.raw`Hello\nWorld`); // "Hello\nWorld"
+console.log(String.raw`Hello\nWorld`.length); // 12
