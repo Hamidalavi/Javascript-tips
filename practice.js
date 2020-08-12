@@ -4082,3 +4082,25 @@ ArrayBuffer {
 // };
 
 // controller.makeRequest();
+
+// -----------------------------------------------
+
+// for..of
+// let array = ["a", "b", "c", "d"];
+
+// for (let idx in array) {
+//   console.log(idx); //  0 1 2 3
+// }
+
+// for (let val of array) {
+//   console.log(val); // "a" "b" "c" "d"
+// }
+
+
+// pre-ES6
+// let array = ["a", "b", "c", "d", "e"],
+//   k = Object.keys(array);
+// for (let val, i = 0; i < k.length; i++) {
+//   val = array[k[i]];
+//   console.log(val); // "a" "b" "c" "d" "e"
+// }
