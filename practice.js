@@ -4017,6 +4017,20 @@ ArrayBuffer {
 // [ 'Hello\\n World' ] */
 
 
-console.log(`Hello\nWorld`); // "Hello" \n "World"
-console.log(String.raw`Hello\nWorld`); // "Hello\nWorld"
-console.log(String.raw`Hello\nWorld`.length); // 12
+// console.log(`Hello\nWorld`); // "Hello" \n "World"
+// console.log(String.raw`Hello\nWorld`); // "Hello\nWorld"
+// console.log(String.raw`Hello\nWorld`.length); // 12
+
+// -----------------------------------------------
+
+// arrow functions
+// function hamed(x, y) {
+//   return x + y;
+// }
+
+// // versus
+
+// let hamid = (x, y) => x + y;
+
+// console.log(hamed(15, 8)); // 23
+// console.log(hamid(15, 8)); // 23
