@@ -3931,7 +3931,14 @@ ArrayBuffer {
 // console.log(typeof greeting); // "string"
 
 
-let name = "Hamid";
-let greeting = `Hello ${name}!`;
-console.log(greeting); // "Hello Hamid!"
-console.log(typeof greeting); // "string"
+// let name = "Hamid";
+// let greeting = `Hello ${name}!`;
+// console.log(greeting); // "Hello Hamid!"
+// console.log(typeof greeting); // "string"
+
+
+// let text =
+//   `Hello guys, wellcome to my page!
+// please help me to improve this page from this github link (address)`;
+
+// console.log(text);
