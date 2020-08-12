@@ -3942,3 +3942,15 @@ ArrayBuffer {
 // please help me to improve this page from this github link (address)`;
 
 // console.log(text);
+
+// -----------------------------------------------
+
+// interpolated expressions
+// function toUpper(value) {
+//   return value.toUpperCase();
+// }
+
+// let org = "'nothing'";
+
+// let text = `Hello ${toUpper("hamed")}, wellcome your ${org} orginazition. Make it from "nothing" to "thing"`;
+// console.log(text); // Hello HAMED, wellcome your 'nothing' orginazition. Make it from "nothing" to "thing"
