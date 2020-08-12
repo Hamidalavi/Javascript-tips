@@ -4186,3 +4186,19 @@ ArrayBuffer {
 
 // console.log(re.lastIndex); // 14 -- correct position!
 // console.log(str.match(re)); // [ '3. max', 'max', index: 14, input: '1. min 2. med 3. max', groups: undefined ]
+
+
+// var re = /o+./g, // <-- look, `g`!
+//   str = "foot book more";
+
+// console.log(re.exec(str)); // [ 'oot', index: 1, input: 'foot book more', groups: undefined ]
+// console.log(re.lastIndex); // 4
+
+// console.log(re.exec(str)); // [ 'ook', index: 6, input: 'foot book more', groups: undefined ]
+// console.log(re.lastIndex); // 9
+
+// console.log(re.exec(str)); // [ 'or', index: 11, input: 'foot book more', groups: undefined ]
+// console.log(re.lastIndex); // 13
+
+// console.log(re.exec(str)); // null -- no more matches!
+// console.log(re.lastIndex); // 0 -- starts over now!
