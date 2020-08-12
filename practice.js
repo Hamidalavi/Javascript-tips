@@ -3979,15 +3979,27 @@ ArrayBuffer {
 // }
 
 // let info = "Cool";
+/* [ 'Everything is ', '!' ]
+[ 'Cool' ] */
 
 // hamed`Everything is ${info}!`;
 
+// function hamid() {
+//   return function hamed(str, ...value) {
+//     console.log(str);
+//     console.log(value);
+//   }
+// }
 
-function hamed(str, ...value) {
-  console.log(str);
-  console.log(value);
-}
+// let info = "Cool";
 
-let info = "Cool";
+// hamid()`Everything is ${info}!`;
+// /* output: [ 'Everything is ', '!' ]
+// [ 'Cool' ] */
 
-hamed`Everything is ${info}!`;
+
+// function dollar(cost) {
+//   console.log(`This weapon costs $${cost}`);
+// }
+
+// dollar(49.99);
