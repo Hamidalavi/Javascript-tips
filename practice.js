@@ -4104,3 +4104,19 @@ ArrayBuffer {
 //   val = array[k[i]];
 //   console.log(val); // "a" "b" "c" "d" "e"
 // }
+
+
+// ES6 non-for..of
+// let array = ["a", "b", "c", "d", "e"];
+// for (let val, ret, it = array[Symbol.iterator]();
+//   (ret = it.next()) && !ret.done;
+// ) {
+//   val = ret.value;
+//   console.log(val); // "a" "b" "c" "d" "e"
+// }
+
+
+// let name = "Hamid";
+// for (let char of name) {
+//   console.log(char); // "H" "a" "m" "i" "d"
+// }
