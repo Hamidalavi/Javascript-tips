@@ -4034,3 +4034,17 @@ ArrayBuffer {
 
 // console.log(hamed(15, 8)); // 23
 // console.log(hamid(15, 8)); // 23
+
+
+// let ali = () => 12;
+// let reza = x => x * 2;
+// let majid = (x, y) => {
+//   let z = x * 2 + y;
+//   y++;
+//   x *= 3;
+//   return (x + y + z) / 2;
+// };
+
+
+// let value = [1,2,3,4,5];
+// console.log(value.map(v => v * 2)); // [ 2, 4, 6, 8, 10 ]
