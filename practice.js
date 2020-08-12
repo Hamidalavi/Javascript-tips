@@ -4159,3 +4159,16 @@ ArrayBuffer {
 // console.log("-----");
 // console.log(re2.test(str)); // false
 // console.log(re2.lastIndex); // 0 -- reset after previous match failure
+
+
+// // not worked
+// var re = /m../y,
+//   str = "min          med         max";
+
+// console.log(str.match(re)); // ["min"]
+
+// re.lastIndex = 10;
+// console.log(str.match(re)); // ["med"]
+
+// re.lastIndex = 20;
+// console.log(str.match(re)); // ["max"]
