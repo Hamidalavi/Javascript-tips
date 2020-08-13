@@ -4286,6 +4286,7 @@ ArrayBuffer {
 // unicode
 // let snowman = "\u2603";
 // console.log(snowman); // ☃
+// console.log(snowman.length); // 1
 
 
 // let note = "\uD834\uDD1E";
@@ -4294,3 +4295,10 @@ ArrayBuffer {
 
 // let note = "\u{1D11E}";
 // console.log(note); // 𝄞
+// console.log(note.length); // 2
+
+
+// let note = "𝄞";
+// console.log(note.length); // 2
+// console.log([...note].length); // 1
+// console.log(Array.from(note).length); // 1
