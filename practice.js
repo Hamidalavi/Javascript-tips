@@ -4302,3 +4302,23 @@ ArrayBuffer {
 // console.log(note.length); // 2
 // console.log([...note].length); // 1
 // console.log(Array.from(note).length); // 1
+
+
+// let str1 = "\xE9",
+//   str2 = "e\u0301";
+
+// console.log(str1); // "é"
+// console.log(str2); // "é"
+
+// console.log([...str1].length); // 1
+// console.log([...str2].length); // 2
+
+
+// let str1 = "\xE9",
+//   str2 = "e\u0301";
+
+// console.log(str1.normalize().length); // 1
+// console.log(str2.normalize().length); // 1
+
+// console.log(str1 === str2); // false
+// console.log(str1 === str2.normalize()); // true
