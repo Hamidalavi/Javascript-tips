@@ -4436,3 +4436,26 @@ ArrayBuffer {
 // symbol registry
 // let symbol = Symbol.for("Hello Guys");
 // console.log(symbol); // Symbol(Hello Guys)
+
+
+// let symbol = Symbol.for("Hello Guys");
+// let info = Symbol.keyFor(symbol);
+
+// console.log(symbol); // Symbol(Hello Guys)
+// console.log(info); // "Hello Guys"
+
+// let symbol2 = Symbol.for(info);
+
+// console.log(symbol === symbol2); // true
+
+// -----------------------------------------------
+
+// symbol as object property
+// let obj = {
+//   hamed: 23,
+//   [Symbol("hamid")]: "Hello hamid",
+//   ali: true
+// }
+
+// console.log(Object.getOwnPropertyNames(obj)); // [ 'hamed', 'ali' ]
+// console.log(Object.getOwnPropertySymbols(obj)); // [ Symbol(hamid) ]
