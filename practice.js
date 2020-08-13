@@ -4364,3 +4364,25 @@ ArrayBuffer {
 // console.log([...str1.normalize()][2]); // "ć"
 // console.log([...str2.normalize()][2]); // "ć"
 // console.log([...str3.normalize()][2]); // "𝒞"
+
+
+// let str1 = "abc\u0301d",
+//   str2 = "ab\u0107d",
+//   str3 = "ab\u{1d49e}d";
+
+// console.log(str1.normalize().codePointAt(2).toString(16)); // "107"
+// console.log(str2.normalize().codePointAt(2).toString(16)); // "107"
+// console.log(str3.normalize().codePointAt(2).toString(16)); // "1d49e"
+
+
+// console.log(String.fromCodePoint(0x107)); // "ć"
+// console.log(String.fromCodePoint(0x1d49e)); // "𝒞"
+
+
+// let str1 = "abc\u0301d",
+//   str2 = "ab\u0107d",
+//   str3 = "ab\u{1d49e}d";
+
+// console.log(String.fromCodePoint(str1.normalize().codePointAt(2))); // "ć"
+// console.log(String.fromCodePoint(str2.normalize().codePointAt(2))); // "ć"
+// console.log(String.fromCodePoint(str3.normalize().codePointAt(2))); // "𝒞"
