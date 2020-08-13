@@ -4226,3 +4226,34 @@ ArrayBuffer {
 // re.lastIndex = 1;
 // console.log(re.test(str)); // false -- failed for positioning
 // console.log(re.lastIndex); // 0 -- reset after failure
+
+// -----------------------------------------------
+
+// regular expressions - flags
+// pre-ES6
+// var re = /hamed/ig;
+
+// console.log(re.toString()); // "/hamed/ig"
+
+// var flags = re.toString().match(/\/([gim]*)$/)[1];
+
+// console.log(flags); // "gi"
+
+
+// ES6
+// var re = /hamid/ig
+
+// console.log(re.flags); // "gi"
+
+
+// var re1 = /hamed*/y;
+// console.log(re1.source); // "hamed*"
+// console.log(re1.flags); // "y"
+
+// var re2 = new RegExp(re1);
+// console.log(re2.source); // "hamed*"
+// console.log(re2.flags); // "y"
+
+// var re3 = new RegExp(re1, "ig");
+// re3.source; // "hamed*"
+// re3.flags; // "gi"
