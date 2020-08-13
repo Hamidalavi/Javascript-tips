@@ -4515,3 +4515,13 @@ ArrayBuffer {
 // console.log(it2.next()); // { value: [ 'hamed', 23 ], done: false }
 // console.log(it2.next()); // { value: [ 'hamid', 23 ], done: false }
 // console.log(it2.next()); // { value: [ { isIt: true }, 'exist' ], done: false }
+
+
+// let it = {
+//   // make the `it` iterator an iterable
+//   [Symbol.iterator]() { return this; },
+//   next() { },
+
+// };
+
+// console.log(it[Symbol.iterator]() === it); // true
