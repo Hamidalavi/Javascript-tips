@@ -4133,7 +4133,7 @@ ArrayBuffer {
 
 // -----------------------------------------------
 
-// regular expressions
+// regular expressions - sticky flags
 // let re1 = /hamed/,
 //   str = "++hamed++";
 
@@ -4160,7 +4160,9 @@ ArrayBuffer {
 // console.log(re2.test(str)); // false
 // console.log(re2.lastIndex); // 0 -- reset after previous match failure
 
+// -----------------------------------------------
 
+// regular expressions - sticky positioning
 // var re = /m../y,
 //   str = "min med max";
 
@@ -4187,7 +4189,9 @@ ArrayBuffer {
 // console.log(re.lastIndex); // 14 -- correct position!
 // console.log(str.match(re)); // [ '3. max', 'max', index: 14, input: '1. min 2. med 3. max', groups: undefined ]
 
+// -----------------------------------------------
 
+// regular expressions - sticky versus global
 // var re = /o+./g, // <-- look, `g`!
 //   str = "foot book more";
 
@@ -4208,3 +4212,17 @@ ArrayBuffer {
 //   str = "foot book more";
 
 // console.log(str.match(re)); // [ 'oot', 'ook', 'or' ]
+
+// -----------------------------------------------
+
+// regular expressions - anchored sticky
+// var re = /^hamid/y,
+//   str = "hamid";
+
+// console.log(re.test(str)); // true
+// console.log(re.test(str)); // false
+// console.log(re.lastIndex); // 0 -- reset after failure
+
+// re.lastIndex = 1;
+// console.log(re.test(str)); // false -- failed for positioning
+// console.log(re.lastIndex); // 0 -- reset after failure
