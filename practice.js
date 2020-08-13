@@ -4475,3 +4475,22 @@ ArrayBuffer {
 // console.log(it.next()); // { value: 1, done: false }
 // console.log(it.next()); // { value: 2, done: false }
 // console.log(it.next()); // { value: 3, done: false }
+
+// console.log(it.next()); // { value: undefined, done: true }
+
+
+// let name = "Hamid Alavi";
+// let it = name[Symbol.iterator]();
+
+// console.log(it.next()); // { value: 'H', done: false }
+// console.log(it.next()); // { value: 'a', done: false }
+// console.log(it.next()); // { value: 'm', done: false }
+// console.log(it.next()); // { value: 'i', done: false }
+// console.log(it.next()); // { value: 'd', done: false }
+// console.log(it.next()); // { value: ' ', done: false }
+// console.log(it.next()); // { value: 'A', done: false }
+// console.log(it.next()); // { value: 'l', done: false }
+// console.log(it.next()); // { value: 'a', done: false }
+// console.log(it.next()); // { value: 'v', done: false }
+// console.log(it.next()); // { value: 'i', done: false }
+// console.log(it.next()); // { value: undefined, done: true }
