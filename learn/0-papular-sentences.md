@@ -20,13 +20,15 @@ The two languages are different in many important ways. "**JavaScript**" is as r
 
 The rules for valid format and combinations of instructions is called a **computer language**, sometimes referred to as its **syntax**, much the same as English tells you how to **spell** wordsand how to create valid sentences using words and punctuation.
 
+The specification uses the `@@` prefix notation to refer to the built-in symbols
+
 ## Understanding to Computer
 
 - A special utility on the computer(either an `interpreter` or a `compiler`) is used to translate the code you write into commands a computer can understand.
   - For some computer languages, this translation of commands is typically done from top to bottom, line by line, every time the program is run, which is usually called `interpreting` the code (like **JavaScript**).
   - For other languages, the translation is done ahead of time, called `compiling` the code, so when the program runs later, what's running is actually the already compiled computer instructions ready to go (like **C++**).
 
-## thread
+## Thread
 
 **JavaScript** is sigle thread.
 

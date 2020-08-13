@@ -4459,3 +4459,19 @@ ArrayBuffer {
 
 // console.log(Object.getOwnPropertyNames(obj)); // [ 'hamed', 'ali' ]
 // console.log(Object.getOwnPropertySymbols(obj)); // [ Symbol(hamid) ]
+
+// -----------------------------------------------
+
+// built-In symbols
+// let array = [1,2,3];
+// console.log(array[Symbol.iterator]); // [Function: values]
+
+// -----------------------------------------------
+
+// iterator - next()
+// let array = [1, 2, 3];
+// let it = array[Symbol.iterator]();
+
+// console.log(it.next()); // { value: 1, done: false }
+// console.log(it.next()); // { value: 2, done: false }
+// console.log(it.next()); // { value: 3, done: false }
