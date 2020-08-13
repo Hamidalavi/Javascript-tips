@@ -4494,3 +4494,24 @@ ArrayBuffer {
 // console.log(it.next()); // { value: 'v', done: false }
 // console.log(it.next()); // { value: 'i', done: false }
 // console.log(it.next()); // { value: undefined, done: true }
+
+// for (let n of name) {
+//   console.log(n);
+// }
+
+
+// let map = new Map();
+
+// map.set("hamed", 23);
+// map.set("hamid", 23);
+// map.set({ isIt: true }, "exist");
+
+// let it1 = map[Symbol.iterator]();
+// let it2 = map.entries();
+
+// console.log(it1.next()); // { value: [ 'hamed', 23 ], done: false }
+// console.log(it1.next()); // { value: [ 'hamid', 23 ], done: false }
+// console.log(it1.next()); // { value: [ { isIt: true }, 'exist' ], done: false }
+// console.log(it2.next()); // { value: [ 'hamed', 23 ], done: false }
+// console.log(it2.next()); // { value: [ 'hamid', 23 ], done: false }
+// console.log(it2.next()); // { value: [ { isIt: true }, 'exist' ], done: false }
