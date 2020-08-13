@@ -4386,3 +4386,17 @@ ArrayBuffer {
 // console.log(String.fromCodePoint(str1.normalize().codePointAt(2))); // "ć"
 // console.log(String.fromCodePoint(str2.normalize().codePointAt(2))); // "ć"
 // console.log(String.fromCodePoint(str3.normalize().codePointAt(2))); // "𝒞"
+
+// -----------------------------------------------
+
+// Unicode - identifier names
+// let \u03A9 = 23;
+// console.log(\u03A9); // 23
+
+
+// let \u{2B400} = 23;
+// console.log(\u{2B400}); // 23
+
+// -----------------------------------------------
+
+// symbols
