@@ -4257,3 +4257,12 @@ ArrayBuffer {
 // var re3 = new RegExp(re1, "ig");
 // re3.source; // "hamed*"
 // re3.flags; // "gi"
+
+// -----------------------------------------------
+
+// regular expressions - number literal extensions
+// let decimal = 23, octal = 027, hexadecimal = 0x17;
+
+// console.log(Number(decimal)); // 23
+// console.log(Number(octal)); // 23
+// console.log(Number(hexadecimal)); // 23
