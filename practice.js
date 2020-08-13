@@ -4322,3 +4322,20 @@ ArrayBuffer {
 
 // console.log(str1 === str2); // false
 // console.log(str1 === str2.normalize()); // true
+
+
+// let str1 = "o\u0302\u0300",
+//   str2 = str1.normalize(),
+//   str3 = "ồ";
+
+// console.log(str1.length); // 3
+// console.log(str2.length); // 1
+// console.log(str3.length); // 1
+
+// console.log(str2 === str3); // true
+
+
+// let str = "e\u0301\u0330";
+
+// console.log(str); // "ḛ́ "
+// console.log(str.normalize().length); // 2
