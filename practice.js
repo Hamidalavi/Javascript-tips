@@ -4260,9 +4260,18 @@ ArrayBuffer {
 
 // -----------------------------------------------
 
-// regular expressions - number literal extensions
+// number literal extensions
 // let decimal = 23, octal = 027, hexadecimal = 0x17;
 
-// console.log(Number(decimal)); // 23
-// console.log(Number(octal)); // 23
-// console.log(Number(hexadecimal)); // 23
+// console.log(Number(decimal), Number(octal), Number(hexadecimal)); // 23 23 23
+
+
+// let decimal = 23,
+//   octal = 0o27,
+//   hexadecimal = 0x17,
+//   binary = 0b10111;
+
+// console.log(decimal, octal, hexadecimal, binary); // 23 23 23 23
+// console.log(Number("23"), Number("0o27"), Number("0x17"), Number("0b10111")); // 23 23 23 23
+
+
