@@ -4400,3 +4400,39 @@ ArrayBuffer {
 // -----------------------------------------------
 
 // symbols
+// let symbol = Symbol("Hello Guys");
+// console.log(typeof symbol); // "symbol"
+// console.log(symbol.toString()); // "Symbol(Hello Guys)"
+
+
+// let symbol = Symbol("Hello Guys");
+// console.log(typeof symbol); // "symbol"
+// console.log(symbol instanceof Symbol); // false
+
+// let symbolObj = Object(symbol);
+
+// console.log(symbolObj instanceof Symbol); // true
+// console.log(symbolObj.valueOf() === symbol); // true
+
+
+// const INSTANCE = Symbol("instance");
+
+// function HappyFace() {
+//   if (HappyFace[INSTANCE]) return HappyFace[INSTANCE];
+
+//   function smile() { }
+
+//   return HappyFace[INSTANCE] = {
+//     smile: smile
+//   };
+// }
+
+// let me = HappyFace(),
+//   you = HappyFace();
+// console.log(me === you); // true
+
+// -----------------------------------------------
+
+// symbol registry
+// let symbol = Symbol.for("Hello Guys");
+// console.log(symbol); // Symbol(Hello Guys)
