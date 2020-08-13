@@ -4275,3 +4275,22 @@ ArrayBuffer {
 // console.log(Number("23"), Number("0o27"), Number("0x17"), Number("0b10111")); // 23 23 23 23
 
 
+// let number = 23;
+// console.log(number.toString()); // "23" | or number.toString(10)
+// console.log(number.toString(8)); // "27" | "0o27"
+// console.log(number.toString(16)); // "17" | "0x17"
+// console.log(number.toString(2)); // "10111" | "0b10111"
+
+// -----------------------------------------------
+
+// unicode
+// let snowman = "\u2603";
+// console.log(snowman); // ☃
+
+
+// let note = "\uD834\uDD1E";
+// console.log(note); // 𝄞
+
+
+// let note = "\u{1D11E}";
+// console.log(note); // 𝄞
