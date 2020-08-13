@@ -4283,7 +4283,7 @@ ArrayBuffer {
 
 // -----------------------------------------------
 
-// unicode
+// Unicode - Unicode-aware string operations
 // let snowman = "\u2603";
 // console.log(snowman); // ☃
 // console.log(snowman.length); // 1
@@ -4339,3 +4339,28 @@ ArrayBuffer {
 
 // console.log(str); // "ḛ́ "
 // console.log(str.normalize().length); // 2
+
+// -----------------------------------------------
+
+// Unicode - character positioning
+// let str1 = "abc\u0301d",
+//   str2 = "ab\u0107d",
+//   str3 = "ab\u{1d49e}d";
+
+// console.log(str1); // "abćd"
+// console.log(str2); // "abćd"
+// console.log(str3); // "ab𝒞d"
+
+// console.log(str1.charAt(2)); // "c"
+// console.log(str2.charAt(2)); // "ć"
+// console.log(str3.charAt(2)); // "�" <-- unprintable surrogate
+// console.log(str3.charAt(3)); // "�" <-- unprintable surrogate
+
+
+// let str1 = "abc\u0301d",
+//   str2 = "ab\u0107d",
+//   str3 = "ab\u{1d49e}d";
+
+// console.log([...str1.normalize()][2]); // "ć"
+// console.log([...str2.normalize()][2]); // "ć"
+// console.log([...str3.normalize()][2]); // "𝒞"
