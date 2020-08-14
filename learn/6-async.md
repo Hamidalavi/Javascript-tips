@@ -815,7 +815,7 @@ let y = x * (yield);
 return y;
 ```
 
-the **first** `yield` is basically asking a question: "What value should I insert here"?
+the **first** `yield` is basically asking a question: **What value should I insert here**?
 
 Who's going to answer that question? Well, the **first** `next()` has already run to get the generator up to this point, so obviously it can't answer the question. So, the **second** `next(..)` call must answer the question posed by the **first** `yield`.
 

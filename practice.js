@@ -4884,3 +4884,34 @@ ArrayBuffer {
 //     // we'll skip `return(..)` and `throw(..)`
 //   }
 // }
+
+// -----------------------------------------------
+
+// module
+// function hello(name) {
+//   function greet() {
+//     console.log(`Hello ${name}!`);
+//   }
+
+//   // public API
+//   return {
+//     greet
+//   }
+// }
+
+// let me = hello("Hamid");
+// me.greet(); // "Hello Hamid!"
+
+
+// let me = (function hello(name) {
+//   function greet() {
+//     console.log(`Hello ${name}!`);
+//   }
+
+//   // public API
+//   return {
+//     greet
+//   }
+// })("Hamid");
+
+// me.greet(); // "Hello Hamid!"
