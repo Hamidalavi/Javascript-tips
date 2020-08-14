@@ -4563,3 +4563,22 @@ ArrayBuffer {
 
 //   if (v > 50) break;
 // }
+// Fibonacci sequence abandoned.
+
+// -----------------------------------------------
+
+// iterator - consumption
+
+// let n = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// for (let i of n) {
+//   console.log(i); // 1 2 3 4 5 6 7 8 9
+// }
+
+
+// let a = [1, 2, 3, 4, 5];
+// function hamid(a, b, c, d, e) {
+//   console.log(a + b + c + d + e);
+// }
+
+// hamid(...a); // 15 - a array
