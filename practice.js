@@ -4679,3 +4679,21 @@ ArrayBuffer {
 // yield 3; // valid
 // a = 2 + yield 3; // invalid
 // a = 2 + (yield 3); // valid
+
+// -----------------------------------------------
+
+// generator - yield *
+// function* reza() {
+//   yield* [1, 2, 3];
+// }
+
+
+// function* hamed() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+// }
+
+// function* hamid() {
+//   yield* hamed();
+// }
