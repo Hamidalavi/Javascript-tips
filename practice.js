@@ -4697,3 +4697,31 @@ ArrayBuffer {
 // function* hamid() {
 //   yield* hamed();
 // }
+
+
+// function* hamed() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+//   return 4;
+// }
+
+// function* hamid() {
+//   let x = yield* hamed();
+//   console.log("x:", x);
+// }
+
+// for (let v of hamid()) {
+//   console.log(v); // 1 2 3 "x: " 4
+// }
+
+
+function* hamed(x) {
+  if (x < 3) {
+    x = yield* hamed(x + 1);
+  }
+  return x * 2;
+}
+
+let it = hamed(1);
+console.log(it.next()); // { value: 24, done: true }
