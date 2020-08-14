@@ -4600,3 +4600,32 @@ ArrayBuffer {
 // console.log(y); // 2
 // console.log(z); // 3
 // console.log(w); // [ 4, 5 ]
+
+// -----------------------------------------------
+
+// generator - syntax
+// function* hamid() {
+//   // do something
+// }
+
+// hamid();
+
+// let hamed = {
+//   *hamid() { /* do something */ }
+// }
+
+// -----------------------------------------------
+
+// generator - executing
+// function* hamed(x, y) {
+//   // do something
+// }
+
+// hamed(15, 8);
+
+
+// function* hamid() {
+//   // do something
+// }
+
+// let it = hamid();
