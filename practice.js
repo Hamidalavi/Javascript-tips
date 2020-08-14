@@ -4803,3 +4803,47 @@ ArrayBuffer {
 // console.log(it.next()); // { value: 1, done: false }
 // console.log(it.return(23)); // { value: 23, done: true }
 // console.log(it.next()); // { value: undefined, done: true }
+
+
+// function* hamid() {
+//   try {
+//     yield 1;
+//     yield 2;
+//     yield 3;
+//   }
+//   finally {
+//     console.log("cleanup!");
+//   }
+// }
+
+// // this way
+// for (let v of hamid()) {
+//   console.log(v); // 1 2 3 "cleanup!"
+// }
+
+// // or this way
+// let it = hamid();
+// console.log(it.next()); // { value: 1, done: false } "cleanup!"
+// console.log(it.return(42)); // { value: 42, done: true }
+
+
+// function* hamed() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+// }
+
+// let it1 = hamed();
+// console.log(it1.next()); // { value: 1, done: false }
+// console.log(it1.next()); // { value: 2, done: false }
+
+// let it2 = hamed();
+// console.log(it2.next()); // { value: 1, done: false }
+
+// console.log(it1.next()); // { value: 3, done: false }
+
+// console.log(it2.next()); // { value: 2, done: false }
+// console.log(it2.next()); // { value: 3, done: false }
+
+// console.log(it2.next()); // { value: undefined, done: true }
+// console.log(it1.next()); // { value: undefined, done: true }
