@@ -4788,3 +4788,18 @@ ArrayBuffer {
 
 // // answer third question
 // console.log(it.next("ali")); // "hamed" "hamid" "ali" | { value: undefined, done: true }
+
+// -----------------------------------------------
+
+// generator - completion
+// function* hamid() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+// }
+
+// let it = hamid();
+
+// console.log(it.next()); // { value: 1, done: false }
+// console.log(it.return(23)); // { value: 23, done: true }
+// console.log(it.next()); // { value: undefined, done: true }
