@@ -4767,24 +4767,24 @@ ArrayBuffer {
 // }
 
 
-function* hamed() {
-  let x = yield 1;
-  let y = yield 2;
-  let z = yield 3;
+// function* hamed() {
+//   let x = yield 1;
+//   let y = yield 2;
+//   let z = yield 3;
 
-  console.log(x, y, z);
-}
+//   console.log(x, y, z);
+// }
 
-let it = hamed();
+// let it = hamed();
 
-// start up the generator
-console.log(it.next()); // { value: 1, done: false }
+// // start up the generator
+// console.log(it.next()); // { value: 1, done: false }
 
-// answer first question
-console.log(it.next("hamed")); // { value: 2, done: false }
+// // answer first question
+// console.log(it.next("hamed")); // { value: 2, done: false }
 
-// answer second question
-console.log(it.next("hamid")); // { value: 3, done: false }
+// // answer second question
+// console.log(it.next("hamid")); // { value: 3, done: false }
 
-// answer third question
-console.log(it.next("ali")); // "hamed" "hamid" "ali" | { value: undefined, done: true }
+// // answer third question
+// console.log(it.next("ali")); // "hamed" "hamid" "ali" | { value: undefined, done: true }
