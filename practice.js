@@ -4582,3 +4582,21 @@ ArrayBuffer {
 // }
 
 // hamid(...a); // 15 - a array
+
+
+// let a = [1, 2, 3, 4, 5];
+// let b = [0, ...a, 6];
+// console.log(b); // [ 0, 1, 2, 3, 4, 5, 6 ]
+
+
+// let a = [1, 2, 3, 4, 5];
+// let it = a[Symbol.iterator]();
+
+// let [x, y] = it;
+// let [z, ...w] = it;
+
+// console.log(it.next()); // { value: undefined, done: true }
+// console.log(x); // 1
+// console.log(y); // 2
+// console.log(z); // 3
+// console.log(w); // [ 4, 5 ]
