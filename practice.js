@@ -4715,13 +4715,62 @@ ArrayBuffer {
 //   console.log(v); // 1 2 3 "x: " 4
 // }
 
+// -----------------------------------------------
 
-function* hamed(x) {
-  if (x < 3) {
-    x = yield* hamed(x + 1);
-  }
-  return x * 2;
+// generator - iterator control
+// function* hamed(x) {
+//   if (x < 3) {
+//     x = yield* hamed(x + 1);
+//   }
+//   return x * 2;
+// }
+
+// let it = hamed(1);
+// console.log(it.next()); // { value: 24, done: true }
+
+
+// function* hamid() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+// }
+
+// for (let v of hamid()) {
+//   console.log(v); // 1 2 3
+// }
+
+
+// function* hamid() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+// }
+
+// let it = hamid();
+
+// console.log(it.next()); // { value: 1, done: false }
+// console.log(it.next()); // { value: 2, done: false }
+// console.log(it.next()); // { value: 3, done: false }
+// console.log(it.next()); // { value: undefined, done: true }
+
+
+// function* hamid() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+// }
+
+// let it = hamid();
+
+// for (v of it) {
+//   console.log(v); // 1 2 3
+// }
+
+
+function* hamed() {
+  let x = yield 1;
+  let y = yield 2;
+  let z = yield 2;
+
+  console.log(x, y, z);
 }
-
-let it = hamed(1);
-console.log(it.next()); // { value: 24, done: true }
