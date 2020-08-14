@@ -4629,3 +4629,29 @@ ArrayBuffer {
 // }
 
 // let it = hamid();
+
+
+// function* hamed() {
+//   let x = 10, y = 20;
+//   yield;
+//   let z = x + y;
+// }
+
+// -----------------------------------------------
+
+// generator - yield
+// function* hamid() {
+//   while (true) {
+//     yield Math.random();
+//   }
+// }
+
+
+// function* hamed() {
+//   let x = yield 10;
+//   console.log(x);
+// }
+
+// let it = hamed();
+
+// console.log(it.next()); // { value: 10, done: false }
