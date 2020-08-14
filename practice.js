@@ -4668,3 +4668,14 @@ ArrayBuffer {
 // console.log(it.next()); // { value: 2, done: false }
 // console.log(it.next()); // { value: 3, done: false }
 // console.log(it.next()); // { value: 4, done: false }
+
+
+// let a, b;
+
+// a = 3; // valid
+// b = 2 + a = 3; // invalid
+// b = 2 + (a = 3); // valid
+
+// yield 3; // valid
+// a = 2 + yield 3; // invalid
+// a = 2 + (yield 3); // valid
