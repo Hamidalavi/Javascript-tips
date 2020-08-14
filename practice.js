@@ -4824,7 +4824,7 @@ ArrayBuffer {
 // // or this way
 // let it = hamid();
 // console.log(it.next()); // { value: 1, done: false } "cleanup!"
-// console.log(it.return(42)); // { value: 42, done: true }
+// console.log(it.return(23)); // { value: 23, done: true }
 
 
 // function* hamed() {
@@ -4847,3 +4847,23 @@ ArrayBuffer {
 
 // console.log(it2.next()); // { value: undefined, done: true }
 // console.log(it1.next()); // { value: undefined, done: true }
+
+
+// function* hamid() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+// }
+
+// let it = hamid();
+
+// console.log(it.next()); // { value: 1, done: false }
+
+// try {
+//   it.throw("Oops!");
+// }
+// catch (err) {
+//   console.log(err); // Exception: "Oops!"
+// }
+
+// console.log(it.next()); // { value: undefined, done: true }
