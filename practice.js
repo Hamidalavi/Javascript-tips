@@ -4655,3 +4655,16 @@ ArrayBuffer {
 // let it = hamed();
 
 // console.log(it.next()); // { value: 10, done: false }
+
+
+// function* ali() {
+//   let array = [yield 1, yield 2, yield 3];
+//   console.log(array, yield 4);
+// }
+
+// let it = ali();
+
+// console.log(it.next()); // { value: 1, done: false }
+// console.log(it.next()); // { value: 2, done: false }
+// console.log(it.next()); // { value: 3, done: false }
+// console.log(it.next()); // { value: 4, done: false }
