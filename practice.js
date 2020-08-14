@@ -4867,3 +4867,20 @@ ArrayBuffer {
 // }
 
 // console.log(it.next()); // { value: undefined, done: true }
+
+// -----------------------------------------------
+
+// generator - transpiling
+// function* hamed() {
+//   let x = yield 23;
+//   console.log(x);
+// }
+
+// function hamed() {
+//   return {
+//     next(v) {
+//       console.log(v);
+//     }
+//     // we'll skip `return(..)` and `throw(..)`
+//   }
+// }
