@@ -5182,3 +5182,38 @@ ArrayBuffer {
 
 // b.ali();
 // // "ali: " undefined
+
+
+// class MyCoolArray extends Array {
+//   // force `species` to be parent constructor
+//   static get [Symbol.species]() { return Array; }
+// }
+
+// var a = new MyCoolArray(1, 2, 3),
+//   b = a.map(function (v) { return v * 2; });
+
+// console.log(b instanceof MyCoolArray); // false
+// console.log(b instanceof Array); // true
+
+
+// class Hamed {
+//   // defer `species` to derived constructor
+//   static get [Symbol.species]() { return this; }
+//   spawn() {
+//     return new this.constructor[Symbol.species]();
+//   }
+// }
+
+// class Hamid extends Hamed {
+//   // force `species` to be parent constructor
+//   static get [Symbol.species]() { return Hamed; }
+// }
+
+// var a = new Hamed();
+// var b = a.spawn();
+// console.log(b instanceof Hamed); // true
+
+// var x = new Hamid();
+// var y = x.spawn();
+// console.log(y instanceof Hamid); // false
+// console.log(y instanceof Hamed); // true
