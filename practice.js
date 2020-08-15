@@ -4957,3 +4957,12 @@ ArrayBuffer {
 
 
 // export default function hamid() { }
+
+
+// var hamed = 23;
+// export { hamed as default };
+
+// export var hamid = "hello world";
+
+// hamed = 10;
+// hamid = "cool";
