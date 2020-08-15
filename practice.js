@@ -5105,3 +5105,28 @@ ArrayBuffer {
 // constructor(...args) {
 //   super(...args);
 // }
+
+
+// function Hamed() {
+//   this.a = 1;
+// }
+
+// function Hamid() {
+//   this.b = 2;
+//   Hamed.call(this);
+// }
+
+// // `Hamid` "extends" `Hamed`
+// Hamid.prototype = Object.create(Hamed.prototype);
+
+
+// class Hamed {
+//   constructor() { this.a = 1; }
+// }
+
+// class Hamid extends Hamed {
+//   constructor() {
+//     this.b = 2; // not allowed before `super()`
+//     super(); // to fix, swap these two statements
+//   }
+// }
