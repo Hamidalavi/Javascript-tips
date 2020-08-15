@@ -5290,3 +5290,13 @@ ArrayBuffer {
 //     // `contents` comes from the subsequent
 //     // `ajax(..)` call, whichever it was
 //   });
+
+// -----------------------------------------------
+
+// promise - thenable
+// let th = {
+//   then: function thener(fulfilled) {
+//     // call `fulfilled(..)` once every 100ms forever
+//     setInterval(fulfilled, 100);
+//   }
+// };
