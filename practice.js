@@ -5217,3 +5217,24 @@ ArrayBuffer {
 // var y = x.spawn();
 // console.log(y instanceof Hamid); // false
 // console.log(y instanceof Hamed); // true
+
+// -----------------------------------------------
+
+// promise
+// let pm = new Promise(function pr(resolve, reject) {
+//   // do something
+// });
+
+
+// function ajax(url, callback) {
+//   // make request, eventually call `callback(..)`
+// }
+
+// ajax("http://some.url.1", function handler(err, contents) {
+//   if (err) {
+//     // handle ajax error
+//   }
+//   else {
+//     // handle `contents` success
+//   }
+// });
