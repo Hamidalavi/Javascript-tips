@@ -4915,3 +4915,25 @@ ArrayBuffer {
 // })("Hamid");
 
 // me.greet(); // "Hello Hamid!"
+
+// -----------------------------------------------
+
+// module - export
+// export function hamed() {
+//   // do something
+// }
+
+// export let age = 23;
+
+// let hamid = [1, 2, 3];
+// export { hamid };
+
+
+// function hamed() {
+//   // do something
+// }
+
+// let age = 23;
+// let hamid = [1, 2, 3];
+
+// export { hamed, age, hamid };
