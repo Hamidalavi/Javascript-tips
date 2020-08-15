@@ -5256,3 +5256,37 @@ ArrayBuffer {
 //       // handle ajax error reason
 //     }
 //   );
+
+
+// ajax("http://some.url.1")
+//   .then(
+//     function fulfilled(contents) {
+//       return contents.toUpperCase();
+//     },
+//     function rejected(reason) {
+//       return "DEFAULT VALUE";
+//     }
+//   )
+//   .then(function fulfilled(data) {
+//     // handle data from original promise's
+//     // handlers
+//   });
+
+
+// ajax("http://some.url.1")
+//   .then(
+//     function fulfilled(contents) {
+//       return ajax(
+//         "http://some.url.2?v=" + contents
+//       );
+//     },
+//     function rejected(reason) {
+//       return ajax(
+//         "http://backup.url.3?err=" + reason
+//       );
+//     }
+//   )
+//   .then(function fulfilled(contents) {
+//     // `contents` comes from the subsequent
+//     // `ajax(..)` call, whichever it was
+//   });
