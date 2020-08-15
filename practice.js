@@ -5029,3 +5029,19 @@ ArrayBuffer {
 //     return this.x * this.y;
 //   }
 // }
+
+
+// function Hamed(a, b) {
+//   this.x = a;
+//   this.y = b;
+// }
+
+// Hamed.prototype.fetchXY = function () {
+//   return this.x * this.y;
+// }
+
+// let f = new Hamed(15, 8);
+// console.log(f); // Hamed { x: 15, y: 8 }
+// console.log(f.x); // 15
+// console.log(f.y); // 8
+// console.log(f.fetchXY()); // 120
