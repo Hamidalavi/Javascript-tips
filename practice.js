@@ -5045,3 +5045,25 @@ ArrayBuffer {
 // console.log(f.x); // 15
 // console.log(f.y); // 8
 // console.log(f.fetchXY()); // 120
+
+// -----------------------------------------------
+
+// class - extends and super
+// in this example, uncomment before example
+// class Hamid extends Hamed {
+//   constructor(a, b, c) {
+//     super(a, b);
+//     this.z = c;
+//   }
+
+//   fetchXY() {
+//     return super.fetchXY() * this.z;
+//   }
+// }
+
+// let b = new Hamid(5, 15, 25);
+
+// console.log(b.x); // 5
+// console.log(b.y); // 15
+// console.log(b.z); // 25
+// console.log(b.fetchXY()); // 1875
