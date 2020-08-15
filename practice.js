@@ -4999,3 +4999,14 @@ ArrayBuffer {
 // HAMEDFN();
 // hamid();
 // ALI();
+
+
+// export function hamid() { }
+// export let x = 23;
+// export function ali() { }
+
+// import * as reza from "reza";
+
+// reza.hamid();
+// console.log(reza.x); // 23
+// reza.ali();
