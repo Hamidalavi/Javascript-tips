@@ -4948,3 +4948,12 @@ ArrayBuffer {
 
 // // later
 // age = 24;
+
+
+// function hamid() { }
+
+// export default hamid;
+// export { hamid as default };
+
+
+// export default function hamid() { }
