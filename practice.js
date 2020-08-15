@@ -4981,3 +4981,21 @@ ArrayBuffer {
 // import { hamed } from "hamed";
 
 // hamed();
+
+
+// import { hamed as hamedFunc } from "hamed";
+
+// hamedFunc();
+
+
+// import hamed from "hamed";
+// // or
+// import { default as hamed } from "hamed";
+
+
+// // to import that module's default export and its two named exports:
+// import HAMEDFN, { hamid, ali as ALI } from "reza";
+
+// HAMEDFN();
+// hamid();
+// ALI();
