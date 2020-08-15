@@ -5238,3 +5238,21 @@ ArrayBuffer {
 //     // handle `contents` success
 //   }
 // });
+
+
+// function ajax(url) {
+//   return new Promise(function pr(resolve, reject) {
+//     /* make request, eventually call
+//      either `resolve(..)` or `reject(..)` */
+//   });
+// }
+
+// ajax("http://some.url.1")
+//   .then(
+//     function fulfilled(contents) {
+//       // handle `contents` success
+//     },
+//     function rejected(reason) {
+//       // handle ajax error reason
+//     }
+//   );
