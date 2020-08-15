@@ -5098,3 +5098,10 @@ ArrayBuffer {
 
 // let b = new ChildB();
 // b.xfunc(); // "ParentB: b" "ChildB: b"
+
+// -----------------------------------------------
+
+// class - subclass constructor
+// constructor(...args) {
+//   super(...args);
+// }
