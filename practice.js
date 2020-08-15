@@ -4937,3 +4937,14 @@ ArrayBuffer {
 // let hamid = [1, 2, 3];
 
 // export { hamed, age, hamid };
+
+
+// function hamed() { }
+// export { hamed as ali };
+
+
+// let age = 23;
+// export { age };
+
+// // later
+// age = 24;
