@@ -5130,3 +5130,27 @@ ArrayBuffer {
 //     super(); // to fix, swap these two statements
 //   }
 // }
+
+
+// class MyCoolArray extends Array {
+//   first() { return this[0]; }
+//   last() { return this[this.length - 1]; }
+// }
+
+// let a = new MyCoolArray(1, 2, 3, 4);
+// console.log(a.length); // 4
+// console.log(a); // "MyCoolArray(3)" [ 1, 2, 3, 4 ]
+// console.log(a.first()); // 1
+// console.log(a.last()); // 4
+
+
+// class Oops extends Error {
+//   constructor(reason) {
+//     super(reason);
+//     this.oops = reason;
+//   }
+// }
+
+// // later:
+// let ouch = new Oops("I messed up!");
+// throw ouch; // Oops [Error]: "I messed up!"
