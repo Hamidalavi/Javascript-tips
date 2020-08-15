@@ -4966,3 +4966,18 @@ ArrayBuffer {
 
 // hamed = 10;
 // hamid = "cool";
+
+
+// export { hamed, hamid } from "ali";
+// export { hamed as HAMED, hamid as HAMID } from "ali";
+// export * from "ali";
+
+// -----------------------------------------------
+
+// module - import
+// import { hamed, hamid, ali } from "reza";
+
+
+// import { hamed } from "hamed";
+
+// hamed();
