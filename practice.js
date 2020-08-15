@@ -5067,3 +5067,34 @@ ArrayBuffer {
 // console.log(b.y); // 15
 // console.log(b.z); // 25
 // console.log(b.fetchXY()); // 1875
+
+
+// class ParentA {
+//   constructor() { this.id = "a"; }
+//   xfunc() { console.log("ParentA:", this.id); }
+// }
+
+// class ParentB {
+//   constructor() { this.id = "b"; }
+//   xfunc() { console.log("ParentB:", this.id); }
+// }
+
+// class ChildA extends ParentA {
+//   xfunc() {
+//     super.xfunc();
+//     console.log("ChildA:", this.id);
+//   }
+// }
+
+// class ChildB extends ParentB {
+//   xfunc() {
+//     super.xfunc();
+//     console.log("ChildB:", this.id);
+//   }
+// }
+
+// let a = new ChildA();
+// a.xfunc(); // "ParentA: a" "ChildA: a"
+
+// let b = new ChildB();
+// b.xfunc(); // "ParentB: b" "ChildB: b"
