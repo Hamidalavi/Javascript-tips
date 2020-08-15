@@ -5010,3 +5010,8 @@ ArrayBuffer {
 // reza.hamid();
 // console.log(reza.x); // 23
 // reza.ali();
+
+
+// hamed();
+
+// import { hamed } from "hamed";
