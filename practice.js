@@ -5015,3 +5015,17 @@ ArrayBuffer {
 // hamed();
 
 // import { hamed } from "hamed";
+
+// -----------------------------------------------
+
+// class
+// class Hamed {
+//   constructor(a, b) {
+//     this.x = a;
+//     this.y = b;
+//   }
+
+//   fetchXY() {
+//     return this.x * this.y;
+//   }
+// }
