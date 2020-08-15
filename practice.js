@@ -5154,3 +5154,31 @@ ArrayBuffer {
 // // later:
 // let ouch = new Oops("I messed up!");
 // throw ouch; // Oops [Error]: "I messed up!"
+
+// -----------------------------------------------
+
+// class - new.target
+// class Hamed {
+//   constructor() {
+//     console.log("Hamed: ", new.target.name);
+//   }
+// }
+
+// class Hamid extends Hamed {
+//   constructor() {
+//     super();
+//     console.log("Hamid: ", new.target.name);
+//   }
+//   ali() {
+//     console.log("ali: ", new.target);
+//   }
+// }
+
+// let a = new Hamed(); // "Hamed: " "Hamed"
+
+// let b = new Hamid();
+// // "Hamed: " "Hamid" < --respects the`new` call - site
+// // "Hamid: " "Hamid"
+
+// b.ali();
+// // "ali: " undefined
