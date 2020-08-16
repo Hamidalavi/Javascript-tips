@@ -5480,3 +5480,21 @@ ArrayBuffer {
 // console.log(map.size); // 2
 // map.clear();
 // console.log(map.size); // 0
+
+
+// let map2 = new Map(map.entries());
+
+// // same as:
+// let map2 = new Map(map);
+
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// let map = new Map([
+//   [x, "hamed"],
+//   [y, "hamid"]
+// ]);
+
+// console.log(map.get(x)); // "hamed"
+// console.log(map.get(y)); // "hamid"
