@@ -5725,3 +5725,18 @@ ArrayBuffer {
 // let array = Array.from(arrayLike);
 
 // let arrayCopy = Array.from(array);
+
+
+// let arrayLike = {
+//   length: 4,
+//   2: "hamed"
+// };
+
+// console.log(Array.from(arrayLike)); // [ undefined, undefined, 'hamed', undefined ]
+
+
+// let emptySlotsArray = [];
+// emptySlotsArray.length = 4;
+// emptySlotsArray[2] = "hamid";
+
+// Array.from(emptySlotsArray); // [ undefined, undefined, 'hamid', undefined ]
