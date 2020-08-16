@@ -5741,3 +5741,31 @@ ArrayBuffer {
 
 // Array.from(emptySlotsArray); // [ undefined, undefined, 'hamid', undefined ]
 
+// -----------------------------------------------
+
+// array - mapping
+// let arrayLike = {
+//   length: 4,
+//   2: "hamed"
+// };
+
+// let result = Array.from(arrayLike, function mapper(value, index) {
+//   if (typeof value === "string") {
+//     return value.toUpperCase();
+//   } else {
+//     return index;
+//   }
+// });
+
+// console.log(result); // [ 0, 1, 'HAMED', 3 ]
+
+// -----------------------------------------------
+
+// array - subtypes
+// class MyCoolArray extends Array {
+//   //  do something
+// }
+
+// console.log(MyCoolArray.from([1, 2]) instanceof MyCoolArray); // true
+
+// console.log(Array.from(MyCoolArray.from([1, 2])) instanceof MyCoolArray); // false
