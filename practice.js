@@ -5595,6 +5595,8 @@ ArrayBuffer {
 // w = null;
 // // { id: 4 } is not GC-eligible
 
+// -----------------------------------------------
+
 // sets
 // let set = new Set();
 
@@ -5618,3 +5620,44 @@ ArrayBuffer {
 //   y = { id: 2 };
 
 // let set = new Set([x, y]);
+
+
+// let set = new Set();
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// set.add(x);
+
+// console.log(set.has(x)); // true
+// console.log(set.has(y)); // false
+
+// -----------------------------------------------
+
+// sets - set iterator
+// var set = new Set();
+
+// var x = { id: 1 },
+//   y = { id: 2 };
+
+// set.add(x).add(y);
+
+// var keys = [...set.keys()],
+//   vals = [...set.values()],
+//   entries = [...set.entries()];
+
+// console.log(keys[0] === x); // true
+// console.log(keys[1] === y);  // true
+
+// console.log(vals[0] === x);  // true
+// console.log(vals[1] === y);  // true
+// console.log(entries[0][0] === x);  // true
+// console.log(entries[0][1] === x);  // true
+// console.log(entries[1][0] === y);  // true
+// console.log(entries[1][1] === y);  // true
+
+
+// let set = new Set([1, 2, 3, 4, "1", 2, 4, "5"]),
+//   uniques = [...set];
+
+// console.log(uniques); // [ 1, 2, 3, 4, '1', '5' ]
