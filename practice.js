@@ -5381,3 +5381,28 @@ ArrayBuffer {
 
 // let array = new Uint16Array(buf);
 // console.log(array.length); // 16
+
+
+// console.log((23).toString(2)); // 10111
+
+// -----------------------------------------------
+
+// TypedArrays - multiple views
+// let buf = new ArrayBuffer(2);
+
+// let view8 = new Uint8Array(buf);
+// let view16 = new Uint16Array(buf);
+
+// view16[0] = 3085;
+// console.log(view8[0]); // 13
+// console.log(view8[1]); // 12
+
+// console.log(view8[0].toString(16)); // "d"
+// console.log(view8[1].toString(16)); // "c"
+
+// // swap (as if endian!)
+// let tmp = view8[0];
+// view8[0] = view8[1];
+// view8[1] = tmp;
+
+// console.log(view16[0]); // 3340
