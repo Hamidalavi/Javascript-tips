@@ -5353,3 +5353,22 @@ ArrayBuffer {
 //       // "Oh No!"
 //     }
 //   );
+
+
+// // NOTE: re-setup all test values to
+// // avoid timing issues misleading you!
+// Promise.race([pm2, pm1, value3])
+//   .then(function fulfilled(val) {
+//     console.log(val); // 23
+//   });
+
+// Promise.race([pm2, pm4])
+//   .then(
+//     function fulfilled(val) {
+//       // never gets here
+//     },
+//     function rejected(reason) {
+//       console.log(reason);
+//       // "Oh No!"
+//     }
+//   );
