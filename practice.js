@@ -5661,3 +5661,17 @@ ArrayBuffer {
 //   uniques = [...set];
 
 // console.log(uniques); // [ 1, 2, 3, 4, '1', '5' ]
+
+// -----------------------------------------------
+
+// weaksets
+// let set = new WeakSet();
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// set.add(x);
+// set.add(y);
+
+// x = null; // `x` is GC-eligible
+// y = null; // `y` is GC-eligible
