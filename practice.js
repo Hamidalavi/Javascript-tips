@@ -5406,3 +5406,49 @@ ArrayBuffer {
 // view8[1] = tmp;
 
 // console.log(view16[0]); // 3340
+
+
+// let first = new Uint16Array(buf, 0, 2)[0],
+//   second = new Uint8Array(buf, 2, 1)[0],
+//   third = new Uint8Array(buf, 3, 1)[0],
+//   fourth = new Float32Array(buf, 4, 4)[0];
+
+// -----------------------------------------------
+
+// TypedArray - constructors
+// let a = [10, 1, 2];
+// console.log(a.sort()); // [ 1, 10, 2 ]
+
+// let b = new Uint8Array([10, 1, 2]);
+// console.log(b.sort()); // "Uint8Array(3)" [ 1, 2, 10 ]
+
+// -----------------------------------------------
+
+// maps
+// let map = {};
+
+// let x = { id: 1 };
+// let y = { id: 2 };
+
+// map[x] = "hamed";
+// map[y] = "hamid";
+// console.log(map[x]); // "hamid"
+// console.log(map[y]); // "hamid"
+
+
+// let keys = [], vals = [];
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// keys.push(x);
+// vals.push("hamed");
+
+// keys.push(y);
+// vals.push("hamid");
+
+// console.log(keys[0] === x); // true
+// console.log(vals[0]); // "hamed"
+
+// console.log(keys[1] === y); // true
+// console.log(vals[1]); // "hamid"
