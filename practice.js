@@ -5372,3 +5372,12 @@ ArrayBuffer {
 //       // "Oh No!"
 //     }
 //   );
+
+// -----------------------------------------------
+
+// TypedArrays
+// let buf = new ArrayBuffer(32);
+// console.log(buf.byteLength); // 32
+
+// let array = new Uint16Array(buf);
+// console.log(array.length); // 16
