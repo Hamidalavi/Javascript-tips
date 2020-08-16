@@ -5678,7 +5678,7 @@ ArrayBuffer {
 
 // -----------------------------------------------
 
-// array - array.of()
+// array - Array.of()
 // let a = Array(3);
 // console.log(a.length); // 3
 // console.log(a[0]); // undefined
@@ -5707,3 +5707,21 @@ ArrayBuffer {
 // let z = MyCoolArray.of(3);
 // console.log(z.length); // 1
 // console.log(z.sum()); // 3
+
+// -----------------------------------------------
+
+// array - Array.from()
+
+// array-like object
+// let arrayLike = {
+//   length: 3,
+//   0: "hamed",
+//   1: "hamid"
+// };
+
+// let arr = Array.prototype.slice.call(arrayLike);
+
+
+// let array = Array.from(arrayLike);
+
+// let arrayCopy = Array.from(array);
