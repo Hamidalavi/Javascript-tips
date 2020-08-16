@@ -5559,3 +5559,38 @@ ArrayBuffer {
 
 // console.log(map.has(x)); // true
 // console.log(map.has(y)); // true
+
+// -----------------------------------------------
+
+// weakmaps
+// let map = new WeakMap();
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// map.set(x, "hamed");
+// map.set(y, "hamid");
+
+// console.log(map.has(x)); // true
+// console.log(map.has(y)); // true
+
+
+// let map = new WeakMap();
+
+// let x = { id: 1 },
+//   y = { id: 2 },
+//   z = { id: 3 },
+//   w = { id: 4 };
+
+// map.set(x, y);
+
+// x = null;
+// y = null;
+// // { id: 1 } is GC-eligible
+// // { id: 2 } is GC-eligible
+// // only because { id: 1 } is
+
+// map.set(z, w);
+
+// w = null;
+// // { id: 4 } is not GC-eligible
