@@ -5594,3 +5594,27 @@ ArrayBuffer {
 
 // w = null;
 // // { id: 4 } is not GC-eligible
+
+// sets
+// let set = new Set();
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// set.add(x);
+// set.add(y);
+// set.add(x);
+
+// console.log(set.size); // 2
+
+// set.delete(y);
+// console.log(set.size); // 1
+
+// set.clear();
+// console.log(set.size); // 0
+
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// let set = new Set([x, y]);
