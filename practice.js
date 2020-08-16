@@ -5675,3 +5675,35 @@ ArrayBuffer {
 
 // x = null; // `x` is GC-eligible
 // y = null; // `y` is GC-eligible
+
+// -----------------------------------------------
+
+// array - array.of()
+// let a = Array(3);
+// console.log(a.length); // 3
+// console.log(a[0]); // undefined
+
+// let b = Array.of(3);
+// console.log(b.length); // 1
+// console.log(b[0]); // 3
+
+
+// class MyCoolArray extends Array {
+//   sum() {
+//     return this.reduce(function reducer(acc, curr) {
+//       return acc + curr;
+//     }, 0);
+//   }
+// }
+
+// let x = new MyCoolArray(3);
+// console.log(x.length); // 3 -- oops!
+// console.log(x.sum()); // 0 -- oops!
+
+// let y = [3]; // Array, not MyCoolArray
+// console.log(y.length); // 1
+// console.log(y.sum()); // `sum` is not a function
+
+// let z = MyCoolArray.of(3);
+// console.log(z.length); // 1
+// console.log(z.sum()); // 3
