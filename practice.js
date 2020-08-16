@@ -5498,3 +5498,52 @@ ArrayBuffer {
 
 // console.log(map.get(x)); // "hamed"
 // console.log(map.get(y)); // "hamid"
+
+// -----------------------------------------------
+
+// maps - values
+// let map = new Map();
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// map.set(x, "hamed");
+// map.set(y, "hamid");
+
+// let val = [...map.values()];
+
+// console.log(val); // [ 'hamed', 'hamid' ]
+// console.log(Array.from(map.values())); // [ 'hamed', 'hamid' ]
+
+
+// let map = new Map();
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// map.set(x, "hamed");
+// map.set(y, "hamid");
+
+// let vals = [...map.entries()];
+
+// console.log(vals[0][0] === x); // true
+// console.log(vals[0][1]); // "hamed"
+
+// console.log(vals[1][0] === y); // true
+// console.log(vals[1][1]); // "hamid"
+
+// -----------------------------------------------
+
+// maps - keys
+// let map = new Map();
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// map.set(x, "hamed");
+// map.set(y, "hamid");
+
+// let keys = [...map.keys()];
+
+// console.log(keys[0] === x); // true
+// console.log(keys[1] === y); // true
