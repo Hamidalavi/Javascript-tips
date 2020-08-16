@@ -5300,3 +5300,25 @@ ArrayBuffer {
 //     setInterval(fulfilled, 100);
 //   }
 // };
+
+// -----------------------------------------------
+
+// promise - api
+// let pm1 = Promise.resolve(23);
+// let pm2 = new Promise(function pr(resolve) {
+//   resolve(23);
+// });
+
+// resolve
+// let theP = ajax();
+// let pm1 = Promise.resolve(23);
+// let pm2 = new Promise(function pr(resolve) {
+//   resolve(23);
+// });
+
+
+// reject
+let pm1 = Promise.reject("Oh No!");
+let pm2 = new Promise(function pr(resolve, reject) {
+  reject("Oh No!");
+});
