@@ -5547,3 +5547,15 @@ ArrayBuffer {
 
 // console.log(keys[0] === x); // true
 // console.log(keys[1] === y); // true
+
+
+// let map = new Map();
+
+// let x = { id: 1 },
+//   y = { id: 2 };
+
+// map.set(x, "hamed");
+// map.set(y, "hamid");
+
+// console.log(map.has(x)); // true
+// console.log(map.has(y)); // true
