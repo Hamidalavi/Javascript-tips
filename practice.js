@@ -5318,7 +5318,38 @@ ArrayBuffer {
 
 
 // reject
-let pm1 = Promise.reject("Oh No!");
-let pm2 = new Promise(function pr(resolve, reject) {
-  reject("Oh No!");
-});
+// let pm1 = Promise.reject("Oh No!");
+// let pm2 = new Promise(function pr(resolve, reject) {
+//   reject("Oh No!");
+// });
+
+
+// let pm1 = Promise.resolve(23);
+// let pm2 = new Promise(function pr(resolve) {
+//   setTimeout(function () {
+//     resolve(24);
+//   }, 100);
+// });
+// let value3 = 25;
+// let pm4 = new Promise(function pr(resolve, reject) {
+//   setTimeout(function () {
+//     reject("Oops");
+//   }, 10);
+// });
+
+
+// Promise.all([pm1, pm2, value3])
+//   .then(function fulfilled(vals) {
+//     console.log(vals); // [23,24,25]
+//   });
+
+// Promise.all([pm1, pm2, value3, pm4])
+//   .then(
+//     function fulfilled(vals) {
+//       // never gets here
+//     },
+//     function rejected(reason) {
+//       console.log(reason);
+//       // "Oh No!"
+//     }
+//   );
