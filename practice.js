@@ -5452,3 +5452,31 @@ ArrayBuffer {
 
 // console.log(keys[1] === y); // true
 // console.log(vals[1]); // "hamid"
+
+
+// let map = new Map();
+
+// let x = { id: 1 };
+// let y = { id: 2 };
+
+// map.set(x, "hamed");
+// map.set(y, "hamid");
+
+// console.log(map.get(x)); // "hamed"
+// console.log(map.get(y)); // "hamid"
+
+// map.delete(y);
+// console.log(map.get(y)); // undefined
+
+
+// let map = new Map();
+
+// let x = { id: 1 };
+// let y = { id: 2 };
+
+// map.set(x, "hamed");
+// map.set(y, "hamid");
+
+// console.log(map.size); // 2
+// map.clear();
+// console.log(map.size); // 0
