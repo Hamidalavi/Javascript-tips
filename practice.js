@@ -5772,7 +5772,7 @@ ArrayBuffer {
 
 // -----------------------------------------------
 
-// array - `copyWithin(..)` prototype method
+// array - copyWithin(..) prototype method
 // console.log([1, 2, 3, 4, 5].copyWithin(3, 0)); // [ 1, 2, 3, 1, 2 ]
 
 // console.log([1, 2, 3, 4, 5].copyWithin(3, 0, 1)); // [ 1, 2, 3, 1, 5 ]
@@ -5782,3 +5782,13 @@ ArrayBuffer {
 // console.log([1, 2, 3, 4, 5].copyWithin(0, -2, -1)); // [ 4, 2, 3, 4, 5 ]
 
 // console.log([1, 2, 3, 4, 5].copyWithin(2, 1)); // [ 1, 2, 2, 3, 4 ]
+
+// -----------------------------------------------
+
+// array - fill(..) prototype method
+// let a = Array(4).fill(undefined);
+// console.log(a); // [ undefined, undefined, undefined, undefined ]
+
+
+// let a = [null, null, null, null].fill(23, 1, 3);
+// console.log(a); // [ null, 23, 23, null ]
