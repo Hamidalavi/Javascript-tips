@@ -142,3 +142,5 @@ imul(); // 32-bit integer multiplication of two numbers
 sign(); // returns the sign of the number
 trunc(); // returns only the integer part of a number
 fround(); // rounds to nearest 32-bit (single precision) floating-point value
+
+Math.pow(number, number); // returns the value of a base expression taken to a specified power

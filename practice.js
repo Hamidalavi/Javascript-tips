@@ -6001,7 +6001,7 @@ ArrayBuffer {
 
 // -----------------------------------------------
 
-// number - integer-related
+// integer-related
 // console.log(Number.isInteger(23)); // true
 // console.log(Number.isInteger(23.1)); // false
 // console.log(Number.isInteger(23.)); // true
@@ -6011,3 +6011,35 @@ ArrayBuffer {
 
 // console.log(Number.isInteger(NaN)); // false
 // console.log(Number.isInteger(Infinity)); // false
+
+
+// function isFloat(x) {
+//   return Number.isFinite(x) && !Number.isInteger(x);
+// }
+
+// isFloat(4.2); // true
+// isFloat(4); // false
+// isFloat(NaN); // false
+// isFloat(Infinity); // false
+
+
+// let x = Math.pow(2, 53),
+//   y = Math.pow(-2, 53);
+
+// console.log(Number.isSafeInteger(x - 1)); // true
+// console.log(Number.isSafeInteger(y + 1)); // true
+// console.log(Number.isSafeInteger(x)); // false
+// console.log(Number.isSafeInteger(y)); // false
+
+// -----------------------------------------------
+
+// unicode functions
+// console.log(String.fromCodePoint(0x1d49e)); // "𝒞"
+// console.log("abd".codePointAt(2).toString(16)); // "1d49e" -- "64"
+
+
+// let str1 = "e\u0301";
+// console.log(str1.length); // 2 (é)
+
+// let str2 = str1.normalize();
+// console.log(str2.length); // 1 (é)
