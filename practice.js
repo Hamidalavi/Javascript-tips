@@ -5918,3 +5918,34 @@ ArrayBuffer {
 
 
 // console.log(obj2.hamed()); // "hamed" -- delegates to `obj1.hamed()`
+
+// -----------------------------------------------
+
+// object - Object.assign(..)
+// let target = {},
+//   obj1 = { a: 1 }, obj2 = { b: 2 },
+//   obj3 = { c: 3 }, obj4 = { d: 4 };
+
+// // setup read-only property
+// Object.defineProperty(obj3, "e", {
+//   value: 5,
+//   enumerable: true,
+//   writable: false,
+//   configurable: false
+// });
+
+// // setup non-enumerable property
+// Object.defineProperty(obj3, "f", {
+//   value: 6,
+//   enumerable: false
+// });
+
+// obj3[Symbol("g")] = 7;
+
+// // setup non-enumerable symbol
+// Object.defineProperty(obj3, Symbol("h"), {
+//   value: 8,
+//   enumerable: false
+// });
+
+// Object.setPrototypeOf(obj3, obj4);
