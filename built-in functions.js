@@ -111,3 +111,28 @@ ArrayBuffer(number); // represents a raw buffer of binary data
 Uint8Array(number); // a typed array of 8-bit unsigned integer values
 Uint16Array(number); // a typed array of 16-bit unsigned integer values
 Uint32Array(number) // a typed array of 32-bit unsigned integer values
+
+// Math -----------------------------------------------
+
+// Trigonometry (triangle)
+cosh(); // hyperbolic cosine
+acosh(); // hyperbolic arccosine
+sinh(); // hyperbolic sine
+asinh(); // hyperbolic arcsine
+tanh(); // hyperbolic tangent
+atanh(); // hyperbolic arctangent
+hypot(); // the squareroot of the sum of the squares (i.e., the generalized Pythagorean theorem)
+
+// Arithmetic
+cbrt(); // cube root
+clz32(); // count leading zeros in 32-bit binary representation
+expm1(); // the same as `exp(x) - 1`
+log2(); // binary logarithm (log base 2)
+log10(); // log base 10
+log1p(); // the same as `log(x + 1)`
+imul(); // 32-bit integer multiplication of two numbers
+
+// Meta
+sign(); // returns the sign of the number
+trunc(); // returns only the integer part of a number
+fround(); // rounds to nearest 32-bit (single precision) floating-point value
