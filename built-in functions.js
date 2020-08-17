@@ -61,6 +61,14 @@ string.toLowerCase(); // converts all the alphabetic characters in a string to l
 
 string.repeat(number); // copy that string x times (number 0 is empty string)
 
+string.startsWith(string) // returns true if the sequence of elements of searchString converted to a String is the same as the corresponding elements of this object. Otherwise returns false
+string.startsWith(string, number) // returns true if the sequence of elements of searchString converted to a String is the same as the corresponding elements of this object starting at position. Otherwise returns false
+
+string.endsWith(string); // returns true if the sequence of elements of searchString converted to a String is the same as the corresponding elements of this object starting at endPosition – length(this). Otherwise returns false
+string.endsWith(string, number); // returns true if the sequence of elements of searchString converted to a String is the same as the corresponding elements of this object starting at endPosition – length(this). Otherwise returns false
+
+string.includes(string); // returns true if searchString appears as a substring of the result of converting this object to a String, at one or more positions that are greater than or equal to position; otherwise, returns false
+
 // Object -----------------------------------------------
 
 Object.create(value); // creates an object that has the specified prototype or that has null prototype

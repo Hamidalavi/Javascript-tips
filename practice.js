@@ -6058,3 +6058,19 @@ ArrayBuffer {
 // console.log("hamid".repeat(3)); // "hamidhamidhamid"
 // console.log("hamid".repeat(0)); // ""
 // console.log("hamid" * 3); // NaN
+
+// -----------------------------------------------
+
+// string - inspection
+// let string = "Hello guys, wellcome to my page!";
+// console.log(string.startsWith("Hello")); // true
+// console.log(string.startsWith("hello")); // false
+// console.log(string.startsWith("guys", 6)); // true
+
+// console.log(string.endsWith("my page!")); // true
+// console.log(string.endsWith("my page")); // false
+// console.log(string.endsWith("my", 26)); // true
+
+// console.log(string.includes("wellcome")); // true
+// console.log(string.includes("welcome")); // false
+// console.log(string.includes("welcome", 12)); // false
