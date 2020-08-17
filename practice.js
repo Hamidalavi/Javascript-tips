@@ -6153,3 +6153,21 @@ ArrayBuffer {
 // let GeneratorFunction =
 //   function* () { }.__proto__.constructor;
 // let z = new GeneratorFunction(); // name: anonymous
+
+// -----------------------------------------------
+
+// meta programming - meta properties
+// class Parent {
+//   constructor() {
+//     if (new.target === Parent) {
+//       console.log("Parent instantiated");
+//     }
+//     else {
+//       console.log("A child instantiated");
+//     }
+//   }
+// }
+
+// class Child extends Parent { }
+// let a = new Parent(); // "Parent instantiated"
+// let b = new Child(); // "A child instantiated"
