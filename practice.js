@@ -6191,3 +6191,37 @@ ArrayBuffer {
 // for (let v of array) {
 //   console.log(v); // 5 7 9
 // }
+
+// -----------------------------------------------
+
+// meta programming - Symbol.toStringTag and Symbol.hasInstance
+// function hamed() { }
+
+// let a = new hamed();
+
+// console.log(a.toString()); // "[object Object]"
+// console.log(a instanceof hamed); // true
+
+
+// function Hamid(greeting) {
+//   this.greeting = greeting;
+// }
+
+// Hamid.prototype[Symbol.toStringTag] = "Hamid";
+
+// Object.defineProperty(Hamid, Symbol.hasInstance, {
+//   value: function (inst) {
+//     return inst.greeting == "hello";
+//   }
+// });
+
+// let a = new Hamid("hello"),
+//   b = new Hamid("world");
+
+// b[Symbol.toStringTag] = "cool";
+
+// console.log(a.toString()); // "[object Hamid]"
+// console.log(String(b)); // "[object cool]"
+
+// console.log(a instanceof Hamid); // true
+// console.log(b instanceof Hamid); // false
