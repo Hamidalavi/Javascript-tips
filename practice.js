@@ -6109,3 +6109,47 @@ ArrayBuffer {
 //   if (i < 10) return hamid(i * 2);
 //   return i;
 // }
+
+// -----------------------------------------------
+
+// meta programming - inferences
+// let abc = function () {
+//   // do something
+// }
+
+// console.log(abc.name); // "abc"
+
+
+// (function () { /* do something */ }); // name
+// (function* () { /* do something */ }); // name
+// window.hamed = function () { /* do something */ }; // name
+
+// class Awesome {
+//   constructor() { /* do something */ } // name: Awesome
+//   funny() { /* do something */ } // name: funny
+// }
+
+// let c = class Awesome { /* do something */ }; // name: Awesome
+
+// let o = {
+//   hamed() { /* do something */ }, // name: hamed
+//   * hamid() { /* do something */ }, // name: hamid
+//   ali: () => { /* do something */ }, // name: ali
+//   reza: function () {/* do something */ }, // name: reza
+//   get majid() { /* do something */ }, // name: get majid
+//   set mehrdad() { /* do something */ }, // name: set mehrdad
+//   ["mor" + "teza"]:
+//     function () { /* do something */ }, // name: morteza
+//   [Symbol("mehdi")]:
+//     function () { /* do something */ } // name: [mehdi]
+// };
+
+// let x = o.hamed.bind(o); // name: bound hamed
+// (function () { /* do something */ }).bind(o); // name: bound
+
+// export default function () { /* do something */ } // name: default
+
+// let y = new Function(); // name: anonymous
+// let GeneratorFunction =
+//   function* () { }.__proto__.constructor;
+// let z = new GeneratorFunction(); // name: anonymous
