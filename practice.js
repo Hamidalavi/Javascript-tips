@@ -5970,3 +5970,31 @@ ArrayBuffer {
 //   });
 
 // console.log(obj2.hamed()); // "hamed" -- delegates to `obj1.hamed()`
+
+// -----------------------------------------------
+
+// number - Number.isNaN(..)
+// let a = NaN, b = "NaN", c = 23;
+
+// console.log(isNaN(a)); // true
+// console.log(isNaN(b)); // true
+// console.log(isNaN(c)); // false
+// console.log("-----");
+// console.log(Number.isNaN(a)); // true
+// console.log(Number.isNaN(b)); // false
+// console.log(Number.isNaN(c)); // false
+
+// -----------------------------------------------
+
+// number - Number.isFinite(..)
+// let a = NaN, b = Infinity, c = 23;
+
+// console.log(Number.isFinite(a)); // false
+// console.log(Number.isFinite(b)); // false
+
+// console.log(Number.isFinite(c)); // true
+
+
+// let age = "23";
+// console.log(isFinite(age)); // true
+// console.log(Number.isFinite(age)); // false

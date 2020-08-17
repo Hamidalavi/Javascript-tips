@@ -31,6 +31,8 @@ Number.MIN_SAFE_INTEGER; // -9007199254740991
 Number.POSITIVE_INFINITY; // Infinity
 Number.NEGATIVE_INFINITY; // -Infinity
 
+Number.EPSILON; // 2.220446049250313e-16
+
 Number.isInteger(number); // returns true if the value passed is an integer, false otherwise
 
 number.toFixed(num); // show decimal as you set. for example x.toFixed(2); shows with 2 decimal in output
