@@ -5792,3 +5792,23 @@ ArrayBuffer {
 
 // let a = [null, null, null, null].fill(23, 1, 3);
 // console.log(a); // [ null, 23, 23, null ]
+
+// -----------------------------------------------
+
+// array - find(..) prototype method (sith indexOf(..) and some(..))
+// let a = [1, 2, 3, 4, 5];
+
+// console.log(a.indexOf(3) != -1); // true
+// console.log(a.indexOf(7) != -1); // false
+// console.log(a.indexOf("3") != -1); // false
+
+
+// let a = [1, 2, 3, 4, 5];
+
+// console.log(function matcher(value) {
+//   return value == "2"; // true - in behind
+// });
+
+// console.log(function matcher(value) {
+//   return value == "7"; // false - in behind
+// });

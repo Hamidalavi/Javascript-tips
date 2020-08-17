@@ -33,13 +33,20 @@ Number.NEGATIVE_INFINITY; // -Infinity
 
 Number.isInteger(number); // returns true if the value passed is an integer, false otherwise
 
-String(value); // convert any type to string type
-
 number.toFixed(num); // show decimal as you set. for example x.toFixed(2); shows with 2 decimal in output
 
 number.toPrecision(num); // is similar, but specifies how many significant digits should be used torepresent the value
 
 number.toExponential(); // returns a string containing a number represented in exponential notation
+
+// String -----------------------------------------------
+
+String(value); // convert any type to string type
+
+String.raw`function`; // show raw format of string (ex: show \t or \n and etc.)
+
+string.toUpperCase(); // converts all the alphabetic characters in a string to uppercase
+string.toLowerCase(); // converts all the alphabetic characters in a string to lowercase
 
 // Object -----------------------------------------------
 
@@ -48,6 +55,8 @@ Object.create(value); // creates an object that has the specified prototype or t
 Object.preventExtensions(object); // prevent from adding properties
 
 Object.keys(object); // shows all object's keys (returns an array of all enumerable properties)
+
+Object.setPrototypeOf(object2,object1); // the object to change its prototype
 
 eval("Hamid"); // evaluates JavaScript code and executes it (string of code)(ex: "let a = 20;")
 
@@ -72,3 +81,14 @@ for (let v of arr) {
     } // shows values in array (awesome)
 
 array.reverse(); // reverses the elements in an array
+
+Array(number).fill(value); // filling the section identified by start and end with value
+
+array.copyWithin(); // copying a section of the array identified by start and end to the same array starting at position target
+
+
+ArrayBuffer(number); // represents a raw buffer of binary data
+
+Uint8Array(number); // a typed array of 8-bit unsigned integer values
+Uint16Array(number); // a typed array of 16-bit unsigned integer values
+Uint32Array(number) // a typed array of 32-bit unsigned integer values
