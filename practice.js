@@ -6074,3 +6074,32 @@ ArrayBuffer {
 // console.log(string.includes("wellcome")); // true
 // console.log(string.includes("welcome")); // false
 // console.log(string.includes("welcome", 12)); // false
+
+// -----------------------------------------------
+
+// meta programming - function names
+// function morteza() {
+//   // do something
+// }
+
+// let obj = {
+//   hamed: function () {
+//     // do something
+//   },
+//   hamid: function () {
+//     // do something
+//   },
+//   ali: morteza,
+//   reza() {
+//     // do something
+//   }
+// };
+
+
+// function hamed(callback) {
+//   // what is the name of `callback()` here?
+// }
+
+// hamed(function () {
+//   // I'm anonymous!
+// });
