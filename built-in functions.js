@@ -62,6 +62,8 @@ Object.setPrototypeOf({ /** put value in new object */ }, object1); // one objec
 Object.getOwnPropertySymbols(object); // returns an array of all symbol properties found directly on object
 Object.getOwnPropertyNames(object); // returns the names of the own properties of an object
 
+Object.assign(target, source); // copy the values of all of the enumerable own properties from one or more source objects to a target object. Returns the target object (you can put infinite sources)
+
 eval("Hamid"); // evaluates JavaScript code and executes it (string of code)(ex: "let a = 20;")
 
 setTimeout(() => {
