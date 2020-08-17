@@ -5769,3 +5769,16 @@ ArrayBuffer {
 // console.log(MyCoolArray.from([1, 2]) instanceof MyCoolArray); // true
 
 // console.log(Array.from(MyCoolArray.from([1, 2])) instanceof MyCoolArray); // false
+
+// -----------------------------------------------
+
+// array - `copyWithin(..)` prototype method
+// console.log([1, 2, 3, 4, 5].copyWithin(3, 0)); // [ 1, 2, 3, 1, 2 ]
+
+// console.log([1, 2, 3, 4, 5].copyWithin(3, 0, 1)); // [ 1, 2, 3, 1, 5 ]
+
+// console.log([1, 2, 3, 4, 5].copyWithin(0, -2)); // [ 4, 5, 3, 4, 5 ]
+
+// console.log([1, 2, 3, 4, 5].copyWithin(0, -2, -1)); // [ 4, 2, 3, 4, 5 ]
+
+// console.log([1, 2, 3, 4, 5].copyWithin(2, 1)); // [ 1, 2, 2, 3, 4 ]
