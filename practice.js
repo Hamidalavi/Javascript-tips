@@ -6103,3 +6103,9 @@ ArrayBuffer {
 // hamed(function () {
 //   // I'm anonymous!
 // });
+
+
+// function hamid(i) {
+//   if (i < 10) return hamid(i * 2);
+//   return i;
+// }
