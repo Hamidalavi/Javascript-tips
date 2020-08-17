@@ -94,6 +94,12 @@ array.findIndex(number); // find calls predicate once for each element of the ar
 
 array.indexOf(number); // returns the index of the first occurrence of a value in an array
 
+[...array.values()]; // returns an iterable of values in the array
+
+[...array.keys()]; // returns an iterable of keys in the array
+
+[...array.entries()]; // returns an iterable of key, value pairs for every entry in the array
+
 ArrayBuffer(number); // represents a raw buffer of binary data
 
 Uint8Array(number); // a typed array of 8-bit unsigned integer values

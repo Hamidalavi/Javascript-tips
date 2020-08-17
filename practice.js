@@ -5826,7 +5826,7 @@ ArrayBuffer {
 
 // -----------------------------------------------
 
-// findIndex(..) prototype method
+// array - findIndex(..) prototype method
 // let points = [
 //   { x: 10, y: 20 },
 //   { x: 20, y: 30 },
@@ -5851,3 +5851,22 @@ ArrayBuffer {
 
 // console.log(result1); // 2
 // console.log(result2); // -1
+
+// -----------------------------------------------
+
+// array - entries() , values() , keys() prototype methods
+// let a = [1, 2, 3, 4, 5];
+
+// console.log([...a.values()]); // [ 1, 2, 3, 4, 5 ]
+// console.log([...a.keys()]); // [ 0, 1, 2, 3, 4 ]
+// console.log([...a.entries()]); // [ [ 0, 1 ], [ 1, 2 ], [ 2, 3 ], [ 3, 4 ], [ 4, 5 ] ]
+// console.log([...a[Symbol.iterator]()]); // [ 1, 2, 3, 4, 5 ]
+
+
+// let a = [];
+// a.length = 3;
+// a[1] = 2;
+
+// console.log([...a.values()]); // [ undefined, 2, undefined ]
+// console.log([...a.keys()]); // [ 0, 1, 2 ]
+// console.log([...a.entries()]); // [ [ 0, undefined ], [ 1, 2 ], [ 2, undefined ] ]
