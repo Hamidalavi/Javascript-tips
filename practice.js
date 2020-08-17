@@ -5805,10 +5805,49 @@ ArrayBuffer {
 
 // let a = [1, 2, 3, 4, 5];
 
-// console.log(function matcher(value) {
-//   return value == "2"; // true - in behind
+// console.log(a.some(function matcher(value) {
+//   return value == "2"; // true
+// }));
+
+// console.log(a.some(function matcher(value) {
+//   return value == "7"; // false
+// }));
+
+
+// let a = [1, 2, 3, 4, 5];
+
+// console.log(a.find(function matcher(value) {
+//   return value == "2"; // 2
+// }));
+
+// console.log(a.find(function matcher(value) {
+//   return value == 7; // undefined
+// }));
+
+// -----------------------------------------------
+
+// findIndex(..) prototype method
+// let points = [
+//   { x: 10, y: 20 },
+//   { x: 20, y: 30 },
+//   { x: 30, y: 40 },
+//   { x: 40, y: 50 },
+//   { x: 50, y: 60 }
+// ];
+
+// let result1 = points.findIndex(function matcher(point) {
+//   return (
+//     point.x % 3 == 0 &&
+//     point.y % 4 == 0
+//   );
 // });
 
-// console.log(function matcher(value) {
-//   return value == "7"; // false - in behind
+// let result2 = points.findIndex(function matcher(point) {
+//   return (
+//     point.x % 6 == 0 &&
+//     point.y % 7 == 0
+//   );
 // });
+
+// console.log(result1); // 2
+// console.log(result2); // -1

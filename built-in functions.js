@@ -73,10 +73,10 @@ setInterval(() => {
 array.join("!"); // join something beween array elements
 
 for (let i = 0; i < array.length; i++) {
-    console.log(arr[i]);
+    console.log(array[i]);
 } // shows values in array
 
-for (let v of arr) {
+for (let v of array) {
     console.log(v);
     } // shows values in array (awesome)
 
@@ -86,6 +86,13 @@ Array(number).fill(value); // filling the section identified by start and end wi
 
 array.copyWithin(); // copying a section of the array identified by start and end to the same array starting at position target
 
+array.some(number); // determines whether the specified callback function returns true for any element of an array (find)
+
+array.find(number); // find calls predicate once for each element of the array
+
+array.findIndex(number); // find calls predicate once for each element of the array, in ascending order, until it finds one where predicate returns true
+
+array.indexOf(number); // returns the index of the first occurrence of a value in an array
 
 ArrayBuffer(number); // represents a raw buffer of binary data
 
