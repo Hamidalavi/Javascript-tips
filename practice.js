@@ -6033,7 +6033,7 @@ ArrayBuffer {
 
 // -----------------------------------------------
 
-// unicode functions
+// string - unicode functions
 // console.log(String.fromCodePoint(0x1d49e)); // "𝒞"
 // console.log("abd".codePointAt(2).toString(16)); // "1d49e" -- "64"
 
@@ -6043,3 +6043,18 @@ ArrayBuffer {
 
 // let str2 = str1.normalize();
 // console.log(str2.length); // 1 (é)
+
+// console.log(str2 === "\xE9"); // true
+
+// -----------------------------------------------
+
+// string - String.raw(..)
+// let str = "bc";
+// console.log(String.raw`\ta${str}d\xE9`); // "\tabcd\xE9", not " abcdé"
+
+// -----------------------------------------------
+
+// string - repeat(..)
+// console.log("hamid".repeat(3)); // "hamidhamidhamid"
+// console.log("hamid".repeat(0)); // ""
+// console.log("hamid" * 3); // NaN

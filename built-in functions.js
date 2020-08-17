@@ -1,6 +1,7 @@
 let number = 23;
 let array = [1, 2, 3];
 let string = "Hello Hamid";
+let Unicode = "e\u0301";
 let object = {};
 let value; // some value
 
@@ -8,7 +9,11 @@ let value; // some value
 
 typeof value; // can examine a value and tell you what type it is (not function, but useful)
 
-isNaN(value); // check NaN of value as boolean
+isNaN(number); // check NaN of value as boolean
+
+isFinite(number); // check Finite of value as boolean
+
+Unicode.normalize(); // returns Unicode into normalize string form
 
 // output -----------------------------------------------
 
@@ -53,6 +58,8 @@ String.raw`function`; // show raw format of string (ex: show \t or \n and etc.)
 
 string.toUpperCase(); // converts all the alphabetic characters in a string to uppercase
 string.toLowerCase(); // converts all the alphabetic characters in a string to lowercase
+
+string.repeat(number); // copy that string x times (number 0 is empty string)
 
 // Object -----------------------------------------------
 
