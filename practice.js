@@ -5870,3 +5870,26 @@ ArrayBuffer {
 // console.log([...a.values()]); // [ undefined, 2, undefined ]
 // console.log([...a.keys()]); // [ 0, 1, 2 ]
 // console.log([...a.entries()]); // [ [ 0, undefined ], [ 1, 2 ], [ 2, undefined ] ]
+
+// -----------------------------------------------
+
+// object - Object.is(..)
+// let x = NaN, y = 0, z = -0;
+
+// console.log(x === x); // false
+// console.log(y === z); // true
+
+// console.log(Object.is(x, x)); // true
+// console.log(Object.is(y, z)); // false
+
+// -----------------------------------------------
+
+// object - Object.getOwnPropertySymbols(..)
+let obj = {
+  hamed: 23,
+  [Symbol("hamid")]: "hello world",
+  ali: true
+}
+
+result = Object.getOwnPropertySymbols(obj);
+console.log(result); // [ Symbol(hamid) ]

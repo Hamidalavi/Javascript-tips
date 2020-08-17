@@ -58,6 +58,9 @@ Object.keys(object); // shows all object's keys (returns an array of all enumera
 
 Object.setPrototypeOf(object2,object1); // the object to change its prototype
 
+Object.getOwnPropertySymbols(object); // returns an array of all symbol properties found directly on object
+Object.getOwnPropertyNames(object); // returns the names of the own properties of an object
+
 eval("Hamid"); // evaluates JavaScript code and executes it (string of code)(ex: "let a = 20;")
 
 setTimeout(() => {
