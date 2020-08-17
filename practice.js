@@ -5885,11 +5885,36 @@ ArrayBuffer {
 // -----------------------------------------------
 
 // object - Object.getOwnPropertySymbols(..)
-let obj = {
-  hamed: 23,
-  [Symbol("hamid")]: "hello world",
-  ali: true
-}
+// let obj = {
+//   hamed: 23,
+//   [Symbol("hamid")]: "hello world",
+//   ali: true
+// }
 
-result = Object.getOwnPropertySymbols(obj);
-console.log(result); // [ Symbol(hamid) ]
+// result = Object.getOwnPropertySymbols(obj);
+// console.log(result); // [ Symbol(hamid) ]
+
+// -----------------------------------------------
+
+// object - Object.setPrototypeOf(..)
+// let obj1 = {
+//   hamed() { console.log("hamed"); }
+// };
+
+// let obj2 = {
+//   // .. obj2's definition ..
+// };
+
+// Object.setPrototypeOf(obj2, obj1);
+
+// console.log(obj2.hamed()); // "hamed" -- delegates to `obj1.hamed()`
+
+
+// let obj1 = {
+//   hamed() { console.log("hamed"); }
+// };
+
+// let obj2 = Object.setPrototypeOf({ /* o2's definition .. */ }, obj1);
+
+
+// console.log(obj2.hamed()); // "hamed" -- delegates to `obj1.hamed()`

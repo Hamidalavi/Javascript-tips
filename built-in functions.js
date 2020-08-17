@@ -56,7 +56,8 @@ Object.preventExtensions(object); // prevent from adding properties
 
 Object.keys(object); // shows all object's keys (returns an array of all enumerable properties)
 
-Object.setPrototypeOf(object2,object1); // the object to change its prototype
+Object.setPrototypeOf(object2,object1); // the object to change its prototype (sets the prototype of an object -- one object delegates to another object)
+Object.setPrototypeOf({ /** put value in new object */ }, object1); // one object delegates to another object
 
 Object.getOwnPropertySymbols(object); // returns an array of all symbol properties found directly on object
 Object.getOwnPropertyNames(object); // returns the names of the own properties of an object
