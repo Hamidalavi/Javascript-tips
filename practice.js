@@ -5998,3 +5998,16 @@ ArrayBuffer {
 // let age = "23";
 // console.log(isFinite(age)); // true
 // console.log(Number.isFinite(age)); // false
+
+// -----------------------------------------------
+
+// number - integer-related
+// console.log(Number.isInteger(23)); // true
+// console.log(Number.isInteger(23.1)); // false
+// console.log(Number.isInteger(23.)); // true
+// console.log(Number.isInteger(23.000000000000001)); // true
+// console.log(Number.isInteger(23.00000000000001)); // false
+
+
+// console.log(Number.isInteger(NaN)); // false
+// console.log(Number.isInteger(Infinity)); // false
