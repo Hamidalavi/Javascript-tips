@@ -6171,3 +6171,23 @@ ArrayBuffer {
 // class Child extends Parent { }
 // let a = new Parent(); // "Parent instantiated"
 // let b = new Child(); // "A child instantiated"
+
+// -----------------------------------------------
+
+// meta programming - Symbol.iterator
+// let array = [4, 5, 6, 7, 8, 9];
+// for (let v of array) {
+//   console.log(v); // 4 5 6 7 8 9
+// }
+
+// // define iterator that only produces values from odd indexes
+// array[Symbol.iterator] = function* () {
+//   let idx = 1;
+//   do {
+//     yield this[idx];
+//   } while ((idx += 2) < this.length);
+// };
+
+// for (let v of array) {
+//   console.log(v); // 5 7 9
+// }
