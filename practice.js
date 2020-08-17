@@ -5911,7 +5911,7 @@ ArrayBuffer {
 
 
 // let obj1 = {
-//   hamed() { console.log("hamed"); }
+// hamed() { console.log("hamed"); }
 // };
 
 // let obj2 = Object.setPrototypeOf({ /* o2's definition .. */ }, obj1);
@@ -5949,3 +5949,24 @@ ArrayBuffer {
 // });
 
 // Object.setPrototypeOf(obj3, obj4);
+
+// Object.assign(target, obj1, obj2, obj3);
+
+// console.log(target.a); // 1
+// console.log(target.b); // 2
+// console.log(target.c); // 3
+
+// console.log(Object.getOwnPropertyDescriptor(target, "e")); // { value: 5, writable: true, enumerable: true, configurable: true }
+// console.log(Object.getOwnPropertySymbols(target)); // [ Symbol(g) ]
+
+
+// let obj1 = {
+//   hamed() { console.log("hamed") }
+// }
+
+// let obj2 = Object.assign(Object.create(obj1),
+//   {
+//     // .. obj2's definition ..
+//   });
+
+// console.log(obj2.hamed()); // "hamed" -- delegates to `obj1.hamed()`
