@@ -6448,3 +6448,22 @@ ArrayBuffer {
 // let { b, ...object2 } = object1;
 
 // console.log(b, object2.c, object2.d); // 2 3 4 -- reference to object1
+// -----------------------------------------------
+
+// array.includes(..)
+// let values = ["hamed", "hamid", 23, "ali"];
+// if (values.indexOf(23) >= 0) {
+//   // found it!
+// }
+
+
+// let values = ["hamed", "hamid", 23, "ali"];
+// if (~values.indexOf(23)) {
+//   // found it!
+// }
+
+
+// let values = ["hamed", "hamid", 23, "ali"];
+// if (values.includes(23)) {
+//   // found it!
+// }
