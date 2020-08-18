@@ -6422,3 +6422,23 @@ ArrayBuffer {
 // // { name: "a", object: obj, type: "update", oldValue: 1 }
 // console, log(delete obj.b);
 // // { name: "b", object: obj, type: "delete", oldValue: 2 }
+
+// -----------------------------------------------
+
+// exponentiation operator (**)
+
+// let a = 2;
+// console.log(a ** 4); // 16 -- Math.pow(a, 4) == 16
+
+// a **= 3; // a = Math.pow(a, 3)
+// console.log(a); // 8
+
+// -----------------------------------------------
+
+// objects oroperties and ... spread operator
+// let object1 = { a: 1, b: 2 },
+//   object2 = { c: 3 },
+//   object3 = { ...object1, ...object2, d: 4 };
+
+// console.log(object3); // { a: 1, b: 2, c: 3, d: 4 }
+// console.log(object3.a, object3.b, object3.c, object3.d); // 1 2 3 4
