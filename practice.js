@@ -6319,3 +6319,43 @@ ArrayBuffer {
 // with (object) {
 //   console.log(a, b, c); // 1 20 3 -- b was changed (unscopable)
 // }
+
+// -----------------------------------------------
+
+// meta programming - proxy (first and last proxy design)
+// first
+// let object = {
+//   a: 1,
+//   hamed() {
+//     console.log("a:", this.a);
+//   }
+// },
+//   handlers = {
+//     get(target, key, context) {
+//       if (Reflect.has(target, key)) {
+//         return Reflect.get(
+//           target, key, context
+//         );
+//       }
+//       else {
+//         throw "No such property/method!";
+//       }
+//     },
+//     set(target, key, val, context) {
+//       if (Reflect.has(target, key)) {
+//         return Reflect.set(
+//           target, key, val, context
+//         );
+//       }
+//       else {
+//         throw "No such property/method!";
+//       }
+//     }
+//   },
+//   proxyObject = new Proxy(object, handlers);
+
+// proxyObject.a = 3;
+// console.log(proxyObject.hamed()); // a: 3
+
+// proxyObject.b = 4; // Error: "No such property/method!"
+// proxyObject.hamid(); // Error: "No such property/method!"
