@@ -127,6 +127,8 @@ array.indexOf(number); // returns the index of the first occurrence of a value i
 
 [...array.entries()]; // returns an iterable of key, value pairs for every entry in the array
 
+[].concat(array1, array2); // combines two or more arrays (you can use n array to combine; and can use Symbol.isConcatSpreadable for enable/disable spreading arrays)
+
 ArrayBuffer(number); // represents a raw buffer of binary data
 
 Uint8Array(number); // a typed array of 8-bit unsigned integer values
