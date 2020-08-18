@@ -6390,14 +6390,14 @@ ArrayBuffer {
 // -----------------------------------------------
 
 // meta programming - proxy (Reflect api)
-let o = {};
+// let o = {};
 
-o[Symbol("c")] = "Yeah";
-o[2] = true;
-o[1] = true;
-o[b] = "great";
-o[a] = "cool";
+// o[Symbol("c")] = "Yeah";
+// o[2] = true;
+// o[1] = true;
+// o.b = "great";
+// o.a = "cool";
 
-console.log(Reflect.ownKeys(o));
-console.log(Object.getOwnPropertyNames(o));
-console.log(Object.getOwnPropertySymbols(0));
+// console.log(Reflect.ownKeys(o)); // [ '1', '2', 'b', 'a', Symbol(c) ]
+// console.log(Object.getOwnPropertyNames(o)); // [ '1', '2', 'b', 'a' ]
+// console.log(Object.getOwnPropertySymbols(o)); // [ Symbol(c) ]
