@@ -6230,9 +6230,7 @@ ArrayBuffer {
 
 // meta programming - Symbol.species
 // class Cool {
-//   // defer `@@species` to derived constructor
-//   static get [Symbol.species]() { return this; }
-
+//   // defer `@@species` to derived cSymbol.isConcatSpreadable
 //   again() {
 //     return new this.constructor[Symbol.species]();
 //   }
@@ -6305,3 +6303,19 @@ ArrayBuffer {
 
 // let result = [].concat(a, b);
 // console.log(result); // [ 1, 2, 3, 4, 5, 6 ]
+
+// -----------------------------------------------
+
+// meta programming - Symbol.unscopables
+// let object = { a: 1, b: 2, c: 3 },
+//   a = 10, b = 20, c = 30;
+
+// object[Symbol.unscopables] = {
+//   a: false,
+//   b: true,
+//   c: false
+// };
+
+// with (object) {
+//   console.log(a, b, c); // 1 20 3 -- b was changed (unscopable)
+// }
