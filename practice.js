@@ -6401,3 +6401,24 @@ ArrayBuffer {
 // console.log(Reflect.ownKeys(o)); // [ '1', '2', 'b', 'a', Symbol(c) ]
 // console.log(Object.getOwnPropertyNames(o)); // [ '1', '2', 'b', 'a' ]
 // console.log(Object.getOwnPropertySymbols(o)); // [ Symbol(c) ]
+
+
+// deprecated
+// let obj = { a: 1, b: 2 };
+
+// Object.observe(
+//   obj,
+//   function (changes) {
+//     for (let change of changes) {
+//       console.log(change);
+//     }
+//   },
+//   ["add", "update", "delete"]
+// );
+
+// console.log(obj.c = 3);
+// // { name: "c", object: obj, type: "add" }
+// console.log(obj.a = 42);
+// // { name: "a", object: obj, type: "update", oldValue: 1 }
+// console, log(delete obj.b);
+// // { name: "b", object: obj, type: "delete", oldValue: 2 }
