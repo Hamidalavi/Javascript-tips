@@ -6448,6 +6448,7 @@ ArrayBuffer {
 // let { b, ...object2 } = object1;
 
 // console.log(b, object2.c, object2.d); // 2 3 4 -- reference to object1
+
 // -----------------------------------------------
 
 // array.includes(..)
@@ -6467,3 +6468,9 @@ ArrayBuffer {
 // if (values.includes(23)) {
 //   // found it!
 // }
+
+// -----------------------------------------------
+
+// SIMD
+let v1 = SIMD.float32x4(3.14159, 21.0, 32.3, 55.55);
+console.log(v1);
