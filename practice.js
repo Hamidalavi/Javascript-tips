@@ -6285,3 +6285,23 @@ ArrayBuffer {
 // };
 
 // console.log(a + 6); // 21
+
+// -----------------------------------------------
+
+// meta programming - Symbol.isConcatSpreadable
+// let a = [1, 2, 3];
+// let b = [4, 5, 6];
+
+// b[Symbol.isConcatSpreadable] = false;
+
+// let result = [].concat(a, b);
+// console.log(result); // [ 1, 2, 3, [ 4, 5, 6 ] ]
+
+
+// let a = [1, 2, 3];
+// let b = [4, 5, 6];
+
+// b[Symbol.isConcatSpreadable] = true;
+
+// let result = [].concat(a, b);
+// console.log(result); // [ 1, 2, 3, 4, 5, 6 ]
