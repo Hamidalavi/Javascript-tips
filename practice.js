@@ -6358,4 +6358,31 @@ ArrayBuffer {
 // console.log(proxyObject.hamed()); // a: 3
 
 // proxyObject.b = 4; // Error: "No such property/method!"
-// proxyObject.hamid(); // Error: "No such property/method!"
+// console.log(proxyObject.hamid()); // Error: "No such property/method!"
+
+
+// last
+// let handlers = {
+//   get() {
+//     throw "No such property/method!";
+//   },
+//   set() {
+//     throw "No such property/method!";
+//   }
+// },
+//   proxyObject = new Proxy({}, handlers),
+//   object = {
+//     a: 1,
+//     hamed() {
+//       console.log("a:", this.a);
+//     }
+//   };
+
+// // setup `object` to fall back to `proxyObject`
+// Object.setPrototypeOf(object, proxyObject);
+
+// object.a = 3;
+// console.log(object.hamed()); // a: 3
+
+// object.b = 4; // Error: "No such property/method!"
+// console.log(object.hamid()); // Error: "No such property/method!"
