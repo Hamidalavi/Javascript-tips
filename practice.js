@@ -6442,3 +6442,9 @@ ArrayBuffer {
 
 // console.log(object3); // { a: 1, b: 2, c: 3, d: 4 }
 // console.log(object3.a, object3.b, object3.c, object3.d); // 1 2 3 4
+
+
+// let object1 = { b: 2, c: 3, d: 4 };
+// let { b, ...object2 } = object1;
+
+// console.log(b, object2.c, object2.d); // 2 3 4 -- reference to object1
