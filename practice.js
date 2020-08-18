@@ -6253,3 +6253,35 @@ ArrayBuffer {
 // console.log(c instanceof Fun); // true
 // console.log(d instanceof Awesome); // false
 // console.log(d instanceof Cool); // true
+
+// -----------------------------------------------
+
+// meta programming - Symbol.toPrimitive
+// let array = [1, 2, 3, 4, 5];
+
+// console.log(array + 10); // "1,2,3,4,510"
+
+// array[Symbol.toPrimitive] = function (hint) {
+//   if (hint == "default" || hint == "number") {
+//     // sum all numbers
+//     return this.reduce(function (acc, curr) {
+//       return acc + curr;
+//     }, 0);
+//   }
+// };
+
+// console.log(array + 10); // 25
+
+
+// let a = [1, 2, 3, 4, 5];
+// console.log(a + 6); // 1,2,3,4,56
+
+// a[Symbol.toPrimitive] = function (hint) {
+//   if (hint == "default" || hint == "number") {
+//     return this.reduce(function (acc, curr) {
+//       return acc + curr;
+//     }, 0);
+//   }
+// };
+
+// console.log(a + 6); // 21
