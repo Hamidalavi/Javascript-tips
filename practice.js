@@ -6386,3 +6386,18 @@ ArrayBuffer {
 
 // object.b = 4; // Error: "No such property/method!"
 // console.log(object.hamid()); // Error: "No such property/method!"
+
+// -----------------------------------------------
+
+// meta programming - proxy (Reflect api)
+let o = {};
+
+o[Symbol("c")] = "Yeah";
+o[2] = true;
+o[1] = true;
+o[b] = "great";
+o[a] = "cool";
+
+console.log(Reflect.ownKeys(o));
+console.log(Object.getOwnPropertyNames(o));
+console.log(Object.getOwnPropertySymbols(0));
