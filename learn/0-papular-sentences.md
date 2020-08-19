@@ -65,6 +65,17 @@ alert("Hello world"); // visual output: "Hello world"
 prompt("message");
 ```
 
+**function**: We use `function` to prevent repeating some code. You can see many functions during these files. For example:
+
+```js
+function hamid() {
+  console.log("call me please!");
+}
+
+hamid(); // "call me please!"
+// we can call this function n times (awesome)
+```
+
 **comment**: If you want to be good programmer, always use **comment** between your codes and commands (use `//` or `/* */` for comment).
 
 **interpreter**: **Javascript** is an interpreter language and it runs in a browser with **Javascript** engine.
@@ -121,7 +132,7 @@ false;
 **Javascript** also give a `typeof` operator that can test a value and give us a type of it (value). For example:
 
 ```js
-let variable;
+var variable;
 
 typeof variable; // "undefined"
 
@@ -165,7 +176,23 @@ var hamid = 23;
 
 ## Grammer
 
-**type**: **Javascript** uses dynamic type, meaning variables can hold values of any type without any type enforcement.
+**variable vs value**: **JavaScript** has typed values, not typed variables. Only values have type in **JavaScript**; variables are just simple containers for those values.
+
+**type**: **Javascript** uses dynamic type, meaning variables can hold values of any type without any type enforcement. You can use `var` keyword to declare a variable. For example:
+
+```js
+var amount = 49.99;
+
+amount = amount * 2;
+
+console.log(amount); // 99.8
+
+/* convert `amount` to a string, and
+add "$" on the beginning */
+amount = "$" + String(amount);
+
+console.log(amount); // "$99.8"
+```
 
 **semicolon**: Unlike most other statements like `console.log(amount);`, a block statement does not need a semicolon (`;`) to conclude it.
 
@@ -192,16 +219,30 @@ b; // 23
 
 **iteration**: A loop includes the test condition as well as a block (typically as `{ .. }` ). Each time the loop block executes, that's called an **iteration**.
 
-**loop and condition**: if you don't want using value increment manually, you can use **loop** or **conditions** (`for` or `while` loop and `if` or `switch` and etc.). For example:
+**loop and condition**: if you don't want using value increment manually, you can use **loop** or **conditions** (`for` (`of` and `in`) or `while` loop and `if` or `switch` and etc.). For example:
 
 ```js
 // for loop
-for (let i = 0; i < 5; i++) {
-  console.log(i); // 0 1 2 3 4 5
+for (var i = 0; i < 5; i++) {
+  console.log(i); // 0 1 2 3 4
+}
+
+// for..of loop
+var hamid = [1, 2, 4];
+
+for (var i of hamid) {
+  console.log(i); // 1 2 4
+}
+
+// for..in loop
+var hamid = [1, 2, 4];
+
+for (var i in hamid) {
+  console.log(i); // "0" "1" "2"
 }
 
 // while loop and if condition
-let number = 0;
+var number = 0;
 
 while (true) {
   if (number >= 5) {
@@ -213,7 +254,7 @@ while (true) {
 }
 ```
 
-More information in **grammar** file.
+More information in **grammar** and **async** and **ES6+** files.
 
 **scope**: If you ask the phone store employee for a phone model that her store doesn't carry, she will not be able to sell you the phone you want. She only has access to the phones in her store's inventory. You'll have to try another store to see if you can find the phone you're looking for. That means only variable (code) **inside** that function can access that function's scoped variables. For example:
 
@@ -252,9 +293,7 @@ function hamed() {
 hamed(); // 1 2 3 | 1 2 | 1
 ```
 
-**variable scope**: You use the **var** keyword to declare a **variable** that will belong to the current function **scope**, or the **global scope** if at the top level outside of any **function**.
-
-**variable vs value**: **JavaScript** has typed values, not typed variables. Only values have type in **JavaScript**; variables are just simple containers for those values.
+**variable scope**: You use the **`var`** (or `let` and `const`) keyword to declare a **variable** that will belong to the current function **scope**, or the **global scope** if at the top level outside of any **function**.
 
 **bug**: Type of `null` is an interesting case, because it errantly returns **"object"**.
 
@@ -273,15 +312,6 @@ a == b; // false
 ```
 
 We have three more equality `!`, `!=` and `!==`.
-
-**`let` and `const` scope**: Two declaration keyword `let` (a cousin to the `var` keyword) and `const` both are **block scope**. For example:
-
-```js
-{
-  console.log(hamed); // ReferenceError!
-  let hamed = 23;
-}
-```
 
 **number**: In **inequality** (`<` , `>` and etc.), if one or both is not a **string**, then both values are coerced to be **number**, and a typical numeric comparison occurs.
 
@@ -456,6 +486,15 @@ if (a) {
 else {
   function hamid() { console.log("b"); }
 }
+```
+
+**`let` and `const` scope**: Two declaration keyword `let` (a cousin to the `var` keyword) and `const` both are **block scope**. For example:
+
+```js
+{
+  let hamed = 23;
+}
+console.log(hamed); // ReferenceError: hamed is not defined
 ```
 
 **duplicate `var` declarations**: While multiple/duplicate `var` declarations are effectively ignored, subsequent function declarations do override previous ones. For example:
