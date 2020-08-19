@@ -723,7 +723,9 @@ console.log(hamid && hamed()); // 23 (call hamed first)
 
 We think you get it right now how these operators (`||` and `&&`) work.
 
-We also have `Symbol` coercion. As you see below:
+## Symbol Coercion
+
+Up to this point, there’s been almost no observable outcome difference between **explicit** and **implicit** coercion only the readability of code has been at stake. But **ES6** Symbols introduce a gotcha into the coercion system that we need to discuss briefly. **Explicit** coercion of a symbol to a `string` is allowed, but **implicit** coercion of the same is disallowed and throws an error. For example:
 
 ```js
 let str1 = Symbol("Yeah");
@@ -734,7 +736,7 @@ console.log(str2 + ""); // TypeError
 
 `symbol` values cannot coerce to `number` at all (throws an error either way), but strangely they can both explicitly and implicitly coerce to `boolean` (always true).
 
-## Loose Equals vs. Strict Equals
+## Loose Equals Versus Strict Equals
 
 Loose equals is the `==` operator, and strict equals is the `===` operator. Both operators are used for comparing two values for **equality**, but the **loose** vs. **strict** indicates a **very important** difference in behavior between the two, specifically in how they decide **equality**.
 
@@ -742,16 +744,24 @@ A very common misconception about these two operators is: " `==` checks values f
 
 The correct description is: "`==` allows coercion in the equality comparison and `===` disallows coercion".
 
+## Equality Performance
+
 In the first explanation (inaccurate), it seems obvious that `===` is doing more work than `==` because it has to follow through the steps of coercion if the types are different.
 
 **Don't fall into the trap**, as many have, of thinking this has anything to do with performance, though, as if `==` is going to be slower than `===` in any relevant way. While it's measurable that coercion does take a little bit of processing time, it's mere **microseconds** (yes, that's millionths of a second!).
+
+If you’re comparing two values of the same types,`==` and `===` use the identical algorithm, and so other than minor differences in engine implementation, they should do the same work.
+
+If you want coercion, use `==` loose equality, but if you don’t want coercion, use `===` strict equality.
+
+## Abstract Equality
 
 Some minor exceptions to normal expectation to be aware of:
 
 - `NaN` is never equal to itself.
 - `+0` and `-0` are equal to each other.
 
-Let's see allowing coercion and disallowing coercion (string and number)
+Let's see allowing coercion and disallowing coercion (**string to number**)
 
 ```js
 let hamed = 23;
@@ -764,7 +774,7 @@ console.log(hamed === hamid); // false
 1. If Type(x) is `Number` and Type(y) is `String`, return the result of the comparison `x == ToNumber(y)`.
 2. If Type(x) is `String` and Type(y) is `Number`, return the result of the comparison `ToNumber(x) == y`.
 
-Let's see another snippet comparison (boolean and number)
+Let's see another snippet comparison (**anything to boolean**)
 
 ```js
 let hamed = "23";
@@ -789,7 +799,7 @@ if (!!hamed) { console.log("Working"); } // also show "Working" (true)(works exp
 if (Boolean(hamed)) { console.log("Working"); } // yeah. also show "Working" (true)(works explicitly)
 ```
 
-Another example of implicit coercion comparison(null and undefined)
+Another example of implicit coercion comparison(**null to undefined**)
 
 1. If x is `null` and y is `undefined`, return `true`.
 2. If x is `undefined` and y is `null`, return `true`.
@@ -812,7 +822,7 @@ if (hamed === undefined || hamed === null) {
 }
 ```
 
-Another snippet (object and non-object) comparison:
+Another snippet (**object to non-object**) comparison:
 
 1. If Type(x) is either `String` or `Number` and Type(y) is `Object`, return the result of the comparison `x == ToPrimitive(y)`.
 2. If Type(x) is `Object` and Type(y) is either `String` or `Number`, return the result of the comparison `ToPrimitive(x) == y`.
