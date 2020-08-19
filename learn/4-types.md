@@ -436,6 +436,8 @@ In **JavaScript** and other languges we have **falsy** value, these are:
 
 ### String => Number (vice versa) (explicitly)
 
+To coerce between strings and numbers, we use the built-in `String(..)` and `Number(..)` functions, but very importantly, we do not use the `new` keyword in front of them. As such, we’re not creating object wrappers.
+
 Automatic converting `string` to `number` and vice versa:
 
 ```js
@@ -447,6 +449,10 @@ let ali = 22;
 let reza = String(ali);
 console.log(reza); // "22"
 ```
+
+`String(..)` coerces from any other value to a primitive `string` value. `Number(..)` coerces from any other value to a primitive `number` value.
+
+We call this **explicit** coercion because in general, it’s pretty obvious to most developers that the end result of these operations is the applicable type conversion.
 
 #### unary operator
 
@@ -496,6 +502,8 @@ But more importantly, it doesn't work the same on negative numbers as `Math.floo
 console.log(Math.floor(-29.6)); // -30
 console.log(~~-29.6); // -29
 ```
+
+## Parsing Numeric Strings (explicitly)
 
 **Q**: How can we convert easily `string` to `number`?
 
@@ -579,7 +587,34 @@ console.log(ali); // 23
 
 **Note**: `hamid = String(hamed)` = explicit and `hamid = hamed + ""` = implicit.
 
-Let's see all to boolean (* => Boolean):
+## All to Boolean (* => Boolean (explicitly))
+
+Now, let’s examine coercing from any non-boolean value to a boolean.
+
+Just like with `String(..)` and `Number(..)` above, `Boolean(..)` (without the new, of course!) is an explicit way of forcing the `ToBoolean` coercion:
+
+```js
+var a = "0";
+var b = [];
+var c = {};
+var d = "";
+var e = 0;
+var f = null;
+var g;
+
+console.log(Boolean(a)); // true
+console.log(Boolean(b)); // true
+console.log(Boolean(c)); // true
+
+console.log(Boolean(d)); // false
+console.log(Boolean(e)); // false
+console.log(Boolean(f)); // false
+console.log(Boolean(g)); // false
+```
+
+While `Boolean(..)` is clearly explicit, it’s not at all common or idiomatic.
+
+**Note**: See **5-complete-guide-true-false** file to see many of boolean values.
 
 ```js
 let hamed = 23;
@@ -592,7 +627,34 @@ if (ali) { console.log("Yeah"); } else { console.log("Nooo"); }; // "Nooo"
 console.log(ali = reza ? hamed : hamid); // "Persian Sight"
 ```
 
----
+## Ternary operator
+
+It is most useful. its abbreviated from `if..else..if..else`. For example:
+
+```js
+let a = 23;
+(a > 20) ? console.log("i'm older") : console.log("i'm younger");
+// Its mean: if `23 > 20`, print `"i'm older"`, else print `"i'm younger"`
+// output is "i'm older"
+
+// before ternary
+let a = 23;
+if (a > 20) {
+  console.log("i'm older")
+}
+else {
+  console.log("i'm younger")
+}
+```
+
+We can also use one line `if..else` condition. For example:
+
+```js
+let a = 23;
+if (a > 20) console.log("i'm older"); else console.log("i'm younger");
+// Its mean: if `23 > 20`, print `"i'm older"`, else print `"i'm younger"`
+// output is "i'm older"
+```
 
 ## `||` and `&&` operator (`and` and `or`)
 

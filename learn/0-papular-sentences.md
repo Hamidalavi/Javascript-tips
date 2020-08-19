@@ -368,20 +368,31 @@ switch (a) {
 **Ternary operator**: It is most useful. its abbreviated from `if..else..if..else`. For example:
 
 ```js
-var a = 23;
-var b = (a > 20) ? "i'm older" : "i'm younger";
+let a = 23;
+(a > 20) ? console.log("i'm older") : console.log("i'm younger");
 // Its mean: if `23 > 20`, print `"i'm older"`, else print `"i'm younger"`
+// output is "i'm older"
 ```
 
 Before ternary operator, we must wrote:
 
 ```js
+let a = 23;
 if (a > 20) {
-  b = "i'm older";
+  console.log("i'm older")
 }
 else {
-  b = "i'm younger";
+  console.log("i'm younger")
 }
+```
+
+We can also use one line `if..else` condition. For example:
+
+```js
+let a = 23;
+if (a > 20) console.log("i'm older"); else console.log("i'm younger");
+// Its mean: if `23 > 20`, print `"i'm older"`, else print `"i'm younger"`
+// output is "i'm older"
 ```
 
 **strict mode**: We recommend to use `"use strict"`. because its fury and have strict behavior. For example: if you write `a = 10`, compiler will use strict behavior a saying to us: `ReferenceError: a is not defined`. With `"strict mode"` is disallowing the implicit auto-global variable declaration from omitting the `var` or `let`. Adhering to `"strict mode"` makes your code generally more optimizable by the engine. For example:
