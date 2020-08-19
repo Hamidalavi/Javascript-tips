@@ -27,7 +27,54 @@ Moreover, each of the three lines is a statement containing expressions. `let a 
 
 The third line contains just the expression `b`, but it’s also a statement all by itself (though not a terribly interesting one!). As such, this is generally referred to as an **expression statement**.
 
-We have ugly type function that can use instead of code, that called `eval()`. We don't recommend to use this function. Let's see simple snippet:
+## Statement Completion Values
+
+It’s a fairly little known fact that statements all have completion values (even if that value is just `undefined`).
+
+**Q**: How would you even go about seeing the completion value of a statement?
+
+**Answer**: The most obvious answer is to type the statement into your browser’s developer console, because when you execute it, the console by default reports the completion value of the most recent statement it executed.
+
+**Q**: Let’s consider `let b = a`. What’s the completion value of that statement?
+
+**Answer**: The `b = a` assignment expression results in the value that was assigned (`18` above), but the `let` statement itself results in `undefined`. Why? Because `let` (or `var`) statements are defined that way in the spec. If you put `let a = 23;` into your console, you’ll see `undefined` reported back instead of `23`.
+
+We need to consider other types of statement completion values. For example, any regular `{ .. }` block has a completion value of the completion value of its last contained statement/expression. Consider:
+
+```js
+let hamid;
+
+if (true) {
+  hamid = 20 + 3;
+}
+```
+
+If you typed that into your console/REPL, you’d probably see `23` reported, since `23` is the completion value of the if block, which took on the completion value of its last expression statement `b = 20 + 3`. In other words, the completion value of a block is like an implicit return of the last statement value in the block.
+
+But there’s an obvious problem. This kind of code doesn’t work:
+
+```js
+let hamed, hamid;
+
+a = if (true) {
+  hamid = 20 + 3;
+};
+```
+
+We can’t capture the completion value of `hamed` statement and assign it into another variable in any easy syntactic/grammatical way (at least not yet!). So, what can we do?
+
+**Warning**: Don’t actually do the following in your real code!
+
+We could use the much maligned `eval(..)` (sometimes pronounced **evil**) function to capture this completion value:
+
+```js
+let hamed, hamid;
+
+hamed = eval("if (true) { hamid = 20 + 3; }");
+hamed; // 23
+```
+
+Again, we have ugly type function that can use instead of code, that called `eval()`. We don't recommend to use this function. Let's see simple snippet:
 
 ```js
 let hamed, hamid;
@@ -55,6 +102,8 @@ console.log(majid); // 27
 ```
 
 Huh. You got error, it's for **ES7**. But work better than `eval()` ugly function.
+
+## Expression Side Effects
 
 Do you know about side effect expression? Here some examples that learn you about that:
 
@@ -131,7 +180,41 @@ console.log(ali); // 23
 
 Here, `ali = 23` is evaluated to `23` (with the side effect of assigning `23` to `ali`), then `hamid = 23` is evaluated to `23` (with the side effect of assigning `23` to `hamid`), and finally `hamed = 23` is evaluated (with the side effect of assigning `23` to `hamed`).
 
+## Contextual Rules
+
+There are quite a few places in the **JavaScript** grammar rules where the same syntax means different things depending on where/how it’s used. This kind of thing can, in isolation, cause quite a bit of confusion.
+
+We won’t exhaustively list all such cases here, but just call out a few of the common ones.
+
+### Curly braces
+
+There’s two main places (and more coming as **JavaScript** evolves!) that a pair of curly braces `{ .. }` will show up in your code. Let’s take a look at each of them.
+
+### Object literals
+
+First, as an object literal:
+
+```js
+// assume there's a `hamid()` function defined
+let a = {
+  hamed: hamid()
+};
+```
+
+How do we know this is an object literal? Because the `{ .. }` pair is a value that’s getting assigned to `a`.
+
+**Note**: The a reference is called an **l-value** (aka left-hand value) since it’s the target of an assignment. The `{ .. }` pair is an **r-value** (aka right-hand value) since it’s used just as a value (in this case as the source of an assignment).
+
 ## Label
+
+What happens if we remove the `let a =` part of the above snippet?
+
+```js
+// assume there's a `hamid()` function defined
+{
+  hamed: hamid()
+}
+```
 
 Let's see and after that, we explain that:
 
@@ -157,7 +240,7 @@ itrate: for (let hamed = 0; hamed < 11; hamed++) {
 }
 ```
 
-Note: `break itrate` does not mean "go to the `itrate` labeled position to continue", but rather, "break out of the loop/block that is labeled `itrate` and continue after it". Not exactly a `goto` in the traditional sense.
+**Note**: `break itrate` does not mean "go to the `itrate` labeled position to continue", but rather, "break out of the loop/block that is labeled `itrate` and continue after it". Not exactly a `goto` in the traditional sense.
 
 `break` is very useful everywhere. For example:
 
@@ -174,7 +257,25 @@ function hamed() {
 hamed(); // "Persian" \n "Sight"
 ```
 
-## Object Destructuring
+### Blocks
+
+Another commonly cited **JavaScript** gotcha is:
+
+```js
+console.log([] + {}); // "[object Object]"
+console.log({} + []); // 0 -- "[object Object]" newly
+```
+
+This seems to imply the `+` operator gives different results depending on whether the first operand is the `[]` or the `{}`. But that actually has nothing to do with it!
+
+On the first line, `{}` appears in the `+` operator’s expression, and is therefore interpreted as an actual value (an empty object). We explained that `[]` is
+coerced to `""` and thus `{}` is coerced to a `string` value as well: `"[object Object]"`.
+
+But on the second line, `{}` is interpreted as a standalone `{}` empty block (which does nothing). Blocks don’t need semicolons (`;`) to terminate them, so the lack of one here isn’t a problem. Finally, `+ []` is an expression that **explicitly coerces** the `[]` to a `number`, which is the `0` value.
+
+**Note**: Nowadays the second line output is the same as first line, the `"[object Object]"`. Be careful.
+
+### Object Destructuring
 
 Starting with **ES6**, another place that you'll see `{..}` (object) pair showing up is with `destructuring assignments`, specifically `object` destructuring:
 
