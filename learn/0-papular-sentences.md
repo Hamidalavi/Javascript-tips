@@ -144,7 +144,7 @@ variable = { b: "c" };
 typeof variable; // "object"
 ```
 
-Learn more in **types.md** file
+Learn more in **types** file and **grammar** for better understanding.
 
 ## Comment
 
@@ -187,7 +187,32 @@ function hamid() {
 console.log(x); // ReferenceError: x is not defined
 ```
 
-As you can see, that `x` is just accessible in `hamid` function.
+As you can see, that `x` is just accessible in `hamid` function. You can also try **nested** function scope:
+
+```js
+function hamed() {
+  var a = 1;
+
+  function hamid() {
+    var b = 2;
+
+    function ali() {
+      var c = 3;
+      console.log(a, b, c); // 1 2 3
+    }
+
+    ali();
+
+    console.log(a, b); // 1 2
+  }
+
+  hamid();
+
+  console.log(a); // 1
+}
+
+hamed(); // 1 2 3 | 1 2 | 1
+```
 
 **variable scope**: You use the **var** keyword to declare a **variable** that will belong to the current function **scope**, or the **global scope** if at the top level outside of any **function**.
 
@@ -220,6 +245,56 @@ a == b; // false
 
 **number**: In **inequality** (`<` , `>` and etc.), if one or both is not a **string**, then both values are coerced to be **number**, and a typical numeric comparison occurs.
 
+**condition**: Sometimes you may find yourself writing a series of `if..else..if` statements like this for conditions:
+
+```js
+if (a == 2) {
+  // do something
+}
+else if (a == 10) {
+  // do another thing
+} else if (a == 23) {
+  // do yet another thing
+}
+else {
+  // fallback to here
+}
+```
+
+This structure works, but it’s a little verbose because you need to specify the a test for each case. Here’s another option, the `switch` statement:
+
+```js
+switch (a) {
+  case 2:
+    // do something
+    break;
+  case 10:
+    // do another thing
+    break;
+  case 23:
+    // do yet another thing
+    break;
+  default:
+  // fallback to here
+}
+```
+
+The `break` is important if you want only the statement(s) in one case to run. If you omit `break` from a case , and that case matches or runs, execution will continue with the next case ’s statements regardless of that case matching. This so called **fall through** is sometimes useful/desired:
+
+```js
+switch (a) {
+  case 2:
+  case 10:
+    // some cool stuff
+    break;
+  case 23:
+    // other stuff
+    break;
+  default:
+  // fallback
+}
+```
+
 **Ternary operator**: It is most useful. its abbreviated from `if..else..if..else`. For example:
 
 ```js
@@ -239,7 +314,16 @@ else {
 }
 ```
 
-**strict mode**: We recommend to use `"use strict"`. because its fury and have strict behavior. For example: if you write `a = 10`, compiler will use strict behavior a saying to us: `ReferenceError: a is not defined`. With `"strict mode"` is disallowing the implicit auto-global variable declaration from omitting the `var` or `let`. Adhering to `"strict mode"` makes your code generally more optimizable by the engine.
+**strict mode**: We recommend to use `"use strict"`. because its fury and have strict behavior. For example: if you write `a = 10`, compiler will use strict behavior a saying to us: `ReferenceError: a is not defined`. With `"strict mode"` is disallowing the implicit auto-global variable declaration from omitting the `var` or `let`. Adhering to `"strict mode"` makes your code generally more optimizable by the engine. For example:
+
+```js
+function hamed() {
+  "use strict"; // // turn on strict mode
+  a = 1; // `var` missing, ReferenceError
+}
+
+hamed();
+```
 
 **IIFE**: There's another way to execute a **function** expression, which is typically referred to as an immediately invoked function expression (IIFE). Consider:
 
@@ -280,6 +364,8 @@ let obj = { hamed: 23, ali: 22 };
 obj.reza = 26;
 console.log(obj); // { hamed: 23, ali: 22, reza: 26 }
 ```
+
+For more information, read **object-example** file (know about `prototype`).
 
 **transpiling**: Read more about **transpiling** from sites. Here's a quick example of **transpiling**:
 
@@ -376,3 +462,52 @@ You might be tempted to conceptualize the function declaration `function hamed(a
 ## Modules
 
 You can use `import` and `export` for importing and exporting files (modules)
+
+## `this` Identifier
+
+If a function has a this reference inside it, that `this` reference usually points to an object . But which object it points to depends on how the function was called.
+
+It’s important to realize that `this` does not refer to the function itself, as is the most common misconception. Here’s a quick illustration:
+
+```js
+function hamed() {
+  console.log(this.hamid);
+}
+
+var hamid = "global";
+
+var obj1 = {
+  hamid: "obj1",
+  hamed: hamed
+};
+
+var obj2 = {
+  hamid: "obj2"
+};
+
+// --------
+
+hamed(); // "global"
+
+obj1.hamed(); // "obj1"
+hamed.call(obj2); // "obj2"
+new hamed(); // undefined
+```
+
+There are four rules for how this gets set, and they’re shown in those last four lines of that snippet:
+
+1. `hamed()` ends up setting this to the global object in non-strict-mode—in **strict mode**, this would be undefined and you’d get an error in accessing the hamid property—so `"global"` is the value found for this.hamid (test on browser).
+
+2. `obj1.hamed()` sets this to the `obj1` object.
+
+3. `hamed.call(obj2)` sets `this` to the obj2 object.
+
+4. `new hamed()` sets `this` to a brand new empty object.
+
+For more information, read **this-example** file from this directory.
+
+You need also must read **object-eample** for `prototype` for objects.
+
+---
+
+Get confused? don't worry, we help you to know **JavaScript** core. just read the following files in **learn** folder (directory).
