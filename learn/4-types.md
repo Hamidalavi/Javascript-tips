@@ -82,13 +82,89 @@ arr["9"] = 10;
 console.log(arr.length); // 10
 ```
 
-One another thing; is, many people think `string` is `array` concatination. But is not **true**. Because `string` values are immutable (cannot be reverse). For example:
+One another thing; is, many people think `string` is `array` concatination. But is **not true**. Because `string` values are immutable (cannot be reverse). For example:
 
 ```js
 let hamed = "Hamed";
 let hamid = ["H", "a", "m", "i", "d"];
 // console.log(hamed.reverse()); // TypeEror
 console.log(hamid.reverse()); // [ 'd', 'i', 'm', 'a', 'H' ]
+```
+
+You can use multi-dimensional arrays. For example:
+
+```js
+let array = [1, 2, 3, [4, 5, [5]]];
+```
+
+**Array constructor**: The `Array()`constructor does not require the `new` keyword in front of it. If you omit it, it will behave as if you have used it anyway. So `Array(1, 2, 3)` is the same outcome as:
+
+```js
+new Array(1, 2, 3)
+```
+
+**Important**: An array with at least one "**empty slot**" in it is often called a "**sparse array**":
+
+```js
+let hamed = new Array(5);
+console.log(hamed.length); // 5
+console.log(hamed); // [ <5 empty items> ]
+```
+
+Look below snippet:
+
+```js
+let hamed = Array.apply(null, { length: 3 });
+console.log(hamed); // [ undefined, undefined, undefined ]
+```
+
+While `Array.apply(null, { length: 3 })` is a strange and verbose way to create an array filled with `undefined` values, it's **vastly** better and more reliable than what you get with the footgun'ish `Array(3)` empty slots.
+
+## Array-Likes
+
+There will be occasions where you need to convert an array-like value (a numerically indexed collection of values) into a true array, usually so you can call array utilities (like `indexOf(..)`, `concat(..)`, `forEach(..)`, etc.) against the collection of values.
+
+For example, various DOM query operations return lists of DOM elements that are not true arrays but are array-like enough for our conversion purposes. Another common example is when functions expose the `arguments` (array-like) object (as of **ES6**, deprecated) to access the `arguments` as a list.
+
+One very common way to make such a conversion is to borrow the `slice(..)` utility against the value:
+
+```js
+function hamed() {
+  let array = Array.prototype.slice.call(arguments);
+  array.push("reza");
+  console.log(array);
+}
+
+hamed("hamid", "ali"); // [ 'hamid', 'ali', 'reza' ]
+```
+
+If `slice`() is called without any other parameters, as it effectively is in the above snippet, the default values for its parameters have the effect of duplicating the array (or, in this case, array-like). As of **ES6**, there’s also a built-in utility called `Array.from(..)` that can do the same task:
+
+```js
+let array = Array.from(arguments);
+```
+
+**Note**: `Array.from(..)` has several powerful capabilities, and will be covered in detail in the **ES6+** file.
+
+## Strings
+
+It’s a very common belief that `strings` are essentially just arrays of characters. While the implementation under the covers may or may not use arrays, it’s important to realize that **JavaScript** strings **are really not the same as arrays of characters** (as see earlier in **Array** section). For example, let’s consider these two values:
+
+```js
+let a = "max";
+let b = ["m","a","x"];
+```
+
+Strings do have a shallow resemblance to arrays—they are array-likes, as above.
+
+We can use uppercase and lowercase for strings:
+
+```js
+let string = "hamid";
+let striing = "HAMED";
+
+console.log(string.toUpperCase()); // "HAMID"
+console.log(striing.toLowerCase()); // "hamed"
 ```
 
 ## Number
@@ -323,31 +399,6 @@ let hamid = hamed + "";
 console.log(typeof hamed); // object
 console.log(typeof hamid); // string
 ```
-
-## Continue on Array
-
-The `Array()`constructor does not require the `new` keyword in front of it. If you omit it, it will behave as if you have used it anyway. So `Array(1, 2, 3)` is the same outcome as:
-
-```js
-new Array(1, 2, 3)
-```
-
-**Important**: An array with at least one "**empty slot**" in it is often called a "**sparse array**":
-
-```js
-let hamed = new Array(5);
-console.log(hamed.length); // 5
-console.log(hamed); // [ <5 empty items> ]
-```
-
-Look below snippet:
-
-```js
-let hamed = Array.apply(null, { length: 3 });
-console.log(hamed); // [ undefined, undefined, undefined ]
-```
-
-While `Array.apply(null, { length: 3 })` is a strange and verbose way to create an array filled with `undefined` values, it's **vastly** better and more reliable than what you get with the footgun'ish `Array(3)` empty slots.
 
 ## Continue on Number
 

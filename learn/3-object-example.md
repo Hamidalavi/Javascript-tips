@@ -26,7 +26,7 @@ console.log(str.charAt(4)); // o
 
 **Important**: Only use the constructed form if you need the extra options (**literal** is the best).
 
-There are many types of **objects**:
+There are many types of built-in **objects**:
 
 - String
 - Number
