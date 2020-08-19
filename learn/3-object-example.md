@@ -1,5 +1,7 @@
 # Some **`object`** examples to give you more information
 
+![object](https://cdn.javascripttutorial.net/wp-content/uploads/2016/09/Create-Objects-in-JavaScript-Prototype-Pattern.png)
+
 **Important: All functions in `JavaScript` are object**. (not for `Symbols`, they are simple scalar primitive)
 
 **A most important bug in `JavaScript` was found by developers, that the `null` is object in output**

@@ -1,5 +1,7 @@
 # Here's a list of handlers you can define on a proxy for a target object/function, and how/when they are triggered:
 
+![proxy](https://res.cloudinary.com/practicaldev/image/fetch/s--kK6pxDCN--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/an69durihrjheclh5wy2.png)
+
 - **`get(..)`**: via `[[Get]]`, a property is accessed on the proxy (`Reflect.get(..)`, `.` property operator, or `[ .. ]` property operator). For example, `Reflect.get(o,"hamed")` retrieves `o.hamed`.
 
 - **`set(..)`**: via `[[Set]]`, a property value is set on the proxy (`Reflect.set(..)`, the `=` assignment operator, or destructuring assignment if it targets an object property). For example, `Reflect.set(o,"hamed",23)` essentially performs `o.hamed = 23`.

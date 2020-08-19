@@ -1,4 +1,6 @@
-# Some **`grammer`** sentences to give you more information
+# Some **`grammar`** sentences to give you more information
+
+![grammar](https://www.telegraph.co.uk/content/dam/StyleBook/Style%20Book_Grammar%20and%20Syntax.png?imwidth=450)
 
 We have ugly type function that can use instead of code, that called `eval()`. We don't recommend to use this function. Let's see simple snippet:
 

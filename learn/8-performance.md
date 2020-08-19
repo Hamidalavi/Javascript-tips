@@ -1,5 +1,7 @@
 # Some **`performance`** advices to give you more information
 
+![performance](https://stevesouders.com/images/withoutjs.png)
+
 ## Web Workers
 
 In previous file, we talked in detail about how **JavaScript** is single threaded. And that's still true. But a single thread isn't the only way to organize the execution of your program.

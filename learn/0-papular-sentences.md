@@ -1,5 +1,7 @@
 # Wellcome to Papular Programming Language Sentences (Motivation)
 
+![JavaScript](https://tutorialzine.com/media/2017/08/titanic.gif)
+
 |Note|
 |:---|
 |Our variable declaration names: **Hamid**, **Hamed**, **Ali**, **Reza**, **Majid**, **Mehrdad**, **Morteza**.|
@@ -141,6 +143,8 @@ typeof variable; // "undefined"
 variable = { b: "c" };
 typeof variable; // "object"
 ```
+
+Learn more in **types.md** file
 
 ## Comment
 

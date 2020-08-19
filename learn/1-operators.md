@@ -1,5 +1,7 @@
 # Know about operators
 
+![operator](https://ds055uzetaobb.cloudfront.net/uploads/45ZRExYFsY-operatorsearch-2x300wwhite.gif)
+
 For the assignment operator, we first calculate the value on the right-hand side (source value) of the `=` and then put it into the variable that we specify on the left-hand side (target variable).
 
 Some might prefer to flip the order, so source value on the left and target variable on the right. Don't do that, it doesn't work. For example:
