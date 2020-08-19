@@ -102,7 +102,46 @@ variable = x * 4;
 
 ## Values
 
+We have many types in **Javascript**, `object`, `string`, `number`, `null`, `boolean`, `symbol` and `undefined`.
+
 Values that are included directly in the source code are called **literals**. If they are surrounded by double quotes or single quotes, they called as **string** (`"string"` or `'string'`).
+
+In other word, values that stands alone without being stored in a variable, called literal values. For example:
+
+```js
+"I'm string";
+'I`m also a string';
+23;
+true;
+false;
+```
+
+**Javascript** also give a `typeof` operator that can test a value and give us a type of it (value). For example:
+
+````js
+let variable;
+
+typeof variable; // "undefined"
+
+variable = "hey hamid";
+typeof variable; // "string" -- not string, it is "string"
+
+variable = 23;
+typeof variable; // "number"
+
+variable = true;
+typeof variable; // "boolean"
+
+variable = null;
+typeof variable; // "object" -- bug
+
+variable = undefined;
+typeof variable; // "undefined"
+
+variable = { b: "c" };
+typeof variable; // "object"
+```
+
 
 ## Comment
 
