@@ -171,7 +171,7 @@ var hamid = 23;
 
 **falsy value**: Some values are called **falsy**, like `0`, `0n`, `-0`, `null`, `undefined`, `false`, `NaN` and empty string `""`.
 
-**truthy value**: Some values are called **truthy**, like `23`, `"hi"`, `true`, `[]`, `{}`, `object = {a:1}` and `[23, 24]`.
+**truthy value**: Some values are called **truthy**, like `23`, `"hi"`, `true`, `[]`, `{}`, `object = {a:1}`, `function hamid() {..}` and `[23, 24]`.
 
 **iteration**: A loop includes the test condition as well as a block (typically as `{ .. }` ). Each time the loop block executes, that's called an **iteration**.
 
