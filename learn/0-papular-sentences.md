@@ -175,7 +175,28 @@ var hamid = 23;
 
 **iteration**: A loop includes the test condition as well as a block (typically as `{ .. }` ). Each time the loop block executes, that's called an **iteration**.
 
-**loop**: if you don't want using value increment manually, you can use **loop** or **conditions** (`for` or `while` loop and `if` or `switch` and etc.).
+**loop and condition**: if you don't want using value increment manually, you can use **loop** or **conditions** (`for` or `while` loop and `if` or `switch` and etc.). For example:
+
+```js
+// for loop
+for (let i = 0; i < 5; i++) {
+  console.log(i); // 0 1 2 3 4 5
+}
+
+// while loop and if condition
+let number = 0;
+
+while (true) {
+  if (number >= 5) {
+    break;
+  }
+
+  number++;
+  console.log(number); // 1 2 3 4 5
+}
+```
+
+More information in **grammar** file.
 
 **scope**: If you ask the phone store employee for a phone model that her store doesn't carry, she will not be able to sell you the phone you want. She only has access to the phones in her store's inventory. You'll have to try another store to see if you can find the phone you're looking for. That means only variable (code) **inside** that function can access that function's scoped variables. For example:
 
