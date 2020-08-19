@@ -169,6 +169,23 @@ var hamid = 23;
 
 **semicolon**: Unlike most other statements like `console.log(amount);`, a block statement does not need a semicolon (`;`) to conclude it.
 
+**coercion**: We have two form of coercion in **Javascript**: **explicit** and **implicit**. For example:
+
+```js
+// explicit: we converts types to another
+var a = "23";
+var b = Number(a);
+a; // "23"
+b; // 23
+
+// implicit: Javascript converts types to another
+var x = "23";
+var z = x * 1;
+
+x; // "23"
+b; // 23
+```
+
 **falsy value**: Some values are called **falsy**, like `0`, `0n`, `-0`, `null`, `undefined`, `false`, `NaN` and empty string `""`.
 
 **truthy value**: Some values are called **truthy**, like `23`, `"hi"`, `true`, `[]`, `{}`, `object = {a:1}`, `function hamid() {..}` and `[23, 24]`.
@@ -243,7 +260,7 @@ hamed(); // 1 2 3 | 1 2 | 1
 
 **array**: An **array** is an **object** that holds values of any type.
 
-**equals**: The difference between `==` (loose-equals) and `===` (strict-equals) is usually characterized that `==` checks for **value** equality and `===` checks for both **value** and **type** equality. **Array**s are by default coerced to string s by simply joining all the values with commas (`,`) in between. You might think that two `array`s with the same contents would be `==` equal, but they're not:
+**equality**: The difference between `==` (loose-equals) and `===` (strict-equals) is usually characterized that `==` checks for **value** equality and `===` checks for both **value** and **type** equality. **Array**s are by default coerced to string s by simply joining all the values with commas (`,`) in between. You might think that two `array`s with the same contents would be `==` equal, but they're not:
 
 ```js
 var a = [1,2,3];
@@ -254,6 +271,8 @@ a == c; // true
 b == c; // true
 a == b; // false
 ```
+
+We have three more equality `!`, `!=` and `!==`.
 
 **`let` and `const` scope**: Two declaration keyword `let` (a cousin to the `var` keyword) and `const` both are **block scope**. For example:
 
@@ -484,6 +503,8 @@ You might be tempted to conceptualize the function declaration `function hamed(a
 
 You can use `import` and `export` for importing and exporting files (modules)
 
+More information in **ES6+** file.
+
 ## `this` Identifier
 
 If a function has a this reference inside it, that `this` reference usually points to an object . But which object it points to depends on how the function was called.
@@ -528,6 +549,20 @@ There are four rules for how this gets set, and they’re shown in those last fo
 For more information, read **this-example** file from this directory.
 
 You need also must read **object-eample** for `prototype` for objects.
+
+## Non-JavaScript
+
+The most common non-JavaScript **JavaScript** you'll encounter is the DOM API. For example:
+
+```js
+var element = document.getElementById("hamid");
+```
+
+- The `document` variable exists as a global variable when your code is running in a browser. It's not provided by the **Javascript** engine. These kind of variables are called "host objects". `getElementById(..)` is also a built-in method on `document` provided by the DOM from your browser.
+
+- `alert(..)` is provided to your **Javascript** program by the browser, not by the **Javascript** engine itself. The same goes with console.log(..).
+
+- You need to be aware of non-**Javascript** variable or methods, as they'll be in every **Javascript** program you write.
 
 ---
 
