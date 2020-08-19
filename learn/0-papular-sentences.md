@@ -4,7 +4,7 @@
 |:---|
 |Our variable declaration names: **Hamid**, **Hamed**, **Ali**, **Reza**, **Majid**, **Mehrdad**, **Morteza**.|
 
- Read priority: 1. papular-sentences.md 2. this-example.md 4. object-example.md 4. type.md 5. compelte-guide-true-false.md 6. grammer.md 7. async.md 8. performance.md 9. ES6+.md 10. proxy.md
+ Read priority: 0. papular-sentences.md 1. operators.md 2. this-example.md 4. object-example.md 4. type.md 5. compelte-guide-true-false.md 6. grammer.md 7. async.md 8. performance.md 9. ES6+.md 10. proxy.md
 
 ## **Difference**
 
@@ -118,7 +118,7 @@ false;
 
 **Javascript** also give a `typeof` operator that can test a value and give us a type of it (value). For example:
 
-````js
+```js
 let variable;
 
 typeof variable; // "undefined"
@@ -141,7 +141,6 @@ typeof variable; // "undefined"
 variable = { b: "c" };
 typeof variable; // "object"
 ```
-
 
 ## Comment
 
@@ -166,7 +165,9 @@ var hamid = 23;
 
 **semicolon**: Unlike most other statements like `console.log(amount);`, a block statement does not need a semicolon (`;`) to conclude it.
 
-**falsy value**: Some values are called **falsy**, like `0` and `0n` and `null` and `undefined` and `false` and `NaN` and empty string`" "`.
+**falsy value**: Some values are called **falsy**, like `0`, `0n`, `-0`, `null`, `undefined`, `false`, `{}`, `[]`, `NaN` and empty string `" "`.
+
+**truthy value**: Some values are called **truthy**, like `23`, `"hi"`, `true`, `object = {a:1}` and `[23, 24]`.
 
 **iteration**: A loop includes the test condition as well as a block (typically as `{ .. }` ). Each time the loop block executes, that's called an **iteration**.
 
