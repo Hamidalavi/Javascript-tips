@@ -1,8 +1,10 @@
 # Wellcome to Papular Programming Language Sentences (Motivation)
 
-## Note: Our variable declaration names: Hamid, Hamed, Ali, Reza, Majid, Mehrdad, Morteza
+|Note|
+|:---|
+|Our variable declaration names: Hamid, Hamed, Ali, Reza, Majid, Mehrdad, Morteza.|
 
-### Read priority: 1. papular-sentences.md 2. this-example.md 4. object-example.md 4. type.md 5. compelte-guide-true-false.md 6. grammer.md 7. async.md 8. performance.md
+ **Read priority: 1. papular-sentences.md 2. this-example.md 4. object-example.md 4. type.md 5. compelte-guide-true-false.md 6. grammer.md 7. async.md 8. performance.md 9. ES6+.md 10. proxy.md**
 
 ## **Difference**
 
@@ -30,7 +32,7 @@ The specification uses the `@@` prefix notation to refer to the built-in symbols
 
 ## Thread
 
-**JavaScript** is sigle thread.
+**Javascript** is a single threaded language. This means it has one call stack and one memory heap. As expected, it executes code in order and must finish executing a piece code before moving onto the next.
 
 ## How Does a Compilation(Compiling) Work (from YDKJS)
 
@@ -68,18 +70,23 @@ need a semicolon ( ; ) to conclude it.
 - An **array** is an **object** that holds values of any type.
 - The difference between **==** (loose-equals) and **===** (strict-equals) is usually characterized that == checks for **value** equality and === checks for both **value** and **type** equality.
 - **Array**s are by default coerced to string s by simply joining all the values with commas (,) in between. You might think that two array s with the same contents would be **==** equal, but they're not:
-  - var a = [1,2,3];
-  - var b = [1,2,3];
-  - var c = "1,2,3";
-    - a == c; // true
-    - b == c; // true
-    - a == b; // false
+
+  ```js
+  var a = [1,2,3];
+  var b = [1,2,3];
+  var c = "1,2,3";
+
+  a == c; // true
+  b == c; // true
+  a == b; // false
+  ```
+
 - In **inequality** (< , > and etc.), if one or both is not a **string**, then both values are coerced to be **number**, and a typical numeric comparison occurs.
 - You use the **var** keyword to declare a **variable** that will belong to the current function **scope**, or the **global scope** if at the top level outside of any **function**.
 - **Ternary operator** is most useful. its abbreviated from if and else.
-  - for example: var a = 23;
+  - for example: `var a = 23`;
   - `var b = (a > 20) ? "i'm older" : "i'm younger";`
-  - its mean: if 23 > 20, print "i'm older", else print "i'm younger".
+  - its mean: if `23 > 20`, print `"i'm older", else print "i'm younger"`.
     - Before ternary operator, we must wrote:
 
       ```js
@@ -101,7 +108,7 @@ need a semicolon ( ; ) to conclude it.
   })(); // output: Hello!! function with execution
   ```
 
-- Use **closure** techniques for better to understand coding. its like finding blocks that stacked. (for more information go to my brother page: **<https://github.com/Hamed2012-dr>**)
+- Use **closure** techniques for better to understand coding. its like finding blocks that stacked. (you can also go to my brother page: **<https://github.com/Hamed2012-dr>**)
 
   ```js
   function addition(x) {
@@ -121,8 +128,7 @@ need a semicolon ( ; ) to conclude it.
    2. When we call `addition(10)` , we get back another reference to its inner `add(..)` that remembers x as 10 . We call this function reference `addTen(..)`.
    3. When we call addOne(3) , it adds 3 (its inner y ) to the 1 (remembered by x ), and we get 4 as the result.
    4. When we call addTen(13), it adds 13 (its inner y ) to the 10 (remembered by x ), and we get 23 as the result.
-- Objects are interesting. you can add cutom property in object, even if there is no property in it.
-  - For example:
+- Objects are interesting. you can add cutom property in object, even if there is no property in it. For example:
 
     ```js
     let obj = { hamed: 23, ali: 22 };
@@ -167,26 +173,26 @@ need a semicolon ( ; ) to conclude it.
 
 - Both `eval(..)` and `with` are affected (restricted) by **Strict Mode**.
   - they are not good for performance.
-- **IFEI** (Invoking Function Expressions Immediately): The first enclosing () pair makes the function an expression, and the second () executes the function.
+- **IFEI** (Invoking Function Expressions Immediately): The first enclosing `()` pair makes the function an expression, and the second `()` executes the function.
   - **IIFE**: Immediately Invoked Function Expression it used to be very common. you can use both expressions.
   - Firstly, the performance of `try/catch` is slower, but there's no reasonable assumption that it has to be that way, or even that it always will be that way. Since the official TC39-approved **ES6** transpiler uses performance of `try/catch`, the Traceur team has asked Chrome to improve the `try/catch`, and they are obviously motivated to do so.
   - Secondly, **IIFE** is not a fair apples-to-apples comparison with `try/catch`, because a function wrapped around any arbitrary code changes the meaning, inside of that code, of `this`, `return`, `break`, and `continue`. **IIFE** is not a suitable general substitute. It could only be used manually in certain cases.
 - Declarations made with **`let`** will not hoist to the entire scope of the block they appear in. Such declarations will not observably "exist" in the block until the declaration statement.
-  - Function declarations are hoist. But function expressions are not.
+  - Function declarations are **hoist**. But function expressions are not.
   - Functions are hoisting first, and then variables.
 
     ```js
-      foo(); // "b"
+      hamid(); // "b"
       var a = true;
       if (a) {
-      function foo() { console.log( "a" ); }
+      function hamid() { console.log( "a" ); }
       }
       else {
-      function foo() { console.log( "b" ); }
+      function hamid() { console.log( "b" ); }
       }
     ```
 
-  - While multiple/duplicate `var` declarations are effectively ignored, subsequent function declarations do override previous ones. For example:
+    While multiple/duplicate `var` declarations are effectively ignored, subsequent function declarations do override previous ones. For example:
 
     ```js
       hamed(); // 3
@@ -201,7 +207,7 @@ need a semicolon ( ; ) to conclude it.
       }
       ```
 
-  - Be careful about duplicate declarations, especially mixed between normal `var` declarations and function declarations; **peril awaits if you do!**
+    Be careful about duplicate declarations, especially mixed between normal `var` declarations and function declarations; **peril awaits if you do!**
 
 - Two declaration keyword `let` (a cousin to the `var` keyword) and `const` both are **block scope**.
 
@@ -240,6 +246,4 @@ You might be tempted to conceptualize the function declaration `function foo(a) 
 
 ## Modules
 
-```js
-You can use import and export for importing and exporting files (modules)
-```
+You can use `import` and `export` for importing and exporting files (modules)
