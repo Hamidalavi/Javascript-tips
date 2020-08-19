@@ -6474,4 +6474,3 @@ ArrayBuffer {
 // SIMD
 // var v1 = SIMD.float32x4(3.14159, 21.0, 32.3, 55.55);
 // console.log(v1);
-
