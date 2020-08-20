@@ -2,6 +2,8 @@
 
 ![performance](https://stevesouders.com/images/withoutjs.png)
 
+<!-- Program Performance -->
+
 ## Web Workers
 
 In previous file, we talked in detail about how **JavaScript** is single threaded. And that's still true. But a single thread isn't the only way to organize the execution of your program.
@@ -243,6 +245,8 @@ let y = x ? 1 : 2;
 
 Now there's an assignment in both cases, so the thing you want to test -- the coercion of `x` or not -- has likely been more accurately isolated and tested.
 
+---
+<!-- Benchmarking & Tuning -->
 Let's see factorial example:
 
 ```js

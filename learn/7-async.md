@@ -2,6 +2,8 @@
 
 ![asyce](https://res.cloudinary.com/practicaldev/image/fetch/s--bfscMU3t--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/d27d7xxiekczftjyic4b.gif)
 
+<!-- Asynchrony: Now & Later -->
+
 ## Precedence
 
 Let's see below examples. But first, please see `functions`:
@@ -121,6 +123,8 @@ Most readers just now probably thought or said something to the effect of: "Do `
 
 You might have caught yourself and self-edited to: "Do `A`, setup the timeout for 1,000 milliseconds (1 second), then do `B`, then after the timeout fires, do `C`".
 
+---
+<!-- Promises -->
 ## Promise
 
 Consider below pseudocode:
