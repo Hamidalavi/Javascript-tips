@@ -2,6 +2,8 @@
 
 ![grammar](https://www.telegraph.co.uk/content/dam/StyleBook/Style%20Book_Grammar%20and%20Syntax.png?imwidth=450)
 
+<!-- Grammar -->
+
 ## Statements & Expressions
 
 It’s fairly common for developers to assume that the term **statement** and **expression** are roughly equivalent. But here we need to distinguish between the two, because there are some very important differences in our **JavaScript** programs.
