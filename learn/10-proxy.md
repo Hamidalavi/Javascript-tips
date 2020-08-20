@@ -1,4 +1,4 @@
-# Here's a list of handlers you can define on a proxy for a target object/function, and how/when they are triggered:
+# Here's a list of handlers you can define on a proxy for a target object/function, and how/when they are triggered
 
 ![proxy](https://res.cloudinary.com/practicaldev/image/fetch/s--kK6pxDCN--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/an69durihrjheclh5wy2.png)
 
@@ -28,7 +28,7 @@
 
 - **`enumerate(..)`**: via `[[Enumerate]]` , an iterator is requested for the proxy's enumerable owned and **inherited** properties (`Reflect.enumerate(..)` or `for..in`).
 
-- **`has(..)`**: via `[[HasProperty]]`, the proxy is probed to see if it has an owned or **inherited** property (`Reflect.has(..)`, `Object#hasOwnProperty(..)`, or `"prop" in obj`). For example, `Reflect.has(o,"foo")` essentially performs `"foo" in o`.
+- **`has(..)`**: via `[[HasProperty]]`, the proxy is probed to see if it has an owned or **inherited** property (`Reflect.has(..)`, `Object#hasOwnProperty(..)`, or `"prop" in obj`). For example, `Reflect.has(o,"hamed")` essentially performs `"hamed" in o`.
 
 Read and fully understand with this link:
 <https://2ality.com/2014/12/es6-proxies.html#invariants>

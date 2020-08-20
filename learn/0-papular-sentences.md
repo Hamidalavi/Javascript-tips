@@ -627,7 +627,7 @@ We also can explain LHS/RHS is **functions**, for example:
 
 In this example, its like `a = 23`;
 
-- You may have missed the implied `a = 2` in this code snippet. It happens when the value `2` is passed as an argument to the `foo(..)` **function**, in which case the 2 value is assigned to the parameter `a`. To (implicitly) assign to parameter `a`, an **LHS** look-up is performed.
+- You may have missed the implied `a = 2` in this code snippet. It happens when the value `2` is passed as an argument to the `hamed(..)` **function**, in which case the 2 value is assigned to the parameter `a`. To (implicitly) assign to parameter `a`, an **LHS** look-up is performed.
 
 - There's also an **RHS** reference for the value of `a`, and that resulting value is passed to `console.log(..)`. `console.log(..)` needs a reference to execute. It's an **RHS** look-up for the `console` object, then a property-resolution occurs to see if it has a method called `log`.
 

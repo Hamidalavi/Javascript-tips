@@ -425,7 +425,7 @@ As you can see, two callbacks (here labeled `x` and `y`) are provided. The first
 
 **Q**: what's the "usually" about, and what does that imply about accurately naming those parameters?
 
-**Answer**: Ultimately, it's just your user code and the identifier names aren't interpreted by the engine to mean anything, so it doesn't technically matter; `hamid()` and `hamed()` (foo and bar are common) are equally functional. But the words you use can affect not only how you are thinking about the code, but how other developers on your team will think about it. Thinking wrongly about carefully orchestrated (sync, concurrent) async code is almost surely going to be worse than the spaghetti-callback alternatives. **So it actually does kind of matter what you call them**.
+**Answer**: Ultimately, it's just your user code and the identifier names aren't interpreted by the engine to mean anything, so it doesn't technically matter; `hamid()` and `hamed()` (`foo` and `bar` are world common usage) are equally functional. But the words you use can affect not only how you are thinking about the code, but how other developers on your team will think about it. Thinking wrongly about carefully orchestrated (sync, concurrent) async code is almost surely going to be worse than the spaghetti-callback alternatives. **So it actually does kind of matter what you call them**.
 
 The second parameter is easy to decide. Almost all literature uses `reject(..)` as its name, and because that's exactly (and only!) what it does, that's a very good choice for the name. We'd strongly recommend you always use **`reject(..)`**.
 
@@ -1275,6 +1275,7 @@ As soon as the `iterator` iterator control exhausts the entire `*hamed()` iterat
 You may wonder how this `yield`-delegation works not just with iterator control but with the two-way message passing. Carefully follow the flow of messages in and out, through the `yield`-delegation (This snippet from YDKJS):
 
 ```js
+// from YDKJS
 function* foo() {
     console.log("inside `*foo()`:", yield "B");
     console.log("inside `*foo()`:", yield "C");

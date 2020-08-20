@@ -1,6 +1,8 @@
-// these are very simple practice that i write. its not for professional practice
-// very short examples from YDKJS book (not complete)
-// this example are just one time write, in other project (not in this repository), i practicing much
+/* These are some practices that I write. Its not or maybe for professional practice
+
+Very short examples from YDKJS book
+
+this example are just one time write. */
 
 // simple practice
 // let a = 23; // my age
