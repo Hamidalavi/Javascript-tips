@@ -2,6 +2,8 @@
 
 ![types](https://flow.org/assets/featurette-confidently-8fef503f144332c54f02dbf38b49a8693fdd614bb4c9f7296824f1f44e8475d5.gif)
 
+<!-- Types -->
+
 **JavaScript** defines seven built-in types:
 
 1. null
@@ -51,6 +53,8 @@ console.log(hamed.length);
 
 In **JavaScript**, variables don't have `types`, **values** have types. Variables can hold anyvalue, at any time.
 
+---
+<!-- Values -->
 ## Array
 
 You can add `string` index (associate array) manually in arrays. But array's length will not change. For example:
@@ -145,6 +149,22 @@ let array = Array.from(arguments);
 ```
 
 **Note**: `Array.from(..)` has several powerful capabilities, and will be covered in detail in the **ES6+** file.
+
+---
+<!-- Natives -->
+
+We alluded to various built-ins, usually called **natives**, like `String` and `Number`. Let’s examine those in detail now. Here’s a list of the most commonly used natives:
+
+- String()
+- Number()
+- Boolean()
+- Array()
+- Object()
+- Function()
+- RegExp()
+- Date()
+- Error()
+- Symbol()—added in **ES6**!
 
 ## Strings
 
@@ -400,6 +420,8 @@ console.log(typeof hamed); // object
 console.log(typeof hamid); // string
 ```
 
+---
+<!-- Coercion -->
 ## Continue on Number
 
 Default value of something:
