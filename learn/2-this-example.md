@@ -2,6 +2,8 @@
 
 ![this](https://i.morioh.com/857b1ecd60.png)
 
+<!-- this or That? -->
+
 **Use browser console (recommended) for get better result of `this`**.
 
 ```js
@@ -29,6 +31,8 @@ Look above code, **Q**: why output `hamed.count` is 0?
 - `this` is not an author-time binding but a runtime binding.
 - `this` is neither a reference to the function itself, nor is it a reference to the function's lexical scope.
 
+---
+<!-- this All Makes Sense Now! -->
 **Call-site**: the location in code where a **function** is called (not where it's **declared**).
 
 **Call-stack**: the stack of functions that have been called to get us to the current moment in execution.

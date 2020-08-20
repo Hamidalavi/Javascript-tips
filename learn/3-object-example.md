@@ -2,6 +2,8 @@
 
 ![object](https://cdn.javascripttutorial.net/wp-content/uploads/2016/09/Create-Objects-in-JavaScript-Prototype-Pattern.png)
 
+<!-- Objects -->
+
 **Important: All functions in `JavaScript` are object**. (not for `Symbols`, they are simple scalar primitive)
 
 **A most important bug in `JavaScript` was found by developers, that the `null` is object in output**
@@ -317,6 +319,8 @@ Though it may appear that `object.a++` should (via delegation) look-up and just 
 
 Be very careful when dealing with delegated properties that you modify. If you wanted to increment `obj.a`, the only proper way is `object.a++`.
 
+---
+<!-- Mixing (Up) “Class” Objects -->
 ## Class
 
 **Important**: Plainly, there are no "classes" in **JavaScript** to instantiate, only **objects**. And **objects** don't get copied to other **objects**,they get linked together.
