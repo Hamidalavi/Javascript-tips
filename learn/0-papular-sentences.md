@@ -702,6 +702,8 @@ var element = document.getElementById("hamid");
 
 ---
 
-Get confused? don't worry, we help you to know **JavaScript** core. just read the following files in **learn** folder (directory).
+Get confused? don't worry, we help you to know **JavaScript** core. Just read the following files in **learn** folder (directory).
 
 Try hard to get it. If you worry, we bring more and clear examples in **ES6+** file. Then, don't worry :)
+
+Don't waste your gold time. Delete your unnecessary phone apps and games and focus on your way. Then Buy modern and exiting Objects and Game Console for real exciting. If you want be famous, read this files and then try another way that you want :)
