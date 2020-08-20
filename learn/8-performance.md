@@ -318,8 +318,6 @@ for (let i = 0, len = x.length; i < len; i++) {
 
 The theory here goes that you should cache the length of the `x` array in the variable `len`, because ostensibly it doesn't change, to avoid paying the price of `x.length` being consulted for each iteration of the loop. If you run performance benchmarks around `x.length` usage compared to caching it in a `len` variable, you'll find that while the theory sounds nice, in practice any measured differences are statistically completely irrelevant.
 
----
-
 ## Some Performance Advices
 
 - Don't pass the `arguments` variable from one function to any other function, as such **leakage** slows down the function implementation.

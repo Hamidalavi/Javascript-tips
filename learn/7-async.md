@@ -667,7 +667,7 @@ Promise.all([hamed, hamid])
 **Warning**: Be careful! If an empty `array` is passed to `Promise.all([..])`, it will fulfill immediately, but `Promise.race([ .. ])` will hang forever and never resolve.
 
 ---
-
+<!-- Generators -->
 ## Generators
 
 We detailed how Promises uninvert the inversion of control of callbacks, restoring trustability/composability.
@@ -1231,8 +1231,6 @@ As you can see, there's no need for a library utility to invoke and drive `main(
 The `async function` automatically knows what to do if you `await` a Promise -- it will pause the function (just like with generators) until the Promise resolves. We didn't illustrate it in this snippet, but calling an async function like `main()` automatically returns a promise that's resolved whenever the function finishes completely.
 
 **Tip**: The `async` / `await` syntax should look very familiar to readers with experience in C#, because it's basically identical.
-
----
 
 The special syntax for `yield`-delegation is: `yield * __` (notice the extra `*`).
 
