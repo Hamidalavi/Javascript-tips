@@ -315,9 +315,57 @@ hamed({ a: [23, 22, 27], b: "Persian Sight", c: 500 }); // [ 23, 22, 27 ] "Persi
 
 If you remove `{ }` (like `hamed(a: [23, 22, 27], b: "Persian Sight", c: 500);`), you get a `SyntaxError` error. Because it's an object.
 
+### `else if` and Optional Blocks
+
+It’s a common misconception that **JavaScript** has an `else if` clause, because you can do:
+
+```js
+if (hamed) {
+  // ..
+}
+else if (hamid) {
+  // ..
+}
+else {
+  // ..
+}
+```
+
+But there’s a hidden characteristic of the **JavaScript** grammar here: there is no `else if`. But `if` and `else` statements are allowed to omit the `{ }` around their attached block if they only contain a single statement. You’ve seen this many times before, undoubtedly:
+
+```js
+if (hamed) doSomething(hamed);
+```
+
+Many **JavaScript** style guides will insist that you always use `{ }` around a single statement block, like:
+
+```js
+if (hamed) { doSomething(hamed); }
+```
+
+However, the exact same grammar rule applies to the `else` clause, so the `else if` form you’ve likely always coded is actually parsed as:
+
+```js
+if (hamed) {
+  // ..
+}
+else {
+  if (hamid) {
+    // ..
+  }
+  else {
+    // ..
+  }
+}
+```
+
+The `if (hamid) { .. } else { .. }` is a single statement that follows the `else`, so you can either put the surrounding `{ }` in or not. In other words, when you use `else if`, you’re technically breaking that common style guide rule and just defining your `else` with a single `if` statement.
+
+Of course, the `else if` idiom is extremely common and results in one less level of indentation, so it’s attractive. Whichever way you do it, just call out explicitly in your own style guide/rules and don’t assume things like `else if` are direct grammar rules.
+
 ## Operator Precedence
 
-Let's repeat first part of this file:
+Let's write some code of this section:
 
 ```js
 let ali = 22;
@@ -424,7 +472,7 @@ So, the expression `(a && b || c)` is evaluated first before the `? :` it partic
 
 ## Associativity
 
-with an expression like `a && b && c`, grouping will happen implicitly, meaning that either `a && b` or `b && c` will be evaluated first.
+With an expression like `a && b && c`, grouping will happen implicitly, meaning that either `a && b` or `b && c` will be evaluated first.
 
 Technically, `a && b && c` will be handled as `(a && b) && c`, because `&&` is left-associative. However, the right-associative alternative `a && (b && c)` behaves observably the same way. For the same values, the same expressions are evaluated in the same order.
 
@@ -521,20 +569,20 @@ You still in worry? don't woory, be relax and see below:
 
 ```js
 (
-    (a && b)
-    ||
-    c
+  (a && b)
+  ||
+  c
 )
-    ?
-    (
-        (c || b)
-            ?
-            a
-            :
-            (c && b)
-    )
-    :
-    a
+  ?
+  (
+    (c || b)
+      ?
+      a
+      :
+      (c && b)
+  )
+  :
+  a
 ```
 
 Its huge. But easy to read. Let me write above code again:
