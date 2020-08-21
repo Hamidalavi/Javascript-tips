@@ -18,6 +18,7 @@ Some might prefer to flip the order, so source value on the left and target vari
 |`*`|Multiplication|Math|
 |`/`|Division|Math|
 |`%`|Percent|Math|
+|`**`|Exponentiation|Math|
 |`+=`|Compound addition assignment|Compound Assignment|
 |`-=`|Compound subtraction assignment|Compound Assignment|
 |`*=`|Compound multiplication assignment|Compound Assignment|
