@@ -30,7 +30,7 @@
 ![Pass](https://shields.io/badge/build-passing-brightgreen)
 ![DeployPass](https://shields.io/badge/deployment-passing-brightgreen)
 ![DiscordOnline](https://img.shields.io/discord/852100868303749130)
-![TotalDownload](https://img.shields.io/github/downloads/Hamidalavi/CSS-step-by-step/total)
+![TotalDownloads](https://img.shields.io/github/downloads/Hamidalavi/CSS-step-by-step/total)
 ![License](https://img.shields.io/badge/license-EXB-orange)
 
 |Read priority|
