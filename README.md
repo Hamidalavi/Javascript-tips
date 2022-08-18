@@ -1,6 +1,6 @@
 # JavaScript for Newbies with Examid
     
-## Donate our Team:
+## Donate to our Team:
 [![DonateReymit](https://img.shields.io/badge/Donate-Reymit-purple)](https://reymit.ir/examid6540)
 [![DonatePaypal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://reymit.ir/examid6540/international-donate)
 
