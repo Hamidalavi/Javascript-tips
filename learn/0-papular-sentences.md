@@ -1,4 +1,4 @@
-# Wellcome to Papular Programming Language Sentences (Motivation)
+# Wellcome to Papular Programming Language World (Motivation)
 
 ![JavaScript](https://tutorialzine.com/media/2017/08/titanic.gif)
 
