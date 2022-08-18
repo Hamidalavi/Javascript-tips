@@ -1,6 +1,6 @@
 # Some **`grammar`** sentences to give you more information
 
-![grammar](https://www.telegraph.co.uk/content/dam/StyleBook/Style%20Book_Grammar%20and%20Syntax.png?imwidth=450)
+![grammar](https://miro.medium.com/max/1400/1*4EGwsCicbWJeml2aAm714A.gif)
 
 <!-- Grammar -->
 
