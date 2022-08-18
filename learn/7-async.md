@@ -1,4 +1,4 @@
-# Some **`async`** examples to give you more information
+# **`async`** and **`async function`** in JavaScript
 
 ![asyce](https://res.cloudinary.com/practicaldev/image/fetch/s--bfscMU3t--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/d27d7xxiekczftjyic4b.gif)
 
