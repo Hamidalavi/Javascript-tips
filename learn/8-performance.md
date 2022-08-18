@@ -1,6 +1,6 @@
-# Some **`performance`** advices to give you more information
+# **`Performance`** Issues
 
-![performance](https://stevesouders.com/images/withoutjs.png)
+![performance](https://miro.medium.com/max/1400/0*Hz0Gi9_gvH8FBLzB)
 
 <!-- Program Performance -->
 
