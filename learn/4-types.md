@@ -1,4 +1,4 @@
-# Some **`type`** sentences to give you more information
+# **`type`s** in JavaScript
 
 ![types](https://miro.medium.com/max/1400/1*l_ZDRMLFUVaIO38p9Qkzvw.jpeg)
 
