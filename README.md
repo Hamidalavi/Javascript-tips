@@ -24,7 +24,7 @@
 [![Reddit](https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white)](https://www.reddit.com/user/examid6540)
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/examid6540)
 ![YouTube Subscribers](https://img.shields.io/youtube/channel/subscribers/UCKER67LXWVGR3MJJ0vIXFVA?label=youtube%20subscribers&style=flat-square)
-![Twitter Followers](https://img.shields.io/twitter/follow/examid6540?style=flat-square)
+![Twitter Followers](https://img.shields.io/twitter/follow/examid6540?color=blue&label=twitter%20followers&style=flat-square)
 
 ## Stats:
 ![Size](https://img.shields.io/badge/size-558kB-blue)
