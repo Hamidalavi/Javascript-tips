@@ -27,6 +27,7 @@
 ## Social Media Stats:
 ![YouTube Subscribers](https://img.shields.io/youtube/channel/subscribers/UCKER67LXWVGR3MJJ0vIXFVA?label=YouTube%20Subscribers&style=for-the-badge)
 ![Twitter Followers](https://img.shields.io/twitter/follow/examid6540?color=blue&label=Twitter%20Followers&style=for-the-badge)
+![Reddit Subscribers](https://img.shields.io/reddit/subreddit-subscribers/examid6540?color=orange&label=Reddit%20Subscribers&style=for-the-badge)
 ![Twitch Stats](https://img.shields.io/twitch/status/examid6540?color=purple&style=for-the-badge)
 
 ## Stats:
