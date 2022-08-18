@@ -1,6 +1,6 @@
 # Some **`type`** sentences to give you more information
 
-![types](https://flow.org/assets/featurette-confidently-8fef503f144332c54f02dbf38b49a8693fdd614bb4c9f7296824f1f44e8475d5.gif)
+![types](https://miro.medium.com/max/1400/1*l_ZDRMLFUVaIO38p9Qkzvw.jpeg)
 
 <!-- Types -->
 
