@@ -25,8 +25,9 @@
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/examid6540)
 
 ## Social Media Stats:
-![YouTube Subscribers](https://img.shields.io/youtube/channel/subscribers/UCKER67LXWVGR3MJJ0vIXFVA?label=youtube%20subscribers&style=flat-square)
+![YouTube Subscribers](https://img.shields.io/youtube/channel/subscribers/UCKER67LXWVGR3MJJ0vIXFVA?label=YouTube%20Subscribers&style=for-the-badge)
 ![Twitter Followers](https://img.shields.io/twitter/follow/examid6540?color=blue&label=twitter%20followers&style=flat-square)
+![Twitch Stats](https://img.shields.io/twitch/status/examid6540?color=purple&style=for-the-badge)
 
 ## Stats:
 ![Size](https://img.shields.io/badge/size-558kB-blue)
