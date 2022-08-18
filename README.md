@@ -25,10 +25,8 @@
 
 ## Stats:
 ![Size](https://img.shields.io/badge/size-558kB-blue)
-![TestPass](https://shields.io/badge/test-passing-brightgreen)
 ![CheckPass](https://shields.io/badge/checks-passing-brightgreen)
 ![Pass](https://shields.io/badge/build-passing-brightgreen)
-![DeployPass](https://shields.io/badge/deployment-passing-brightgreen)
 ![DiscordOnline](https://img.shields.io/discord/852100868303749130?color=purple&label=discord%20chat)
 ![TotalDownloads](https://img.shields.io/github/downloads/Hamidalavi/CSS-step-by-step/total)
 ![License](https://img.shields.io/badge/license-EXB-orange)
