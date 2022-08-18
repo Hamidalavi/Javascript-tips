@@ -1,4 +1,4 @@
-# Some **`object`** examples to give you more information
+# **`object`** in JavaScript world
 
 ![object](https://miro.medium.com/max/1100/1*2T2-TMJHLPYxwfjA8S4Urg.jpeg)
 
