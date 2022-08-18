@@ -1,6 +1,6 @@
 # Complete Guide to True and False
 
-![true](https://i.pinimg.com/originals/f3/7e/79/f37e79a68d7f5374c5721171800b4407.gif)
+![truefalse](https://tarsolutions.co.uk/wp-content/uploads/2020/09/Boolean-image.jpg)
 
 ```js
 "0" == null; // false
