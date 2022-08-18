@@ -1,6 +1,6 @@
 # Complete Guide to True and False
 
-![true](https://images.squarespace-cdn.com/content/v1/5bca2930b10f255d8de05742/1545963864439-K3RWS3CB89DU8WJEF73J/ke17ZwdGBToddI8pDm48kP06O0_IHyRXSOOiqwgWaApZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVFHIqmxI_0pcTUDogXAWwqKp4jRXQsGcy-QRtPj7UsSJGbSd6kfRtgWHgNMDgGnmDY/true_false.gif)
+![true](https://i.pinimg.com/originals/f3/7e/79/f37e79a68d7f5374c5721171800b4407.gif)
 
 ```js
 "0" == null; // false
