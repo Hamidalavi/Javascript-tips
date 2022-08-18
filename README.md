@@ -2,7 +2,7 @@
     
 ## Donate our Team:
 [![DonateReymit](https://img.shields.io/badge/Donate-Reymit-purple)](https://reymit.ir/examid6540)
-[![DonatePaypal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://reymit.ir/examid6540)
+[![DonatePaypal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://reymit.ir/examid6540#international-mode)
 
 ## This Tutorial contains:
 [![HTML](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://github.com/Hamidalavi/CSS-step-by-step)
