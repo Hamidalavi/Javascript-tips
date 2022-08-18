@@ -39,4 +39,4 @@
 
 Learn more about **JavaScript** (**YDKJS** series)
 
-[![Alt JavaScript](https://i.ibb.co/BL5scGZ/0-0bpy35-Lc6r-Adviv-L.gif)](https://GitHub.com/Hamidalavi/)
+[![Alt JavaScript](https://i.ibb.co/BL5scGZ/0-0bpy35-Lc6r-Adviv-L.gif)](https://www.javascript.com/)
