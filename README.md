@@ -1,5 +1,8 @@
 # JavaScript for Newbies with Examid
 
+.. image:: https://yourdonation.rocks/images/badge.svg
+    :target: {https://reymit.ir/examid6540}
+    
 ## Donate our Team:
 [![built-with-love](https://forthebadge.com/images/badges/built-with-love.svg)](https://reymit.ir/examid6540)
 [![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://reymit.ir/examid6540)
